@@ -1,19 +1,23 @@
 import Particles from "@/components/AnimatedComponents/Particles";
 import { useTheme } from "@/components/ContextHandlers/ThemeProvider";
 import { FeatureCard } from "@/components/PageComponents/FeatureCard";
+import { TestimonialCard } from "@/components/PageComponents/TestimonialCard";
 import { Button } from "@/components/ui/button";
-import { featuresData } from "@/lib/datalib";
-import { ArrowRightIcon, BookOpen, Moon, Star, Sun, Zap } from "lucide-react";
-import { useEffect } from "react";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
+import { featuresData, testimonialsData } from "@/lib/datalib";
+import { ArrowRightIcon, BookOpen, ChevronLeft, ChevronRight, LoaderCircle, Mail, MailCheck, Moon, Rss, Star, Sun, UserRoundGroup, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Homepage = () => {
   const { theme, setTheme } = useTheme();
+  const [testimonialIndex, setTestimonialIndex] = useState<number>(0);
+  const [subscribeButtIcon, setsubscribeButtIcon] = useState<boolean>(false);
 
   useEffect(() => {});
 
   return (
-    <div className="flex flex-col w-full h-full">
-      <header className="bg-green-600 flex flex-row p-2 justify-between">
+    <div className="flex flex-col w-full h-full relative">
+      <header className="sticky top-0 bg-green-600 flex flex-row p-2 justify-between z-10">
         <section className="flex flex-row items-center p-1 space-x-2">
           <img className="w-7.5 h-7.5" src="/uptorpsbook.svg" alt="Uptorps Book" />
           <h1 className="font-sans text-xl font-bold">Uptorps</h1>
@@ -35,7 +39,7 @@ const Homepage = () => {
       <main>
         <div className="relative h-125">
           <Particles
-            className="absolute top-0 left-0 right-0 bottom-0 h-full"
+            className="absolute top-0 left-0 right-0 bottom-0"
             particleColors={["#ffffff"]}
             particleCount={600}
             particleSpread={10}
@@ -85,12 +89,74 @@ const Homepage = () => {
           </article>
 
           <section className="flex flex-wrap justify-center gap-4 py-4">
-            {featuresData.map((feature) => (
-              <FeatureCard icon={feature.icon} title={feature.title} description={feature.description} />
+            {featuresData.map((feature, index) => (
+              <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
             ))}
           </section>
         </div>
+
+        <div className="flex flex-col justify-center items-center py-10">
+          <UserRoundGroup size={80} />
+          <p className="py-6 text-4xl font-bold">What our users say about us</p>
+
+          <section className="w-full flex flex-col justify-center">
+            <div className="w-full flex justify-center items-center">
+              {testimonialsData.map(
+                (testimonial, index) =>
+                  index === testimonialIndex && (
+                    <TestimonialCard key={index} statement={testimonial.statement} user_name={testimonial.user_name} user_type={testimonial.user_type} ratings={testimonial.ratings} />
+                  ),
+              )}
+            </div>
+
+            <div className="flex flex-row justify-center items-center py-2 my-4">
+              <Button size="icon-lg" onClick={() => setTestimonialIndex((prev: number) => (prev > 0 ? prev - 1 : testimonialsData.length - 1))}>
+                <ChevronLeft />
+              </Button>
+
+              <article className="flex flex-row justify-center items-center mx-4 space-x-2">
+                {Array.from({ length: testimonialsData.length }, (_, index) => (
+                  <span
+                    key={index}
+                    onClick={() => setTestimonialIndex(index)}
+                    className={`${index === testimonialIndex ? "w-6.5 bg-green-500" : "w-2.5 bg-primary"}  h-2.5 transition-[width] duration-200 rounded-full`}
+                  ></span>
+                ))}
+              </article>
+
+              <Button size="icon-lg" onClick={() => setTestimonialIndex((prev: number) => (prev < testimonialsData.length - 1 ? prev + 1 : 0))}>
+                <ChevronRight />
+              </Button>
+            </div>
+          </section>
+        </div>
+
+        <div className="bg-primary flex flex-col justify-center items-center py-10">
+          <article className="w-fit bg-green-500 flex flex-row items-center py-1 px-4 space-x-1 border-2 border-green-500">
+            <Rss size={12} />
+            <span className="text-[14px]">Newsletter</span>
+          </article>
+
+          <p className="w-8/12 py-6 text-3xl text-secondary text-center">Subscribe to our newsletter to get updates on our features, policies and processes.</p>
+          <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">Get the latest updates, tips, and exclusive offers delivered to your inbox.</span>
+
+          <div className="flex flex-row py-3 space-x-4">
+            <InputGroup className="w-85 h-10">
+              <InputGroupAddon align="inline-end">
+                <Mail />
+              </InputGroupAddon>
+              <InputGroupInput className="md:text-[14px] text-secondary" placeholder="Enter your email" />
+            </InputGroup>
+
+            <Button onClick={() => setsubscribeButtIcon((prev) => !prev)} className="w-40 h-10 flex items-center gap-2 text-[15px] bg-secondary text-primary hover:text-secondary">
+              {subscribeButtIcon === true ? <LoaderCircle className="animate-spin w-5 h-5 " /> : <MailCheck />}
+              Subscribe
+            </Button>
+          </div>
+        </div>
       </main>
+
+     
     </div>
   );
 };
