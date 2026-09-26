@@ -1,4 +1,4 @@
-import type { FeatureDataType, TestimonialDataType } from "@/typesninterfaces/datatypes";
+import type { FeatureDataType, TestimonialDataType } from "@/typesninterfaces/DataTypes";
 import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -61,7 +61,8 @@ export const testimonialsData: TestimonialDataType[] = [
     ratings: 4,
   },
   {
-    statement: "UPTorps has a great customer care system. I had a challenge withdrawing my earnings and I reached out to them. The problem was solved swiftly",
+    statement:
+      "UPTorps has a great customer care system. I had a challenge withdrawing my earnings and I reached out to them. The problem was solved swiftly.UPTorps has a great customer care system. I had a challenge withdrawing my earnings and I reached out to them. The problem was solved swiftly",
     user_name: "Duniar",
     user_type: "Learner",
     ratings: 4,
