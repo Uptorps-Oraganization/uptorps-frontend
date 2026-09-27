@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesninterfaces/ThemeTypes";
+import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesnschemas/types/ThemeTypes";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const initialState: ThemeProviderState = {

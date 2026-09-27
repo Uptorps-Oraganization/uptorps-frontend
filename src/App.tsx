@@ -1,8 +1,8 @@
+import { AuthLayout } from "@/pages/authpage/AuthLayout";
 import { SignIn } from "@/pages/authpage/Signin";
 import { SignUp } from "@/pages/authpage/Signup";
-import Homepage from "@/pages/Homepage";
+import Homepage from "@/pages/HomePage";
 import { Route, BrowserRouter as Router, Routes } from "react-router";
-import { AuthLayout } from "./pages/authpage/AuthLayout";
 
 function App() {
   return (

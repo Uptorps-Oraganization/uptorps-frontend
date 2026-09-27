@@ -1,12 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { EyeClosed, EyeIcon, KeyRound } from "lucide-react";
 import { useState } from "react";
-import type { UseFormRegister } from "react-hook-form";
-import type { SignUpDataType } from "../Signup";
 
 type PassInputType = {
   fieldname: "password" | "confirmpassword";
-  register: UseFormRegister<SignUpDataType>;
+  register: any;
 };
 
 export const PasswordInputField = ({ fieldname, register }: PassInputType) => {
@@ -21,12 +20,7 @@ export const PasswordInputField = ({ fieldname, register }: PassInputType) => {
         <InputGroupAddon onClick={() => setShowState((prev) => !prev)} className="pointer-events-auto cursor-pointer" align="inline-end">
           {showstate ? <EyeClosed /> : <EyeIcon />}
         </InputGroupAddon>
-        <InputGroupInput
-          {...register(fieldname)}
-          type={showstate ? "text" : "password"}
-          className="text-[14px]! text-primary"
-          placeholder={fieldname == "password" ? "Enter your password" : "Enter your password again"}
-        />
+        <InputGroupInput {...register(fieldname)} type={showstate ? "text" : "password"} className="text-[14px]! text-primary" placeholder={fieldname == "password" ? "Enter your password" : "Enter your password again"} />
       </InputGroup>
     </>
   );

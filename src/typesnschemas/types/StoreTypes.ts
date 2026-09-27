@@ -1,10 +1,16 @@
 export type HomeStoreType = {
   testimonialIndex: number;
-  subscribeButtIcon: boolean;
+  subscribeLoadingState: boolean;
 
   setTestimonialIndex: (position: number) => void;
   prevTestimonial: () => void;
   nextTestimonial: () => void;
 
-  changeSubscribeButtIcon: () => void;
+  setSubscribeLoadingState: () => void;
+};
+
+export type AuthStoreType = {
+  authLoadingState: boolean;
+
+  setAuthLoadingState: () => void;
 };
