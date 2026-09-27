@@ -1,4 +1,4 @@
-import type { FeatureDataType } from "@/typesninterfaces/datatypes";
+import type { FeatureDataType } from "@/typesninterfaces/DataTypes";
 import { Card, CardDescription, CardTitle } from "../ui/card";
 
 export const FeatureCard = ({ icon: Icon, title, description }: FeatureDataType) => {
