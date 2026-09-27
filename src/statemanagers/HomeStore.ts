@@ -1,4 +1,4 @@
-import { testimonialsData } from "@/lib/datalib";
+import { testimonialsData } from "@/lib/data";
 import type { HomeStoreType } from "@/typesnschemas/types/StoreTypes";
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";

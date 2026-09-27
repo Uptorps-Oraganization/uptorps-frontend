@@ -1,16 +1,17 @@
 import { AccountSelect } from "@/components/PageComponents/AuthPage/AccountSelect";
+import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
+import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
-import { Label } from "@/components/ui/label";
+import { Spinner } from "@/components/ui/spinner";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signUpDataSchema, type SignUpDataType } from "@/typesnschemas/schemas/AuthSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoaderCircle, Mail, User, UserPlus } from "lucide-react";
+import { Mail, Send, User, UserPlus } from "lucide-react";
+import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { PasswordInputField } from "../../components/PageComponents/AuthPage/PasswordInputField";
 
 export const SignUp = () => {
-  const { authLoadingState, setAuthLoadingState } = useAuthStore();
+  const { authLoadingState, authDetailsPassCheck, mailLoadingState, setAuthLoadingState, setAuthDetailsPassCheck, setMailLoadingState, clearAuthState } = useAuthStore();
 
   const {
     register,
@@ -29,69 +30,58 @@ export const SignUp = () => {
     setTimeout(() => {
       console.log(data);
       setAuthLoadingState();
+      setAuthDetailsPassCheck();
     }, 1000);
   };
 
+  const resendVerification = () => {
+    setMailLoadingState();
+    setTimeout(() => {
+      setMailLoadingState();
+    }, 1000);
+  };
+
+  useEffect(() => {
+    clearAuthState();
+  }, [clearAuthState]);
+
   return (
-    <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <p className="font-bold text-4xl ">Create a new account</p>
-      <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-85 text-primary space-y-1">
-        <Label htmlFor="username" className="text-[14px] mb-3">
-          Select Account Type
-        </Label>
+    <>
+      {authDetailsPassCheck ? (
+        <div className="flex flex-col justify-center items-center text-primary space-y-10">
+          <img className="w-25 h-25" src="/src/assets/checkmarkanimation.webp" alt="CheckmarkAnimation" />
 
-        <AccountSelect control={control} />
-        {errors?.accounttype && <p className="text-xs text-destructive">{errors?.accounttype?.message}</p>}
+          <section className="flex flex-col justify-center items-center px-2 space-y-4">
+            <span className="text-xl text-center">If you entered a correct email address, then you will find a mail containing a verification link in your mailbox.</span>
+            <span className="text-[14px] text-center">{"(Also check spam folder if you cannot see verification mail in mailbox)"}</span>
+          </section>
 
-        <Label htmlFor="username" className="text-[14px]">
-          Username
-        </Label>
+          <Button onClick={() => resendVerification()} className="w-80 h-10 mt-6 text-[15px] bg-green-500 text-primary-foreground hover:text-secondary" disabled={mailLoadingState && true}>
+            {mailLoadingState ? <Spinner /> : <Send />}
+            Resend Verification Mail
+          </Button>
+        </div>
+      ) : (
+        <div className="flex flex-col justify-center items-center text-primary space-y-6">
+          <p className="font-bold text-4xl">Create a new account</p>
+          <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-85 text-primary space-y-1">
+            <AccountSelect control={control} errors={errors} />
 
-        <InputGroup id="username">
-          <InputGroupAddon align="inline-end">
-            <User />
-          </InputGroupAddon>
-          <InputGroupInput {...register("username")} type="text" className="text-[14px]! text-primary" placeholder="Enter your username" />
-        </InputGroup>
+            <TextInputField type={"text"} fieldname={"username"} fieldicon={User} register={register} placeholder={"Enter your username"} errors={errors} />
 
-        {errors?.username && <p className="text-xs text-destructive">{errors?.username?.message}</p>}
+            <TextInputField type={"email"} fieldname={"email"} fieldicon={Mail} register={register} placeholder={"Enter your email"} errors={errors} />
 
-        <Label htmlFor="email" className="text-[14px]">
-          Email
-        </Label>
+            <PasswordInputField fieldname="password" register={register} errors={errors} />
 
-        <InputGroup id="email">
-          <InputGroupAddon align="inline-end">
-            <Mail />
-          </InputGroupAddon>
-          <InputGroupInput {...register("email")} type="email" className="text-[14px]! text-primary" placeholder="Enter your email" />
-        </InputGroup>
+            <PasswordInputField fieldname="confirmpassword" register={register} errors={errors} />
 
-        {errors?.email && <p className="text-xs text-destructive">{errors?.email?.message}</p>}
-
-        <Label htmlFor="password" className="text-[14px]">
-          Password
-        </Label>
-
-        <PasswordInputField fieldname="password" register={register} />
-        {errors?.password && <p className="text-xs text-destructive">{errors?.password?.message}</p>}
-
-        <Label htmlFor="confirmpassword" className="text-[14px]">
-          Confirm Password
-        </Label>
-
-        <PasswordInputField fieldname="confirmpassword" register={register} />
-        {errors?.confirmpassword && <p className="text-xs text-destructive">{errors?.confirmpassword?.message}</p>}
-
-        <Button
-          type="submit"
-          className="w-80 h-10 mt-6 flex flex-row self-center items-center gap-4 text-[15px] bg-green-500 text-primary-foreground hover:text-secondary"
-          disabled={authLoadingState && true}
-        >
-          {authLoadingState ? <LoaderCircle className="animate-spin" /> : <UserPlus size={12} />}
-          Create Account
-        </Button>
-      </form>
-    </div>
+            <Button type="submit" className="w-80 h-10 mt-6  self-center text-[15px] bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
+              {authLoadingState ? <Spinner /> : <UserPlus />}
+              Create Account
+            </Button>
+          </form>
+        </div>
+      )}
+    </>
   );
 };

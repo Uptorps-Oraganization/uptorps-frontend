@@ -6,7 +6,8 @@ import { TestimonialCard } from "@/components/PageComponents/HomePage/Testimonia
 import { Button } from "@/components/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Separator } from "@/components/ui/separator";
-import { featuresData, testimonialsData } from "@/lib/datalib";
+import { uptorpillustration } from "@/lib/assets";
+import { featuresData, testimonialsData } from "@/lib/data";
 import { useHomeStore } from "@/statemanagers/HomeStore";
 import {
   ArrowRightIcon,
@@ -108,7 +109,7 @@ const Homepage = () => {
             </section>
 
             <section>
-              <img className="w-125 h-90" src="/src/assets/ulillustration.svg" alt="Uptorp Illustration" />
+              <img className="w-125 h-90" src={uptorpillustration} alt="Uptorp Illustration" />
             </section>
           </div>
         </div>
