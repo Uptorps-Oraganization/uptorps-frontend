@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Particles from "@/components/AnimatedComponents/Particles";
 import { useTheme } from "@/components/ContextHandlers/ThemeProvider";
-import { FeatureCard } from "@/components/PageComponents/FeatureCard";
-import { TestimonialCard } from "@/components/PageComponents/TestimonialCard";
+import { FeatureCard } from "@/components/PageComponents/HomePage/FeatureCard";
+import { TestimonialCard } from "@/components/PageComponents/HomePage/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Separator } from "@/components/ui/separator";
-import { featuresData, testimonialsData } from "@/lib/datalib";
+import { uptorpillustration } from "@/lib/assets";
+import { featuresData, testimonialsData } from "@/lib/data";
 import { useHomeStore } from "@/statemanagers/HomeStore";
 import {
   ArrowRightIcon,
@@ -38,7 +39,7 @@ import { Link } from "react-router";
 const Homepage = () => {
   const { theme, setTheme } = useTheme();
 
-  const { testimonialIndex, subscribeButtIcon, setTestimonialIndex, prevTestimonial, nextTestimonial, changeSubscribeButtIcon } = useHomeStore();
+  const { testimonialIndex, subscribeLoadingState, setTestimonialIndex, prevTestimonial, nextTestimonial, setSubscribeLoadingState } = useHomeStore();
 
   return (
     <div className="flex flex-col w-full h-full relative">
@@ -89,10 +90,10 @@ const Homepage = () => {
                 <span className="text-[13px]">A next generation learning platform</span>
               </article>
 
-              <article>
-                <span className="text-[60px] font-bold">Learn.</span>
-                <span className="text-[60px] font-bold">Earn.</span>
-                <span className="text-[60px] text-green-500 font-bold ">Grow.</span>
+              <article className="text-6xl font-bold mt-2">
+                <span>Learn.</span>
+                <span>Earn.</span>
+                <span className="text-green-500">Grow.</span>
               </article>
 
               <h2 className="text-[14px]">UPTORPS integrates teaching, learning and earning into a unified platform. Start your journey to educational and financial inclusion today.</h2>
@@ -108,7 +109,7 @@ const Homepage = () => {
             </section>
 
             <section>
-              <img className="w-125 h-90" src="/src/assets/ulillustration.svg" alt="Uptorp Illustration" />
+              <img className="w-125 h-90" src={uptorpillustration} alt="Uptorp Illustration" />
             </section>
           </div>
         </div>
@@ -184,8 +185,12 @@ const Homepage = () => {
               <InputGroupInput className="text-[14px]! text-secondary" placeholder="Enter your email" />
             </InputGroup>
 
-            <Button onClick={changeSubscribeButtIcon} className="w-40 h-10 flex items-center gap-2 text-[15px] bg-primary-foreground text-primary hover:text-secondary">
-              {subscribeButtIcon === true ? <LoaderCircle className="animate-spin w-5 h-5 " /> : <MailCheck />}
+            <Button
+              onClick={setSubscribeLoadingState}
+              className="w-40 h-10 flex items-center gap-2 text-[15px] bg-primary-foreground text-primary hover:text-secondary"
+              disabled={subscribeLoadingState && true}
+            >
+              {subscribeLoadingState === true ? <LoaderCircle className="animate-spin" /> : <MailCheck />}
               Subscribe
             </Button>
           </div>
@@ -203,12 +208,12 @@ const Homepage = () => {
           <div className="col-span-2 grid grid-cols-3">
             <section className="flex flex-col">
               <p className="font-black text-xl">JOIN US NOW</p>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-3 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/auth/signup"} className="text-link py-3">
                 <UserPlus className="mr-2" size={12} />
                 Create a new account
               </Link>
               <span className="text-[14px]">You already have an account?</span>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-3 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/auth/signin"} className="text-link py-3">
                 <LogIn className="mr-2" size={12} />
                 Log into your account
               </Link>
@@ -216,19 +221,19 @@ const Homepage = () => {
 
             <section className="flex flex-col">
               <p className="font-black text-xl mb-2">Quick Links</p>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/"} className="text-link">
                 <Info className="mr-2" size={12} />
                 About Us
               </Link>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/"} className="text-link">
                 <Rss className="mr-2" size={12} />
                 Blog
               </Link>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/"} className="text-link">
                 <HatGlasses className="mr-2" size={12} />
                 Privacy Policy
               </Link>
-              <Link to={"/"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <Link to={"/"} className="text-link">
                 <Handshake className="mr-2" size={12} />
                 Terms of Service
               </Link>
@@ -236,11 +241,11 @@ const Homepage = () => {
 
             <section className="flex flex-col">
               <p className="font-black text-xl mb-2">Reach Out To Us</p>
-              <a href={"tel: +233324324232"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <a href={"tel: +233324324232"} className="text-link">
                 <Phone className="mr-2" size={12} />
                 [+233 (32) 432-4232]
               </a>
-              <a href={"mailto: uptorpscustomerservice@gmail.com"} className="flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary-foreground">
+              <a href={"mailto: uptorpscustomerservice@gmail.com"} className="text-link">
                 <Mail className="mr-2" size={12} />
                 uptorpscustomerservice@gmail.com
               </a>

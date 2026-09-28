@@ -1,4 +1,4 @@
-import type { FeatureDataType, TestimonialDataType } from "@/typesninterfaces/DataTypes";
+import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
 import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [

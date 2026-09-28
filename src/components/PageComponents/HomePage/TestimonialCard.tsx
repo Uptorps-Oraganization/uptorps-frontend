@@ -1,6 +1,6 @@
-import type { TestimonialDataType } from "@/typesninterfaces/DataTypes";
+import type { TestimonialDataType } from "@/typesnschemas/types/DataTypes";
 import { Quote, Star } from "lucide-react";
-import { Card, CardFooter } from "../ui/card";
+import { Card, CardFooter } from "../../ui/card";
 
 export const TestimonialCard = ({ statement, user_name, user_type, ratings }: TestimonialDataType) => {
   return (

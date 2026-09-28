@@ -23,7 +23,7 @@ export const AuthLayout = () => {
             <h1 className="text-3xl font-bold">Uptorps</h1>
           </div>
 
-          <p className="text-xl">Welcome To Our Authentication Page</p>
+          <p className="text-2xl">Welcome To Our Authentication Page</p>
 
           <div className="absolute bottom-0 flex justify-center items-center py-8">
             <Copyright className="mx-4" />

@@ -134,3 +134,8 @@
   }
 }
 
+@layer components {
+  .text-link {
+    @apply flex flex-row items-center text-[13px] py-1 cursor-pointer hover:text-primary;
+  }
+}
