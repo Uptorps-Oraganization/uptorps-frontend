@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
-import { EyeClosed, EyeIcon, KeyRound } from "lucide-react";
+import { EyeClosedIcon, EyeIcon } from "@animateicons/react/lucide";
+import { KeyRound } from "lucide-react";
 import { useState } from "react";
 import type { FieldErrors } from "react-hook-form";
 
@@ -29,7 +30,7 @@ export const PasswordInputField = (props: PassInputType) => {
           <KeyRound />
         </InputGroupAddon>
         <InputGroupAddon onClick={() => setShowState((prev) => !prev)} className="pointer-events-auto cursor-pointer" align="inline-end">
-          {showstate ? <EyeClosed /> : <EyeIcon />}
+          {showstate ? <EyeClosedIcon className={"text-green-500 cursor-pointer"} size={14} duration={1} /> : <EyeIcon className={"text-green-500 cursor-pointer"} size={14} duration={1} />}
         </InputGroupAddon>
         <InputGroupInput
           id={props.fieldname}

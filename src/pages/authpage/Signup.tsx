@@ -3,10 +3,12 @@ import { PasswordInputField } from "@/components/PageComponents/AuthPage/Passwor
 import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { maildelivery } from "@/lib/assets";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signUpDataSchema, type SignUpDataType } from "@/typesnschemas/schemas/AuthSchemas";
+import { MailIcon, UserIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Send, User, UserPlus } from "lucide-react";
+import { Send, UserPlus } from "lucide-react";
 import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
@@ -49,7 +51,7 @@ export const SignUp = () => {
     <>
       {authDetailsPassCheck ? (
         <div className="flex flex-col justify-center items-center text-primary space-y-10">
-          <img className="w-25 h-25" src="/src/assets/checkmarkanimation.webp" alt="CheckmarkAnimation" />
+          <img className="w-25 h-25" src={maildelivery} alt="CheckmarkAnimation" />
 
           <section className="flex flex-col justify-center items-center px-2 space-y-4">
             <span className="text-xl text-center">If you entered a correct email address, then you will find a mail containing a verification link in your mailbox.</span>
@@ -67,9 +69,9 @@ export const SignUp = () => {
           <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-85 text-primary space-y-1">
             <AccountSelect control={control} errors={errors} />
 
-            <TextInputField type={"text"} fieldname={"username"} fieldicon={User} register={register} placeholder={"Enter your username"} errors={errors} />
+            <TextInputField type={"text"} fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} errors={errors} />
 
-            <TextInputField type={"email"} fieldname={"email"} fieldicon={Mail} register={register} placeholder={"Enter your email"} errors={errors} />
+            <TextInputField type={"email"} fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} errors={errors} />
 
             <PasswordInputField fieldname="password" register={register} errors={errors} />
 

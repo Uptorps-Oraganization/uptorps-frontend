@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signInDataSchema, type SignInDataType } from "@/typesnschemas/schemas/AuthSchemas";
+import { MailIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LogIn, Mail } from "lucide-react";
+import { LogIn } from "lucide-react";
 import { useEffect } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 
@@ -43,7 +44,7 @@ export const SignIn = () => {
       <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-85 text-primary space-y-1">
         <AccountSelect control={control} errors={errors} />
 
-        <TextInputField type={"email"} fieldname={"email"} fieldicon={Mail} register={register} placeholder={"Enter your email"} errors={errors} />
+        <TextInputField type={"email"} fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} errors={errors} />
 
         <PasswordInputField fieldname="password" register={register} errors={errors} />
 
