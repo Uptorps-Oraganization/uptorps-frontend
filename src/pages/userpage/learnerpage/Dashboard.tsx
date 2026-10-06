@@ -1,5 +1,4 @@
-
-export const Dashboard = () => {
+export const LearnerDashboard = () => {
   return (
     <div>
       <p>Dashboard</p>
