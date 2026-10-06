@@ -15,7 +15,7 @@ export const LearnerSideBar = () => {
   const { state } = useSidebar();
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar" className="text-primary-foreground">
+    <Sidebar collapsible="icon" variant="sidebar" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -23,13 +23,11 @@ export const LearnerSideBar = () => {
               <img className="w-7.5 h-7.5" src="/uptorpsbook.svg" alt="Uptorps Book" />
               <h1 className="text-xl text-primary-foreground font-bold truncate group-data-[collapsible=icon]:hidden">Uptorps</h1>
             </section>
-
-            <section></section>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent className="pt-4 p-2">
+      <SidebarContent className="pt-4 p-2 text-primary-foreground!">
         <SidebarMenu>
           <div className="py-4 truncate group-data-[collapsible=icon]:hidden">
             <section className="flex flex-col h-fit justify-center items-center pointer-events-none">
@@ -47,7 +45,7 @@ export const LearnerSideBar = () => {
               <section className="flex flex-col w-[95%] my-3 space-y-2">
                 <span className="flex flex-row justify-center items-center font-bold w-full text-[13px] text-center text-pretty pointer-events-auto">
                   <CircleUserRoundIcon className="mr-1 size-3" />
-                  Enock Darko Aboa
+                  Jessica Annum Doe
                 </span>
                 <span className="flex flex-row justify-center items-center w-full text-[13px] text-center text-pretty pointer-events-auto">
                   <LineDotLeftHorizontal className="mr-0.5 size-4" />
@@ -74,7 +72,7 @@ export const LearnerSideBar = () => {
         </SidebarMenu>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>

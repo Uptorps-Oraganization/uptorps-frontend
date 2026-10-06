@@ -1,7 +1,7 @@
 import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
 import { UserGroupIcon } from "@/components/ui/user-group-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
-import { BrainIcon, LayoutDashboard } from "@animateicons/react/lucide";
+import { BrainIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
 import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -73,8 +73,16 @@ export const testimonialsData: TestimonialDataType[] = [
 ];
 
 export const userMenuOptions = [
-  { name: "Dashboard", link: "/learneractionpage/dashboard", icon: LayoutDashboard },
-  { name: "Quizzes", link: "/learneractionpage/quizzes", icon: BrainIcon },
-  { name: "Courses", link: "/learneractionpage/courses", icon: GraduationCapIcon },
-  { name: "Referrals", link: "/learneractionpage/referrals", icon: UserGroupIcon },
+  { name: "Dashboard", link: "/userpage/learneractionpage/dashboard", icon: LayoutDashboard },
+  { name: "Quizzes", link: "/userpage/learneractionpage/quizzes", icon: BrainIcon },
+  { name: "Courses", link: "/userpage/learneractionpage/courses", icon: GraduationCapIcon },
+  { name: "Referrals", link: "/userpage/learneractionpage/referrals", icon: UserGroupIcon },
+  { name: "Wallet", link: "/userpage/learneractionpage/wallet", icon: WalletIcon },
+];
+
+export const tutorMenuOptions = [
+  { name: "Dashboard", link: "/userpage/tutoractionpage/dashboard", icon: LayoutDashboard },
+  { name: "Quizzes", link: "/userpage/tutoractionpage/quizzes", icon: BrainIcon },
+  { name: "Courses", link: "/userpage/tutoractionpage/courses", icon: GraduationCapIcon },
+  { name: "Wallet", link: "/userpage/tutoractionpage/wallet", icon: WalletIcon },
 ];

@@ -42,7 +42,7 @@ export const SignIn = () => {
     return toast.success("Sign in Successful.", {
       className: "!text-green-600",
       onAutoClose: () => {
-        navigate("/learneractionpage/dashboard", { replace: true });
+        navigate("/userpage/learneractionpage/dashboard", { replace: true });
       },
       duration: 1000,
     });
