@@ -1,5 +1,6 @@
-import { useTheme } from "@/components/ContextHandlers/ThemeProvider";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
+import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { Copyright, Moon, Sun } from "lucide-react";
 import { Outlet } from "react-router";
 
@@ -30,8 +31,11 @@ export const AuthLayout = () => {
             <span className="text-[14px]">2026 UPTORPS. All rights reserved.</span>
           </div>
         </section>
+
         <Outlet />
       </div>
+
+      <Toaster position="bottom-right" />
     </>
   );
 };

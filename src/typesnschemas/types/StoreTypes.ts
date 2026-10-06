@@ -9,10 +9,10 @@ export type HomeStoreType = {
 
 export type AuthStoreType = {
   authLoadingState: boolean;
-  authDetailsPassCheck: boolean;
   mailLoadingState: boolean;
+  verificationLoadingState: boolean;
   setAuthLoadingState: () => void;
-  setAuthDetailsPassCheck: () => void;
   setMailLoadingState: () => void;
+  setverificationLoadingState: () => void;
   clearAuthState: () => void;
 };

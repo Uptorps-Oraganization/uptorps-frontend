@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesnschemas/types/ThemeTypes";
+import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesnschemas/types/DataTypes";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const initialState: ThemeProviderState = {
@@ -9,7 +9,7 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({ children, defaultTheme = "system", storageKey = "uptorps-ui-theme", ...props }: ThemeProviderProps) {
+export function ThemeProvider({ children, defaultTheme = "system", storageKey = "uptorps-ui-theme" }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
 
   useEffect(() => {
@@ -35,11 +35,7 @@ export function ThemeProvider({ children, defaultTheme = "system", storageKey = 
     },
   };
 
-  return (
-    <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
-    </ThemeProviderContext.Provider>
-  );
+  return <ThemeProviderContext.Provider value={value}>{children}</ThemeProviderContext.Provider>;
 }
 
 export const useTheme = () => {

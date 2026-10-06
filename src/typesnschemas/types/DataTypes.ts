@@ -1,5 +1,18 @@
 import type { LucideIcon } from "lucide-react";
 
+export type Theme = "dark" | "light" | "system";
+
+export type ThemeProviderProps = {
+  children: React.ReactNode;
+  defaultTheme?: Theme;
+  storageKey?: string;
+};
+
+export type ThemeProviderState = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+};
+
 export type FeatureDataType = {
   icon: LucideIcon;
   title: string;
@@ -12,4 +25,3 @@ export type TestimonialDataType = {
   user_type: string;
   ratings: number;
 };
-

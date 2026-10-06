@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Particles from "@/components/AnimatedComponents/Particles";
-import { useTheme } from "@/components/ContextHandlers/ThemeProvider";
 import { FeatureCard } from "@/components/PageComponents/HomePage/FeatureCard";
 import { TestimonialCard } from "@/components/PageComponents/HomePage/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Separator } from "@/components/ui/separator";
+import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { uptorpillustration } from "@/lib/assets";
 import { featuresData, testimonialsData } from "@/lib/data";
 import { useHomeStore } from "@/statemanagers/HomeStore";
+import { Moon, SunIcon } from "@animateicons/react/lucide";
 import {
   ArrowRightIcon,
   BookOpen,
@@ -24,12 +25,10 @@ import {
   Mail,
   MailCheck,
   MapPin,
-  Moon,
   NotebookPen,
   Phone,
   Rss,
   Star,
-  Sun,
   UserPlus,
   UserRoundGroup,
   Zap,
@@ -51,7 +50,7 @@ const Homepage = () => {
 
         <section className="flex items-center space-x-1">
           <Button onClick={() => setTheme(theme == "dark" ? "light" : "dark")} size="icon-lg" variant="ghost">
-            {theme == "dark" ? <Sun /> : <Moon />}
+            {theme == "dark" ? <SunIcon /> : <Moon />}
           </Button>
 
           <Link to={"/auth/signin"}>

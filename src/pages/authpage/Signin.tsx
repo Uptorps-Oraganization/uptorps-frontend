@@ -10,8 +10,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LogIn } from "lucide-react";
 import { useEffect } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
+import { toast } from "sonner";
 
 export const SignIn = () => {
+  const navigate = useNavigate();
   const { authLoadingState, setAuthLoadingState, clearAuthState } = useAuthStore();
 
   const {
@@ -31,11 +34,26 @@ export const SignIn = () => {
     setTimeout(() => {
       console.log(data);
       setAuthLoadingState();
+      showToast();
     }, 1000);
+  };
+
+  const showToast = () => {
+    return toast.success("Sign in Successful.", {
+      className: "!text-green-600",
+      onAutoClose: () => {
+        navigate("/learneractionpage/dashboard", { replace: true });
+      },
+      duration: 1000,
+    });
   };
 
   useEffect(() => {
     clearAuthState();
+
+    return () => {
+      toast.dismiss();
+    };
   }, [clearAuthState]);
 
   return (
