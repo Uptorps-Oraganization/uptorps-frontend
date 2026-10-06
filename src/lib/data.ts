@@ -1,4 +1,7 @@
+import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
+import { UserGroupIcon } from "@/components/ui/user-group-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
+import { BrainIcon, LayoutDashboard } from "@animateicons/react/lucide";
 import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -67,4 +70,11 @@ export const testimonialsData: TestimonialDataType[] = [
     user_type: "Learner",
     ratings: 4,
   },
+];
+
+export const userMenuOptions = [
+  { name: "Dashboard", link: "/learneractionpage/dashboard", icon: LayoutDashboard },
+  { name: "Quizzes", link: "/learneractionpage/quizzes", icon: BrainIcon },
+  { name: "Courses", link: "/learneractionpage/courses", icon: GraduationCapIcon },
+  { name: "Referrals", link: "/learneractionpage/referrals", icon: UserGroupIcon },
 ];
