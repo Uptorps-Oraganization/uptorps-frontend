@@ -2,18 +2,31 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from "@/components/ui/sidebar";
+import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
+import { useAdminStore } from "@/statemanagers/userpagestate/AdminStore";
+import { LogOut, Moon, Settings, Sun } from "@animateicons/react/lucide";
 import { CircleUserRoundIcon, LineDotLeftHorizontal } from "lucide-react";
-
-import { Moon, Settings, Sun } from "@animateicons/react/lucide";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { CollapsableMenuOption } from "./CollapsableMenuOption";
 
 export const AdminSideBar = () => {
   const currentLocation = useLocation();
+  const navigate = useNavigate();
   const { theme, setTheme } = useTheme();
   const { state } = useSidebar();
+
+  const { logOutLoadingState, setlogOutLoadingState } = useAdminStore();
+
+  const logOutAdmin = () => {
+    setlogOutLoadingState();
+
+    setTimeout(() => {
+      navigate("/auth/signin", { replace: true });
+      setlogOutLoadingState();
+    }, 2000);
+  };
 
   return (
     <Sidebar collapsible="icon" variant="sidebar" className="text-primary-foreground!">
@@ -98,9 +111,16 @@ export const AdminSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton>
+            <SidebarMenuButton render={<a href="/adminpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton className="font-bold" onClick={() => logOutAdmin()}>
+              {logOutLoadingState ? <Spinner /> : <LogOut />}
+              <span className="text-pretty">Log Out</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

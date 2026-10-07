@@ -16,3 +16,19 @@ export type AuthStoreType = {
   setverificationLoadingState: () => void;
   clearAuthState: () => void;
 };
+
+export type AdminStoreType = {
+  logOutLoadingState: boolean;
+  setlogOutLoadingState: () => void;
+};
+
+export type TutorStoreType = {
+  logOutLoadingState: boolean;
+  setlogOutLoadingState: () => void;
+};
+
+export type LearnerStoreType = {
+  logOutLoadingState: boolean;
+  setlogOutLoadingState: () => void;
+};
+

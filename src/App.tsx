@@ -4,6 +4,7 @@ import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
 import { AdminCourses } from "@/pages/adminpage/Courses";
 import { AdminDashboard } from "@/pages/adminpage/Dashboard";
 import { AdminQuizzes } from "@/pages/adminpage/Quizzes";
+import { AdminSettings } from "@/pages/adminpage/Settings";
 import { LearnerReports } from "@/pages/adminpage/reports/LearnerReports";
 import { TutorReports } from "@/pages/adminpage/reports/TutorReports";
 import { AuthLayout } from "@/pages/authpage/AuthLayout";
@@ -16,10 +17,12 @@ import { LearnerDashboard } from "@/pages/userpage/learnerpage/Dashboard";
 import { LearnerActionLayout } from "@/pages/userpage/learnerpage/LearnerActionLayout";
 import { LearnerQuizzes } from "@/pages/userpage/learnerpage/Quizzes";
 import { LearnerReferrals } from "@/pages/userpage/learnerpage/Referrals";
+import { LearnerSettings } from "@/pages/userpage/learnerpage/Settings";
 import { LearnerWallet } from "@/pages/userpage/learnerpage/Wallet";
 import { TutorCourses } from "@/pages/userpage/tutorpage/Courses";
 import { TutorDashboard } from "@/pages/userpage/tutorpage/Dashboard";
 import { TutorQuizzes } from "@/pages/userpage/tutorpage/Quizzes";
+import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router";
@@ -44,6 +47,8 @@ function App() {
             <Route path="courses" element={<AdminCourses />} />
             <Route path="quizzes" element={<AdminQuizzes />} />
             <Route path="accounts" element={<AdminAccounts />} />
+            <Route path="settings" element={<AdminSettings />} />
+
             <Route path="reports">
               <Route path="tutorreports" element={<TutorReports />} />
               <Route path="learnerreports" element={<LearnerReports />} />
@@ -60,6 +65,7 @@ function App() {
               <Route path="quizzes" element={<LearnerQuizzes />} />
               <Route path="referrals" element={<LearnerReferrals />} />
               <Route path="wallet" element={<LearnerWallet />} />
+              <Route path="settings" element={<LearnerSettings />} />
             </Route>
 
             <Route path="tutoractionpage" element={<TutorActionLayout />}>
@@ -68,6 +74,7 @@ function App() {
               <Route path="courses" element={<TutorCourses />} />
               <Route path="quizzes" element={<TutorQuizzes />} />
               <Route path="wallet" element={<TutorWallet />} />
+              <Route path="settings" element={<TutorSettings />} />
             </Route>
           </Route>
         </Routes>
