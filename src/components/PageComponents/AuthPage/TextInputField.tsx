@@ -1,24 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
-import type { FieldErrors } from "react-hook-form";
-
-interface IconProps {
-  size?: number;
-  color?: string;
-  duration?: number;
-  isAnimated?: boolean;
-  className?: string;
-}
-
-type TextInputType = {
-  type: string;
-  fieldname: string;
-  fieldicon: React.ComponentType<IconProps>;
-  register: any;
-  placeholder: string;
-  errors: FieldErrors;
-};
+import type { TextInputType } from "@/typesnschemas/types/DataTypes";
 
 export const TextInputField = (props: TextInputType) => {
   const FieldIcon = props.fieldicon;

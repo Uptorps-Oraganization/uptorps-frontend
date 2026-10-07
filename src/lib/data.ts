@@ -1,7 +1,9 @@
 import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
+import { MessagesSquareIcon } from "@/components/ui/messages-square-icon";
 import { UserGroupIcon } from "@/components/ui/user-group-icon";
+import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
-import { BrainIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
+import { BrainIcon, EllipsisIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
 import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -69,6 +71,27 @@ export const testimonialsData: TestimonialDataType[] = [
     user_name: "Duniar",
     user_type: "Learner",
     ratings: 4,
+  },
+];
+
+export const adminMenuOptions = [
+  { name: "Admin Dashboard", link: "/adminpage/dashboard", icon: LayoutDashboard },
+  { name: "Accounts", link: "/adminpage/accounts", icon: UserGroupIcon },
+  {
+    name: "Configurations",
+    icon: WrenchIcon,
+    subOptions: [
+      { name: "Quizzes", link: "/adminpage/quizzes", icon: BrainIcon },
+      { name: "Courses", link: "/adminpage/courses", icon: GraduationCapIcon },
+    ],
+  },
+  {
+    name: "Reports",
+    icon: MessagesSquareIcon,
+    subOptions: [
+      { name: "Tutor Reports", link: "/adminpage/reports/tutorreports", icon: EllipsisIcon },
+      { name: "Learner Reports", link: "/adminpage/reports/learnerreports", icon: EllipsisIcon },
+    ],
   },
 ];
 

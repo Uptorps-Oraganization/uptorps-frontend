@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import type { AccountSelectType } from "@/typesnschemas/types/DataTypes";
 import { MousePointerClick } from "lucide-react";
-import { useController, type FieldErrors } from "react-hook-form";
-
-type AccountSelectType = {
-  control: any;
-  errors: FieldErrors;
-};
+import { useController } from "react-hook-form";
 
 export const AccountSelect = ({ control, errors }: AccountSelectType) => {
   const { field } = useController({

@@ -1,4 +1,11 @@
 import Homepage from "@/pages/HomePage";
+import { AdminAccounts } from "@/pages/adminpage/Accounts";
+import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
+import { AdminCourses } from "@/pages/adminpage/Courses";
+import { AdminDashboard } from "@/pages/adminpage/Dashboard";
+import { AdminQuizzes } from "@/pages/adminpage/Quizzes";
+import { LearnerReports } from "@/pages/adminpage/reports/LearnerReports";
+import { TutorReports } from "@/pages/adminpage/reports/TutorReports";
 import { AuthLayout } from "@/pages/authpage/AuthLayout";
 import { SignIn } from "@/pages/authpage/Signin";
 import { SignUp } from "@/pages/authpage/Signup";
@@ -15,7 +22,7 @@ import { TutorDashboard } from "@/pages/userpage/tutorpage/Dashboard";
 import { TutorQuizzes } from "@/pages/userpage/tutorpage/Quizzes";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
-import { Route, BrowserRouter as Router, Routes } from "react-router";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router";
 
 function App() {
   return (
@@ -31,8 +38,23 @@ function App() {
             <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
           </Route>
 
+          <Route path="adminpage" element={<AdminActionLayout />}>
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="courses" element={<AdminCourses />} />
+            <Route path="quizzes" element={<AdminQuizzes />} />
+            <Route path="accounts" element={<AdminAccounts />} />
+            <Route path="reports">
+              <Route path="tutorreports" element={<TutorReports />} />
+              <Route path="learnerreports" element={<LearnerReports />} />
+            </Route>
+          </Route>
+
           <Route path="userpage">
+            <Route index element={<Navigate to="/auth/signin" replace />} />
+
             <Route path="learneractionpage" element={<LearnerActionLayout />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<LearnerDashboard />} />
               <Route path="courses" element={<LearnerCourses />} />
               <Route path="quizzes" element={<LearnerQuizzes />} />
@@ -41,6 +63,7 @@ function App() {
             </Route>
 
             <Route path="tutoractionpage" element={<TutorActionLayout />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<TutorDashboard />} />
               <Route path="courses" element={<TutorCourses />} />
               <Route path="quizzes" element={<TutorQuizzes />} />
