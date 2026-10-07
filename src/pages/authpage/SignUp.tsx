@@ -63,13 +63,13 @@ export const SignUp = () => {
         <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-85 text-primary space-y-1">
           <AccountSelect control={control} errors={errors} />
 
-          <TextInputField type={"text"} fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} errors={errors} />
+          <TextInputField type={"text"} label="Username" fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} errors={errors} />
 
-          <TextInputField type={"email"} fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} errors={errors} />
+          <TextInputField type={"email"} label="Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} errors={errors} />
 
-          <PasswordInputField fieldname="password" register={register} errors={errors} />
+          <PasswordInputField label="Password" fieldname="password" register={register} errors={errors} />
 
-          <PasswordInputField fieldname="confirmpassword" register={register} errors={errors} />
+          <PasswordInputField label="Confirm Password" fieldname="confirmpassword" register={register} errors={errors} />
 
           <Button type="submit" className="w-80 h-10 mt-6  self-center text-[15px] bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
             {authLoadingState ? <Spinner /> : <UserPlus />}

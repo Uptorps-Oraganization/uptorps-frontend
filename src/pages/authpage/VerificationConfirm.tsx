@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 export const VerificationConfirm = () => {
   //const { token } = useParams();
   const navigate = useNavigate();
-  const { verificationLoadingState, setverificationLoadingState, clearAuthState } = useAuthStore();
+  const { verificationLoadingState, setVerificationLoadingState, clearAuthState } = useAuthStore();
 
   const proceedToDashboard = () => {
     navigate("/learneractionpage/dashboard", { replace: true });
@@ -19,9 +19,9 @@ export const VerificationConfirm = () => {
     clearAuthState();
 
     setTimeout(() => {
-      setverificationLoadingState();
+      setVerificationLoadingState();
     }, 3000);
-  }, [setverificationLoadingState, clearAuthState]);
+  }, [setVerificationLoadingState, clearAuthState]);
 
   return (
     <>

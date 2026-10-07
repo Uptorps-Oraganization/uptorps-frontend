@@ -6,12 +6,14 @@ const authStore = create<AuthStoreType>((set) => ({
   authLoadingState: false,
   mailLoadingState: false,
   verificationLoadingState: false,
+  passwordResetLoadingState: false,
 
   setAuthLoadingState: () => set((state) => ({ authLoadingState: !state.authLoadingState })),
   setMailLoadingState: () => set((state) => ({ mailLoadingState: !state.mailLoadingState })),
-  setverificationLoadingState: () => set((state) => ({ verificationLoadingState: !state.verificationLoadingState })),
+  setVerificationLoadingState: () => set((state) => ({ verificationLoadingState: !state.verificationLoadingState })),
+  setPasswordResetLoadingState: () => set((state) => ({ passwordResetLoadingState: !state.passwordResetLoadingState })),
 
-  clearAuthState: () => set(() => ({ authLoadingState: false, mailLoadingState: false, verificationLoadingState: false })),
+  clearAuthState: () => set(() => ({ authLoadingState: false, mailLoadingState: false, verificationLoadingState: false, passwordResetLoadingState: false })),
 }));
 
 export const useAuthStore = () =>
@@ -20,10 +22,12 @@ export const useAuthStore = () =>
       authLoadingState: state.authLoadingState,
       mailLoadingState: state.mailLoadingState,
       verificationLoadingState: state.verificationLoadingState,
+      passwordResetLoadingState: state.passwordResetLoadingState,
 
       setAuthLoadingState: state.setAuthLoadingState,
       setMailLoadingState: state.setMailLoadingState,
-      setverificationLoadingState: state.setverificationLoadingState,
+      setVerificationLoadingState: state.setVerificationLoadingState,
+      setPasswordResetLoadingState: state.setPasswordResetLoadingState,
 
       clearAuthState: state.clearAuthState,
     })),

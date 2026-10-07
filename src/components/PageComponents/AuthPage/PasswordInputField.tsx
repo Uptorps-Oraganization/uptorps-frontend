@@ -1,29 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
+import type { PassInputType } from "@/typesnschemas/types/DataTypes";
 import { EyeClosedIcon, EyeIcon } from "@animateicons/react/lucide";
 import { KeyRound } from "lucide-react";
 import { useState } from "react";
-import type { FieldErrors } from "react-hook-form";
-
-type PassInputType = {
-  fieldname: "password" | "confirmpassword";
-  register: any;
-  errors: FieldErrors;
-};
 
 export const PasswordInputField = (props: PassInputType) => {
   const [showstate, setShowState] = useState<boolean>(false);
 
-  const capitalizeFirstLetter = (str: string) => {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
   return (
     <>
       <Label htmlFor={props.fieldname} className="text-[14px]">
-        {capitalizeFirstLetter(props.fieldname)}
+        {props.label}
       </Label>
       <InputGroup>
         <InputGroupAddon align="inline-end">

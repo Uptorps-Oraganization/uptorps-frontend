@@ -30,10 +30,18 @@ export type AccountSelectType = {
 
 export type TextInputType = {
   type: string;
+  label: string;
   fieldname: string;
   fieldicon: React.ComponentType<IconProps>;
   register: any;
   placeholder: string;
+  errors: FieldErrors;
+};
+
+export type PassInputType = {
+  label: string;
+  fieldname: "password" | "confirmpassword";
+  register: any;
   errors: FieldErrors;
 };
 
