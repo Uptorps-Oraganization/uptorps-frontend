@@ -4,7 +4,8 @@ import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { tutorMenuOptions } from "@/lib/data";
-import { CircleUserRoundIcon, LineDotLeftHorizontal, Moon, Settings, Sun, UserLock } from "lucide-react";
+import { Moon, Settings, Sun } from "@animateicons/react/lucide";
+import { CircleUserRoundIcon, LineDotLeftHorizontal, UserLock } from "lucide-react";
 import { useLocation } from "react-router";
 
 export const TutorSideBar = () => {
@@ -51,7 +52,7 @@ export const TutorSideBar = () => {
                 </span>
               </section>
 
-              <Separator />
+              <Separator className="bg-primary" />
             </section>
           </div>
 

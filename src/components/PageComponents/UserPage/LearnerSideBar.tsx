@@ -5,8 +5,8 @@ import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
-import { Settings, UserLock } from "@animateicons/react/lucide";
-import { LineDotLeftHorizontal, Moon, Sun } from "lucide-react";
+import { Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
+import { LineDotLeftHorizontal } from "lucide-react";
 import { useLocation } from "react-router";
 
 export const LearnerSideBar = () => {
@@ -53,7 +53,7 @@ export const LearnerSideBar = () => {
                 </span>
               </section>
 
-              <Separator />
+              <Separator className="bg-primary" />
             </section>
           </div>
 

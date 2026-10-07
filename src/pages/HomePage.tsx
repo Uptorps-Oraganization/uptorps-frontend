@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Particles from "@/components/AnimatedComponents/Particles";
 import { FeatureCard } from "@/components/PageComponents/HomePage/FeatureCard";
 import { TestimonialCard } from "@/components/PageComponents/HomePage/TestimonialCard";
