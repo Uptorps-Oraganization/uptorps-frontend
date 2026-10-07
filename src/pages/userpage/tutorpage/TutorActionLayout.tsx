@@ -24,6 +24,8 @@ export const TutorActionLayout = () => {
                   </h1>
                 ),
             )}
+
+            {currentLocation.pathname == "/userpage/tutoractionpage/settings" && <h1 className="text-base font-bold">Account Settings</h1>}
           </div>
         </header>
 

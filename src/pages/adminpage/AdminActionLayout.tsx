@@ -32,6 +32,8 @@ export const AdminActionLayout = () => {
                     </h1>
                   ),
             )}
+
+            {currentLocation.pathname == "/adminpage/settings" && <h1 className="text-base font-bold">Account Settings</h1>}
           </div>
         </header>
 

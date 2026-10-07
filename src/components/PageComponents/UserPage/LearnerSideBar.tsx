@@ -3,16 +3,31 @@ import { Button } from "@/components/ui/button";
 import { CircleUserRoundIcon } from "@/components/ui/circle-user-round-icon";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
+import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
-import { Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
+import { useLearnerStore } from "@/statemanagers/userpagestate/LearnerStore";
+import { LogOut, Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
 import { LineDotLeftHorizontal } from "lucide-react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export const LearnerSideBar = () => {
   const currentLocation = useLocation();
+  const navigate = useNavigate();
+
   const { theme, setTheme } = useTheme();
   const { state } = useSidebar();
+
+  const { logOutLoadingState, setlogOutLoadingState } = useLearnerStore();
+
+  const logOutLearner = () => {
+    setlogOutLoadingState();
+
+    setTimeout(() => {
+      navigate("/auth/signin", { replace: true });
+      setlogOutLoadingState();
+    }, 2000);
+  };
 
   return (
     <Sidebar collapsible="icon" variant="sidebar" className="text-primary-foreground!">
@@ -75,7 +90,7 @@ export const LearnerSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton>
+            <SidebarMenuButton render={<a href="/userpage/learneractionpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
@@ -85,6 +100,13 @@ export const LearnerSideBar = () => {
             <SidebarMenuButton>
               <UserLock />
               <span className="text-pretty">Free Account</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton className="font-bold" onClick={() => logOutLearner()}>
+              {logOutLoadingState ? <Spinner /> : <LogOut />}
+              <span className="text-pretty">Log Out</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

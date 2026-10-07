@@ -2,16 +2,31 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
+import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { tutorMenuOptions } from "@/lib/data";
-import { Moon, Settings, Sun } from "@animateicons/react/lucide";
+import { useTutorStore } from "@/statemanagers/userpagestate/TutorStore";
+import { LogOut, Moon, Settings, Sun } from "@animateicons/react/lucide";
 import { CircleUserRoundIcon, LineDotLeftHorizontal, UserLock } from "lucide-react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export const TutorSideBar = () => {
   const currentLocation = useLocation();
+  const navigate = useNavigate();
+
   const { theme, setTheme } = useTheme();
   const { state } = useSidebar();
+
+  const { logOutLoadingState, setlogOutLoadingState } = useTutorStore();
+
+  const logOutTutor = () => {
+    setlogOutLoadingState();
+
+    setTimeout(() => {
+      navigate("/auth/signin", { replace: true });
+      setlogOutLoadingState();
+    }, 2000);
+  };
 
   return (
     <Sidebar collapsible="icon" variant="sidebar">
@@ -74,7 +89,7 @@ export const TutorSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton>
+            <SidebarMenuButton render={<a href="/userpage/tutoractionpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
@@ -84,6 +99,13 @@ export const TutorSideBar = () => {
             <SidebarMenuButton>
               <UserLock />
               <span className="text-pretty">Free Account</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton className="font-bold" onClick={() => logOutTutor()}>
+              {logOutLoadingState ? <Spinner /> : <LogOut />}
+              <span className="text-pretty">Log Out</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
