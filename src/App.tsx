@@ -7,9 +7,11 @@ import { AdminQuizzes } from "@/pages/adminpage/Quizzes";
 import { AdminSettings } from "@/pages/adminpage/Settings";
 import { LearnerReports } from "@/pages/adminpage/reports/LearnerReports";
 import { TutorReports } from "@/pages/adminpage/reports/TutorReports";
+import { AccountLinkSent } from "@/pages/authpage/AccountLinkSent";
+import { AccountReset } from "@/pages/authpage/AccountReset";
 import { AuthLayout } from "@/pages/authpage/AuthLayout";
-import { SignIn } from "@/pages/authpage/Signin";
-import { SignUp } from "@/pages/authpage/Signup";
+import { SignIn } from "@/pages/authpage/SignIn";
+import { SignUp } from "@/pages/authpage/SignUp";
 import { VerificationConfirm } from "@/pages/authpage/VerificationConfirm";
 import { VerificationSent } from "@/pages/authpage/VerificationSent";
 import { LearnerCourses } from "@/pages/userpage/learnerpage/Courses";
@@ -26,6 +28,7 @@ import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router";
+import { AccountPasswordReset } from "./pages/authpage/AccountPasswordReset";
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function App() {
             <Route path="signin" element={<SignIn />} />
             <Route path="verificationemailsent" element={<VerificationSent />} />
             <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
+            <Route path="passwordreset" element={<AccountReset />} />
+            <Route path="passwordreset/resetlinksent" element={<AccountLinkSent />} />
+            <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
           </Route>
 
           <Route path="adminpage" element={<AdminActionLayout />}>

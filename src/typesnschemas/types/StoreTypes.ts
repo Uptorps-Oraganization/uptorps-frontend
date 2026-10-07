@@ -11,9 +11,13 @@ export type AuthStoreType = {
   authLoadingState: boolean;
   mailLoadingState: boolean;
   verificationLoadingState: boolean;
+  passwordResetLoadingState: boolean;
+
   setAuthLoadingState: () => void;
   setMailLoadingState: () => void;
-  setverificationLoadingState: () => void;
+  setVerificationLoadingState: () => void;
+  setPasswordResetLoadingState: () => void;
+
   clearAuthState: () => void;
 };
 
@@ -31,4 +35,3 @@ export type LearnerStoreType = {
   logOutLoadingState: boolean;
   setlogOutLoadingState: () => void;
 };
-

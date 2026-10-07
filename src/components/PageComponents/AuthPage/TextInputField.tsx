@@ -6,15 +6,10 @@ import type { TextInputType } from "@/typesnschemas/types/DataTypes";
 export const TextInputField = (props: TextInputType) => {
   const FieldIcon = props.fieldicon;
 
-  const capitalizeFirstLetter = (str: string) => {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
   return (
     <>
       <Label htmlFor={props.fieldname} className="text-[14px]">
-        {capitalizeFirstLetter(props.fieldname)}
+        {props.label}
       </Label>
       <InputGroup>
         <InputGroupAddon align="inline-end">

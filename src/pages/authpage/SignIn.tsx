@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LogIn } from "lucide-react";
 import { useEffect } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 
 export const SignIn = () => {
@@ -62,9 +62,9 @@ export const SignIn = () => {
       <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-85 text-primary space-y-1">
         <AccountSelect control={control} errors={errors} />
 
-        <TextInputField type={"email"} fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} errors={errors} />
+        <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" errors={errors} />
 
-        <PasswordInputField fieldname="password" register={register} errors={errors} />
+        <PasswordInputField label="Password" fieldname="password" register={register} errors={errors} />
 
         <Button
           type="submit"
@@ -75,6 +75,15 @@ export const SignIn = () => {
           Sign In
         </Button>
       </form>
+
+      <div className="flex flex-col justify-center items-center space-y-2">
+        <p className="text-sm text-primary">
+          Forgot your password?{" "}
+          <Link to={"/auth/passwordreset"} className="text-green-500 transition-[font] hover:font-semibold">
+            Reset Password
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
