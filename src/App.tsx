@@ -1,4 +1,3 @@
-import { QueryProvider } from "@/contexthandlers/QueryProvider";
 import Homepage from "@/pages/HomePage";
 import { AdminAccounts } from "@/pages/adminpage/Accounts";
 import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
@@ -34,60 +33,58 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router";
 function App() {
   return (
     <>
-      <QueryProvider>
-        <Router>
-          <Routes>
-            <Route index element={<Homepage />} />
+      <Router>
+        <Routes>
+          <Route index element={<Homepage />} />
 
-            <Route path="auth" element={<AuthLayout />}>
-              <Route path="signup" element={<SignUp />} />
-              <Route path="signin" element={<SignIn />} />
-              <Route path="verificationemailsent" element={<VerificationSent />} />
-              <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
-              <Route path="passwordreset" element={<AccountReset />} />
-              <Route path="passwordreset/resetlinksent" element={<AccountLinkSent />} />
-              <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
+          <Route path="auth" element={<AuthLayout />}>
+            <Route path="signup" element={<SignUp />} />
+            <Route path="signin" element={<SignIn />} />
+            <Route path="verificationemailsent" element={<VerificationSent />} />
+            <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
+            <Route path="passwordreset" element={<AccountReset />} />
+            <Route path="passwordreset/resetlinksent" element={<AccountLinkSent />} />
+            <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
+          </Route>
+
+          <Route path="adminpage" element={<AdminActionLayout />}>
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="courses" element={<AdminCourses />} />
+            <Route path="quizzes" element={<AdminQuizzes />} />
+            <Route path="accounts" element={<AdminAccounts />} />
+            <Route path="settings" element={<AdminSettings />} />
+
+            <Route path="reports">
+              <Route path="tutorreports" element={<TutorReports />} />
+              <Route path="learnerreports" element={<LearnerReports />} />
             </Route>
+          </Route>
 
-            <Route path="adminpage" element={<AdminActionLayout />}>
+          <Route path="userpage">
+            <Route index element={<Navigate to="/auth/signin" replace />} />
+
+            <Route path="learneractionpage" element={<LearnerActionLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
-              <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="courses" element={<AdminCourses />} />
-              <Route path="quizzes" element={<AdminQuizzes />} />
-              <Route path="accounts" element={<AdminAccounts />} />
-              <Route path="settings" element={<AdminSettings />} />
-
-              <Route path="reports">
-                <Route path="tutorreports" element={<TutorReports />} />
-                <Route path="learnerreports" element={<LearnerReports />} />
-              </Route>
+              <Route path="dashboard" element={<LearnerDashboard />} />
+              <Route path="courses" element={<LearnerCourses />} />
+              <Route path="quizzes" element={<LearnerQuizzes />} />
+              <Route path="referrals" element={<LearnerReferrals />} />
+              <Route path="wallet" element={<LearnerWallet />} />
+              <Route path="settings" element={<LearnerSettings />} />
             </Route>
 
-            <Route path="userpage">
-              <Route index element={<Navigate to="/auth/signin" replace />} />
-
-              <Route path="learneractionpage" element={<LearnerActionLayout />}>
-                <Route index element={<Navigate to="dashboard" replace />} />
-                <Route path="dashboard" element={<LearnerDashboard />} />
-                <Route path="courses" element={<LearnerCourses />} />
-                <Route path="quizzes" element={<LearnerQuizzes />} />
-                <Route path="referrals" element={<LearnerReferrals />} />
-                <Route path="wallet" element={<LearnerWallet />} />
-                <Route path="settings" element={<LearnerSettings />} />
-              </Route>
-
-              <Route path="tutoractionpage" element={<TutorActionLayout />}>
-                <Route index element={<Navigate to="dashboard" replace />} />
-                <Route path="dashboard" element={<TutorDashboard />} />
-                <Route path="courses" element={<TutorCourses />} />
-                <Route path="quizzes" element={<TutorQuizzes />} />
-                <Route path="wallet" element={<TutorWallet />} />
-                <Route path="settings" element={<TutorSettings />} />
-              </Route>
+            <Route path="tutoractionpage" element={<TutorActionLayout />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
+              <Route path="dashboard" element={<TutorDashboard />} />
+              <Route path="courses" element={<TutorCourses />} />
+              <Route path="quizzes" element={<TutorQuizzes />} />
+              <Route path="wallet" element={<TutorWallet />} />
+              <Route path="settings" element={<TutorSettings />} />
             </Route>
-          </Routes>
-        </Router>
-      </QueryProvider>
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }

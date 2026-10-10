@@ -15,6 +15,15 @@ export type ThemeProviderState = {
   setTheme: (theme: Theme) => void;
 };
 
+export type AuthContextType = {
+  user: {
+    uuid: string;
+    email: string;
+  };
+  accessToken: string | null;
+  setAccessToken: React.Dispatch<React.SetStateAction<string | null>>;
+};
+
 export type IconProps = {
   size?: number;
   color?: string;
