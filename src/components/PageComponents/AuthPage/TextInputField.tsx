@@ -8,7 +8,7 @@ export const TextInputField = (props: TextInputType) => {
 
   return (
     <>
-      <Label htmlFor={props.fieldname} className="text-[14px]">
+      <Label htmlFor={props.fieldname} className={`text-[13px] ${props.required && "after:content-['_*'] after:text-destructive after:font-bold"}`}>
         {props.label}
       </Label>
       <InputGroup>

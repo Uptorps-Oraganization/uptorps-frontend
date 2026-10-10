@@ -2,6 +2,8 @@ import { AccountSelect } from "@/components/PageComponents/AuthPage/AccountSelec
 import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
 import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signInDataSchema, type SignInDataType } from "@/typesnschemas/schemas/AuthSchemas";
@@ -26,6 +28,7 @@ export const SignIn = () => {
     resolver: zodResolver(signInDataSchema),
     defaultValues: {
       accounttype: "learner",
+      remember_me: false,
     },
   });
 
@@ -40,7 +43,7 @@ export const SignIn = () => {
 
   const showToast = () => {
     return toast.success("Sign in Successful.", {
-      className: "!text-green-600",
+      className: "text-green-600!",
       onAutoClose: () => {
         navigate("/userpage/learneractionpage/dashboard", { replace: true });
       },
@@ -62,9 +65,14 @@ export const SignIn = () => {
       <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-85 text-primary space-y-1">
         <AccountSelect control={control} errors={errors} />
 
-        <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" errors={errors} />
+        <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />
 
-        <PasswordInputField label="Password" fieldname="password" register={register} errors={errors} />
+        <PasswordInputField label="Password" fieldname="password" register={register} placeholder="Enter your password" required={true} errors={errors} />
+
+        <section className="flex flex-row justify-start items-center space-x-2 mt-4">
+          <Checkbox id="remember-me" {...register("remember_me")} />
+          <Label htmlFor="remember-me">Remember me</Label>
+        </section>
 
         <Button
           type="submit"

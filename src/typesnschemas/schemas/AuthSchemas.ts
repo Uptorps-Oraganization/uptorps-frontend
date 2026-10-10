@@ -21,6 +21,7 @@ export const signUpDataSchema = z
       .regex(/[a-z]/, "Password must contain at least one lowercase letter")
       .regex(/[0-9]/, "Password must contain at least one number")
       .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
+    referralcode: z.string().optional(),
   })
   .refine((data) => data.password === data.confirmpassword, {
     message: "Passwords do not match",
@@ -35,6 +36,7 @@ export const signInDataSchema = z.object({
   }),
   email: z.email("Please enter a valid email address"),
   password: z.string().min(8, "Password must be at least 8 characters long"),
+  remember_me: z.boolean(),
 });
 
 export type SignInDataType = z.infer<typeof signInDataSchema>;

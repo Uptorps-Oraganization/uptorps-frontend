@@ -97,12 +97,17 @@ const Homepage = () => {
               <h2 className="text-[14px]">UPTORPS integrates teaching, learning and earning into a unified platform. Start your journey to educational and financial inclusion today.</h2>
 
               <div className="mt-5 space-x-2 pointer-events-auto">
-                <Button className="min-w-25 text-[13px]" variant="secondary">
-                  Get Started For Free <ArrowRightIcon size={32} />
-                </Button>
-                <Button className="min-w-25 text-[13px] " variant="secondary">
-                  Read Our Blog <BookOpen size={32} />
-                </Button>
+                <Link to={"/auth/signup"}>
+                  <Button className="min-w-25 text-[13px]" variant="secondary">
+                    Get Started For Free <ArrowRightIcon size={32} />
+                  </Button>
+                </Link>
+
+                <Link to={"#"}>
+                  <Button className="min-w-25 text-[13px] " variant="secondary">
+                    Read Our Blog <BookOpen size={32} />
+                  </Button>
+                </Link>
               </div>
             </section>
 
@@ -239,7 +244,7 @@ const Homepage = () => {
 
             <section className="flex flex-col">
               <p className="font-black text-xl mb-2">Reach Out To Us</p>
-              <a href={"tel: +233324324232"} className="text-link">
+              <a href={"tel:+233324324232"} className="text-link">
                 <Phone className="mr-2" size={12} />
                 [+233 (32) 432-4232]
               </a>

@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
-import { Copyright, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "@animateicons/react/lucide";
+import { Copyright } from "lucide-react";
 import { Outlet } from "react-router";
 
 export const AuthLayout = () => {

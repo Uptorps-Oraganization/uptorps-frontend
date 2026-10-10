@@ -55,7 +55,16 @@ export const AccountReset = () => {
       <p className="font-bold text-4xl ">Account Password Reset</p>
 
       <form onSubmit={handleSubmit(handleEmailSubmit)} className="flex flex-col w-85 text-primary space-y-1">
-        <TextInputField type={"email"} label="Confirm Account Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your account email"} errors={errors} />
+        <TextInputField
+          type={"email"}
+          label="Confirm Account Email"
+          fieldname={"email"}
+          fieldicon={MailIcon}
+          register={register}
+          placeholder={"Enter your account email"}
+          required={true}
+          errors={errors}
+        />
 
         <Button
           type="submit"

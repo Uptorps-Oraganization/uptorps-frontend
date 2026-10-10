@@ -35,6 +35,7 @@ export type TextInputType = {
   fieldicon: React.ComponentType<IconProps>;
   register: any;
   placeholder: string;
+  required?: boolean;
   errors: FieldErrors;
 };
 
@@ -42,6 +43,8 @@ export type PassInputType = {
   label: string;
   fieldname: "password" | "confirmpassword";
   register: any;
+  placeholder: string;
+  required?: boolean;
   errors: FieldErrors;
 };
 

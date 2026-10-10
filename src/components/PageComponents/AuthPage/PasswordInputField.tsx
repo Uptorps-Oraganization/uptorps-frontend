@@ -11,7 +11,7 @@ export const PasswordInputField = (props: PassInputType) => {
 
   return (
     <>
-      <Label htmlFor={props.fieldname} className="text-[14px]">
+      <Label htmlFor={props.fieldname} className={`text-[13px] ${props.required && "after:content-['_*'] after:text-red-500 after:font-bold"}`}>
         {props.label}
       </Label>
       <InputGroup>
@@ -21,13 +21,7 @@ export const PasswordInputField = (props: PassInputType) => {
         <InputGroupAddon onClick={() => setShowState((prev) => !prev)} className="pointer-events-auto cursor-pointer" align="inline-end">
           {showstate ? <EyeClosedIcon className={"text-green-500 cursor-pointer"} size={14} duration={1} /> : <EyeIcon className={"text-green-500 cursor-pointer"} size={14} duration={1} />}
         </InputGroupAddon>
-        <InputGroupInput
-          id={props.fieldname}
-          {...props.register(props.fieldname)}
-          type={showstate ? "text" : "password"}
-          className="text-[14px]! text-primary"
-          placeholder={props.fieldname == "password" ? "Enter your password" : "Enter your password again"}
-        />
+        <InputGroupInput id={props.fieldname} {...props.register(props.fieldname)} type={showstate ? "text" : "password"} className="text-[14px]! text-primary" placeholder={props.placeholder} />
       </InputGroup>
       {props.errors[props.fieldname] && <p className="text-xs text-destructive">{props.errors[props.fieldname]?.message as string}</p>}
     </>
