@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import Homepage from "@/pages/HomePage";
 import { AdminAccounts } from "@/pages/adminpage/Accounts";
 import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
@@ -7,14 +8,14 @@ import { AdminQuizzes } from "@/pages/adminpage/Quizzes";
 import { AdminSettings } from "@/pages/adminpage/Settings";
 import { LearnerReports } from "@/pages/adminpage/reports/LearnerReports";
 import { TutorReports } from "@/pages/adminpage/reports/TutorReports";
-import { AccountLinkSent } from "@/pages/authpage/AccountLinkSent";
 import { AccountPasswordReset } from "@/pages/authpage/AccountPasswordReset";
 import { AccountReset } from "@/pages/authpage/AccountReset";
+import { AccountResetLinkSent } from "@/pages/authpage/AccountResetLinkSent";
 import { AuthLayout } from "@/pages/authpage/AuthLayout";
 import { SignIn } from "@/pages/authpage/SignIn";
 import { SignUp } from "@/pages/authpage/SignUp";
 import { VerificationConfirm } from "@/pages/authpage/VerificationConfirm";
-import { VerificationSent } from "@/pages/authpage/VerificationSent";
+import { VerificationLinkSent } from "@/pages/authpage/VerificationLinkSent";
 import { LearnerCourses } from "@/pages/userpage/learnerpage/Courses";
 import { LearnerDashboard } from "@/pages/userpage/learnerpage/Dashboard";
 import { LearnerActionLayout } from "@/pages/userpage/learnerpage/LearnerActionLayout";
@@ -40,10 +41,10 @@ function App() {
           <Route path="auth" element={<AuthLayout />}>
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<SignIn />} />
-            <Route path="verificationemailsent" element={<VerificationSent />} />
+            <Route path="verificationemailsent" element={<VerificationLinkSent />} />
             <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
             <Route path="passwordreset" element={<AccountReset />} />
-            <Route path="passwordreset/resetlinksent" element={<AccountLinkSent />} />
+            <Route path="passwordreset/resetlinksent" element={<AccountResetLinkSent />} />
             <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
           </Route>
 
@@ -85,6 +86,8 @@ function App() {
           </Route>
         </Routes>
       </Router>
+
+      <Toaster position="bottom-right" />
     </>
   );
 }

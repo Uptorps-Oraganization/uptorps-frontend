@@ -1,3 +1,4 @@
+import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
 import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
@@ -51,11 +52,13 @@ export const AccountPasswordReset = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <p className="font-bold text-4xl ">Account Password Reset</p>
+      <AuthMobileHeader />
+
+      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Account Password Reset</p>
 
       <p className="text-sm">Please enter your email to receive account reset link</p>
 
-      <form onSubmit={handleSubmit(handleEmailSubmit)} className="flex flex-col w-85 text-primary space-y-1">
+      <form onSubmit={handleSubmit(handleEmailSubmit)} className="flex flex-col w-75 md:w-85  text-primary space-y-1">
         <PasswordInputField label="New Password" fieldname="password" register={register} placeholder="Enter new password" required={true} errors={errors} />
 
         <PasswordInputField label="Confirm New Password" fieldname="confirmpassword" register={register} placeholder="Enter new password again" required={true} errors={errors} />

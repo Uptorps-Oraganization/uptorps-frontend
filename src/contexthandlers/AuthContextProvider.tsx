@@ -21,10 +21,20 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   }, [currentAccessToken]);
 
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <>
+        <div className="fixed inset-0 flex flex-col items-center justify-center">
+          <Spinner className="size-6 md:size-8 lg:size-10" />
+
+          <section className="mt-4">
+            <h1 className="text-sm md:text-[16px] lg:text-[18px] font-bold text-primary">Checking authentication state.....</h1>
+          </section>
+        </div>
+      </>
+    );
   }
 
   return <AuthContext.Provider value={{ user, accessToken: currentAccessToken, setAccessToken }}>{children}</AuthContext.Provider>;
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuthState = () => useContext(AuthContext);

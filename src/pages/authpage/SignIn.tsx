@@ -1,4 +1,5 @@
 import { AccountSelect } from "@/components/PageComponents/AuthPage/AccountSelect";
+import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
 import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
 import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
@@ -61,8 +62,11 @@ export const SignIn = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <p className="font-bold text-4xl ">Log into your account</p>
-      <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-85 text-primary space-y-1">
+      <AuthMobileHeader />
+
+      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Log into your account</p>
+
+      <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
         <AccountSelect control={control} errors={errors} />
 
         <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />

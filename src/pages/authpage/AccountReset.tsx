@@ -1,3 +1,4 @@
+import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
 import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
@@ -52,9 +53,11 @@ export const AccountReset = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <p className="font-bold text-4xl ">Account Password Reset</p>
+      <AuthMobileHeader />
 
-      <form onSubmit={handleSubmit(handleEmailSubmit)} className="flex flex-col w-85 text-primary space-y-1">
+      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Account Password Reset</p>
+
+      <form onSubmit={handleSubmit(handleEmailSubmit)} className="flex flex-col w-75 md:w-85  text-primary space-y-1">
         <TextInputField
           type={"email"}
           label="Confirm Account Email"

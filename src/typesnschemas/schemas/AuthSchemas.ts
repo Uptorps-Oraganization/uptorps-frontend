@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export const newsLetterSchema = z.object({
+  email: z.email("Please enter a valid email address"),
+});
+
+export type NewsLetterDataType = z.infer<typeof newsLetterSchema>;
+
 export const signUpDataSchema = z
   .object({
     accounttype: z.enum(["learner", "tutor"], {

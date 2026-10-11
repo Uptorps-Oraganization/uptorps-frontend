@@ -4,7 +4,7 @@ import { UserGroupIcon } from "@/components/ui/user-group-icon";
 import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
 import { BrainIcon, EllipsisIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
-import { BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
+import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
   {
@@ -23,18 +23,41 @@ export const featuresData: FeatureDataType[] = [
     description: "Refer people who are interested in learning what you are learning and earn commission.",
   },
   {
-    icon: ChartNoAxesCombined,
-    title: "Insight Analytics",
-    description: "Get access to a real-time analytical dashboard that tracks your performance on our platform.",
-  },
-  {
     icon: Trophy,
     title: "Competitions",
     description: "Organize competitions that other users can participate and earn rewards based on your specifications.",
   },
+  {
+    icon: BadgeDollarSign,
+    title: "Earn",
+    description: "Earn from referrals, courses, lessons, and competitions. You can also earn from your content if you are a tutor.",
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: "Insight Analytics",
+    description: "Get access to a real-time analytical dashboard that tracks your performance on our platform.",
+  },
 ];
 
 export const testimonialsData: TestimonialDataType[] = [
+  {
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    user_name: "Peter",
+    user_type: "Learner",
+    ratings: 4,
+  },
+  {
+    statement: "This platform is by far the best I have seen. Uploading my lesssons and courses for my students to get access has been great so far.",
+    user_name: "Enock",
+    user_type: "Tutor",
+    ratings: 5,
+  },
+  {
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    user_name: "Amos",
+    user_type: "Tutor",
+    ratings: 3,
+  },
   {
     statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Peter",
