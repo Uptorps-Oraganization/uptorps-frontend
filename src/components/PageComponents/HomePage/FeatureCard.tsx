@@ -3,9 +3,9 @@ import { Card, CardDescription, CardTitle } from "../../ui/card";
 
 export const FeatureCard = ({ icon: Icon, title, description }: FeatureDataType) => {
   return (
-    <Card className="w-100 flex flex-col justify-center items-start p-4 space-x-0">
+    <Card className="w-85 lg:w-100 flex flex-col justify-center items-start p-4 space-x-0">
       <div className="w-fit bg-green-500/90 p-2">
-        <Icon size={60} />
+        <Icon className="size-10 md:size-12 lg:size-15" />
       </div>
 
       <div className="">

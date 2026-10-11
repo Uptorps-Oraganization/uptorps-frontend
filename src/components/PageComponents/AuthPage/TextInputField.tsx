@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
 import type { TextInputType } from "@/typesnschemas/types/DataTypes";
@@ -8,7 +7,7 @@ export const TextInputField = (props: TextInputType) => {
 
   return (
     <>
-      <Label htmlFor={props.fieldname} className="text-[14px]">
+      <Label htmlFor={props.fieldname} className={`text-[13px] ${props.required && "after:content-['_*'] after:text-destructive after:font-bold"}`}>
         {props.label}
       </Label>
       <InputGroup>

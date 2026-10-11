@@ -15,6 +15,15 @@ export type ThemeProviderState = {
   setTheme: (theme: Theme) => void;
 };
 
+export type AuthContextType = {
+  user: {
+    uuid: string;
+    email: string;
+  };
+  accessToken: string | null;
+  setAccessToken: React.Dispatch<React.SetStateAction<string | null>>;
+};
+
 export type IconProps = {
   size?: number;
   color?: string;
@@ -35,6 +44,7 @@ export type TextInputType = {
   fieldicon: React.ComponentType<IconProps>;
   register: any;
   placeholder: string;
+  required?: boolean;
   errors: FieldErrors;
 };
 
@@ -42,6 +52,8 @@ export type PassInputType = {
   label: string;
   fieldname: "password" | "confirmpassword";
   register: any;
+  placeholder: string;
+  required?: boolean;
   errors: FieldErrors;
 };
 
