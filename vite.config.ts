@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: "/uptorps-frontend/",
   server: {
     port: 4168,
   },
