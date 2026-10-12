@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { CircleUserRoundIcon } from "@/components/ui/circle-user-round-icon";
+import { DynamicUptorpLogo } from "@/components/ui/DynamicUptorpLogo";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";
@@ -9,7 +10,7 @@ import { userMenuOptions } from "@/lib/data";
 import { useLearnerStore } from "@/statemanagers/userpagestate/LearnerStore";
 import { LogOut, Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
 import { LineDotLeftHorizontal } from "lucide-react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 export const LearnerSideBar = () => {
   const currentLocation = useLocation();
@@ -35,7 +36,7 @@ export const LearnerSideBar = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <section className="flex flex-row items-center p-1 space-x-2 side_element_collapse">
-              <img className="w-7.5 h-7.5" src="/uptorpsbook.svg" alt="Uptorps Book" />
+              <DynamicUptorpLogo className="size-8" theme={theme} />
               <h1 className="text-xl text-primary-foreground font-bold truncate group-data-[collapsible=icon]:hidden">Uptorps</h1>
             </section>
           </SidebarMenuItem>
@@ -76,7 +77,7 @@ export const LearnerSideBar = () => {
             <SidebarMenuItem key={option.name}>
               <SidebarMenuButton
                 isActive={currentLocation.pathname === option.link}
-                render={<a href={option.link} />}
+                render={<Link to={option.link} />}
                 className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
               >
                 <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
@@ -90,7 +91,7 @@ export const LearnerSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<a href="/userpage/learneractionpage/settings" />}>
+            <SidebarMenuButton render={<Link to="/userpage/learneractionpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>

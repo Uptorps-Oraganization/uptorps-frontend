@@ -3,7 +3,7 @@ import { DynamicUptorpLogo } from "@/components/ui/DynamicUptorpLogo";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { Moon, Sun } from "@animateicons/react/lucide";
 
-export const AuthMobileHeader = () => {
+export const AuthMobileHeader = ({welcome = true}) => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -19,7 +19,7 @@ export const AuthMobileHeader = () => {
         <h1 className="text-xl font-bold">Uptorps</h1>
       </div>
 
-      <p className="text-sm md:text-xl lg:hidden">Welcome To Our Authentication Page</p>
+      {welcome && <p className="text-sm md:text-xl lg:hidden">Welcome To Our Authentication Page</p>}
     </>
   );
 };

@@ -12,26 +12,32 @@ export const VerificationConfirm = () => {
   const { verificationLoadingState, setVerificationLoadingState, clearAuthState } = useAuthStore();
 
   const proceedToDashboard = () => {
-    navigate("/learneractionpage/dashboard", { replace: true });
+    navigate("/userpage/learneractionpage/dashboard", { replace: true });
   };
 
   useEffect(() => {
     clearAuthState();
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setVerificationLoadingState();
     }, 3000);
-  }, [setVerificationLoadingState, clearAuthState]);
+
+    return () => clearTimeout(timeoutId);
+  }, [clearAuthState, setVerificationLoadingState]);
 
   return (
     <>
       <div className="flex flex-col justify-center items-center text-primary text-pretty">
         <section className="py-4">{verificationLoadingState ? <img className="w-25 h-25" src={checkmark} alt="CheckmarkAnimation" /> : <Spinner className="size-15" />}</section>
 
-        {verificationLoadingState ? <p className="text-xl font-bold transition-all duration-200">Email Verifed Successfully</p> : <p className="animate-pulse">Confirming verification link .....</p>}
+        {verificationLoadingState ? (
+          <p className="text-lg md:text-xl font-bold transition-all duration-200">Email Verifed Successfully</p>
+        ) : (
+          <p className="animate-pulse">Confirming verification link .....</p>
+        )}
 
         {verificationLoadingState && (
-          <Button onClick={() => proceedToDashboard()} className="w-80 h-10 mt-6 flex flex-row self-center items-center text-[15px] bg-green-500 text-primary-foreground hover:text-secondary">
+          <Button onClick={() => proceedToDashboard()} className="w-80 h-12 md:h-10 mt-6 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary">
             Go to Dashboard
             <ArrowRight />
           </Button>

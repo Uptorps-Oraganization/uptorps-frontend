@@ -3,15 +3,17 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { defineConfig } from "vite";
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  base: "/uptorps-frontend/",
-  server: {
-    port: 4168,
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  return {
+    plugins: [react(), tailwindcss()],
+    base: mode === "production" ? "/uptorps-frontend/" : "/",
+    server: {
+      port: 4168,
     },
-  },
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  };
 });

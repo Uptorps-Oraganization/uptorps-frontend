@@ -23,11 +23,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   if (isLoading) {
     return (
       <>
-        <div className="fixed inset-0 flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center text-primary">
           <Spinner className="size-6 md:size-8 lg:size-10" />
 
           <section className="mt-4">
-            <h1 className="text-sm md:text-[16px] lg:text-[18px] font-bold text-primary">Checking authentication state.....</h1>
+            <h1 className="text-sm md:text-lg font-bold">Checking authentication state.....</h1>
           </section>
         </div>
       </>
