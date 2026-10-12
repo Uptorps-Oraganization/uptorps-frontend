@@ -259,7 +259,7 @@ const Homepage = () => {
       <footer className="bg-green-500">
         <div className="grid grid-rows-1 lg:grid-cols-3 gap-10 justify-center px-5 py-10 lg:px-10 lg:py-25 text-primary-foreground">
           <section className="flex flex-col items-start space-y-4">
-            <img className="w-10 lg:w-15 mb-2" src="/uptorpsbook.svg" alt="Uptorps Book" />
+            <DynamicUptorpLogo className="size-6 md:size-10 mr-2" theme={theme} />
             <p className="text-2xl font-black">Uptorps</p>
             <span className="text-[13px]">Empowering tutors and learners through education, rewards, and financial inclusion.</span>
           </section>

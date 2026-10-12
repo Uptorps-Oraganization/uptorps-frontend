@@ -29,16 +29,16 @@ import { TutorQuizzes } from "@/pages/userpage/tutorpage/Quizzes";
 import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
-import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router";
+import { HashRouter, Navigate, Route, Routes } from "react-router";
 
 function App() {
   return (
     <>
-      <Router>
+      <HashRouter>
         <Routes>
           <Route index element={<Homepage />} />
 
-          <Route path="auth" element={<AuthLayout />}>
+          <Route path="/auth" element={<AuthLayout />}>
             <Route path="signup" element={<SignUp />} />
             <Route path="signin" element={<SignIn />} />
             <Route path="verificationemailsent" element={<VerificationLinkSent />} />
@@ -48,7 +48,7 @@ function App() {
             <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
           </Route>
 
-          <Route path="adminpage" element={<AdminActionLayout />}>
+          <Route path="/adminpage" element={<AdminActionLayout />}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="courses" element={<AdminCourses />} />
@@ -62,7 +62,7 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="userpage">
+          <Route path="/userpage">
             <Route index element={<Navigate to="/auth/signin" replace />} />
 
             <Route path="learneractionpage" element={<LearnerActionLayout />}>
@@ -85,7 +85,7 @@ function App() {
             </Route>
           </Route>
         </Routes>
-      </Router>
+      </HashRouter>
 
       <Toaster position="bottom-right" />
     </>

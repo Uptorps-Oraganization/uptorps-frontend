@@ -53,7 +53,7 @@ export const AccountReset = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <AuthMobileHeader />
+      <AuthMobileHeader welcome={false} />
 
       <p className="font-bold text-sm md:text-2xl lg:text-4xl">Account Password Reset</p>
 
@@ -71,7 +71,7 @@ export const AccountReset = () => {
 
         <Button
           type="submit"
-          className="w-80 h-10 mt-6 flex flex-row self-center items-center text-[15px] bg-green-500 text-primary-foreground hover:text-secondary"
+          className="w-80 h-12 md:h-10 mt-6 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
           disabled={passwordResetLoadingState && true}
         >
           {passwordResetLoadingState ? <Spinner /> : <Link />}

@@ -4,6 +4,7 @@ import { PasswordInputField } from "@/components/PageComponents/AuthPage/Passwor
 import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { AuthContextProvider } from "@/contexthandlers/AuthContextProvider";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signUpDataSchema, type SignUpDataType } from "@/typesnschemas/schemas/AuthSchemas";
 import { ChevronsLeftRightEllipsisIcon, MailIcon, UserIcon } from "@animateicons/react/lucide";
@@ -58,7 +59,7 @@ export const SignUp = () => {
   }, [clearAuthState]);
 
   return (
-    <>
+    <AuthContextProvider>
       <div className="flex flex-col justify-center items-center text-primary space-y-6">
         <AuthMobileHeader />
 
@@ -85,12 +86,12 @@ export const SignUp = () => {
             errors={errors}
           />
 
-          <Button type="submit" className="w-80 h-10 mt-6  self-center text-[15px] bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
+          <Button type="submit" className="w-80 h-12 md:h-10 mt-6  self-center text-sm bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
             {authLoadingState ? <Spinner /> : <UserPlus />}
             Create Account
           </Button>
         </form>
       </div>
-    </>
+    </AuthContextProvider>
   );
 };

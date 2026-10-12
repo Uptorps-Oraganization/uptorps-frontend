@@ -1,6 +1,6 @@
 import type { Theme } from "@/typesnschemas/types/DataTypes";
 
-export const DynamicUptorpLogo = (props: { className?: string; theme?: Theme }) => {
+export const DynamicUptorpLogo = (props: { className: string; theme: Theme }) => {
   const fillColor = props.theme === "dark" ? "#ffffff" : "#000000";
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className={props.className}>

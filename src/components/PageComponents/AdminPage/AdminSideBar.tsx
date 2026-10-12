@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { DynamicUptorpLogo } from "@/components/ui/DynamicUptorpLogo";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";
@@ -8,7 +9,7 @@ import { adminMenuOptions } from "@/lib/data";
 import { useAdminStore } from "@/statemanagers/userpagestate/AdminStore";
 import { LogOut, Moon, Settings, Sun } from "@animateicons/react/lucide";
 import { CircleUserRoundIcon, LineDotLeftHorizontal } from "lucide-react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { CollapsableMenuOption } from "./CollapsableMenuOption";
 
 export const AdminSideBar = () => {
@@ -34,7 +35,7 @@ export const AdminSideBar = () => {
         <SidebarMenu>
           <SidebarMenuItem>
             <section className="flex flex-row items-center p-1 space-x-2 side_element_collapse">
-              <img className="w-7.5 h-7.5" src="/uptorpsbook.svg" alt="Uptorps Book" />
+              <DynamicUptorpLogo className="size-8" theme={theme} />
               <h1 className="text-xl text-primary-foreground font-bold truncate group-data-[collapsible=icon]:hidden">Uptorps</h1>
             </section>
           </SidebarMenuItem>
@@ -79,7 +80,7 @@ export const AdminSideBar = () => {
                     <SidebarMenuSubItem key={subOption.name} className="text-primary-foreground!">
                       <SidebarMenuSubButton
                         isActive={currentLocation.pathname === subOption.link}
-                        render={<a href={subOption.link} />}
+                        render={<Link to={subOption.link} />}
                         className={`${currentLocation.pathname === subOption.link ? "font-bold text-primary" : "text-primary-foreground!"} h-8 [&_svg]:size-4`}
                       >
                         <subOption.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
@@ -95,7 +96,7 @@ export const AdminSideBar = () => {
                   <SidebarMenuButton
                     tooltip={option.name}
                     isActive={currentLocation.pathname === option.link}
-                    render={<a href={option.link} />}
+                    render={<Link to={option.link} />}
                     className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
                   >
                     <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
@@ -111,7 +112,7 @@ export const AdminSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<a href="/adminpage/settings" />}>
+            <SidebarMenuButton render={<Link to="/adminpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
