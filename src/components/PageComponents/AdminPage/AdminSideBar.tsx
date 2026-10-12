@@ -15,8 +15,9 @@ import { CollapsableMenuOption } from "./CollapsableMenuOption";
 export const AdminSideBar = () => {
   const currentLocation = useLocation();
   const navigate = useNavigate();
+
   const { theme, setTheme } = useTheme();
-  const { state } = useSidebar();
+  const { state, setOpenMobile } = useSidebar();
 
   const { logOutLoadingState, setlogOutLoadingState } = useAdminStore();
 
@@ -30,7 +31,7 @@ export const AdminSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar" className="text-primary-foreground!">
+    <Sidebar collapsible="icon" variant="floating" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -79,6 +80,7 @@ export const AdminSideBar = () => {
                   {option.subOptions.map((subOption) => (
                     <SidebarMenuSubItem key={subOption.name} className="text-primary-foreground!">
                       <SidebarMenuSubButton
+                        onClick={() => setOpenMobile(false)}
                         isActive={currentLocation.pathname === subOption.link}
                         render={<Link to={subOption.link} />}
                         className={`${currentLocation.pathname === subOption.link ? "font-bold text-primary" : "text-primary-foreground!"} h-8 [&_svg]:size-4`}
@@ -95,6 +97,7 @@ export const AdminSideBar = () => {
                 <SidebarMenuItem key={option.name}>
                   <SidebarMenuButton
                     tooltip={option.name}
+                    onClick={() => setOpenMobile(false)}
                     isActive={currentLocation.pathname === option.link}
                     render={<Link to={option.link} />}
                     className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
@@ -112,14 +115,14 @@ export const AdminSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<Link to="/adminpage/settings" />}>
+            <SidebarMenuButton tooltip={"Account Settings"} onClick={() => setOpenMobile(false)} render={<Link to="/adminpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton className="font-bold" onClick={() => logOutAdmin()}>
+            <SidebarMenuButton tooltip={"Log Out"} className="font-bold" onClick={() => logOutAdmin()}>
               {logOutLoadingState ? <Spinner /> : <LogOut />}
               <span className="text-pretty">Log Out</span>
             </SidebarMenuButton>

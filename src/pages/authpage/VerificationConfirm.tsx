@@ -28,12 +28,14 @@ export const VerificationConfirm = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center text-primary text-pretty">
-        <section className="py-4">{verificationLoadingState ? <img className="w-25 h-25" src={checkmark} alt="CheckmarkAnimation" /> : <Spinner className="size-15" />}</section>
+        <section className="py-4">
+          {verificationLoadingState ? <img className="size-20 md:size-25" src={checkmark} alt="CheckmarkAnimation" /> : <Spinner className="size-6 md:size-8 lg:size-10" />}
+        </section>
 
         {verificationLoadingState ? (
           <p className="text-lg md:text-xl font-bold transition-all duration-200">Email Verifed Successfully</p>
         ) : (
-          <p className="animate-pulse">Confirming verification link .....</p>
+          <p className="animate-pulse">Verification in progress.....</p>
         )}
 
         {verificationLoadingState && (

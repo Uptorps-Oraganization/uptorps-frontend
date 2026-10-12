@@ -16,7 +16,7 @@ export const TutorSideBar = () => {
   const navigate = useNavigate();
 
   const { theme, setTheme } = useTheme();
-  const { state } = useSidebar();
+  const { state, setOpenMobile } = useSidebar();
 
   const { logOutLoadingState, setlogOutLoadingState } = useTutorStore();
 
@@ -30,7 +30,7 @@ export const TutorSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar">
+    <Sidebar collapsible="icon" variant="floating" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2 text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -75,6 +75,8 @@ export const TutorSideBar = () => {
           {tutorMenuOptions.map((option) => (
             <SidebarMenuItem key={option.name}>
               <SidebarMenuButton
+                tooltip={option.name}
+                onClick={() => setOpenMobile(false)}
                 isActive={currentLocation.pathname === option.link}
                 render={<Link to={option.link} />}
                 className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
@@ -90,21 +92,21 @@ export const TutorSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<Link to="/userpage/tutoractionpage/settings" />}>
+            <SidebarMenuButton tooltip={"Account Settings"} onClick={() => setOpenMobile(false)} render={<Link to="/userpage/tutoractionpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
 
           <SidebarMenuItem className="pointer-events-none">
-            <SidebarMenuButton>
+            <SidebarMenuButton tooltip={"Free Account"}>
               <UserLock />
               <span className="text-pretty">Free Account</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton className="font-bold" onClick={() => logOutTutor()}>
+            <SidebarMenuButton tooltip={"Log Out"} className="font-bold" onClick={() => logOutTutor()}>
               {logOutLoadingState ? <Spinner /> : <LogOut />}
               <span className="text-pretty">Log Out</span>
             </SidebarMenuButton>
