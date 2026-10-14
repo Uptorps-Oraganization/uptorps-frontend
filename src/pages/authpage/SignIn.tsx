@@ -12,6 +12,7 @@ import { MailIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LogIn } from "lucide-react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -61,41 +62,47 @@ export const SignIn = () => {
   }, [clearAuthState]);
 
   return (
-    <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <AuthMobileHeader />
+    <>
+      <Helmet>
+        <title>Sign In | Uptorps</title>
+      </Helmet>
 
-      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Log into your account</p>
+      <div className="flex flex-col justify-center items-center text-primary space-y-6">
+        <AuthMobileHeader />
 
-      <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
-        <AccountSelect control={control} errors={errors} />
+        <p className="font-bold text-sm md:text-2xl lg:text-4xl">Log into your account</p>
 
-        <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />
+        <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
+          <AccountSelect control={control} errors={errors} />
 
-        <PasswordInputField label="Password" fieldname="password" register={register} placeholder="Enter your password" required={true} errors={errors} />
+          <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />
 
-        <section className="flex flex-row justify-start items-center space-x-2 mt-4">
-          <Checkbox id="remember-me" {...register("remember_me")} />
-          <Label htmlFor="remember-me">Remember me</Label>
-        </section>
+          <PasswordInputField label="Password" fieldname="password" register={register} placeholder="Enter your password" required={true} errors={errors} />
 
-        <Button
-          type="submit"
-          className="w-80 h-12 md:h-10 mt-6 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
-          disabled={authLoadingState && true}
-        >
-          {authLoadingState ? <Spinner /> : <LogIn />}
-          Sign In
-        </Button>
-      </form>
+          <section className="flex flex-row justify-start items-center space-x-2 mt-4">
+            <Checkbox id="remember-me" {...register("remember_me")} />
+            <Label htmlFor="remember-me">Remember me</Label>
+          </section>
 
-      <div className="flex flex-col justify-center items-center space-y-2">
-        <p className="text-sm text-primary">
-          Forgot your password?{" "}
-          <Link to={"/auth/passwordreset"} className="text-green-500 transition-[font] hover:font-semibold">
-            Reset Password
-          </Link>
-        </p>
+          <Button
+            type="submit"
+            className="w-80 h-12 md:h-10 mt-6 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
+            disabled={authLoadingState && true}
+          >
+            {authLoadingState ? <Spinner /> : <LogIn />}
+            Sign In
+          </Button>
+        </form>
+
+        <div className="flex flex-col justify-center items-center space-y-2">
+          <p className="text-sm text-primary">
+            Forgot your password?{" "}
+            <Link to={"/auth/passwordreset"} className="text-green-500 transition-[font] hover:font-semibold">
+              Reset Password
+            </Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

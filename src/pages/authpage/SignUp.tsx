@@ -1,3 +1,4 @@
+import { registerUser } from "@/api/requests/authqueries";
 import { AccountSelect } from "@/components/PageComponents/authpage/AccountSelect";
 import { AuthMobileHeader } from "@/components/PageComponents/authpage/AuthMobileHeader";
 import { PasswordInputField } from "@/components/PageComponents/authpage/PasswordInputField";
@@ -10,6 +11,7 @@ import { ChevronsLeftRightEllipsisIcon, MailIcon, UserIcon } from "@animateicons
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MailWarning, UserPlus } from "lucide-react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -30,13 +32,18 @@ export const SignUp = () => {
     },
   });
 
-  const handleSignUpSubmit: SubmitHandler<SignUpDataType> = (data) => {
+  const handleSignUpSubmit: SubmitHandler<SignUpDataType> = async (data) => {
     setAuthLoadingState();
-    setTimeout(() => {
-      console.log(data);
+
+    const resData = await registerUser(data);
+
+    if (resData.success) {
       setAuthLoadingState();
       showToastForVerificationRequired();
-    }, 1000);
+    } else {
+      setAuthLoadingState();
+      showToastForRegisterUnsuccessful();
+    }
   };
 
   const showToastForVerificationRequired = () => {
@@ -45,6 +52,13 @@ export const SignUp = () => {
       onAutoClose: () => {
         navigate("/auth/verificationemailsent", { replace: true });
       },
+      duration: 1000,
+    });
+  };
+
+  const showToastForRegisterUnsuccessful = () => {
+    return toast.error("Account Creation Unsuccessful", {
+      className: "text-destructive!",
       duration: 1000,
     });
   };
@@ -58,37 +72,43 @@ export const SignUp = () => {
   }, [clearAuthState]);
 
   return (
-    <div className="flex flex-col justify-center items-center text-primary space-y-6">
-      <AuthMobileHeader />
+    <>
+      <Helmet>
+        <title>Sign Up | Uptorps</title>
+      </Helmet>
 
-      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Create a new account</p>
+      <div className="flex flex-col justify-center items-center text-primary space-y-6">
+        <AuthMobileHeader />
 
-      <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
-        <AccountSelect control={control} errors={errors} />
+        <p className="font-bold text-sm md:text-2xl lg:text-4xl">Create a new account</p>
 
-        <TextInputField type={"text"} label="Username" fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} required={true} errors={errors} />
+        <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
+          <AccountSelect control={control} errors={errors} />
 
-        <TextInputField type={"email"} label="Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} required={true} errors={errors} />
+          <TextInputField type={"text"} label="Username" fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} required={true} errors={errors} />
 
-        <PasswordInputField label="Password" fieldname="password" register={register} placeholder={"Enter your password"} required={true} errors={errors} />
+          <TextInputField type={"email"} label="Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} required={true} errors={errors} />
 
-        <PasswordInputField label="Confirm Password" fieldname="confirmpassword" register={register} placeholder={"Enter your password again"} required={true} errors={errors} />
+          <PasswordInputField label="Password" fieldname="password" register={register} placeholder={"Enter your password"} required={true} errors={errors} />
 
-        <TextInputField
-          type={"text"}
-          label="Referral Code"
-          fieldname={"referralcode"}
-          fieldicon={ChevronsLeftRightEllipsisIcon}
-          register={register}
-          placeholder={"Enter Referral Code"}
-          errors={errors}
-        />
+          <PasswordInputField label="Confirm Password" fieldname="confirmpassword" register={register} placeholder={"Enter your password again"} required={true} errors={errors} />
 
-        <Button type="submit" className="w-80 h-12 md:h-10 mt-6  self-center text-sm bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
-          {authLoadingState ? <Spinner /> : <UserPlus />}
-          Create Account
-        </Button>
-      </form>
-    </div>
+          <TextInputField
+            type={"text"}
+            label="Referral Code"
+            fieldname={"referralcode"}
+            fieldicon={ChevronsLeftRightEllipsisIcon}
+            register={register}
+            placeholder={"Enter Referral Code"}
+            errors={errors}
+          />
+
+          <Button type="submit" className="w-80 h-12 md:h-10 mt-6  self-center text-sm bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
+            {authLoadingState ? <Spinner /> : <UserPlus />}
+            Create Account
+          </Button>
+        </form>
+      </div>
+    </>
   );
 };
