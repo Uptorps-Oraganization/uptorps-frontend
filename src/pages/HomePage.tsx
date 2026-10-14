@@ -79,8 +79,6 @@ const Homepage = () => {
     <>
       <Helmet>
         <title>Homepage | Uptorps</title>
-        <meta name="description" content="Uptorps integrates teaching, learning and earning into a unified platform. Start your journey to educational and financial inclusion today." />
-        <link rel="canonical" href="http://localhost:4168" />
       </Helmet>
 
       <div className="flex flex-col w-full h-full relative">
