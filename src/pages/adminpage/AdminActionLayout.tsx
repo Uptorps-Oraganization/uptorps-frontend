@@ -1,4 +1,4 @@
-import { AdminSideBar } from "@/components/PageComponents/AdminPage/AdminSideBar";
+import { AdminSideBar } from "@/components/PageComponents/adminpage/AdminSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { adminMenuOptions } from "@/lib/data";

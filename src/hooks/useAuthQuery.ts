@@ -1,17 +1,10 @@
-import { api } from "@/api/mainapisetup";
+import { getNewAccessToken } from "@/api/requests/getNewAccessToken";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchCurrentUser = async () => {
-  const response = await api.post("/accounts/refresh/");
-  return response.data;
-};
-
-export const useAuthQuery = () => {
-  return useQuery({
+export const useAuthQuery = () => useQuery({
     queryKey: ["currentUser"],
-    queryFn: fetchCurrentUser,
+    queryFn: getNewAccessToken,
     retry: false,
     refetchOnWindowFocus: false,
     staleTime: 60 * 60 * 1000,
   });
-};

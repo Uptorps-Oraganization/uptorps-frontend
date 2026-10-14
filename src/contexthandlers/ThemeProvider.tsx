@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+
 import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesnschemas/types/DataTypes";
 import { createContext, useContext, useEffect, useState } from "react";
 

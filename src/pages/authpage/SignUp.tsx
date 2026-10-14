@@ -1,10 +1,9 @@
-import { AccountSelect } from "@/components/PageComponents/AuthPage/AccountSelect";
-import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
-import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
-import { TextInputField } from "@/components/PageComponents/AuthPage/TextInputField";
+import { AccountSelect } from "@/components/PageComponents/authpage/AccountSelect";
+import { AuthMobileHeader } from "@/components/PageComponents/authpage/AuthMobileHeader";
+import { PasswordInputField } from "@/components/PageComponents/authpage/PasswordInputField";
+import { TextInputField } from "@/components/PageComponents/authpage/TextInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { AuthContextProvider } from "@/contexthandlers/AuthContextProvider";
 import { useAuthStore } from "@/statemanagers/AuthStore";
 import { signUpDataSchema, type SignUpDataType } from "@/typesnschemas/schemas/AuthSchemas";
 import { ChevronsLeftRightEllipsisIcon, MailIcon, UserIcon } from "@animateicons/react/lucide";
@@ -59,39 +58,37 @@ export const SignUp = () => {
   }, [clearAuthState]);
 
   return (
-    <AuthContextProvider>
-      <div className="flex flex-col justify-center items-center text-primary space-y-6">
-        <AuthMobileHeader />
+    <div className="flex flex-col justify-center items-center text-primary space-y-6">
+      <AuthMobileHeader />
 
-        <p className="font-bold text-sm md:text-2xl lg:text-4xl">Create a new account</p>
+      <p className="font-bold text-sm md:text-2xl lg:text-4xl">Create a new account</p>
 
-        <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
-          <AccountSelect control={control} errors={errors} />
+      <form onSubmit={handleSubmit(handleSignUpSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
+        <AccountSelect control={control} errors={errors} />
 
-          <TextInputField type={"text"} label="Username" fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} required={true} errors={errors} />
+        <TextInputField type={"text"} label="Username" fieldname={"username"} fieldicon={UserIcon} register={register} placeholder={"Enter your username"} required={true} errors={errors} />
 
-          <TextInputField type={"email"} label="Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} required={true} errors={errors} />
+        <TextInputField type={"email"} label="Email" fieldname={"email"} fieldicon={MailIcon} register={register} placeholder={"Enter your email"} required={true} errors={errors} />
 
-          <PasswordInputField label="Password" fieldname="password" register={register} placeholder={"Enter your password"} required={true} errors={errors} />
+        <PasswordInputField label="Password" fieldname="password" register={register} placeholder={"Enter your password"} required={true} errors={errors} />
 
-          <PasswordInputField label="Confirm Password" fieldname="confirmpassword" register={register} placeholder={"Enter your password again"} required={true} errors={errors} />
+        <PasswordInputField label="Confirm Password" fieldname="confirmpassword" register={register} placeholder={"Enter your password again"} required={true} errors={errors} />
 
-          <TextInputField
-            type={"text"}
-            label="Referral Code"
-            fieldname={"referralcode"}
-            fieldicon={ChevronsLeftRightEllipsisIcon}
-            register={register}
-            placeholder={"Enter Referral Code"}
-            errors={errors}
-          />
+        <TextInputField
+          type={"text"}
+          label="Referral Code"
+          fieldname={"referralcode"}
+          fieldicon={ChevronsLeftRightEllipsisIcon}
+          register={register}
+          placeholder={"Enter Referral Code"}
+          errors={errors}
+        />
 
-          <Button type="submit" className="w-80 h-12 md:h-10 mt-6  self-center text-sm bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
-            {authLoadingState ? <Spinner /> : <UserPlus />}
-            Create Account
-          </Button>
-        </form>
-      </div>
-    </AuthContextProvider>
+        <Button type="submit" className="w-80 h-12 md:h-10 mt-6  self-center text-sm bg-green-500 text-primary-foreground hover:text-secondary" disabled={authLoadingState && true}>
+          {authLoadingState ? <Spinner /> : <UserPlus />}
+          Create Account
+        </Button>
+      </form>
+    </div>
   );
 };

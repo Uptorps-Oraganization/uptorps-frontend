@@ -1,4 +1,4 @@
-import { TutorSideBar } from "@/components/PageComponents/UserPage/TutorSideBar";
+import { TutorSideBar } from "@/components/PageComponents/userpage/TutorSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { tutorMenuOptions } from "@/lib/data";

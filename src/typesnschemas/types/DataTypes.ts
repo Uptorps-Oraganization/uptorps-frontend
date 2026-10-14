@@ -20,6 +20,7 @@ export type AuthContextType = {
     uuid: string;
     email: string;
   };
+  isLoading: boolean;
   accessToken: string | null;
   setAccessToken: React.Dispatch<React.SetStateAction<string | null>>;
 };

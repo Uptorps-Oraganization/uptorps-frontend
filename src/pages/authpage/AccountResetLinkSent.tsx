@@ -1,4 +1,4 @@
-import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
+import { AuthMobileHeader } from "@/components/PageComponents/authpage/AuthMobileHeader";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { maildelivery } from "@/lib/assets";
@@ -20,7 +20,7 @@ export const AccountResetLinkSent = () => {
   };
 
   const showToastForResetLinkResent = () => {
-    return toast.message("Verification Mail Resent.", {
+    return toast.success("Verification Mail Resent.", {
       icon: <MailsIcon className="size-4 mr-1" />,
       duration: 1000,
     });

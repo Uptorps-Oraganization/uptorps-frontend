@@ -1,7 +1,7 @@
+import { DynamicUptorpLogo } from "@/components/PageComponents/sharedcomponents/DynamicUptorpLogo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { CircleUserRoundIcon } from "@/components/ui/circle-user-round-icon";
-import { DynamicUptorpLogo } from "@/components/ui/DynamicUptorpLogo";
 import { Separator } from "@/components/ui/separator";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";

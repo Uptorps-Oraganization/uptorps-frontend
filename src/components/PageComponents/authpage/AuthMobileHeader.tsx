@@ -1,9 +1,9 @@
+import { DynamicUptorpLogo } from "@/components/PageComponents/sharedcomponents/DynamicUptorpLogo";
 import { Button } from "@/components/ui/button";
-import { DynamicUptorpLogo } from "@/components/ui/DynamicUptorpLogo";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { Moon, Sun } from "@animateicons/react/lucide";
 
-export const AuthMobileHeader = ({welcome = true}) => {
+export const AuthMobileHeader = ({ welcome = true }) => {
   const { theme, setTheme } = useTheme();
 
   return (

@@ -1,5 +1,5 @@
-import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
-import { PasswordInputField } from "@/components/PageComponents/AuthPage/PasswordInputField";
+import { AuthMobileHeader } from "@/components/PageComponents/authpage/AuthMobileHeader";
+import { PasswordInputField } from "@/components/PageComponents/authpage/PasswordInputField";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { useAuthStore } from "@/statemanagers/AuthStore";

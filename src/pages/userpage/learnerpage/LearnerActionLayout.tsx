@@ -1,4 +1,4 @@
-import { LearnerSideBar } from "@/components/PageComponents/UserPage/LearnerSideBar";
+import { LearnerSideBar } from "@/components/PageComponents/userpage/LearnerSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { userMenuOptions } from "@/lib/data";
