@@ -1,9 +1,9 @@
-import { AuthMobileHeader } from "@/components/PageComponents/AuthPage/AuthMobileHeader";
+import { AuthMobileHeader } from "@/components/PageComponents/authpage/AuthMobileHeader";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { maildelivery } from "@/lib/assets";
 import { useAuthStore } from "@/statemanagers/AuthStore";
-import { Check, ClockIcon, Send } from "lucide-react";
+import { Check, ClockIcon, MailsIcon, Send } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -31,7 +31,7 @@ export const VerificationLinkSent = () => {
 
   const showToastForVerificationResent = () => {
     return toast.success("Verification Mail Resent.", {
-      className: "text-green-600!",
+      icon: <MailsIcon className="size-4 mr-1" />,
       duration: 1000,
     });
   };

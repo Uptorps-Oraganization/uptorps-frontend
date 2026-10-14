@@ -1,3 +1,5 @@
+import { AuthInterceptorManager } from "@/api/ApiInterceptorManager";
+import { ProtectedRoutes } from "@/components/PageComponents/sharedcomponents/ProtectedRoutes";
 import { Toaster } from "@/components/ui/sonner";
 import Homepage from "@/pages/HomePage";
 import { AdminAccounts } from "@/pages/adminpage/Accounts";
@@ -35,56 +37,68 @@ function App() {
   return (
     <>
       <HashRouter>
-        <Routes>
-          <Route index element={<Homepage />} />
+        <AuthInterceptorManager>
+          <Routes>
+            <Route index element={<Homepage />} />
 
-          <Route path="/auth" element={<AuthLayout />}>
-            <Route path="signup" element={<SignUp />} />
-            <Route path="signin" element={<SignIn />} />
-            <Route path="verificationemailsent" element={<VerificationLinkSent />} />
-            <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
-            <Route path="passwordreset" element={<AccountReset />} />
-            <Route path="passwordreset/resetlinksent" element={<AccountResetLinkSent />} />
-            <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
-          </Route>
-
-          <Route path="/adminpage" element={<AdminActionLayout />}>
-            <Route index element={<Navigate to="dashboard" replace />} />
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="courses" element={<AdminCourses />} />
-            <Route path="quizzes" element={<AdminQuizzes />} />
-            <Route path="accounts" element={<AdminAccounts />} />
-            <Route path="settings" element={<AdminSettings />} />
-
-            <Route path="reports">
-              <Route path="tutorreports" element={<TutorReports />} />
-              <Route path="learnerreports" element={<LearnerReports />} />
+            <Route path="/auth" element={<AuthLayout />}>
+              <Route element={<ProtectedRoutes />}>
+                <Route path="signup" element={<SignUp />} />
+                <Route path="signin" element={<SignIn />} />
+              </Route>
+              <Route path="verificationemailsent" element={<VerificationLinkSent />} />
+              <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
+              <Route path="passwordreset" element={<AccountReset />} />
+              <Route path="passwordreset/resetlinksent" element={<AccountResetLinkSent />} />
+              <Route path="passwordreset/:resetlink" element={<AccountPasswordReset />} />
             </Route>
-          </Route>
 
-          <Route path="/userpage">
-            <Route index element={<Navigate to="/auth/signin" replace />} />
-
-            <Route path="learneractionpage" element={<LearnerActionLayout />}>
+            <Route path="/adminpage" element={<AdminActionLayout />}>
               <Route index element={<Navigate to="dashboard" replace />} />
-              <Route path="dashboard" element={<LearnerDashboard />} />
-              <Route path="courses" element={<LearnerCourses />} />
-              <Route path="quizzes" element={<LearnerQuizzes />} />
-              <Route path="referrals" element={<LearnerReferrals />} />
-              <Route path="wallet" element={<LearnerWallet />} />
-              <Route path="settings" element={<LearnerSettings />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="courses" element={<AdminCourses />} />
+                <Route path="quizzes" element={<AdminQuizzes />} />
+                <Route path="accounts" element={<AdminAccounts />} />
+                <Route path="settings" element={<AdminSettings />} />
+
+                <Route path="reports">
+                  <Route path="tutorreports" element={<TutorReports />} />
+                  <Route path="learnerreports" element={<LearnerReports />} />
+                </Route>
+              </Route>
             </Route>
 
-            <Route path="tutoractionpage" element={<TutorActionLayout />}>
-              <Route index element={<Navigate to="dashboard" replace />} />
-              <Route path="dashboard" element={<TutorDashboard />} />
-              <Route path="courses" element={<TutorCourses />} />
-              <Route path="quizzes" element={<TutorQuizzes />} />
-              <Route path="wallet" element={<TutorWallet />} />
-              <Route path="settings" element={<TutorSettings />} />
+            <Route path="/userpage">
+              <Route index element={<Navigate to="/auth/signin" replace />} />
+
+              <Route path="learneractionpage" element={<LearnerActionLayout />}>
+                <Route index element={<Navigate to="dashboard" replace />} />
+
+                <Route element={<ProtectedRoutes />}>
+                  <Route path="dashboard" element={<LearnerDashboard />} />
+                  <Route path="courses" element={<LearnerCourses />} />
+                  <Route path="quizzes" element={<LearnerQuizzes />} />
+                  <Route path="referrals" element={<LearnerReferrals />} />
+                  <Route path="wallet" element={<LearnerWallet />} />
+                  <Route path="settings" element={<LearnerSettings />} />
+                </Route>
+              </Route>
+
+              <Route path="tutoractionpage" element={<TutorActionLayout />}>
+                <Route index element={<Navigate to="dashboard" replace />} />
+
+                <Route element={<ProtectedRoutes />}>
+                  <Route path="dashboard" element={<TutorDashboard />} />
+                  <Route path="courses" element={<TutorCourses />} />
+                  <Route path="quizzes" element={<TutorQuizzes />} />
+                  <Route path="wallet" element={<TutorWallet />} />
+                  <Route path="settings" element={<TutorSettings />} />
+                </Route>
+              </Route>
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </AuthInterceptorManager>
       </HashRouter>
 
       <Toaster position="bottom-right" />
