@@ -32,6 +32,7 @@ import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { HashRouter, Navigate, Route, Routes } from "react-router";
+import { RememberAuthState } from "./components/PageComponents/authpage/RememberAuthState";
 
 function App() {
   return (
@@ -42,10 +43,11 @@ function App() {
             <Route index element={<Homepage />} />
 
             <Route path="/auth" element={<AuthLayout />}>
-              <Route element={<ProtectedRoutes />}>
+              <Route element={<RememberAuthState />}>
                 <Route path="signup" element={<SignUp />} />
                 <Route path="signin" element={<SignIn />} />
               </Route>
+
               <Route path="verificationemailsent" element={<VerificationLinkSent />} />
               <Route path="verifyemaillink/:token" element={<VerificationConfirm />} />
               <Route path="passwordreset" element={<AccountReset />} />

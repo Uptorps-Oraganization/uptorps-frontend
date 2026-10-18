@@ -75,9 +75,25 @@ export const SignIn = () => {
         <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
           <AccountSelect control={control} errors={errors} />
 
-          <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />
+          <TextInputField
+            type="email"
+            label="Email"
+            fieldname="email"
+            fieldicon={MailIcon}
+            register={register}
+            placeholder="Enter your email"
+            required={true}
+            errors={errors}
+          />
 
-          <PasswordInputField label="Password" fieldname="password" register={register} placeholder="Enter your password" required={true} errors={errors} />
+          <PasswordInputField
+            label="Password"
+            fieldname="password"
+            register={register}
+            placeholder="Enter your password"
+            required={true}
+            errors={errors}
+          />
 
           <section className="flex flex-row justify-start items-center space-x-2 mt-4">
             <Checkbox id="remember-me" {...register("remember_me")} />
@@ -107,7 +123,7 @@ export const SignIn = () => {
             onClick={() => navigate("/userpage/tutoractionpage/dashboard", { replace: true })}
             className="w-80 h-9 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
           >
-             Go to Tutor Page
+            Go to Tutor Page
           </Button>
         </div>
 
