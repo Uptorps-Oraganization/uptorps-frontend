@@ -18,10 +18,10 @@ export const AccountUserStatCard = (props: StatType) => {
       <Card>
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">{props.figure}</CardTitle>
+          <CardTitle className="text-3xl font-semibold tabular-nums">{props.figure}</CardTitle>
           <CardAction>
-            <Badge variant="secondary" className="py-3">
-              <FieldIcon className="size-6" />
+            <Badge variant="secondary" className="font-semibold py-3">
+              <FieldIcon className="size-4" />
               {props.trend}
             </Badge>
           </CardAction>

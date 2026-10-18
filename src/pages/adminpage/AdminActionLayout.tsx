@@ -1,4 +1,5 @@
 import { AdminSideBar } from "@/components/PageComponents/adminpage/AdminSideBar";
+import { AdminNotificationSheet } from "@/components/PageComponents/adminpage/dashboardcomponents/AdminNotificationSheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,11 +7,13 @@ import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { adminMenuOptions } from "@/lib/data";
 import { BellIcon } from "@animateicons/react/lucide";
+import { useState } from "react";
 
 import { Outlet, useLocation } from "react-router";
 
 export const AdminActionLayout = () => {
   const currentLocation = useLocation();
+  const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
 
   return (
     <SidebarProvider>
@@ -45,7 +48,7 @@ export const AdminActionLayout = () => {
             </section>
 
             <section className="flex flex-row items-center pr-3 space-x-2">
-              <div className="flex flex-row items-center rounded-full border-4 p-0.5  space-x-2">
+              <div className="flex flex-row items-center rounded-full border-4 p-0.5 space-x-2">
                 <p className="text-xs font-semibold px-2">Mr. Adi Ato John</p>
 
                 <span className="bg-green-500/10 text-[11px] text-green-500 rounded-full px-2">Admin & Manager</span>
@@ -62,10 +65,13 @@ export const AdminActionLayout = () => {
                 </Avatar>
               </div>
 
-              <Button size="icon" variant="ghost" className="relative">
+              <Button onClick={() => setIsNotificationSheetOpen(true)} size="icon" variant="ghost" className="relative">
                 <BellIcon />
 
-                <Badge variant="secondary" className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center rounded-full text-[10px] text-green-500 font-semibold">
+                <Badge
+                  variant="secondary"
+                  className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center rounded-full text-[10px] text-green-500 font-semibold"
+                >
                   3
                 </Badge>
               </Button>
@@ -76,6 +82,8 @@ export const AdminActionLayout = () => {
         <main>
           <Outlet />
         </main>
+
+        <AdminNotificationSheet isSheetOpen={isNotificationSheetOpen} setIsSheetOpen={setIsNotificationSheetOpen} />
       </SidebarInset>
     </SidebarProvider>
   );

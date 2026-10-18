@@ -1,5 +1,5 @@
-import { AccountUserStatCard } from "@/components/PageComponents/adminpage/AccountUserStatCard";
-import { SiteVisitStatCard } from "@/components/PageComponents/adminpage/SiteVisitStatCard";
+import { AccountUserStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/AccountUserStatCard";
+import { SiteVisitStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/SiteVisitStatCard";
 import { TrendingUp } from "@animateicons/react/lucide";
 
 export const AdminDashboard = () => {
