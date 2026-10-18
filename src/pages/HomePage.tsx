@@ -70,7 +70,7 @@ const Homepage = () => {
 
   const showToastForSubscription = () => {
     return toast.success("You have successfully subcribed to our newsletter.", {
-      className: "text-green-600!",
+      className: "text-green-500!",
       duration: 2000,
     });
   };
@@ -82,7 +82,7 @@ const Homepage = () => {
       </Helmet>
 
       <div className="flex flex-col w-full h-full relative">
-        <header className="sticky top-0 bg-green-500 flex flex-row p-2 py-4 justify-between z-10">
+        <header  className="sticky top-0 bg-green-500 flex flex-row p-2 py-4 justify-between z-10">
           <section className="flex flex-row items-center p-1 space-x-2">
             <DynamicUptorpLogo className="size-10" theme={theme} />
             <h1 className="text-sm md:text-[16px] lg:text-xl font-bold text-primary-foreground">Uptorps</h1>

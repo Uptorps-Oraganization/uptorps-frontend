@@ -31,7 +31,7 @@ export const LearnerSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon" variant="floating" className="text-primary-foreground!">
+    <Sidebar collapsible="icon" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -47,7 +47,7 @@ export const LearnerSideBar = () => {
         <SidebarMenu>
           <div className="py-4 truncate group-data-[collapsible=icon]:hidden">
             <section className="flex flex-col h-fit justify-center items-center pointer-events-none">
-              <Avatar className="size-15 rounded-sm grayscale">
+              <Avatar className="size-15 rounded-sm">
                 <AvatarImage
                   className="border-4"
                   src={

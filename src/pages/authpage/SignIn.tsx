@@ -94,6 +94,23 @@ export const SignIn = () => {
           </Button>
         </form>
 
+        <div>
+          <span>Demo Access Buttons</span>
+          <Button
+            onClick={() => navigate("/adminpage/dashboard", { replace: true })}
+            className="w-80 h-9 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
+          >
+            Go to Admin Page
+          </Button>
+
+          <Button
+            onClick={() => navigate("/userpage/tutoractionpage/dashboard", { replace: true })}
+            className="w-80 h-9 flex flex-row self-center items-center text-sm bg-green-500 text-primary-foreground hover:text-secondary"
+          >
+             Go to Tutor Page
+          </Button>
+        </div>
+
         <div className="flex flex-col justify-center items-center space-y-2">
           <p className="text-sm text-primary">
             Forgot your password?{" "}

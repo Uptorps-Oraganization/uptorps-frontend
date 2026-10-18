@@ -2,7 +2,18 @@ import { DynamicUptorpLogo } from "@/components/PageComponents/sharedcomponents/
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubButton, SidebarMenuSubItem, useSidebar } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  useSidebar,
+} from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
@@ -31,13 +42,13 @@ export const AdminSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon" variant="floating" className="text-primary-foreground!">
+    <Sidebar collapsible="icon" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2">
         <SidebarMenu>
           <SidebarMenuItem>
             <section className="flex flex-row items-center p-1 space-x-2 side_element_collapse">
               <DynamicUptorpLogo className="size-8" theme={theme} />
-              <h1 className="text-xl text-primary-foreground font-bold truncate group-data-[collapsible=icon]:hidden">Uptorps</h1>
+              <h1 className="text-[16px] text-primary-foreground font-bold truncate group-data-[collapsible=icon]:hidden">Uptorps</h1>
             </section>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -47,7 +58,7 @@ export const AdminSideBar = () => {
         <SidebarMenu>
           <div className="py-4 truncate group-data-[collapsible=icon]:hidden">
             <section className="flex flex-col h-fit justify-center items-center pointer-events-none">
-              <Avatar className="size-15 rounded-sm grayscale">
+              <Avatar className="size-15">
                 <AvatarImage
                   className="border-4"
                   src={
@@ -55,7 +66,7 @@ export const AdminSideBar = () => {
                   }
                   alt={"user image"}
                 />
-                <AvatarFallback className="rounded-lg">UI</AvatarFallback>
+                <AvatarFallback>UI</AvatarFallback>
               </Avatar>
 
               <section className="flex flex-col w-[95%] my-3 space-y-2">
@@ -78,15 +89,17 @@ export const AdminSideBar = () => {
               return (
                 <CollapsableMenuOption key={option.name} menuName={option.name} menuIcon={option.icon}>
                   {option.subOptions.map((subOption) => (
-                    <SidebarMenuSubItem key={subOption.name} className="text-primary-foreground!">
+                    <SidebarMenuSubItem key={subOption.name}>
                       <SidebarMenuSubButton
                         onClick={() => setOpenMobile(false)}
                         isActive={currentLocation.pathname === subOption.link}
                         render={<Link to={subOption.link} />}
-                        className={`${currentLocation.pathname === subOption.link ? "font-bold text-primary" : "text-primary-foreground!"} h-8 [&_svg]:size-4`}
+                        className={`${currentLocation.pathname === subOption.link ? "font-semibold" : "text-primary-foreground!"} h-8 [&_svg]:size-4 hover:text-primary!`}
                       >
                         <subOption.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                        <span className={`${currentLocation.pathname === subOption.link ? "text-[15px]" : "text-[13px]"} text-pretty`}>{subOption.name}</span>
+                        <span className={`${currentLocation.pathname === subOption.link ? "text-sm" : "text-[12px]"} text-pretty`}>
+                          {subOption.name}
+                        </span>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
@@ -103,7 +116,9 @@ export const AdminSideBar = () => {
                     className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
                   >
                     <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                    <span className={`${currentLocation.pathname === option.link ? "text-[15px]" : "text-[13px]"} text-pretty`}>{option.name}</span>
+                    <span className={`${currentLocation.pathname === option.link ? "text-[15px] font-semibold" : "text-[13px]"} text-pretty`}>
+                      {option.name}
+                    </span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               );
