@@ -3,7 +3,7 @@ import { MessagesSquareIcon } from "@/components/ui/messages-square-icon";
 import { UserGroupIcon } from "@/components/ui/user-group-icon";
 import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
-import { BrainIcon, EllipsisIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
+import { BrainIcon, DollarSignIcon, EllipsisIcon, HandCoinsIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
 import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -104,8 +104,16 @@ export const adminMenuOptions = [
     name: "Configurations",
     icon: WrenchIcon,
     subOptions: [
-      { name: "Quizzes", link: "/adminpage/quizzes", icon: BrainIcon },
-      { name: "Courses", link: "/adminpage/courses", icon: GraduationCapIcon },
+      { name: "Quizzes", link: "/adminpage/configurations/quizzes", icon: BrainIcon },
+      { name: "Courses", link: "/adminpage/configurations/courses", icon: GraduationCapIcon },
+    ],
+  },
+  {
+    name: "Finance",
+    icon: WalletIcon,
+    subOptions: [
+      { name: "Revenue", link: "/adminpage/finance/revenue", icon: DollarSignIcon },
+      { name: "Payouts & Withdrawals", link: "/adminpage/finance/payouts", icon: HandCoinsIcon },
     ],
   },
   {

@@ -23,8 +23,8 @@ export const PageAccountHeader = (props: PageAccountHeaderType) => {
         <Button onClick={() => props.notificationToggle(true)} size="icon" variant="ghost" className="relative">
           <BellIcon />
 
-          <Badge variant="secondary" className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center rounded-full text-[10px] text-green-500 font-semibold">
-            3
+          <Badge variant="secondary" className="absolute -top-2 -right-1 max-h-5 max-w-5 flex items-center justify-center rounded-full text-[10px] text-green-500 font-semibold">
+            8
           </Badge>
         </Button>
       </section>

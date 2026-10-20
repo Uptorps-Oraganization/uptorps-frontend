@@ -1,4 +1,5 @@
 import { AuthInterceptorManager } from "@/api/ApiInterceptorManager";
+import { RememberAuthState } from "@/components/PageComponents/authpage/RememberAuthState";
 import { ProtectedRoutes } from "@/components/PageComponents/sharedcomponents/ProtectedRoutes";
 import { Toaster } from "@/components/ui/sonner";
 import Homepage from "@/pages/HomePage";
@@ -8,6 +9,8 @@ import { AdminCourses } from "@/pages/adminpage/Courses";
 import { AdminDashboard } from "@/pages/adminpage/Dashboard";
 import { AdminQuizzes } from "@/pages/adminpage/Quizzes";
 import { AdminSettings } from "@/pages/adminpage/Settings";
+import { AdminPayouts } from "@/pages/adminpage/finance/Payouts";
+import { AdminRevenue } from "@/pages/adminpage/finance/Revenue";
 import { LearnerReports } from "@/pages/adminpage/reports/LearnerReports";
 import { TutorReports } from "@/pages/adminpage/reports/TutorReports";
 import { AccountPasswordReset } from "@/pages/authpage/AccountPasswordReset";
@@ -32,7 +35,6 @@ import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { HashRouter, Navigate, Route, Routes } from "react-router";
-import { RememberAuthState } from "./components/PageComponents/authpage/RememberAuthState";
 
 function App() {
   return (
@@ -59,15 +61,24 @@ function App() {
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path="dashboard" element={<AdminDashboard />} />
-                <Route path="courses" element={<AdminCourses />} />
-                <Route path="quizzes" element={<AdminQuizzes />} />
                 <Route path="accounts" element={<AdminAccounts />} />
-                <Route path="settings" element={<AdminSettings />} />
+
+                <Route path="configurations">
+                  <Route path="courses" element={<AdminCourses />} />
+                  <Route path="quizzes" element={<AdminQuizzes />} />
+                </Route>
+
+                <Route path="finance">
+                  <Route path="revenue" element={<AdminRevenue />} />
+                  <Route path="payouts" element={<AdminPayouts />} />
+                </Route>
 
                 <Route path="reports">
                   <Route path="tutorreports" element={<TutorReports />} />
                   <Route path="learnerreports" element={<LearnerReports />} />
                 </Route>
+
+                <Route path="settings" element={<AdminSettings />} />
               </Route>
             </Route>
 
