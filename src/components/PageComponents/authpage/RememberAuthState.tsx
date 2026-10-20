@@ -1,6 +1,6 @@
 import { useAuthState } from "@/contexthandlers/AuthContextProvider";
 import { AxiosError } from "axios";
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 import { AuthStateCheckLoader } from "../sharedcomponents/AuthStateCheckLoader";
 
 export const RememberAuthState = () => {
@@ -14,5 +14,6 @@ export const RememberAuthState = () => {
     return <Outlet />;
   }
 
-  return <Navigate to="/userpage/learneractionpage/dashboard" replace />;
+  /* return <Navigate to="/userpage/learneractionpage/dashboard" replace />; */
+  return <Outlet />;
 };

@@ -76,7 +76,7 @@ export const SiteVisitStatCard = () => {
         <CardHeader className="flex flex-col items-stretch border-b p-0! sm:flex-row">
           <div className="flex flex-1 flex-col justify-center gap-1 px-6 pt-4 pb-3 sm:py-0!">
             <CardTitle>Site Visits</CardTitle>
-            <CardDescription className="text-green-500">Total otal site visitors for the last 2 months</CardDescription>
+            <CardDescription className="text-green-500">Total site visitors for the last 2 months</CardDescription>
           </div>
           <div className="flex">
             {["desktop", "mobile"].map((device) => {
@@ -89,9 +89,7 @@ export const SiteVisitStatCard = () => {
                   onClick={() => setActiveChart(chart)}
                 >
                   <span className="text-xs text-muted-foreground">{chartConfig[chart].label}</span>
-                  <span className="text-sm leading-none font-bold tabular-nums md:text-2xl">
-                    {total[device as keyof typeof total].toLocaleString()}
-                  </span>
+                  <span className="text-sm leading-none font-bold tabular-nums md:text-2xl">{total[device as keyof typeof total].toLocaleString()}</span>
                 </button>
               );
             })}
@@ -99,7 +97,7 @@ export const SiteVisitStatCard = () => {
         </CardHeader>
 
         <CardContent className="px-2 md:p-6">
-          <ChartContainer config={chartConfig} className="aspect-auto h-45 w-full">
+          <ChartContainer config={chartConfig} className="aspect-auto h-60 w-full">
             <BarChart
               accessibilityLayer
               data={chartData}
@@ -127,7 +125,8 @@ export const SiteVisitStatCard = () => {
                 content={
                   <ChartTooltipContent
                     className="w-37.5"
-                    nameKey="views"
+                    indicator="line"
+                    cursor={false}
                     labelFormatter={(value) => {
                       return new Date(value).toLocaleDateString("en-US", {
                         month: "short",
@@ -138,8 +137,8 @@ export const SiteVisitStatCard = () => {
                   />
                 }
               />
-              
-              <Bar dataKey={activeChart} fill={`var(--color-${activeChart})`} />
+
+              <Bar dataKey={activeChart} animationDuration={1000} animationEasing="ease-in" fill={`var(--color-${activeChart})`} />
             </BarChart>
           </ChartContainer>
         </CardContent>
