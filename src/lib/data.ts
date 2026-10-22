@@ -102,19 +102,19 @@ export const adminMenuOptions = [
   { name: "Account Management", link: "/adminpage/accountmanagement", icon: UserGroupIcon },
   { name: "Analytics", link: "/adminpage/analytics", icon: ChartPieIcon },
   {
-    name: "Finance",
-    icon: WalletIcon,
-    subOptions: [
-      { name: "Revenue", link: "/adminpage/finance/revenue", icon: DollarSignIcon },
-      { name: "Payouts", link: "/adminpage/finance/payouts", icon: HandCoinsIcon },
-    ],
-  },
-  {
     name: "Configurations",
     icon: WrenchIcon,
     subOptions: [
       { name: "Quizzes", link: "/adminpage/configurations/quizzes", icon: BrainIcon },
       { name: "Courses", link: "/adminpage/configurations/courses", icon: GraduationCapIcon },
+    ],
+  },
+  {
+    name: "Finance",
+    icon: WalletIcon,
+    subOptions: [
+      { name: "Revenue", link: "/adminpage/finance/revenue", icon: DollarSignIcon },
+      { name: "Payouts", link: "/adminpage/finance/payouts", icon: HandCoinsIcon },
     ],
   },
   {

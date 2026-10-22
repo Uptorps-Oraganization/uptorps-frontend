@@ -62,14 +62,14 @@ function App() {
             <Route path="accountmanagement" element={<AdminAccounts />} />
             <Route path="analytics" element={<AdminAnalytics />} />
 
-            <Route path="finance">
-              <Route path="revenue" element={<AdminRevenue />} />
-              <Route path="payouts" element={<AdminPayouts />} />
-            </Route>
-
             <Route path="configurations">
               <Route path="courses" element={<AdminCourses />} />
               <Route path="quizzes" element={<AdminQuizzes />} />
+            </Route>
+
+            <Route path="finance">
+              <Route path="revenue" element={<AdminRevenue />} />
+              <Route path="payouts" element={<AdminPayouts />} />
             </Route>
 
             <Route path="reports">
