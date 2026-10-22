@@ -1,3 +1,5 @@
+import { PageDevelopmentPlaceholder } from "@/components/PageComponents/sharedcomponents/PageDevelopmentPlaceholder";
+
 export const TutorWallet = () => {
-  return <div>Wallet</div>;
+  return <PageDevelopmentPlaceholder />;
 };

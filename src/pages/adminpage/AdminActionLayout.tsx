@@ -1,5 +1,5 @@
 import { AdminSideBar } from "@/components/PageComponents/adminpage/AdminSideBar";
-import { AdminNotificationSheet } from "@/components/PageComponents/adminpage/dashboard/AdminNotificationSheet";
+import { NotificationSheet } from "@/components/PageComponents/sharedcomponents/NotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -39,7 +39,7 @@ export const AdminActionLayout = () => {
                       ),
                 )}
 
-                {currentLocation.pathname == "/adminpage/settings" && <h1 className="text-base font-bold">Account Settings</h1>}
+                {currentLocation.pathname == "/adminpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
               </article>
             </section>
 
@@ -56,7 +56,7 @@ export const AdminActionLayout = () => {
 
         <Outlet />
 
-        <AdminNotificationSheet isSheetOpen={isNotificationSheetOpen} setIsSheetOpen={setIsNotificationSheetOpen} />
+        <NotificationSheet isSheetOpen={isNotificationSheetOpen} setIsSheetOpen={setIsNotificationSheetOpen} />
       </SidebarInset>
     </SidebarProvider>
   );

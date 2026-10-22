@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Sheet, SheetContent, SheetFooter, SheetHeader } from "@/components/ui/sheet";
 
-export const AdminNotificationSheet = ({ isSheetOpen, setIsSheetOpen }: any) => {
+export const NotificationSheet = ({ isSheetOpen, setIsSheetOpen }: any) => {
   return (
     <>
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
