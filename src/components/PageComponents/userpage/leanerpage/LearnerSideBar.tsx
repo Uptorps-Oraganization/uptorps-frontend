@@ -1,21 +1,12 @@
 import { Button } from "@/components/ui/button";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
 import { useLearnerStore } from "@/statemanagers/userpagestate/LearnerStore";
 import { LogOut, Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
 import { Link, useLocation, useNavigate } from "react-router";
-import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";
+import { SidebarAccountHeader } from "../../sharedcomponents/SidebarAccountHeader";
 
 export const LearnerSideBar = () => {
   const currentLocation = useLocation();
@@ -70,11 +61,7 @@ export const LearnerSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              tooltip={"Account Settings"}
-              onClick={() => setOpenMobile(false)}
-              render={<Link to="/userpage/learneractionpage/settings" />}
-            >
+            <SidebarMenuButton tooltip={"Account Settings"} onClick={() => setOpenMobile(false)} render={<Link to="/userpage/learneractionpage/settings" />}>
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>

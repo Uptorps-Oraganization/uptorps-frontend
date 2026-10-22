@@ -1,3 +1,5 @@
+import { PageDevelopmentPlaceholder } from "@/components/PageComponents/sharedcomponents/PageDevelopmentPlaceholder";
+
 export const LearnerReferrals = () => {
-  return <div>Referrals</div>;
+   return <PageDevelopmentPlaceholder />;
 };
