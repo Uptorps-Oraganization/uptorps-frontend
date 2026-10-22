@@ -1,5 +1,5 @@
-import { cn } from "cn"
 import * as React from "react"
+import { cn } from "cn"
 
 function Card({
   className,
@@ -92,5 +92,11 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 export {
-  Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent,
 }

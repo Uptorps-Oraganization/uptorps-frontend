@@ -15,7 +15,7 @@ export const CollapsableMenuOption = ({ menuName, menuIcon, children }: { menuNa
         <SidebarMenuItem>
           <SidebarMenuButton tooltip={menuName} className={"h-10 [&_svg]:size-5 my-0.5"} render={<CollapsibleTrigger />}>
             <FieldIcon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-            <span className={`text-[15px] text-pretty`}>{menuName}</span>
+            <span className={`text-[13px] text-pretty`}>{menuName}</span>
             <ChevronDown className="ml-auto transition-transform group-data-open/collapsible:rotate-180" />
           </SidebarMenuButton>
         </SidebarMenuItem>

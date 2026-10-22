@@ -1,3 +1,5 @@
+import { PageDevelopmentPlaceholder } from "@/components/PageComponents/sharedcomponents/PageDevelopmentPlaceholder";
+
 export const TutorReports = () => {
-  return <div>TutorReports</div>;
+  return <PageDevelopmentPlaceholder />;
 };

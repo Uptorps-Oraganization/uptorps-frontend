@@ -70,3 +70,17 @@ export type TestimonialDataType = {
   user_type: string;
   ratings: number;
 };
+
+export type SidebarAccountHeaderType = {
+  theme: Theme;
+  headerImgUrl: string;
+  accountName: string;
+  accountRole: string;
+};
+
+export type PageAccountHeaderType = {
+  accountImgUrl: string;
+  accountName: string;
+  accountRole: string;
+  notificationToggle: (state: boolean) => void;
+};

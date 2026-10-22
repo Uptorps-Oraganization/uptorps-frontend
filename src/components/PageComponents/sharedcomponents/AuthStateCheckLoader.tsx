@@ -3,7 +3,7 @@ import { Spinner } from "@/components/ui/spinner";
 export const AuthStateCheckLoader = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center text-primary">
+      <div className="h-dvh flex flex-col items-center justify-center text-primary">
         <Spinner className="size-6 md:size-8 lg:size-10" />
 
         <section className="mt-4">

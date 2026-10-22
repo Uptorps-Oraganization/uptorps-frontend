@@ -11,8 +11,8 @@ export const TutorActionLayout = () => {
     <SidebarProvider>
       <TutorSideBar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
+        <header className="sticky top-0 bg-background flex h-fit z-50 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-fit">
+          <div className="w-full justify-between flex items-center py-6 group-has-data-[collapsible=icon]/sidebar-wrapper:pt-4">
             <SidebarTrigger />
             <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-8" />
 

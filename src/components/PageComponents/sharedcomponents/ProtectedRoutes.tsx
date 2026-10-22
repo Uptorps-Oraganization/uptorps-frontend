@@ -1,13 +1,20 @@
 import { AuthStateCheckLoader } from "@/components/PageComponents/sharedcomponents/AuthStateCheckLoader";
 import { useAuthState } from "@/contexthandlers/AuthContextProvider";
-import { Navigate, Outlet } from "react-router";
+import { Outlet } from "react-router";
 
 export const ProtectedRoutes = () => {
   const { user, isLoading } = useAuthState();
+
+  console.log("Debug Auth State:", { user, isLoading });
 
   if (isLoading) {
     return <AuthStateCheckLoader />;
   }
 
-  return user ? <Outlet /> : <Navigate to="/auth/signin" replace />;
+  /*   if (user instanceof AxiosError || null) {
+    console.log("Auth failed or error encountered. Redirecting to signin...");
+    return <Navigate to="/auth/signin" replace />;
+  } */
+
+  return <Outlet />;
 };
