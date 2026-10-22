@@ -47,7 +47,7 @@ export const AdminActionLayout = () => {
               accountImgUrl={
                 "https://api.dicebear.com/10.x/micah/svg?backgroundColor=e3d2b4&baseColor=d8b48c,c19a70,a37e58&hairColor=5a3d28,6b4f35,7d6047&shirtColor=8a6a48,9c7c58&eyebrowsColor=3f2d1e&eyesColor=3f2d1e&mouthColor=3f2d1e&facialHairColor=3f2d1e&eyeShadowColor=f0e2cc&glassesColor=3f2d1e&earringColor=8a6a48&mouthVariant=frown,nervous,pucker,sad,smile,smirk&seed=4t9tlzqh"
               }
-              accountName={"Mr. Adi"}
+              accountName={"Kweku Boateng"}
               accountRole={"Admin & Manager"}
               notificationToggle={setIsNotificationSheetOpen}
             />
