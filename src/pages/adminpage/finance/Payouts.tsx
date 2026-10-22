@@ -1,3 +1,5 @@
+import { PageDevelopmentPlaceholder } from "@/components/PageComponents/sharedcomponents/PageDevelopmentPlaceholder";
+
 export const AdminPayouts = () => {
-  return <div>Payouts</div>;
+  return <PageDevelopmentPlaceholder />;
 };

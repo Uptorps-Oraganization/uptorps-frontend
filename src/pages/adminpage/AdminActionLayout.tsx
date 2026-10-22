@@ -1,5 +1,5 @@
 import { AdminSideBar } from "@/components/PageComponents/adminpage/AdminSideBar";
-import { AdminNotificationSheet } from "@/components/PageComponents/adminpage/dashboardcomponents/AdminNotificationSheet";
+import { AdminNotificationSheet } from "@/components/PageComponents/adminpage/dashboard/AdminNotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -54,9 +54,7 @@ export const AdminActionLayout = () => {
           </div>
         </header>
 
-        <main>
-          <Outlet />
-        </main>
+        <Outlet />
 
         <AdminNotificationSheet isSheetOpen={isNotificationSheetOpen} setIsSheetOpen={setIsNotificationSheetOpen} />
       </SidebarInset>

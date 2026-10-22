@@ -59,7 +59,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export const SiteVisitStatCard = () => {
+export const SiteVisitChartCard = () => {
   const [activeChart, setActiveChart] = useState<keyof typeof chartConfig>("desktop");
 
   const total = useMemo(

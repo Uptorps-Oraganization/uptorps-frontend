@@ -16,7 +16,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Menu } from "@animateicons/react/lucide";
 
-
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "18rem";
@@ -200,7 +199,9 @@ function Sidebar({
           "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
           "group-data-[collapsible=offcanvas]:w-0",
           "group-data-[side=right]:rotate-180",
-          variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)",
+          variant === "floating" || variant === "inset"
+            ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
+            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)",
         )}
       />
       <div
@@ -377,7 +378,8 @@ const sidebarMenuButtonVariants = cva(
     variants: {
       variant: {
         default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-        outline: "bg-background shadow-[0_0_0_1px_var(--sidebar-border)] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_var(--sidebar-accent)]",
+        outline:
+          "bg-background shadow-[0_0_0_1px_var(--sidebar-border)] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_var(--sidebar-accent)]",
       },
       size: {
         default: "h-8 text-xs",

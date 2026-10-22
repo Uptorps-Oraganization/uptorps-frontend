@@ -145,4 +145,16 @@
         group-data-[collapsible=icon]:justify-center
         group-data-[collapsible=icon]:p-2;
   }
+
+  .account_tab_trigger {
+    @apply text-xs data-active:font-semibold! transition-all! duration-500!;
+  }
+
+  .table_head_style {
+    @apply text-sm font-bold! text-center! border bg-green-600/20!;
+  }
+
+  .table_cell_centered {
+    @apply text-center! border;
+  }
 }

@@ -4,10 +4,15 @@ import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } 
 
 type StatType = {
   title: string;
-  figure: string;
+  figure: number;
   trend?: string;
   trendicon: any;
-  overallcomment: string;
+  overallcomment?: string;
+};
+
+const formatFigure = (amount: number) => {
+  const outputfigure = amount.toLocaleString("en-US");
+  return outputfigure;
 };
 
 export const AccountStatCard = (props: StatType) => {
@@ -18,7 +23,7 @@ export const AccountStatCard = (props: StatType) => {
       <Card>
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums">{props.figure}</CardTitle>
+          <CardTitle className="text-3xl font-semibold tabular-nums">{formatFigure(props.figure)}</CardTitle>
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />
@@ -26,9 +31,12 @@ export const AccountStatCard = (props: StatType) => {
             </Badge>
           </CardAction>
         </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="text-green-500">{props.overallcomment}</div>
-        </CardFooter>
+
+        {props.overallcomment && (
+          <CardFooter className="flex-col items-start gap-1.5 text-sm">
+            <div className="text-green-500">{props.overallcomment}</div>
+          </CardFooter>
+        )}
       </Card>
     </>
   );

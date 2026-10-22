@@ -1,3 +1,5 @@
+import { PageDevelopmentPlaceholder } from "@/components/PageComponents/sharedcomponents/PageDevelopmentPlaceholder";
+
 export const AdminRevenue = () => {
-  return <div>Revenue</div>;
+  return <PageDevelopmentPlaceholder />;
 };

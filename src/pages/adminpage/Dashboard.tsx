@@ -1,23 +1,25 @@
-import { AccountStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/AccountStatCard";
-import { ActiveAccountStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/ActiveAccountStatCard";
-import { RevenueStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/RevenueStatCard";
-import { SiteVisitStatCard } from "@/components/PageComponents/adminpage/dashboardcomponents/SiteVisitStatCard";
+import { AccountStatCard } from "@/components/PageComponents/adminpage/accounts/AccountStatCard";
+import { ActiveAccountStatCard } from "@/components/PageComponents/adminpage/dashboard/ActiveAccountStatCard";
+import { RevenueChartCard } from "@/components/PageComponents/adminpage/dashboard/RevenueChartCard";
+import { SiteVisitChartCard } from "@/components/PageComponents/adminpage/dashboard/SiteVisitChartCard";
+import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
+import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
 import { TrendingUp } from "@animateicons/react/lucide";
-import { CircleDotIcon } from "lucide-react";
+
 
 export const AdminDashboard = () => {
   return (
     <>
-      <div className="p-1 pt-2 space-y-6">
+      <div className="p-1 pt-2 pb-10 space-y-6">
         <section className="px-4">
-          <p className="font-semibold">Accounts & User Statistics</p>
+          <p className="font-semibold">Account Statistics</p>
 
           <div id="adminOverviewSection" className="grid grid-cols-3 gap-4 pt-2">
-            <AccountStatCard title={"Total Users"} figure={"10,345"} trend={"+12.5%"} trendicon={TrendingUp} overallcomment={"Total for the last 6 months: 3,345 (3k)"} />
+            <AccountStatCard title={"Total Users"} figure={10345} trend={"+12.5%"} trendicon={TrendingUp} overallcomment={"Total for the last 6 months: 3,345 (3k)"} />
 
-            <AccountStatCard title={"Total Learners"} figure={"10,000"} trend={"+2.5%"} trendicon={TrendingUp} overallcomment={"Learners for the last 6 months: 1,453"} />
+            <AccountStatCard title={"Total Learners"} figure={10000} trend={"+2.5%"} trendicon={TrendingUp} overallcomment={"Learners for the last 6 months: 1,453"} />
 
-            <AccountStatCard title={"Total Tutors"} figure={"345"} trend={"+10.5%"} trendicon={TrendingUp} overallcomment={"Tutors for the last 6 months: 45"} />
+            <AccountStatCard title={"Total Tutors"} figure={345} trend={"+10.5%"} trendicon={TrendingUp} overallcomment={"Tutors for the last 6 months: 45"} />
           </div>
         </section>
 
@@ -25,11 +27,11 @@ export const AdminDashboard = () => {
           <p className="font-semibold">Revenue Statistics</p>
 
           <div id="adminOverviewSection" className="grid grid-cols-3 gap-4 pt-2">
-            <AccountStatCard title={"Overall Revenue"} figure={"GHC 100,200"} trendicon={CircleDotIcon} overallcomment={"All time revenue generated"} />
+            <RevenueStatCard title={"Overall Revenue"} amount={100200} trendicon={CircleDotIcon} overallcomment={"All time revenue generated"} />
 
-            <AccountStatCard title={"Recent Revenue"} figure={"GHC 20,265"} trend={"+1.5%"} trendicon={TrendingUp} overallcomment={"Revenue for the last 6 months"} />
+            <RevenueStatCard title={"Recent Revenue"} amount={20265} trend={"+1.5%"} trendicon={TrendingUp} overallcomment={"Revenue for the last 6 months"} />
 
-            <AccountStatCard title={"Total Payouts"} figure={"GHC 40,200"} trendicon={CircleDotIcon} overallcomment={"All time successful payouts"} />
+            <RevenueStatCard title={"Total Payouts"} amount={40200} trendicon={CircleDotIcon} overallcomment={"All time successful payouts"} />
           </div>
         </section>
 
@@ -38,7 +40,7 @@ export const AdminDashboard = () => {
             <p className="font-semibold">Revenue Metrics</p>
 
             <div className="pt-2">
-              <RevenueStatCard />
+              <RevenueChartCard />
             </div>
           </section>
 
@@ -55,7 +57,7 @@ export const AdminDashboard = () => {
           <p className="font-semibold">Site Visits Metrics</p>
 
           <div className="pt-2">
-            <SiteVisitStatCard />
+            <SiteVisitChartCard />
           </div>
         </section>
       </div>

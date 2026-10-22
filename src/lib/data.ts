@@ -3,7 +3,7 @@ import { MessagesSquareIcon } from "@/components/ui/messages-square-icon";
 import { UserGroupIcon } from "@/components/ui/user-group-icon";
 import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
-import { BrainIcon, DollarSignIcon, EllipsisIcon, HandCoinsIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
+import { BrainIcon, ChartPieIcon, DollarSignIcon, EllipsisIcon, HandCoinsIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
 import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
@@ -99,21 +99,22 @@ export const testimonialsData: TestimonialDataType[] = [
 
 export const adminMenuOptions = [
   { name: "Admin Dashboard", link: "/adminpage/dashboard", icon: LayoutDashboard },
-  { name: "Accounts", link: "/adminpage/accounts", icon: UserGroupIcon },
+  { name: "Account Management", link: "/adminpage/accountmanagement", icon: UserGroupIcon },
+  { name: "Analytics", link: "/adminpage/analytics", icon: ChartPieIcon },
+  {
+    name: "Finance",
+    icon: WalletIcon,
+    subOptions: [
+      { name: "Revenue", link: "/adminpage/finance/revenue", icon: DollarSignIcon },
+      { name: "Payouts", link: "/adminpage/finance/payouts", icon: HandCoinsIcon },
+    ],
+  },
   {
     name: "Configurations",
     icon: WrenchIcon,
     subOptions: [
       { name: "Quizzes", link: "/adminpage/configurations/quizzes", icon: BrainIcon },
       { name: "Courses", link: "/adminpage/configurations/courses", icon: GraduationCapIcon },
-    ],
-  },
-  {
-    name: "Finance",
-    icon: WalletIcon,
-    subOptions: [
-      { name: "Revenue", link: "/adminpage/finance/revenue", icon: DollarSignIcon },
-      { name: "Payouts & Withdrawals", link: "/adminpage/finance/payouts", icon: HandCoinsIcon },
     ],
   },
   {
@@ -139,4 +140,20 @@ export const tutorMenuOptions = [
   { name: "Quizzes", link: "/userpage/tutoractionpage/quizzes", icon: BrainIcon },
   { name: "Courses", link: "/userpage/tutoractionpage/courses", icon: GraduationCapIcon },
   { name: "Wallet", link: "/userpage/tutoractionpage/wallet", icon: WalletIcon },
+];
+
+//AdminPageData
+
+export const accountQueryChoiceOptions = [
+  { label: "All Users", value: "allusers" },
+  { label: "Learners", value: "learners" },
+  { label: "Tutors", value: "tutors" },
+  { label: "Administrators", value: "administrators" },
+];
+
+export const rowsPerPageOption = [
+  { label: "5", value: "5" },
+  { label: "10", value: "10" },
+  { label: "20", value: "20" },
+  { label: "30", value: "30" },
 ];

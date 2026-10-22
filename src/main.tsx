@@ -1,5 +1,4 @@
 import App from "@/App.tsx";
-import { AuthContextProvider } from "@/contexthandlers/AuthContextProvider";
 import { QueryProvider } from "@/contexthandlers/QueryProvider";
 import { ThemeProvider } from "@/contexthandlers/ThemeProvider";
 import "@/styling/global.css";
@@ -11,11 +10,11 @@ createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
     <StrictMode>
       <QueryProvider>
-        <AuthContextProvider>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
-        </AuthContextProvider>
+        {/* <AuthContextProvider> */}
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
+        {/* </AuthContextProvider> */}
       </QueryProvider>
     </StrictMode>
   </ThemeProvider>,

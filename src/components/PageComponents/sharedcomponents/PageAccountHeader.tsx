@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { PageAccountHeaderType } from "@/typesnschemas/types/DataTypes";
 import { BellIcon } from "@animateicons/react/lucide";
+import { UserProfileImg } from "./UserProfileImg";
 
 export const PageAccountHeader = (props: PageAccountHeaderType) => {
   return (
@@ -14,10 +14,7 @@ export const PageAccountHeader = (props: PageAccountHeaderType) => {
 
           <span className="bg-green-500/10 text-[11px] text-green-500 rounded-full px-2">{props.accountRole}</span>
 
-          <Avatar className="size-8">
-            <AvatarImage className="border-4" src={props.accountImgUrl} alt={"user image"} />
-            <AvatarFallback>User Image</AvatarFallback>
-          </Avatar>
+          <UserProfileImg size="size-8" borderStyle="border-4" headerImgUrl={props.accountImgUrl} altText={"UserImg"} />
         </div>
 
         <Button onClick={() => props.notificationToggle(true)} size="icon" variant="ghost" className="relative">

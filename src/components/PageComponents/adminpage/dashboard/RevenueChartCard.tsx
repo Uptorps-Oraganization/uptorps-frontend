@@ -19,7 +19,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function RevenueStatCard() {
+export function RevenueChartCard() {
   return (
     <Card>
       <CardHeader>
@@ -51,13 +51,7 @@ export function RevenueStatCard() {
                 return <Dot key={payload.month} r={5} cx={props.cx} cy={props.cy} fill={payload.fill} stroke={payload.fill} />;
               }}
             >
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground font-semibold"
-                fontSize={13}
-                dataKey="month"
-              />
+              <LabelList position="top" offset={12} className="fill-foreground font-semibold" fontSize={13} dataKey="month" />
             </Line>
           </LineChart>
         </ChartContainer>
