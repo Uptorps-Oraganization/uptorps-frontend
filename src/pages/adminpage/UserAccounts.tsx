@@ -1,5 +1,5 @@
 import { AccountActionMenu } from "@/components/PageComponents/adminpage/accounts/AccountActionMenu";
-import { AccountStatCard } from "@/components/PageComponents/adminpage/accounts/AccountStatCard";
+import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
 import { UserProfileImg } from "@/components/PageComponents/sharedcomponents/UserProfileImg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,29 +15,29 @@ import { accountQueryChoiceOptions, rowsPerPageOption } from "@/lib/data";
 import { ChevronLeftIcon, ChevronRightIcon, FilterIcon, SearchIcon, TrendingUp } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const AdminAccounts = () => {
+export const AdminUserAccounts = () => {
   const [tabValue, setTabValue] = useState("all");
 
   return (
     <>
       <div className="p-1 pt-2 pb-10 space-y-6">
         <section className="px-4">
-          <p className="font-semibold">Account Statistics & Breakdown</p>
+          <p className="font-semibold">User Account Statistics</p>
 
-          <div id="adminOverviewSection" className="grid grid-cols-3 gap-4 pt-2">
-            <AccountStatCard title={"Total Users"} figure={10345} trend={"+12.5%"} trendicon={TrendingUp} />
+          <div className="grid grid-cols-3 gap-4 pt-2">
+            <UserStatCard title={"Total Users"} figure={10345} trend={"+12.5%"} trendicon={TrendingUp} />
 
-            <AccountStatCard title={"Total Learners"} figure={10000} trend={"+2.5%"} trendicon={TrendingUp} />
+            <UserStatCard title={"Total Learners"} figure={10000} trend={"+2.5%"} trendicon={TrendingUp} />
 
-            <AccountStatCard title={"Total Tutors"} figure={345} trend={"+10.5%"} trendicon={TrendingUp} />
+            <UserStatCard title={"Total Tutors"} figure={345} trend={"+10.5%"} trendicon={TrendingUp} />
           </div>
 
-          <div id="adminOverviewSection" className="grid grid-cols-3 gap-4 pt-2">
-            <AccountStatCard title={"Premium Accounts"} figure={9234} trendicon={CircleDotIcon} />
+          <div className="grid grid-cols-3 gap-4 pt-2">
+            <UserStatCard title={"Premium Accounts"} figure={9234} trendicon={CircleDotIcon} />
 
-            <AccountStatCard title={"Free Accounts"} figure={1000} trendicon={CircleDotIcon} />
+            <UserStatCard title={"Free Accounts"} figure={1000} trendicon={CircleDotIcon} />
 
-            <AccountStatCard title={"Suspended Accounts"} figure={345} trendicon={CircleDotIcon} />
+            <UserStatCard title={"Suspended Accounts"} figure={345} trendicon={CircleDotIcon} />
           </div>
         </section>
 

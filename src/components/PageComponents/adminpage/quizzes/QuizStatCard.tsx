@@ -15,7 +15,7 @@ const formatFigure = (amount: number) => {
   return outputfigure;
 };
 
-export const AccountStatCard = (props: StatType) => {
+export const QuizStatCard = (props: StatType) => {
   const FieldIcon = props.trendicon;
 
   return (

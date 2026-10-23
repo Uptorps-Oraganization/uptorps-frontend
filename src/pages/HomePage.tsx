@@ -82,10 +82,13 @@ const Homepage = () => {
       </Helmet>
 
       <div className="flex flex-col w-full h-full relative">
-        <header  className="sticky top-0 bg-green-500 flex flex-row p-2 py-4 justify-between z-10">
+        <header className="sticky top-0 bg-green-500 flex flex-row p-2 py-4 justify-between z-10">
           <section className="flex flex-row items-center p-1 space-x-2">
             <DynamicUptorpLogo className="size-10" theme={theme} />
-            <h1 className="text-sm md:text-[16px] lg:text-xl font-bold text-primary-foreground">Uptorps</h1>
+
+            <Link to={"/"}>
+              <h1 className="text-sm md:text-[16px] lg:text-xl font-bold text-primary-foreground cursor-pointer">Uptorps</h1>
+            </Link>
           </section>
 
           <section className="flex items-center space-x-1">
@@ -150,7 +153,9 @@ const Homepage = () => {
                   <span className="text-green-500">Grow.</span>
                 </article>
 
-                <h2 className="text-sm">Uptorps integrates teaching, learning and earning into a unified platform. Start your journey to educational and financial inclusion today.</h2>
+                <h2 className="text-sm">
+                  Uptorps integrates teaching, learning and earning into a unified platform. Start your journey to educational and financial inclusion today.
+                </h2>
 
                 <div className="flex flex-col justify-center md:justify-start items-center md:flex-row mt-5 space-x-0 md:space-x-2 space-y-2 md:space-y-0  pointer-events-auto">
                   <Link to={"/auth/signup"}>
@@ -195,7 +200,13 @@ const Homepage = () => {
                 {testimonialsData.map(
                   (testimonial, index) =>
                     index === testimonialIndex && (
-                      <TestimonialCard key={index} statement={testimonial.statement} user_name={testimonial.user_name} user_type={testimonial.user_type} ratings={testimonial.ratings} />
+                      <TestimonialCard
+                        key={index}
+                        statement={testimonial.statement}
+                        user_name={testimonial.user_name}
+                        user_type={testimonial.user_type}
+                        ratings={testimonial.ratings}
+                      />
                     ),
                 )}
               </div>
@@ -233,7 +244,9 @@ const Homepage = () => {
               <span className="text-[14px]">Newsletter</span>
             </article>
 
-            <p className="w-11/12 lg:w-8/12 py-6 text-xl md:text-3xl text-secondary text-center text-pretty">Subscribe to our newsletter to get updates on our features, policies and processes.</p>
+            <p className="w-11/12 lg:w-8/12 py-6 text-xl md:text-3xl text-secondary text-center text-pretty">
+              Subscribe to our newsletter to get updates on our features, policies and processes.
+            </p>
             <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">Get the latest updates, tips, and exclusive offers delivered to your inbox.</span>
 
             <div className="flex flex-col md:flex-row items-center md:items-start py-3 space-x-0 space-y-2 md:space-x-4 md:space-y-0">
