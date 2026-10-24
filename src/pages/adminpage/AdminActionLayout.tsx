@@ -12,7 +12,7 @@ export const AdminActionLayout = () => {
   const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
 
   return (
-    <SidebarProvider>
+    <SidebarProvider className="select-none">
       <AdminSideBar />
       <SidebarInset className="relative">
         <header className="sticky top-0 bg-background flex h-fit z-50 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-fit">
