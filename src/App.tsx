@@ -33,6 +33,7 @@ import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { HashRouter, Navigate, Route, Routes } from "react-router";
+import { AdminQuizQuestionsViewPage } from "./pages/adminpage/configurations/QuizQuestionsViewPage";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             <Route path="configurations">
               <Route path="courses" element={<AdminCourses />} />
               <Route path="quizzes" element={<AdminQuizzes />} />
+              <Route path="quizzes/:quizID" element={<AdminQuizQuestionsViewPage />} />
             </Route>
 
             <Route path="finance">

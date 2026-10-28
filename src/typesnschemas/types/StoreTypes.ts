@@ -35,3 +35,19 @@ export type LearnerStoreType = {
   logOutLoadingState: boolean;
   setlogOutLoadingState: () => void;
 };
+
+export type QuizPageStoreType = {
+  selectedConfiguration: number;
+  configQueryData: Record<string, string>;
+  quizCreationDialogOpen: boolean;
+  quizDetailDialogOpen: boolean;
+  quizEditDialogOpen: boolean;
+  quizDeletionDialogOpen: boolean;
+
+  setselectedConfiguration: (selected: number) => void;
+  setConfigQueryData: (data: Record<string, string>) => void;
+  setQuizCreationDialogOpen: () => void;
+  setQuizDetailDialogOpen: () => void;
+  setQuizEditDialogOpen: () => void;
+  setQuizDeletionDialogOpen: () => void;
+};

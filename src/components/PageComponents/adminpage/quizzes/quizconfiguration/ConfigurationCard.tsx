@@ -3,7 +3,7 @@ import { GitCommitHorizontalIcon } from "@animateicons/react/lucide";
 import { ConfigurationBreadcrump } from "./ConfigBreadcrump";
 import { ConfigCourseDisplay, ConfigDifficultyDisplay, ConfigLevelDisplay, ConfigProgrammeDisplay } from "./ConfigDisplayContainer";
 
-export const ConfigurationContainer = () => {
+export const ConfigurationCard = () => {
   return (
     <>
       <Card>

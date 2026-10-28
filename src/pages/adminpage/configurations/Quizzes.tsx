@@ -1,7 +1,9 @@
-import { ConfigurationContainer } from "@/components/PageComponents/adminpage/quizzes/quizconfiguration/ConfigurationContainer";
-import { QuizCreationDialog } from "@/components/PageComponents/adminpage/quizzes/quizdisplayparts/QuizCreationDialog";
-import { QuizDetailDialog } from "@/components/PageComponents/adminpage/quizzes/quizdisplayparts/QuizDetailDialog";
+import { ConfigurationCard } from "@/components/PageComponents/adminpage/quizzes/quizconfiguration/ConfigurationCard";
 import { QuizDisplayCard } from "@/components/PageComponents/adminpage/quizzes/quizdisplayparts/QuizDisplayCard";
+import { QuizCreationDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizCreationDialog";
+import { QuizDeletionDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizDeletionDialog";
+import { QuizDetailDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizDetailDialog";
+import { QuizEditDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizEditDialog";
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
 import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
 import { Dashboard02Icon } from "@/components/ui/dashboard-0-2-icon";
@@ -37,7 +39,7 @@ export const AdminQuizzes = () => {
           <p className="font-semibold">Quizzes Configurations</p>
 
           <div className="pt-2">
-            <ConfigurationContainer />
+            <ConfigurationCard />
           </div>
         </section>
 
@@ -53,7 +55,10 @@ export const AdminQuizzes = () => {
 
             <section>
               <QuizDisplayCard />
+
               <QuizDetailDialog />
+              <QuizEditDialog />
+              <QuizDeletionDialog />
             </section>
           </div>
         </section>

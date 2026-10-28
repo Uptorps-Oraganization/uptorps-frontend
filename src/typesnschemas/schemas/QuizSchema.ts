@@ -12,3 +12,17 @@ export const quizCreationSchema = z.object({
 });
 
 export type QuizCreationType = z.infer<typeof quizCreationSchema>;
+
+export const questionCreationSchema = z.object({
+  question: z.string().nonempty("Question cannot be empty"),
+  question_type: z.string("Question type is required"),
+});
+
+export type QuestionCreationType = z.infer<typeof questionCreationSchema>;
+
+export const answerCreationSchema = z.object({
+  answer: z.string().nonempty("Answer cannot be empty"),
+  is_correct: z.boolean("Answer type is required"),
+});
+
+export type AnswerCreationType = z.infer<typeof answerCreationSchema>;

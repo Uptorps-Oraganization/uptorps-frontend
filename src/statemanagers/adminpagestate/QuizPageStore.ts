@@ -1,28 +1,21 @@
+import type { QuizPageStoreType } from "@/typesnschemas/types/StoreTypes";
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-type QuizPageStateType = {
-  selectedConfiguration: number;
-  configQueryData: Record<string, string>;
-  quizCreationDialogOpen: boolean;
-  quizDetailDialogOpen: boolean;
-
-  setselectedConfiguration: (selected: number) => void;
-  setConfigQueryData: (data: Record<string, string>) => void;
-  setQuizCreationDialogOpen: () => void;
-  setQuizDetailDialogOpen: () => void;
-};
-
-const quizPageStore = create<QuizPageStateType>((set) => ({
+const quizPageStore = create<QuizPageStoreType>((set) => ({
   selectedConfiguration: 0,
   configQueryData: {},
   quizCreationDialogOpen: false,
   quizDetailDialogOpen: false,
+  quizEditDialogOpen: false,
+  quizDeletionDialogOpen: false,
 
   setselectedConfiguration: (selected: number) => set(() => ({ selectedConfiguration: selected })),
   setConfigQueryData: (data: Record<string, string>) => set((state) => ({ configQueryData: { ...state.configQueryData, ...data } })),
   setQuizCreationDialogOpen: () => set((state) => ({ quizCreationDialogOpen: !state.quizCreationDialogOpen })),
   setQuizDetailDialogOpen: () => set((state) => ({ quizDetailDialogOpen: !state.quizDetailDialogOpen })),
+  setQuizEditDialogOpen: () => set((state) => ({ quizEditDialogOpen: !state.quizEditDialogOpen })),
+  setQuizDeletionDialogOpen: () => set((state) => ({ quizDeletionDialogOpen: !state.quizDeletionDialogOpen })),
 }));
 
 export const useQuizPageStore = () =>
@@ -32,10 +25,14 @@ export const useQuizPageStore = () =>
       configQueryData: state.configQueryData,
       quizCreationDialogOpen: state.quizCreationDialogOpen,
       quizDetailDialogOpen: state.quizDetailDialogOpen,
+      quizEditDialogOpen: state.quizEditDialogOpen,
+      quizDeletionDialogOpen: state.quizDeletionDialogOpen,
 
       setselectedConfiguration: state.setselectedConfiguration,
       setConfigQueryData: state.setConfigQueryData,
       setQuizCreationDialogOpen: state.setQuizCreationDialogOpen,
       setQuizDetailDialogOpen: state.setQuizDetailDialogOpen,
+      setQuizEditDialogOpen: state.setQuizEditDialogOpen,
+      setQuizDeletionDialogOpen: state.setQuizDeletionDialogOpen,
     })),
   );

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { LucideIcon } from "lucide-react";
 import type { Control, FieldErrors } from "react-hook-form";
-import type { QuizCreationType } from "../schemas/QuizCreationSchema";
+import type { QuizCreationType } from "../schemas/QuizSchema";
 
 export type Theme = "dark" | "light" | "system";
 

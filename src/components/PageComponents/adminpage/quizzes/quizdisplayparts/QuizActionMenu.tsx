@@ -10,10 +10,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { EllipsisIcon, EyeIcon, FilePlusIcon, Trash2Icon } from "@animateicons/react/lucide";
+import { EllipsisIcon, EyeIcon, Trash2Icon } from "@animateicons/react/lucide";
+import { useNavigate } from "react-router";
 
 export const QuizActionMenu = () => {
-  const { setQuizDetailDialogOpen } = useQuizPageStore();
+  const { setQuizDetailDialogOpen, setQuizEditDialogOpen, setQuizDeletionDialogOpen } = useQuizPageStore();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -33,22 +36,18 @@ export const QuizActionMenu = () => {
               <EyeIcon className="size-4!" /> View Details
             </DropdownMenuItem>
 
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={setQuizEditDialogOpen}>
               <SquarePenIcon className="size-4!" /> Edit Quiz
             </DropdownMenuItem>
 
-            <DropdownMenuItem className="text-green-400">
-              <FilePlusIcon /> Add Question
-            </DropdownMenuItem>
-
-            <DropdownMenuItem className="text-amber-400">
+            <DropdownMenuItem className="text-amber-400" onClick={() => navigate("/adminpage/configurations/quizzes/2d8d44d7-7c5d-4bd7-bf96-1f1d51547ce1")}>
               <EyeIcon className="size-4!" /> View Questions
             </DropdownMenuItem>
           </DropdownMenuGroup>
 
           <DropdownMenuSeparator />
 
-          <DropdownMenuItem variant="destructive">
+          <DropdownMenuItem variant="destructive" onClick={setQuizDeletionDialogOpen}>
             <Trash2Icon /> Delete Quiz
           </DropdownMenuItem>
         </DropdownMenuContent>

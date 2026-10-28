@@ -6,12 +6,12 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizCreationSchema";
+import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizSchema";
 import { BrainIcon, XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "./QuizConfigSelection";
+import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../quizdisplayparts/QuizConfigSelection";
 
 export const QuizCreationDialog = () => {
   const { quizCreationDialogOpen, setQuizCreationDialogOpen } = useQuizPageStore();
@@ -47,13 +47,13 @@ export const QuizCreationDialog = () => {
       </Button>
 
       <Dialog open={quizCreationDialogOpen}>
-        <form id="dialog-form" onSubmit={handleSubmit(handleQuizCreationSubmit)}>
+        <form id="quiz-creation-form" onSubmit={handleSubmit(handleQuizCreationSubmit)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuizCreationDialogOpen} className="absolute top-1 right-1" variant="ghost">
               <XIcon />
             </Button>
 
-            <DialogHeader>
+            <DialogHeader className="text-green-400!">
               <DialogTitle>Create A Quiz</DialogTitle>
               <DialogDescription>Setup a quiz that can be accessed by learners</DialogDescription>
             </DialogHeader>
@@ -91,7 +91,7 @@ export const QuizCreationDialog = () => {
             </ScrollArea>
 
             <DialogFooter className="justify-center!">
-              <Button type="submit" form="dialog-form" className="px-6 h-10 min-w-50">
+              <Button type="submit" form="quiz-creation-form" className="px-6 h-10 min-w-50">
                 {submitLoading && <Spinner />}
                 Confirm Quiz Creation
               </Button>

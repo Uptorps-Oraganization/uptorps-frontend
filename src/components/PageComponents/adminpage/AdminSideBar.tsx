@@ -29,6 +29,8 @@ export const AdminSideBar = () => {
 
   const { logOutLoadingState, setlogOutLoadingState } = useAdminStore();
 
+  const cleanPath = currentLocation.pathname.replace(/\/$/, "");
+
   const logOutAdmin = () => {
     setlogOutLoadingState();
 
@@ -61,12 +63,12 @@ export const AdminSideBar = () => {
                     <SidebarMenuSubItem key={subOption.name}>
                       <SidebarMenuSubButton
                         onClick={() => setOpenMobile(false)}
-                        isActive={currentLocation.pathname === subOption.link}
+                        isActive={cleanPath === subOption.link}
                         render={<Link to={subOption.link} />}
-                        className={`${currentLocation.pathname === subOption.link ? "font-semibold" : "text-primary-foreground!"} h-8 [&_svg]:size-4 hover:text-primary!`}
+                        className={`${cleanPath === subOption.link ? "font-semibold" : "text-primary-foreground!"} h-8 [&_svg]:size-4 hover:text-primary!`}
                       >
                         <subOption.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                        <span className={`${currentLocation.pathname === subOption.link ? "text-sm" : "text-[12px]"} text-pretty`}>{subOption.name}</span>
+                        <span className={`${cleanPath === subOption.link ? "text-sm" : "text-[12px]"} text-pretty`}>{subOption.name}</span>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
@@ -78,12 +80,12 @@ export const AdminSideBar = () => {
                   <SidebarMenuButton
                     tooltip={option.name}
                     onClick={() => setOpenMobile(false)}
-                    isActive={currentLocation.pathname === option.link}
+                    isActive={cleanPath === option.link}
                     render={<Link to={option.link} />}
-                    className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
+                    className={`${cleanPath === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
                   >
                     <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                    <span className={`${currentLocation.pathname === option.link ? "text-[15px] font-semibold" : "text-[13px]"} text-pretty`}>{option.name}</span>
+                    <span className={`${cleanPath === option.link ? "text-[15px] font-semibold" : "text-[13px]"} text-pretty`}>{option.name}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               );
@@ -95,7 +97,13 @@ export const AdminSideBar = () => {
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={"Account Settings"} onClick={() => setOpenMobile(false)} render={<Link to="/adminpage/settings" />}>
+            <SidebarMenuButton
+              isActive={cleanPath === "/adminpage/settings"}
+              tooltip={"Account Settings"}
+              onClick={() => setOpenMobile(false)}
+              render={<Link to="/adminpage/settings" />}
+              className={`${cleanPath === "/adminpage/settings" && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
+            >
               <Settings />
               <span className="text-pretty">Account Settings</span>
             </SidebarMenuButton>
