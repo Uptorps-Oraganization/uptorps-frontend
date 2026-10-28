@@ -2,9 +2,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SquarePenIcon } from "@/components/ui/square-pen-icon";
+import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
-import { useDisplayContext } from "./ConfigDisplayContext";
 
 type ConfItemType = {
   name: string;
@@ -12,7 +12,7 @@ type ConfItemType = {
 };
 
 export const ConfigurationItem = (props: ConfItemType) => {
-  const { selectedConfiguration, setselectedConfiguration, configQueryData, setConfigQueryData } = useDisplayContext();
+  const { selectedConfiguration, setselectedConfiguration, configQueryData, setConfigQueryData } = useQuizPageStore();
 
   return (
     <>
@@ -42,13 +42,13 @@ export const ConfigurationItem = (props: ConfItemType) => {
 
 const ConfigItemClickCondition = (props: any) => {
   if (props.itemDescription == "difficulty") {
-    props.setConfigQueryData({ ...props.configQueryData, difficulty: props.item });
+    props.setConfigQueryData({ difficulty: props.item });
     props.setselectedConfiguration(1);
   } else if (props.itemDescription == "level") {
-    props.setConfigQueryData({ ...props.configQueryData, level: props.item });
+    props.setConfigQueryData({ level: props.item });
     props.setselectedConfiguration(2);
   } else if (props.itemDescription == "programme") {
-    props.setConfigQueryData({ ...props.configQueryData, programme: props.item });
+    props.setConfigQueryData({ programme: props.item });
     props.setselectedConfiguration(3);
   }
 };

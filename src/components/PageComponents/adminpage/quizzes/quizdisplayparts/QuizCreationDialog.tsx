@@ -5,19 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
+import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizCreationSchema";
-import { XIcon } from "@animateicons/react/lucide";
+import { BrainIcon, XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "./QuizConfigSelection";
 
-type QuizCreationDialogState = {
-  quizDialogOpen: boolean;
-  setQuizDialogOpen: (quizDialogOpen: boolean) => void;
-};
-
-export const QuizCreationDialog = ({ quizDialogOpen, setQuizDialogOpen }: QuizCreationDialogState) => {
+export const QuizCreationDialog = () => {
+  const { quizCreationDialogOpen, setQuizCreationDialogOpen } = useQuizPageStore();
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const {
@@ -44,10 +41,15 @@ export const QuizCreationDialog = ({ quizDialogOpen, setQuizDialogOpen }: QuizCr
 
   return (
     <>
-      <Dialog open={quizDialogOpen}>
+      <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen}>
+        <BrainIcon />
+        Create A Quiz
+      </Button>
+
+      <Dialog open={quizCreationDialogOpen}>
         <form id="dialog-form" onSubmit={handleSubmit(handleQuizCreationSubmit)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
-            <Button onClick={() => setQuizDialogOpen(false)} className="absolute top-1 right-1" variant="ghost">
+            <Button onClick={setQuizCreationDialogOpen} className="absolute top-1 right-1" variant="ghost">
               <XIcon />
             </Button>
 

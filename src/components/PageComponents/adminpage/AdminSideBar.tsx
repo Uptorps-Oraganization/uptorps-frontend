@@ -14,7 +14,7 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
-import { useAdminStore } from "@/statemanagers/userpagestate/AdminStore";
+import { useAdminStore } from "@/statemanagers/adminpagestate/AdminStore";
 import { LogOut, Moon, Settings, Sun } from "@animateicons/react/lucide";
 import { Link, useLocation, useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
-import { useDisplayContext } from "./ConfigDisplayContext";
+import React from "react";
 
 export const ConfigurationBreadcrump = () => {
-  const { configQueryData, setselectedConfiguration, setConfigQueryData } = useDisplayContext();
+  const { configQueryData, setselectedConfiguration, setConfigQueryData } = useQuizPageStore();
 
   return (
     <>
@@ -19,7 +20,7 @@ export const ConfigurationBreadcrump = () => {
                 </BreadcrumbPage>
               </BreadcrumbItem>
             ) : (
-              <>
+              <React.Fragment key={index}>
                 <BreadcrumbItem
                   key={index}
                   onClick={() => CrumpItemClickCondition({ itemDescription: value[0], item: value[1], setselectedConfiguration, configQueryData, setConfigQueryData })}
@@ -30,7 +31,7 @@ export const ConfigurationBreadcrump = () => {
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
-              </>
+              </React.Fragment>
             ),
           )}
         </BreadcrumbList>
@@ -44,11 +45,12 @@ const CrumpItemClickCondition = (props: any) => {
     delete props.configQueryData.level;
     delete props.configQueryData.programme;
 
-    props.setConfigQueryData({ ...props.configQueryData, difficulty: props.item });
+    props.setConfigQueryData({ difficulty: props.item });
     props.setselectedConfiguration(1);
   } else if (props.itemDescription == "level") {
     delete props.configQueryData.programme;
-    props.setConfigQueryData({ ...props.configQueryData, level: props.item });
+
+    props.setConfigQueryData({ level: props.item });
     props.setselectedConfiguration(2);
   }
 };

@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { CirclePlusIcon } from "lucide-react";
-import { useDisplayContext } from "./ConfigDisplayContext";
 import { ConfigurationItem } from "./ConfigItem";
 
 export const ConfigDifficultyDisplay = () => {
-  const { selectedConfiguration } = useDisplayContext();
+  const { selectedConfiguration } = useQuizPageStore();
 
   return (
     <>
@@ -21,7 +21,7 @@ export const ConfigDifficultyDisplay = () => {
 };
 
 export const ConfigLevelDisplay = () => {
-  const { selectedConfiguration } = useDisplayContext();
+  const { selectedConfiguration } = useQuizPageStore();
 
   return (
     <>
@@ -43,7 +43,7 @@ export const ConfigLevelDisplay = () => {
 };
 
 export const ConfigProgrammeDisplay = () => {
-  const { selectedConfiguration } = useDisplayContext();
+  const { selectedConfiguration } = useQuizPageStore();
 
   return (
     <>
@@ -65,7 +65,7 @@ export const ConfigProgrammeDisplay = () => {
 };
 
 export const ConfigCourseDisplay = () => {
-  const { selectedConfiguration } = useDisplayContext();
+  const { selectedConfiguration } = useQuizPageStore();
 
   return (
     <>
