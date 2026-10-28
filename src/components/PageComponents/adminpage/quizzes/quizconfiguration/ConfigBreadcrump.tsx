@@ -1,15 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
-import { useEffect } from "react";
 import { useDisplayContext } from "./ConfigDisplayContext";
 
 export const ConfigurationBreadcrump = () => {
   const { configQueryData, setselectedConfiguration, setConfigQueryData } = useDisplayContext();
-
-  useEffect(() => {
-    console.log(configQueryData);
-  }, [configQueryData]);
 
   return (
     <>

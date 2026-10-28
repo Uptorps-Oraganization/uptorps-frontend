@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { LucideIcon } from "lucide-react";
-import type { FieldErrors } from "react-hook-form";
+import type { Control, FieldErrors } from "react-hook-form";
+import type { QuizCreationType } from "../schemas/QuizCreationSchema";
 
 export type Theme = "dark" | "light" | "system";
 
@@ -83,4 +84,21 @@ export type PageAccountHeaderType = {
   accountName: string;
   accountRole: string;
   notificationToggle: (state: boolean) => void;
+};
+
+export type UserDetailRowType = {
+  profileImgUrl: string;
+  userType: "admin" | "tutor" | "learner";
+  activeStatus: "active" | "inactive";
+  dateJoined: string;
+  lastDateActive: string;
+};
+
+export type QuizConfigSelectionType = {
+  selectionData?: string[];
+  label: string;
+  name: "difficulty" | "level" | "programme" | "course" | "timing" | "cost_type";
+  control: Control<QuizCreationType, any, QuizCreationType>;
+  placeholder?: string;
+  configType?: "difficulty" | "level" | "programme" | "course";
 };

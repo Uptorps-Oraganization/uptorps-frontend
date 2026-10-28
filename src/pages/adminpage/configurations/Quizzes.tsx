@@ -1,11 +1,20 @@
-import { ConfigurationContainer } from "@/components/PageComponents/adminpage/quizzes/ConfigurationContainer";
+import { ConfigurationContainer } from "@/components/PageComponents/adminpage/quizzes/quizconfiguration/ConfigurationContainer";
+import { QuizCreationDialog } from "@/components/PageComponents/adminpage/quizzes/QuizCreationDialog";
+import { QuizDisplayCard } from "@/components/PageComponents/adminpage/quizzes/QuizDisplayCard";
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
+import { Button } from "@/components/ui/button";
 import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
 import { Dashboard02Icon } from "@/components/ui/dashboard-0-2-icon";
 import { DatabaseIcon } from "@/components/ui/database-icon";
 import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
+import { Separator } from "@/components/ui/separator";
+import { BrainIcon } from "@animateicons/react/lucide";
+
+import { useState } from "react";
 
 export const AdminQuizzes = () => {
+  const [quizDialogOpen, setQuizDialogOpen] = useState(false);
+
   return (
     <>
       <div className="p-1 pt-2 pb-10 space-y-6">
@@ -34,6 +43,27 @@ export const AdminQuizzes = () => {
 
           <div className="pt-2">
             <ConfigurationContainer />
+          </div>
+        </section>
+
+        <section className="px-4">
+          <p className="font-semibold">Quizzes Uploads & Details</p>
+
+          <div className="pt-2 space-y-4">
+            <section>
+              <Button className="px-6 h-10 min-w-50" onClick={() => setQuizDialogOpen(true)}>
+                <BrainIcon />
+                Create A Quiz
+              </Button>
+
+              <QuizCreationDialog quizDialogOpen={quizDialogOpen} setQuizDialogOpen={setQuizDialogOpen} />
+            </section>
+
+            <Separator />
+
+            <section>
+              <QuizDisplayCard />
+            </section>
           </div>
         </section>
       </div>

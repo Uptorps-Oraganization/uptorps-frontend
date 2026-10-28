@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { CirclePlusIcon } from "lucide-react";
-import { useEffect } from "react";
 import { useDisplayContext } from "./ConfigDisplayContext";
 import { ConfigurationItem } from "./ConfigItem";
 
@@ -22,11 +21,7 @@ export const ConfigDifficultyDisplay = () => {
 };
 
 export const ConfigLevelDisplay = () => {
-  const { selectedConfiguration, configQueryData } = useDisplayContext();
-
-  useEffect(() => {
-    console.log(configQueryData);
-  }, [configQueryData]);
+  const { selectedConfiguration } = useDisplayContext();
 
   return (
     <>
@@ -48,11 +43,7 @@ export const ConfigLevelDisplay = () => {
 };
 
 export const ConfigProgrammeDisplay = () => {
-  const { selectedConfiguration, configQueryData } = useDisplayContext();
-
-  useEffect(() => {
-    console.log(configQueryData);
-  }, [configQueryData]);
+  const { selectedConfiguration } = useDisplayContext();
 
   return (
     <>
@@ -74,11 +65,7 @@ export const ConfigProgrammeDisplay = () => {
 };
 
 export const ConfigCourseDisplay = () => {
-  const { selectedConfiguration, configQueryData } = useDisplayContext();
-
-  useEffect(() => {
-    console.log(configQueryData);
-  }, [configQueryData]);
+  const { selectedConfiguration } = useDisplayContext();
 
   return (
     <>
