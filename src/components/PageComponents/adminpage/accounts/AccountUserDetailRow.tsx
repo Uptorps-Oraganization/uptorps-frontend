@@ -12,8 +12,8 @@ export const AccountUserDetailRow = (props: UserDetailRowType) => {
           <section className="flex flex-row items-center pl-2 space-x-2">
             <UserProfileImg size="size-10" borderStyle="border-4" headerImgUrl={props.profileImgUrl} altText={"UserImg"} />
             <article className="w-fit flex flex-col text-start">
-              <span className="font-semibold text-sm">Kweku Boateng</span>
-              <span>kwekuaboagye@gmail.com</span>
+              <span className="font-semibold text-sm">{props.username}</span>
+              <span>{props.email}</span>
             </article>
           </section>
         </TableCell>

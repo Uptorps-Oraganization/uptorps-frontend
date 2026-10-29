@@ -45,8 +45,8 @@ export const AdminActionLayout = () => {
 
                 {cleanPath == "/adminpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
 
-                {isUserAccountPage && <h1 className="text-sm font-bold">Account Activity Page</h1>}
-                {isQuestionsPage && <h1 className="text-sm font-bold">Questions Page</h1>}
+                {isUserAccountPage && <h1 className="text-sm font-bold">Account Activity</h1>}
+                {isQuestionsPage && <h1 className="text-sm font-bold">Quiz Questions</h1>}
               </article>
             </section>
 

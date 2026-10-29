@@ -88,6 +88,8 @@ export type PageAccountHeaderType = {
 };
 
 export type UserDetailRowType = {
+  username: string;
+  email: string;
   profileImgUrl: string;
   userType: "admin" | "tutor" | "learner";
   activeStatus: "active" | "inactive";

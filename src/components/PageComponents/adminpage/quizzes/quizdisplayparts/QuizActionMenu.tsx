@@ -39,7 +39,7 @@ export const QuizActionMenu = () => {
             </Button>
           }
         />
-        <DropdownMenuContent className="w-fit p-1">
+        <DropdownMenuContent className="w-fit">
           <DropdownMenuGroup>
             <DropdownMenuLabel>Quiz Action</DropdownMenuLabel>
 

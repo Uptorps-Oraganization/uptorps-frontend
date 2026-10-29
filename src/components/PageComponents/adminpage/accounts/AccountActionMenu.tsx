@@ -9,11 +9,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useIconHover } from "@animateicons/react";
-import { EllipsisIcon, EyeIcon, Settings, Trash2Icon } from "@animateicons/react/lucide";
+import { ActivityIcon } from "@animateicons/react/huge";
+import { BanIcon, EllipsisIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
 
 const trig = [
-  { icon: "view", trigger: "hover" },
+  { icon: "activity", trigger: "hover" },
   { icon: "configure", trigger: "hover" },
   { icon: "trashIco", trigger: "hover" },
 ] as const;
@@ -21,11 +22,9 @@ const trig = [
 export const AccountActionMenu = () => {
   const navigate = useNavigate();
   const {
-    icon: { view, configure, trashIco },
+    icon: { activity, configure, trashIco },
     trigger,
   } = useIconHover({ trigger: trig });
-
-
 
   return (
     <DropdownMenu>
@@ -36,20 +35,20 @@ export const AccountActionMenu = () => {
           </Button>
         }
       />
-      <DropdownMenuContent className="w-fit p-1">
+      <DropdownMenuContent className="w-fit">
         <DropdownMenuGroup>
           <DropdownMenuLabel>Account Action</DropdownMenuLabel>
 
           <DropdownMenuItem onClick={() => navigate("/adminpage/accountmanagement/activity/ebd55528-7467-4cc7-815b-7de54c9cf1ff")} {...trigger}>
-            <EyeIcon className="size-4!" {...view} /> View Account Activity
-          </DropdownMenuItem>
-
-          <DropdownMenuItem className="text-amber-300" {...trigger}>
-            <Settings className="size-4!" {...configure} /> Configure Account
+            <ActivityIcon className="size-4!" {...activity} /> Account Activity
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
+
+        <DropdownMenuItem className="text-amber-300" {...trigger}>
+          <BanIcon className="size-4!" {...configure} /> Suspend Account
+        </DropdownMenuItem>
 
         <DropdownMenuItem variant="destructive" {...trigger}>
           <Trash2Icon {...trashIco} /> Delete User
