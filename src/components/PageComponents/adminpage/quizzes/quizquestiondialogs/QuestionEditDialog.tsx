@@ -14,7 +14,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { QuestionTypeSelection } from "../quizdisplayparts/QuestionConfigSelection";
 
 export const QuestionEditDialog = () => {
-  const { questionEditOpen, setQuestionEditOpen } = useQuestionPageStore();
+  const { setQuestionEditOpen } = useQuestionPageStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -43,7 +43,7 @@ export const QuestionEditDialog = () => {
 
   return (
     <>
-      <Dialog open={questionEditOpen}>
+      <Dialog open>
         <form id="question-edit-form" onSubmit={handleSubmit(handleQuestionEdit)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuestionEditOpen} className="absolute top-1 right-1" variant="ghost">

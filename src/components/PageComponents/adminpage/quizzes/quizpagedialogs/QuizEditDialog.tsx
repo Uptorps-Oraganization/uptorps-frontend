@@ -15,7 +15,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../quizdisplayparts/QuizConfigSelection";
 
 export const QuizEditDialog = () => {
-  const { quizEditDialogOpen, setQuizEditDialogOpen } = useQuizPageStore();
+  const { setQuizEditDialogOpen } = useQuizPageStore();
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const {
@@ -53,7 +53,7 @@ export const QuizEditDialog = () => {
 
   return (
     <>
-      <Dialog open={quizEditDialogOpen}>
+      <Dialog open>
         <form id="quiz-edit-form" onSubmit={handleSubmit(handleQuizEditSubmit, onSubmitError)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuizEditDialogOpen} className="absolute top-1 right-1" variant="ghost">

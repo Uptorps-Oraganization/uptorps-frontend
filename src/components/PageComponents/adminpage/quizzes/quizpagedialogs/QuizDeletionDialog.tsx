@@ -6,7 +6,7 @@ import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
 export const QuizDeletionDialog = () => {
-  const { quizDeletionDialogOpen, setQuizDeletionDialogOpen } = useQuizPageStore();
+  const { setQuizDeletionDialogOpen } = useQuizPageStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -22,7 +22,7 @@ export const QuizDeletionDialog = () => {
 
   return (
     <>
-      <Dialog open={quizDeletionDialogOpen}>
+      <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
           <Button onClick={setQuizDeletionDialogOpen} className="absolute top-1 right-1" variant="ghost">
             <XIcon />

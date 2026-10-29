@@ -15,7 +15,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { AnswerTypeSelection } from "../quizdisplayparts/QuestionConfigSelection";
 
 export const AnswerCreationDialog = () => {
-  const { answerCreationDialogOpen, setAnswerCreationDialogOpen } = useQuestionPageStore();
+  const { setAnswerCreationDialogOpen } = useQuestionPageStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -43,7 +43,7 @@ export const AnswerCreationDialog = () => {
 
   return (
     <>
-      <Dialog open={answerCreationDialogOpen}>
+      <Dialog open>
         <form id="answer-creation-form" onSubmit={handleSubmit(handleAnswerCreation)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setAnswerCreationDialogOpen} className="absolute top-1 right-1" variant="ghost">

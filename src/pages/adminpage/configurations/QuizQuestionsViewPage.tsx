@@ -12,7 +12,15 @@ import { useParams } from "react-router";
 
 export const AdminQuizQuestionsViewPage = () => {
   const { quizID } = useParams();
-  const { setQuestionCreationDialogOpen } = useQuestionPageStore();
+  const {
+    questionCreationDialogOpen,
+    questionEditOpen,
+    questionDeleteOpen,
+    answerCreationDialogOpen,
+    answerEditOpen,
+    answerDeleteOpen,
+    setQuestionCreationDialogOpen,
+  } = useQuestionPageStore();
 
   return (
     <>
@@ -38,13 +46,12 @@ export const AdminQuizQuestionsViewPage = () => {
         </section>
       </div>
 
-      <QuestionCreationDialog />
-      <QuestionEditDialog />
-      <QuestionDeleteDialog />
-
-      <AnswerCreationDialog />
-      <AnswerEditDialog />
-      <AnswerDeleteDialog />
+      {questionCreationDialogOpen && <QuestionCreationDialog />}
+      {questionEditOpen && <QuestionEditDialog />}
+      {questionDeleteOpen && <QuestionDeleteDialog />}
+      {answerCreationDialogOpen && <AnswerCreationDialog />}
+      {answerEditOpen && <AnswerEditDialog />}
+      {answerDeleteOpen && <AnswerDeleteDialog />}
     </>
   );
 };

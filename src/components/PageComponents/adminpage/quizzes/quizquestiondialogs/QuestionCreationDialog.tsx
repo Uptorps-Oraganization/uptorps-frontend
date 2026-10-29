@@ -14,7 +14,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { QuestionTypeSelection } from "../quizdisplayparts/QuestionConfigSelection";
 
 export const QuestionCreationDialog = () => {
-  const { questionCreationDialogOpen, setQuestionCreationDialogOpen } = useQuestionPageStore();
+  const { setQuestionCreationDialogOpen } = useQuestionPageStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -42,7 +42,7 @@ export const QuestionCreationDialog = () => {
 
   return (
     <>
-      <Dialog open={questionCreationDialogOpen}>
+      <Dialog open>
         <form id="question-creation-form" onSubmit={handleSubmit(handleQuestionCreation)}>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuestionCreationDialogOpen} className="absolute top-1 right-1" variant="ghost">

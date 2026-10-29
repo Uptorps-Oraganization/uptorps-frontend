@@ -6,32 +6,34 @@ import { ConfigCourseDisplay, ConfigDifficultyDisplay, ConfigLevelDisplay, Confi
 export const ConfigurationCard = () => {
   return (
     <>
-      <Card>
-        <CardHeader className="border-b">
-          <CardTitle className="flex flex-row justify-between items-center">
-            <span className="flex flex-row items-center">
-              Difficulty
-              <GitCommitHorizontalIcon />
-              Levels
-              <GitCommitHorizontalIcon />
-              Programmes
-              <GitCommitHorizontalIcon />
-              Courses
-            </span>
-          </CardTitle>
+      <div className="pt-2">
+        <Card>
+          <CardHeader className="border-b">
+            <CardTitle className="flex flex-row justify-between items-center">
+              <span className="flex flex-row items-center">
+                Difficulty
+                <GitCommitHorizontalIcon />
+                Levels
+                <GitCommitHorizontalIcon />
+                Programmes
+                <GitCommitHorizontalIcon />
+                Courses
+              </span>
+            </CardTitle>
 
-          <CardDescription>
-            <ConfigurationBreadcrump />
-          </CardDescription>
-        </CardHeader>
+            <CardDescription>
+              <ConfigurationBreadcrump />
+            </CardDescription>
+          </CardHeader>
 
-        <CardContent className="px-2">
-          <ConfigDifficultyDisplay />
-          <ConfigLevelDisplay />
-          <ConfigProgrammeDisplay />
-          <ConfigCourseDisplay />
-        </CardContent>
-      </Card>
+          <CardContent className="px-2">
+            <ConfigDifficultyDisplay />
+            <ConfigLevelDisplay />
+            <ConfigProgrammeDisplay />
+            <ConfigCourseDisplay />
+          </CardContent>
+        </Card>
+      </div>
     </>
   );
 };

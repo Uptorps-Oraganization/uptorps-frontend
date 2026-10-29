@@ -5,11 +5,11 @@ import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { XIcon } from "@animateicons/react/lucide";
 
 export const QuizDetailDialog = () => {
-  const { quizDetailDialogOpen, setQuizDetailDialogOpen } = useQuizPageStore();
+  const { setQuizDetailDialogOpen } = useQuizPageStore();
 
   return (
     <>
-      <Dialog open={quizDetailDialogOpen}>
+      <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
           <Button onClick={setQuizDetailDialogOpen} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
