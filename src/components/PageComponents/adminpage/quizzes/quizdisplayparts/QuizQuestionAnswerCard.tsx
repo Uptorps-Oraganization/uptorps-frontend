@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
-import { Trash2Icon } from "@animateicons/react/lucide";
+import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 
 export const QuizQuestionAnswerCard = () => {
   const { setAnswerEditOpen, setAnswerDeleteOpen } = useQuestionPageStore();

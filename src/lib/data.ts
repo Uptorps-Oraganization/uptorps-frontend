@@ -1,18 +1,16 @@
-import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
-import { MessagesSquareIcon } from "@/components/ui/messages-square-icon";
-import { UserGroupIcon } from "@/components/ui/user-group-icon";
-import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
 import {
   BrainIcon,
   ChartPieIcon,
   DollarSignIcon,
+  GraduationCapIcon,
   HandCoinsIcon,
   LayoutDashboard,
   MessageSquareWarningIcon,
+  UserGroupIcon,
   WalletIcon,
 } from "@animateicons/react/lucide";
-import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
+import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, MessagesSquareIcon, Trophy, UserGroup, WrenchIcon } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
   {
@@ -49,8 +47,7 @@ export const featuresData: FeatureDataType[] = [
 
 export const testimonialsData: TestimonialDataType[] = [
   {
-    statement:
-      "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Peter",
     user_type: "Learner",
     ratings: 4,
@@ -62,15 +59,13 @@ export const testimonialsData: TestimonialDataType[] = [
     ratings: 5,
   },
   {
-    statement:
-      "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Amos",
     user_type: "Tutor",
     ratings: 3,
   },
   {
-    statement:
-      "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Peter",
     user_type: "Learner",
     ratings: 4,
@@ -82,22 +77,19 @@ export const testimonialsData: TestimonialDataType[] = [
     ratings: 5,
   },
   {
-    statement:
-      "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Amos",
     user_type: "Tutor",
     ratings: 3,
   },
   {
-    statement:
-      "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
+    statement: "UPTORPS transformed my learning journey. I have earned over $500 in rewards while completing courses that actually improved my skills.",
     user_name: "Cynthia",
     user_type: "Learner",
     ratings: 2,
   },
   {
-    statement:
-      "UPTorps has a great customer care system. I had a challenge withdrawing my earnings and I reached out to them. The problem was solved swiftly",
+    statement: "UPTorps has a great customer care system. I had a challenge withdrawing my earnings and I reached out to them. The problem was solved swiftly",
     user_name: "Fred",
     user_type: "Learner",
     ratings: 4,

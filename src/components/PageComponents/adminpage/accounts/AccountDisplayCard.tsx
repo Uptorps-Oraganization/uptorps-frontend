@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { ChevronFirstIcon } from "@/components/ui/chevron-first-icon";
-import { ChevronLastIcon } from "@/components/ui/chevron-last-icon";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { accountQueryChoiceOptions, rowsPerPageOption } from "@/lib/data";
-import { ChevronLeftIcon, ChevronRightIcon, FilterIcon, SearchIcon } from "@animateicons/react/lucide";
+import { ChevronFirstIcon, ChevronLastIcon, ChevronLeftIcon, ChevronRightIcon, FilterIcon, SearchIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 import { AccountDetailTable } from "./AccountDetailTable";
 

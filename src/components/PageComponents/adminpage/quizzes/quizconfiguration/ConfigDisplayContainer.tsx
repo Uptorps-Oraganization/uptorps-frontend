@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
-import { CirclePlusIcon } from "@animateicons/react/lucide";
+import { CirclePlusIcon, HouseIcon } from "@animateicons/react/lucide";
 import { ConfigurationItem } from "./ConfigItem";
 
 export const ConfigDifficultyDisplay = () => {
@@ -22,16 +22,31 @@ export const ConfigDifficultyDisplay = () => {
 };
 
 export const ConfigLevelDisplay = () => {
-  const { selectedConfiguration } = useQuizPageStore();
+  const { clearConfigQueryData, selectedConfiguration, setselectedConfiguration } = useQuizPageStore();
+  const { ref: homeref, triggerProps: hometrigger } = useIconHover({ trigger: "hover" });
   const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 1 ? false : true}>
-        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
-          <CirclePlusIcon ref={ref} />
-          Add Level
-        </Button>
+        <section className="flex flex-row gap-2">
+          <Button
+            onClick={() => {
+              setselectedConfiguration(0);
+              clearConfigQueryData();
+            }}
+            className="px-4 h-10"
+            variant={"ghost"}
+            {...hometrigger}
+          >
+            <HouseIcon ref={homeref} />
+          </Button>
+
+          <Button className="px-10 h-10" {...triggerProps}>
+            <CirclePlusIcon ref={ref} />
+            Add Level
+          </Button>
+        </section>
 
         <section className="grid grid-cols-3 gap-3">
           <ConfigurationItem name="Level 1" type="level" />
@@ -51,7 +66,7 @@ export const ConfigProgrammeDisplay = () => {
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 2 ? false : true}>
-        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
+        <Button className="px-10 h-10" {...triggerProps}>
           <CirclePlusIcon ref={ref} />
           Add Programme
         </Button>
@@ -74,7 +89,7 @@ export const ConfigCourseDisplay = () => {
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 3 ? false : true}>
-        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
+        <Button className="px-10 h-10" {...triggerProps}>
           <CirclePlusIcon ref={ref} />
           Add Course
         </Button>

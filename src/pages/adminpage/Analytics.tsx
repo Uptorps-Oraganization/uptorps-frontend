@@ -16,7 +16,7 @@ export const AdminAnalytics = () => {
 
           <img className="size-50 my-2 animate-pulse" src={umamiIcon} alt="umami" />
 
-          <Button className="p-4" {...triggerProps}>
+          <Button className="p-5 px-8" {...triggerProps}>
             <ArrowUpRight ref={ref} />
             Visit Analytics Dashbord
           </Button>

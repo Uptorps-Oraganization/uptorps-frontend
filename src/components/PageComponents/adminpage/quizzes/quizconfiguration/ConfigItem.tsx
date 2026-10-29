@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { Trash2Icon } from "@animateicons/react/lucide";
+import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 
 type ConfItemType = {
@@ -31,6 +30,7 @@ export const ConfigurationItem = (props: ConfItemType) => {
           <Button variant="ghost" size="icon" className="border">
             <SquarePenIcon className="size-4!" />
           </Button>
+          
           <Button variant="ghost" size="icon" className="border">
             <Trash2Icon className="text-destructive" />
           </Button>

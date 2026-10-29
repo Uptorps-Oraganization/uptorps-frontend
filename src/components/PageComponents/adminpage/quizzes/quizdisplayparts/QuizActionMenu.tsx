@@ -8,10 +8,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
-import { ArrowUpRight, EllipsisIcon, EyeIcon, Trash2Icon } from "@animateicons/react/lucide";
+import { ArrowUpRight, EllipsisIcon, EyeIcon, SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
 
 const triggerConfig = [

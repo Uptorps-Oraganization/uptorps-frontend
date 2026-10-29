@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
-import { Trash2Icon } from "@animateicons/react/lucide";
+import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { CirclePlusIcon } from "lucide-react";
 import { QuizQuestionAnswerCard } from "./QuizQuestionAnswerCard";
 
@@ -13,7 +12,11 @@ export const QuizQuestionCard = () => {
     <>
       <Card>
         <CardHeader>
-          <CardTitle className="flex flex-row justify-between items-center">
+          <CardAction className="text-nowrap! text-xs border border-green-400 p-1">
+            <span className="font-semibold">Multiple Choice</span>
+          </CardAction>
+
+          <CardTitle className="flex flex-row justify-between items-center pt-2">
             <span className="font-semibold">Question</span>
           </CardTitle>
 
@@ -21,11 +24,7 @@ export const QuizQuestionCard = () => {
             <span className="text-sm">Neither the teacher nor the students _______ able to solve the complex riddle during yesterday's class.</span>
           </CardDescription>
 
-          <CardAction className="text-xs border border-green-400 p-1">
-            <span className="font-semibold">Multiple Choice</span>
-          </CardAction>
-
-          <section className="pt-2 space-x-2">
+          <section className="flex flex-row pt-2 space-x-2">
             <Button onClick={setAnswerCreationDialogOpen} className="text-amber-500" variant="outline">
               <CirclePlusIcon />
               Add Answer
@@ -43,12 +42,12 @@ export const QuizQuestionCard = () => {
         </CardHeader>
 
         <CardFooter>
-          <div className="w-full flex flex-col">
-            <section className="flex flex-row justify-between items-center">
+          <div className="flex flex-col">
+            <section className="flex flex-row justify-between items-center pb-2">
               <span className="font-semibold">Answers</span>
             </section>
 
-            <section className="w-full pt-2 space-y-2">
+            <section className="w-full space-y-2">
               <QuizQuestionAnswerCard />
               <QuizQuestionAnswerCard />
               <QuizQuestionAnswerCard />

@@ -1,4 +1,3 @@
-import { BanIcon } from "@/components/ui/ban-icon";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,21 +8,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useIconHover } from "@animateicons/react";
-import { EllipsisIcon, EyeIcon, SendIcon, Trash2Icon } from "@animateicons/react/lucide";
+import { ActivityIcon, EllipsisIcon, SendIcon, Settings } from "@animateicons/react/lucide";
+import { useNavigate } from "react-router";
 
 const triggerConfig = [
   { icon: "viewProfile", trigger: "hover" },
-  { icon: "editAccount", trigger: "hover" },
   { icon: "sendEmail", trigger: "hover" },
-  { icon: "suspendAccount", trigger: "hover" },
-  { icon: "deleteAccount", trigger: "hover" },
+  { icon: "configureAccount", trigger: "hover" },
 ] as const;
 
 export const AccountActionMenu = () => {
+  const navigate = useNavigate();
   const {
-    icon: { viewProfile, editAccount, sendEmail, suspendAccount, deleteAccount },
+    icon: { viewProfile, configureAccount, sendEmail },
     trigger,
   } = useIconHover({ trigger: triggerConfig });
 
@@ -40,12 +38,8 @@ export const AccountActionMenu = () => {
         <DropdownMenuGroup>
           <DropdownMenuLabel>Account Action</DropdownMenuLabel>
 
-          <DropdownMenuItem {...trigger}>
-            <EyeIcon className="size-4!" {...viewProfile} /> View Profile
-          </DropdownMenuItem>
-
-          <DropdownMenuItem {...trigger}>
-            <SquarePenIcon className="size-4!" {...editAccount} /> Edit Account
+          <DropdownMenuItem onClick={() => navigate("/adminpage/accountmanagement/activity/ebd55528-7467-4cc7-815b-7de54c9cf1ff")} {...trigger}>
+            <ActivityIcon className="size-4!" {...viewProfile} /> View Account Activity
           </DropdownMenuItem>
 
           <DropdownMenuItem {...trigger}>
@@ -56,11 +50,7 @@ export const AccountActionMenu = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem className="text-amber-300" {...trigger}>
-          <BanIcon {...suspendAccount} /> Suspend User
-        </DropdownMenuItem>
-
-        <DropdownMenuItem variant="destructive" {...trigger}>
-          <Trash2Icon {...deleteAccount} /> Delete User
+          <Settings className="size-4!" {...configureAccount} /> Configure Account
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

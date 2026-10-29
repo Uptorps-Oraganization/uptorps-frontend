@@ -3,8 +3,8 @@ import { ActiveAccountStatCard } from "@/components/PageComponents/adminpage/das
 import { RevenueChartCard } from "@/components/PageComponents/adminpage/dashboard/RevenueChartCard";
 import { SiteVisitChartCard } from "@/components/PageComponents/adminpage/dashboard/SiteVisitChartCard";
 import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
-import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
-import { TrendingUp } from "@animateicons/react/lucide";
+
+import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 
 export const AdminDashboard = () => {
   return (

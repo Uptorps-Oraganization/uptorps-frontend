@@ -11,7 +11,10 @@ const quizPageStore = create<QuizPageStoreType>((set) => ({
   quizDeletionDialogOpen: false,
 
   setselectedConfiguration: (selected: number) => set(() => ({ selectedConfiguration: selected })),
+
   setConfigQueryData: (data: Record<string, string>) => set((state) => ({ configQueryData: { ...state.configQueryData, ...data } })),
+  clearConfigQueryData: () => set(() => ({ configQueryData: {} })),
+
   setQuizCreationDialogOpen: () => set((state) => ({ quizCreationDialogOpen: !state.quizCreationDialogOpen })),
   setQuizDetailDialogOpen: () => set((state) => ({ quizDetailDialogOpen: !state.quizDetailDialogOpen })),
   setQuizEditDialogOpen: () => set((state) => ({ quizEditDialogOpen: !state.quizEditDialogOpen })),
@@ -30,6 +33,7 @@ export const useQuizPageStore = () =>
 
       setselectedConfiguration: state.setselectedConfiguration,
       setConfigQueryData: state.setConfigQueryData,
+      clearConfigQueryData: state.clearConfigQueryData,
       setQuizCreationDialogOpen: state.setQuizCreationDialogOpen,
       setQuizDetailDialogOpen: state.setQuizDetailDialogOpen,
       setQuizEditDialogOpen: state.setQuizEditDialogOpen,

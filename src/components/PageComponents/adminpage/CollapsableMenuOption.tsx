@@ -1,27 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  useSidebar,
-} from "@/components/ui/sidebar";
+import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, useSidebar } from "@/components/ui/sidebar";
 import type { IconProps } from "@/typesnschemas/types/DataTypes";
 import { useIconHover } from "@animateicons/react";
 import { ChevronDown } from "lucide-react";
 
-export const CollapsableMenuOption = ({
-  menuName,
-  menuIcon,
-  children,
-}: {
-  menuName: string;
-  menuIcon: React.ComponentType<IconProps>;
-  children: React.ReactNode;
-}) => {
+export const CollapsableMenuOption = ({ menuName, menuIcon, children }: { menuName: string; menuIcon: React.ComponentType<IconProps>; children: React.ReactNode }) => {
   const { state } = useSidebar();
 
   const { ref, triggerProps } = useIconHover({ trigger: "hover" });
