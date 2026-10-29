@@ -11,6 +11,8 @@ export const LearnerActionLayout = () => {
   const currentLocation = useLocation();
   const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
 
+  const cleanPath = currentLocation.pathname.replace(/\/$/, "");
+
   return (
     <SidebarProvider className="select-none">
       <LearnerSideBar />
@@ -24,14 +26,14 @@ export const LearnerActionLayout = () => {
               <article id="pageHeaderSection">
                 {userMenuOptions.map(
                   (option) =>
-                    currentLocation.pathname === option.link && (
+                    cleanPath === option.link && (
                       <h1 key={option.name} className="text-sm font-bold">
                         {option.name}
                       </h1>
                     ),
                 )}
 
-                {currentLocation.pathname == "/userpage/learneractionpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
+                {cleanPath == "/userpage/learneractionpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
               </article>
             </section>
 

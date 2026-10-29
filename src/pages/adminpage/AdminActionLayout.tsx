@@ -12,6 +12,7 @@ export const AdminActionLayout = () => {
   const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
 
   const cleanPath = currentLocation.pathname.replace(/\/$/, "");
+  const isUserAccountPage = matchPath("/adminpage/accountmanagement/activity/:userID", cleanPath);
   const isQuestionsPage = matchPath("/adminpage/configurations/quizzes/:quizID", cleanPath);
 
   return (
@@ -44,7 +45,8 @@ export const AdminActionLayout = () => {
 
                 {cleanPath == "/adminpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
 
-                {isQuestionsPage && <h1 className="text-sm font-bold">Questions Page</h1>}
+                {isUserAccountPage && <h1 className="text-sm font-bold">Account Activity</h1>}
+                {isQuestionsPage && <h1 className="text-sm font-bold">Quiz Questions</h1>}
               </article>
             </section>
 

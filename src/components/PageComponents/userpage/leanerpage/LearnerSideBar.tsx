@@ -1,21 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
-import { Spinner } from "@/components/ui/spinner";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
 import { useLearnerStore } from "@/statemanagers/userpagestate/LearnerStore";
-import { LogOut, Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
+import { useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../../sharedcomponents/SidebarAccountHeader";
+import { SidebarLogOutButton } from "../../sharedcomponents/sidebarunits/SidebarLogOutButton";
+import { SidebarMenuButtonWithIcon } from "../../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
 
 export const LearnerSideBar = () => {
-  const currentLocation = useLocation();
-  const navigate = useNavigate();
-
   const { theme, setTheme } = useTheme();
-  const { state, setOpenMobile } = useSidebar();
-
   const { logOutLoadingState, setlogOutLoadingState } = useLearnerStore();
+  const navigate = useNavigate();
 
   const logOutLearner = () => {
     setlogOutLoadingState();
@@ -43,16 +39,7 @@ export const LearnerSideBar = () => {
         <SidebarMenu>
           {userMenuOptions.map((option) => (
             <SidebarMenuItem key={option.name}>
-              <SidebarMenuButton
-                tooltip={option.name}
-                onClick={() => setOpenMobile(false)}
-                isActive={currentLocation.pathname === option.link}
-                render={<Link to={option.link} />}
-                className={`${currentLocation.pathname === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
-              >
-                <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                <span className={`${currentLocation.pathname === option.link ? "text-[15px]" : "text-[13px]"} text-pretty`}>{option.name}</span>
-              </SidebarMenuButton>
+              <SidebarMenuButtonWithIcon name={option.name} link={option.link} icon={option.icon} />
             </SidebarMenuItem>
           ))}
         </SidebarMenu>
@@ -60,13 +47,6 @@ export const LearnerSideBar = () => {
 
       <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton tooltip={"Account Settings"} onClick={() => setOpenMobile(false)} render={<Link to="/userpage/learneractionpage/settings" />}>
-              <Settings />
-              <span className="text-pretty">Account Settings</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-
           <SidebarMenuItem className="pointer-events-none">
             <SidebarMenuButton tooltip={"Free Account"}>
               <UserLock />
@@ -75,16 +55,19 @@ export const LearnerSideBar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={"Log Out"} className="font-bold" onClick={() => logOutLearner()}>
-              {logOutLoadingState ? <Spinner /> : <LogOut />}
-              <span className="text-pretty">Log Out</span>
+            <SidebarMenuButtonWithIcon name={"Account Settings"} link={"/userpage/learneractionpage/settings"} icon={Settings} />
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarLogOutButton loading={logOutLoadingState} clickAction={logOutLearner} />
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton className="w-fit!" onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
+              {theme == "dark" ? <Sun /> : <Moon />}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-
-        <Button onClick={() => setTheme(theme == "dark" ? "light" : "dark")} size="icon-sm" variant="ghost">
-          {theme == "dark" ? <Sun /> : <Moon />}
-        </Button>
       </SidebarFooter>
     </Sidebar>
   );

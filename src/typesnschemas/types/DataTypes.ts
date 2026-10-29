@@ -27,6 +27,7 @@ export type AuthContextType = {
 };
 
 export type IconProps = {
+  ref?: any;
   size?: number;
   color?: string;
   duration?: number;
@@ -87,6 +88,8 @@ export type PageAccountHeaderType = {
 };
 
 export type UserDetailRowType = {
+  username: string;
+  email: string;
   profileImgUrl: string;
   userType: "admin" | "tutor" | "learner";
   activeStatus: "active" | "inactive";

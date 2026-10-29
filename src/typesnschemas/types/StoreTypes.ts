@@ -46,6 +46,7 @@ export type QuizPageStoreType = {
 
   setselectedConfiguration: (selected: number) => void;
   setConfigQueryData: (data: Record<string, string>) => void;
+  clearConfigQueryData: () => void;
   setQuizCreationDialogOpen: () => void;
   setQuizDetailDialogOpen: () => void;
   setQuizEditDialogOpen: () => void;

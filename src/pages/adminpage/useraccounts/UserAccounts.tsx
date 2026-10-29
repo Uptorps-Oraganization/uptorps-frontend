@@ -1,7 +1,7 @@
 import { AccountDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
-import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
-import { TrendingUp } from "@animateicons/react/lucide";
+
+import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 
 export const AdminUserAccounts = () => {
   return (

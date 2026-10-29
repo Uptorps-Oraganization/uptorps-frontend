@@ -1,10 +1,16 @@
-import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
-import { MessagesSquareIcon } from "@/components/ui/messages-square-icon";
-import { UserGroupIcon } from "@/components/ui/user-group-icon";
-import { WrenchIcon } from "@/components/ui/wrench-icon";
 import type { FeatureDataType, TestimonialDataType } from "@/typesnschemas/types/DataTypes";
-import { BrainIcon, ChartPieIcon, DollarSignIcon, EllipsisIcon, HandCoinsIcon, LayoutDashboard, WalletIcon } from "@animateicons/react/lucide";
-import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
+import {
+  BrainIcon,
+  ChartPieIcon,
+  DollarSignIcon,
+  GraduationCapIcon,
+  HandCoinsIcon,
+  LayoutDashboard,
+  MessageSquareWarningIcon,
+  UserGroupIcon,
+  WalletIcon,
+} from "@animateicons/react/lucide";
+import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, MessagesSquareIcon, Trophy, UserGroup, WrenchIcon } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
   {
@@ -121,8 +127,8 @@ export const adminMenuOptions = [
     name: "Reports",
     icon: MessagesSquareIcon,
     subOptions: [
-      { name: "Tutor Reports", link: "/adminpage/reports/tutorreports", icon: EllipsisIcon },
-      { name: "Learner Reports", link: "/adminpage/reports/learnerreports", icon: EllipsisIcon },
+      { name: "Tutor Reports", link: "/adminpage/reports/tutorreports", icon: MessageSquareWarningIcon },
+      { name: "Learner Reports", link: "/adminpage/reports/learnerreports", icon: MessageSquareWarningIcon },
     ],
   },
 ];

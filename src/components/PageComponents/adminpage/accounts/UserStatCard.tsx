@@ -6,7 +6,7 @@ type StatType = {
   title: string;
   figure: number;
   trend?: string;
-  trendicon: any;
+  trendicon?: any;
   overallcomment?: string;
 };
 

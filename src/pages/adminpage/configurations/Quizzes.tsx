@@ -6,16 +6,14 @@ import { QuizDetailDialog } from "@/components/PageComponents/adminpage/quizzes/
 import { QuizEditDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizEditDialog";
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
 import { Button } from "@/components/ui/button";
-import { CircleDotIcon } from "@/components/ui/circle-dot-icon";
-import { Dashboard02Icon } from "@/components/ui/dashboard-0-2-icon";
-import { DatabaseIcon } from "@/components/ui/database-icon";
-import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
 import { Separator } from "@/components/ui/separator";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { BrainIcon } from "@animateicons/react/lucide";
+import { useIconHover } from "@animateicons/react";
+import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
 
 export const AdminQuizzes = () => {
   const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen } = useQuizPageStore();
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
@@ -32,7 +30,7 @@ export const AdminQuizzes = () => {
           </div>
 
           <div id="adminOverviewSection" className="grid grid-cols-3 gap-4 pt-2">
-            <QuizStatCard title={"Levels Count"} figure={18} trendicon={Dashboard02Icon} />
+            <QuizStatCard title={"Levels Count"} figure={18} trendicon={LayersIcon} />
 
             <QuizStatCard title={"Programmes Count"} figure={16} trendicon={DatabaseIcon} />
 
@@ -50,8 +48,8 @@ export const AdminQuizzes = () => {
           <p className="font-semibold">Quizzes Uploads & Details</p>
 
           <div className="pt-2 space-y-4">
-            <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen}>
-              <BrainIcon />
+            <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen} {...triggerProps}>
+              <BrainIcon ref={ref} />
               Create A Quiz
             </Button>
 

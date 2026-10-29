@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { ChevronFirstIcon } from "@/components/ui/chevron-first-icon";
-import { ChevronLastIcon } from "@/components/ui/chevron-last-icon";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { accountQueryChoiceOptions, rowsPerPageOption } from "@/lib/data";
-import { ChevronLeftIcon, ChevronRightIcon, FilterIcon, SearchIcon } from "@animateicons/react/lucide";
+import { ChevronFirstIcon, ChevronLastIcon, ChevronLeftIcon, ChevronRightIcon, FilterIcon, SearchIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 import { AccountDetailTable } from "./AccountDetailTable";
 
@@ -20,7 +18,7 @@ export const AccountDisplayCard = () => {
           <section className="flex flex-row justify-between items-center gap-4 h-10">
             <InputGroup className="h-full">
               <InputGroupAddon align="inline-start">
-                <SearchIcon className="size-4" />
+                <SearchIcon className="size-4 cursor-auto" />
               </InputGroupAddon>
 
               <InputGroupInput type="text" className="text-[14px]!" placeholder="Search Account By Name or Email........." />

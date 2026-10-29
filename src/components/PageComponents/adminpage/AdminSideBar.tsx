@@ -1,35 +1,19 @@
-import { Button } from "@/components/ui/button";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-  useSidebar,
-} from "@/components/ui/sidebar";
-import { Spinner } from "@/components/ui/spinner";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubItem } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
 import { useAdminStore } from "@/statemanagers/adminpagestate/AdminStore";
-import { LogOut, Moon, Settings, Sun } from "@animateicons/react/lucide";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Moon, Settings, Sun } from "@animateicons/react/lucide";
+import { useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";
+import { SidebarLogOutButton } from "../sharedcomponents/sidebarunits/SidebarLogOutButton";
+import { SidebarMenuButtonWithIcon } from "../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
+import { SidebarSubMenuButtonWithIcon } from "../sharedcomponents/sidebarunits/SidebarSubMenuButtonWithIcon";
 import { CollapsableMenuOption } from "./CollapsableMenuOption";
 
 export const AdminSideBar = () => {
-  const currentLocation = useLocation();
-  const navigate = useNavigate();
-
   const { theme, setTheme } = useTheme();
-  const { state, setOpenMobile } = useSidebar();
-
   const { logOutLoadingState, setlogOutLoadingState } = useAdminStore();
-
-  const cleanPath = currentLocation.pathname.replace(/\/$/, "");
+  const navigate = useNavigate();
 
   const logOutAdmin = () => {
     setlogOutLoadingState();
@@ -41,7 +25,7 @@ export const AdminSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon" className="text-primary-foreground!">
+    <Sidebar collapsible="icon">
       <SidebarHeader className="p-2 mt-2">
         <SidebarAccountHeader
           theme={theme}
@@ -53,7 +37,7 @@ export const AdminSideBar = () => {
         />
       </SidebarHeader>
 
-      <SidebarContent className="p-2 pt-0 text-primary-foreground!">
+      <SidebarContent className="p-2 pt-0">
         <SidebarMenu>
           {adminMenuOptions.map((option) => {
             if (option.subOptions) {
@@ -61,15 +45,7 @@ export const AdminSideBar = () => {
                 <CollapsableMenuOption key={option.name} menuName={option.name} menuIcon={option.icon}>
                   {option.subOptions.map((subOption) => (
                     <SidebarMenuSubItem key={subOption.name}>
-                      <SidebarMenuSubButton
-                        onClick={() => setOpenMobile(false)}
-                        isActive={cleanPath === subOption.link}
-                        render={<Link to={subOption.link} />}
-                        className={`${cleanPath === subOption.link ? "font-semibold" : "text-primary-foreground!"} h-8 [&_svg]:size-4 hover:text-primary!`}
-                      >
-                        <subOption.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                        <span className={`${cleanPath === subOption.link ? "text-sm" : "text-[12px]"} text-pretty`}>{subOption.name}</span>
-                      </SidebarMenuSubButton>
+                      <SidebarSubMenuButtonWithIcon name={subOption.name} link={subOption.link} icon={subOption.icon} />
                     </SidebarMenuSubItem>
                   ))}
                 </CollapsableMenuOption>
@@ -77,16 +53,7 @@ export const AdminSideBar = () => {
             } else {
               return (
                 <SidebarMenuItem key={option.name}>
-                  <SidebarMenuButton
-                    tooltip={option.name}
-                    onClick={() => setOpenMobile(false)}
-                    isActive={cleanPath === option.link}
-                    render={<Link to={option.link} />}
-                    className={`${cleanPath === option.link && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
-                  >
-                    <option.icon className={`${state === "collapsed" ? "size-full" : "size-fit"}`} />
-                    <span className={`${cleanPath === option.link ? "text-[15px] font-semibold" : "text-[13px]"} text-pretty`}>{option.name}</span>
-                  </SidebarMenuButton>
+                  <SidebarMenuButtonWithIcon name={option.name} link={option.link} icon={option.icon} />
                 </SidebarMenuItem>
               );
             }
@@ -94,32 +61,22 @@ export const AdminSideBar = () => {
         </SidebarMenu>
       </SidebarContent>
 
-      <SidebarFooter className="text-primary-foreground!">
+      <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              isActive={cleanPath === "/adminpage/settings"}
-              tooltip={"Account Settings"}
-              onClick={() => setOpenMobile(false)}
-              render={<Link to="/adminpage/settings" />}
-              className={`${cleanPath === "/adminpage/settings" && "font-bold"} h-10 [&_svg]:size-5 my-0.5`}
-            >
-              <Settings />
-              <span className="text-pretty">Account Settings</span>
-            </SidebarMenuButton>
+            <SidebarMenuButtonWithIcon name={"Account Settings"} link={"/adminpage/settings"} icon={Settings} />
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={"Log Out"} className="font-bold" onClick={() => logOutAdmin()}>
-              {logOutLoadingState ? <Spinner /> : <LogOut />}
-              <span className="text-pretty">Log Out</span>
+            <SidebarLogOutButton loading={logOutLoadingState} clickAction={logOutAdmin} />
+          </SidebarMenuItem>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton className="w-fit!" onClick={() => setTheme(theme == "dark" ? "light" : "dark")}>
+              {theme == "dark" ? <Sun /> : <Moon />}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-
-        <Button onClick={() => setTheme(theme == "dark" ? "light" : "dark")} size="icon-sm" variant="ghost">
-          {theme == "dark" ? <Sun /> : <Moon />}
-        </Button>
       </SidebarFooter>
     </Sidebar>
   );
