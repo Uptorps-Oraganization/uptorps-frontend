@@ -5,14 +5,17 @@ import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { adminMenuOptions } from "@/lib/data";
 import { useState } from "react";
-import { Outlet, useLocation } from "react-router";
+import { matchPath, Outlet, useLocation } from "react-router";
 
 export const AdminActionLayout = () => {
   const currentLocation = useLocation();
   const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
 
+  const cleanPath = currentLocation.pathname.replace(/\/$/, "");
+  const isQuestionsPage = matchPath("/adminpage/configurations/quizzes/:quizID", cleanPath);
+
   return (
-    <SidebarProvider>
+    <SidebarProvider className="select-none">
       <AdminSideBar />
       <SidebarInset className="relative">
         <header className="sticky top-0 bg-background flex h-fit z-50 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-fit">
@@ -26,20 +29,22 @@ export const AdminActionLayout = () => {
                   option.subOptions
                     ? option.subOptions.map(
                         (subOption) =>
-                          currentLocation.pathname === subOption.link && (
+                          cleanPath === subOption.link && (
                             <h1 key={subOption.name} className="text-sm font-bold">
                               {subOption.name}
                             </h1>
                           ),
                       )
-                    : currentLocation.pathname === option.link && (
+                    : cleanPath === option.link && (
                         <h1 key={option.name} className="text-sm font-bold">
                           {option.name}
                         </h1>
                       ),
                 )}
 
-                {currentLocation.pathname == "/adminpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
+                {cleanPath == "/adminpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
+
+                {isQuestionsPage && <h1 className="text-sm font-bold">Questions Page</h1>}
               </article>
             </section>
 

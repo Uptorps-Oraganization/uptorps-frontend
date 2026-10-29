@@ -24,7 +24,7 @@ export function ActiveAccountStatCard() {
 
   return (
     <Card className="flex flex-col">
-      <CardHeader>
+      <CardHeader className="border-b">
         <CardTitle>Active Accounts</CardTitle>
         <CardDescription>Total Accounts: 10,345</CardDescription>
       </CardHeader>

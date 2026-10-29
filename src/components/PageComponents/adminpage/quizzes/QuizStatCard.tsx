@@ -15,7 +15,7 @@ const formatFigure = (amount: number) => {
   return outputfigure;
 };
 
-export const AccountStatCard = (props: StatType) => {
+export const QuizStatCard = (props: StatType) => {
   const FieldIcon = props.trendicon;
 
   return (
@@ -24,6 +24,7 @@ export const AccountStatCard = (props: StatType) => {
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
           <CardTitle className="text-3xl font-semibold tabular-nums">{formatFigure(props.figure)}</CardTitle>
+         
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />

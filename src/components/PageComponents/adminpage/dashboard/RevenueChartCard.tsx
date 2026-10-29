@@ -22,7 +22,7 @@ const chartConfig = {
 export function RevenueChartCard() {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="border-b">
         <CardTitle>Recent Revenue</CardTitle>
         <CardDescription>Revenue generated over the last 6 months</CardDescription>
       </CardHeader>

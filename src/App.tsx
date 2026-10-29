@@ -1,10 +1,10 @@
 import { Toaster } from "@/components/ui/sonner";
 import Homepage from "@/pages/HomePage";
-import { AdminAccounts } from "@/pages/adminpage/Accounts";
 import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
 import { AdminAnalytics } from "@/pages/adminpage/Analytics";
 import { AdminDashboard } from "@/pages/adminpage/Dashboard";
 import { AdminSettings } from "@/pages/adminpage/Settings";
+import { AdminUserAccounts } from "@/pages/adminpage/UserAccounts";
 import { AdminCourses } from "@/pages/adminpage/configurations/Courses";
 import { AdminQuizzes } from "@/pages/adminpage/configurations/Quizzes";
 import { AdminPayouts } from "@/pages/adminpage/finance/Payouts";
@@ -33,6 +33,7 @@ import { TutorSettings } from "@/pages/userpage/tutorpage/Settings";
 import { TutorActionLayout } from "@/pages/userpage/tutorpage/TutorActionLayout";
 import { TutorWallet } from "@/pages/userpage/tutorpage/Wallet";
 import { HashRouter, Navigate, Route, Routes } from "react-router";
+import { AdminQuizQuestionsViewPage } from "./pages/adminpage/configurations/QuizQuestionsViewPage";
 
 function App() {
   return (
@@ -59,12 +60,13 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace />} />
             {/* <Route element={<ProtectedRoutes />}> */}
             <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="accountmanagement" element={<AdminAccounts />} />
+            <Route path="accountmanagement" element={<AdminUserAccounts />} />
             <Route path="analytics" element={<AdminAnalytics />} />
 
             <Route path="configurations">
               <Route path="courses" element={<AdminCourses />} />
               <Route path="quizzes" element={<AdminQuizzes />} />
+              <Route path="quizzes/:quizID" element={<AdminQuizQuestionsViewPage />} />
             </Route>
 
             <Route path="finance">

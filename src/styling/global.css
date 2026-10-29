@@ -151,7 +151,7 @@
   }
 
   .table_head_style {
-    @apply text-sm font-bold! text-center! border bg-green-600/20!;
+    @apply text-sm font-bold! text-center! border bg-green-600/40!;
   }
 
   .table_cell_centered {

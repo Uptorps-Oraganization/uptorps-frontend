@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { Moon, Sun } from "@animateicons/react/lucide";
 import { Copyright } from "lucide-react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 export const AuthLayout = () => {
   const { theme, setTheme } = useTheme();
@@ -22,7 +22,9 @@ export const AuthLayout = () => {
 
           <div className="flex flex-row items-center p-1 space-x-3">
             <DynamicUptorpLogo className="size-15" theme={theme} />
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Uptorps</h1>
+            <Link to={"/"}>
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Uptorps</h1>
+            </Link>
           </div>
 
           <p className="text-xl">Welcome To Our Authentication Page</p>
