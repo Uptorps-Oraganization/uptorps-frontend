@@ -10,13 +10,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { SquarePenIcon } from "@/components/ui/square-pen-icon";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { EllipsisIcon, EyeIcon, Trash2Icon } from "@animateicons/react/lucide";
+import { useIconHover } from "@animateicons/react";
+import { ArrowUpRight, EllipsisIcon, EyeIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
 
+const triggerConfig = [
+  { icon: "viewDetail", trigger: "hover" },
+  { icon: "editQuiz", trigger: "hover" },
+  { icon: "viewQuestion", trigger: "hover" },
+  { icon: "deleteQuiz", trigger: "hover" },
+] as const;
+
 export const QuizActionMenu = () => {
+  const navigate = useNavigate();
   const { setQuizDetailDialogOpen, setQuizEditDialogOpen, setQuizDeletionDialogOpen } = useQuizPageStore();
 
-  const navigate = useNavigate();
+  const {
+    icon: { viewDetail, editQuiz, viewQuestion, deleteQuiz },
+    trigger,
+  } = useIconHover({ trigger: triggerConfig });
 
   return (
     <>
@@ -32,23 +44,23 @@ export const QuizActionMenu = () => {
           <DropdownMenuGroup>
             <DropdownMenuLabel>Quiz Action</DropdownMenuLabel>
 
-            <DropdownMenuItem onClick={setQuizDetailDialogOpen}>
-              <EyeIcon className="size-4!" /> View Details
+            <DropdownMenuItem onClick={setQuizDetailDialogOpen} {...trigger}>
+              <EyeIcon className="size-4!" {...viewDetail} /> View Details
             </DropdownMenuItem>
 
-            <DropdownMenuItem onClick={setQuizEditDialogOpen}>
-              <SquarePenIcon className="size-4!" /> Edit Quiz
+            <DropdownMenuItem onClick={setQuizEditDialogOpen} {...trigger}>
+              <SquarePenIcon className="size-4!" {...editQuiz} /> Edit Quiz
             </DropdownMenuItem>
 
-            <DropdownMenuItem className="text-amber-400" onClick={() => navigate("/adminpage/configurations/quizzes/2d8d44d7-7c5d-4bd7-bf96-1f1d51547ce1")}>
-              <EyeIcon className="size-4!" /> View Questions
+            <DropdownMenuItem className="text-amber-400" onClick={() => navigate("/adminpage/configurations/quizzes/2d8d44d7-7c5d-4bd7-bf96-1f1d51547ce1")} {...trigger}>
+              <ArrowUpRight className="size-4!" {...viewQuestion} /> Quiz Questions
             </DropdownMenuItem>
           </DropdownMenuGroup>
 
           <DropdownMenuSeparator />
 
-          <DropdownMenuItem variant="destructive" onClick={setQuizDeletionDialogOpen}>
-            <Trash2Icon /> Delete Quiz
+          <DropdownMenuItem variant="destructive" onClick={setQuizDeletionDialogOpen} {...trigger}>
+            <Trash2Icon {...deleteQuiz} /> Delete Quiz
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

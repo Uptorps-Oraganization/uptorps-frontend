@@ -4,7 +4,7 @@ import { useIconHover } from "@animateicons/react";
 import { ArrowUpRight } from "@animateicons/react/lucide";
 
 export const AdminAnalytics = () => {
-  const { ref, triggerProps } = useIconHover({ trigger: "click" });
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
@@ -14,11 +14,11 @@ export const AdminAnalytics = () => {
             Site Analytics Handled With <b className="text-green-500">Umami</b>
           </p>
 
-          <img className="size-35 my-2 animate-pulse" src={umamiIcon} alt="umami" />
+          <img className="size-50 my-2 animate-pulse" src={umamiIcon} alt="umami" />
 
           <Button className="p-4" {...triggerProps}>
             <ArrowUpRight ref={ref} />
-            Visit Umami analytics dashbord
+            Visit Analytics Dashbord
           </Button>
         </section>
       </div>

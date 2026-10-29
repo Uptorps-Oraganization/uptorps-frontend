@@ -20,7 +20,7 @@ export const AccountDisplayCard = () => {
           <section className="flex flex-row justify-between items-center gap-4 h-10">
             <InputGroup className="h-full">
               <InputGroupAddon align="inline-start">
-                <SearchIcon className="size-4" />
+                <SearchIcon className="size-4 cursor-auto" />
               </InputGroupAddon>
 
               <InputGroupInput type="text" className="text-[14px]!" placeholder="Search Account By Name or Email........." />

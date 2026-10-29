@@ -10,9 +10,23 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SquarePenIcon } from "@/components/ui/square-pen-icon";
+import { useIconHover } from "@animateicons/react";
 import { EllipsisIcon, EyeIcon, SendIcon, Trash2Icon } from "@animateicons/react/lucide";
 
+const triggerConfig = [
+  { icon: "viewProfile", trigger: "hover" },
+  { icon: "editAccount", trigger: "hover" },
+  { icon: "sendEmail", trigger: "hover" },
+  { icon: "suspendAccount", trigger: "hover" },
+  { icon: "deleteAccount", trigger: "hover" },
+] as const;
+
 export const AccountActionMenu = () => {
+  const {
+    icon: { viewProfile, editAccount, sendEmail, suspendAccount, deleteAccount },
+    trigger,
+  } = useIconHover({ trigger: triggerConfig });
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -25,24 +39,28 @@ export const AccountActionMenu = () => {
       <DropdownMenuContent className="w-fit p-1">
         <DropdownMenuGroup>
           <DropdownMenuLabel>Account Action</DropdownMenuLabel>
-          <DropdownMenuItem>
-            <EyeIcon className="size-4!" /> View Profile
+
+          <DropdownMenuItem {...trigger}>
+            <EyeIcon className="size-4!" {...viewProfile} /> View Profile
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <SquarePenIcon className="size-4!" /> Edit Account
+
+          <DropdownMenuItem {...trigger}>
+            <SquarePenIcon className="size-4!" {...editAccount} /> Edit Account
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <SendIcon className="size-4!" /> Send Email
+
+          <DropdownMenuItem {...trigger}>
+            <SendIcon className="size-4!" {...sendEmail} /> Send Email
           </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem className="text-amber-300">
-          <BanIcon /> Suspend Account
+        <DropdownMenuItem className="text-amber-300" {...trigger}>
+          <BanIcon {...suspendAccount} /> Suspend User
         </DropdownMenuItem>
-        <DropdownMenuItem variant="destructive">
-          <Trash2Icon /> Delete Account
+
+        <DropdownMenuItem variant="destructive" {...trigger}>
+          <Trash2Icon {...deleteAccount} /> Delete User
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

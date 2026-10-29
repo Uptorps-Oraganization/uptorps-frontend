@@ -12,10 +12,12 @@ import { DatabaseIcon } from "@/components/ui/database-icon";
 import { GraduationCapIcon } from "@/components/ui/graduation-cap-icon";
 import { Separator } from "@/components/ui/separator";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useIconHover } from "@animateicons/react";
 import { BrainIcon } from "@animateicons/react/lucide";
 
 export const AdminQuizzes = () => {
   const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen } = useQuizPageStore();
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
@@ -50,8 +52,8 @@ export const AdminQuizzes = () => {
           <p className="font-semibold">Quizzes Uploads & Details</p>
 
           <div className="pt-2 space-y-4">
-            <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen}>
-              <BrainIcon />
+            <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen} {...triggerProps}>
+              <BrainIcon ref={ref} />
               Create A Quiz
             </Button>
 

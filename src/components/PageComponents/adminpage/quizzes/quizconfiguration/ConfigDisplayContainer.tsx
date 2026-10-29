@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
-import { CirclePlusIcon } from "lucide-react";
+import { useIconHover } from "@animateicons/react";
+import { CirclePlusIcon } from "@animateicons/react/lucide";
 import { ConfigurationItem } from "./ConfigItem";
 
 export const ConfigDifficultyDisplay = () => {
@@ -22,12 +23,13 @@ export const ConfigDifficultyDisplay = () => {
 
 export const ConfigLevelDisplay = () => {
   const { selectedConfiguration } = useQuizPageStore();
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 1 ? false : true}>
-        <Button className="px-6 h-10 min-w-50">
-          <CirclePlusIcon />
+        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
+          <CirclePlusIcon ref={ref} />
           Add Level
         </Button>
 
@@ -44,12 +46,13 @@ export const ConfigLevelDisplay = () => {
 
 export const ConfigProgrammeDisplay = () => {
   const { selectedConfiguration } = useQuizPageStore();
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 2 ? false : true}>
-        <Button className="px-6 h-10 min-w-50">
-          <CirclePlusIcon />
+        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
+          <CirclePlusIcon ref={ref} />
           Add Programme
         </Button>
 
@@ -66,12 +69,13 @@ export const ConfigProgrammeDisplay = () => {
 
 export const ConfigCourseDisplay = () => {
   const { selectedConfiguration } = useQuizPageStore();
+  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
     <>
       <div className="px-10 pt-1 space-y-4" hidden={selectedConfiguration == 3 ? false : true}>
-        <Button className="px-6 h-10 min-w-50">
-          <CirclePlusIcon />
+        <Button className="px-6 h-10 min-w-50" {...triggerProps}>
+          <CirclePlusIcon ref={ref} />
           Add Course
         </Button>
 

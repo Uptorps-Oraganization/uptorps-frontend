@@ -27,6 +27,7 @@ export type AuthContextType = {
 };
 
 export type IconProps = {
+  ref?: any;
   size?: number;
   color?: string;
   duration?: number;

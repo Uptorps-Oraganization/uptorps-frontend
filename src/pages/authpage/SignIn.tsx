@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LogIn } from "lucide-react";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { type SubmitHandler, useForm } from "react-hook-form";
+import { Controller, type SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 
@@ -30,7 +30,7 @@ export const SignIn = () => {
     resolver: zodResolver(signInDataSchema),
     defaultValues: {
       accounttype: "learner",
-      remember_me: false,
+      remember_me: true,
     },
   });
 
@@ -75,28 +75,16 @@ export const SignIn = () => {
         <form onSubmit={handleSubmit(handleSignInSubmit)} className="flex flex-col w-75 md:w-85 text-primary space-y-1">
           <AccountSelect control={control} errors={errors} />
 
-          <TextInputField
-            type="email"
-            label="Email"
-            fieldname="email"
-            fieldicon={MailIcon}
-            register={register}
-            placeholder="Enter your email"
-            required={true}
-            errors={errors}
-          />
+          <TextInputField type="email" label="Email" fieldname="email" fieldicon={MailIcon} register={register} placeholder="Enter your email" required={true} errors={errors} />
 
-          <PasswordInputField
-            label="Password"
-            fieldname="password"
-            register={register}
-            placeholder="Enter your password"
-            required={true}
-            errors={errors}
-          />
+          <PasswordInputField label="Password" fieldname="password" register={register} placeholder="Enter your password" required={true} errors={errors} />
 
           <section className="flex flex-row justify-start items-center space-x-2 mt-4">
-            <Checkbox id="remember-me" {...register("remember_me")} />
+            <Controller
+              name="remember_me"
+              control={control}
+              render={({ field }) => <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} ref={field.ref} />}
+            />
             <Label htmlFor="remember-me">Remember me</Label>
           </section>
 

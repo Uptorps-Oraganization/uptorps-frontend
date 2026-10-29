@@ -1,6 +1,6 @@
 import { NotificationSheet } from "@/components/PageComponents/sharedcomponents/NotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
-import { TutorSideBar } from "@/components/PageComponents/userpage/TutorSideBar";
+import { TutorSideBar } from "@/components/PageComponents/userpage/tutorpage/TutorSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { tutorMenuOptions } from "@/lib/data";
@@ -10,6 +10,8 @@ import { Outlet, useLocation } from "react-router";
 export const TutorActionLayout = () => {
   const currentLocation = useLocation();
   const [isNotificationSheetOpen, setIsNotificationSheetOpen] = useState<boolean>(false);
+
+  const cleanPath = currentLocation.pathname.replace(/\/$/, "");
 
   return (
     <SidebarProvider className="select-none">
@@ -24,14 +26,14 @@ export const TutorActionLayout = () => {
               <article id="pageHeaderSection">
                 {tutorMenuOptions.map(
                   (option) =>
-                    currentLocation.pathname === option.link && (
+                    cleanPath === option.link && (
                       <h1 key={option.name} className="text-sm font-bold">
                         {option.name}
                       </h1>
                     ),
                 )}
 
-                {currentLocation.pathname == "/userpage/tutoractionpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
+                {cleanPath == "/userpage/tutoractionpage/settings" && <h1 className="text-sm font-bold">Account Settings</h1>}
               </article>
             </section>
 

@@ -49,7 +49,14 @@ function SelectContent({
 }: SelectPrimitive.Popup.Props & Pick<SelectPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset" | "alignItemWithTrigger">) {
   return (
     <SelectPrimitive.Portal>
-      <SelectPrimitive.Positioner side={side} sideOffset={sideOffset} align={align} alignOffset={alignOffset} alignItemWithTrigger={alignItemWithTrigger} className="isolate z-50">
+      <SelectPrimitive.Positioner
+        side={side}
+        sideOffset={sideOffset}
+        align={align}
+        alignOffset={alignOffset}
+        alignItemWithTrigger={alignItemWithTrigger}
+        className="isolate z-50"
+      >
         <SelectPrimitive.Popup
           data-slot="select-content"
           data-align-trigger={alignItemWithTrigger}
@@ -98,7 +105,10 @@ function SelectScrollUpButton({ className, ...props }: React.ComponentProps<type
   return (
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-up-button"
-      className={cn("top-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4", className)}
+      className={cn(
+        "top-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
+        className,
+      )}
       {...props}
     >
       <ChevronUpIcon />
@@ -110,7 +120,10 @@ function SelectScrollDownButton({ className, ...props }: React.ComponentProps<ty
   return (
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-button"
-      className={cn("bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4", className)}
+      className={cn(
+        "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
+        className,
+      )}
       {...props}
     >
       <ChevronDownIcon />
@@ -118,4 +131,15 @@ function SelectScrollDownButton({ className, ...props }: React.ComponentProps<ty
   );
 }
 
-export { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue };
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+};
