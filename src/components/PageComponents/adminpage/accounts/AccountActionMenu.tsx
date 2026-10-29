@@ -24,7 +24,7 @@ export const AccountActionMenu = () => {
     icon: { view, configure, trashIco },
     trigger,
   } = useIconHover({ trigger: trig });
-  } = useIconHover({ trigger: trig });
+
 
 
   return (
