@@ -7,12 +7,12 @@ export const AccountDetailTable = () => {
       <Table className="border-2">
         <TableHeader>
           <TableRow>
-            <TableHead className="table_head_style">User</TableHead>
-            <TableHead className="table_head_style">Role</TableHead>
-            <TableHead className="table_head_style">Status</TableHead>
-            <TableHead className="table_head_style">Date Joined</TableHead>
-            <TableHead className="table_head_style">Last Active Date</TableHead>
-            <TableHead className="table_head_style">Action</TableHead>
+            <TableHead className="table_head_style">USER</TableHead>
+            <TableHead className="table_head_style">ROLE</TableHead>
+            <TableHead className="table_head_style">STATUS</TableHead>
+            <TableHead className="table_head_style">DATE JOINED</TableHead>
+            <TableHead className="table_head_style">LAST ACTIVE DATE</TableHead>
+            <TableHead className="table_head_style">ACTION</TableHead>
           </TableRow>
         </TableHeader>
 

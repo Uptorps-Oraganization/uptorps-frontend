@@ -155,6 +155,10 @@
   }
 
   .table_cell_centered {
-    @apply text-center! border;
+    @apply text-center! text-xs! tabular-nums! border font-medium!;
+  }
+
+  .badge_in_table {
+    @apply text-[10px]! font-bold! rounded-full! p-1! px-2!;
   }
 }

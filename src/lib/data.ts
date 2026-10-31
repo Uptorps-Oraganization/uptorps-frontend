@@ -7,10 +7,12 @@ import {
   HandCoinsIcon,
   LayoutDashboard,
   MessageSquareWarningIcon,
+  MessagesSquareIcon,
   UserGroupIcon,
   WalletIcon,
+  WrenchIcon,
 } from "@animateicons/react/lucide";
-import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, MessagesSquareIcon, Trophy, UserGroup, WrenchIcon } from "lucide-react";
+import { BadgeDollarSign, BrainCircuit, ChartNoAxesCombined, GraduationCap, Trophy, UserGroup } from "lucide-react";
 
 export const featuresData: FeatureDataType[] = [
   {

@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
 import { useIconHover } from "@animateicons/react";
 import { ActivityIcon } from "@animateicons/react/huge";
 import { BanIcon, EllipsisIcon, Trash2Icon } from "@animateicons/react/lucide";
@@ -25,6 +26,8 @@ export const AccountActionMenu = () => {
     icon: { activity, configure, trashIco },
     trigger,
   } = useIconHover({ trigger: trig });
+
+  const { setSuspendAccountOpen, setDeleteAccoutOpen } = useAccountStore();
 
   return (
     <DropdownMenu>
@@ -46,11 +49,11 @@ export const AccountActionMenu = () => {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem className="text-amber-300" {...trigger}>
+        <DropdownMenuItem onClick={setSuspendAccountOpen} className="text-amber-300" {...trigger}>
           <BanIcon className="size-4!" {...configure} /> Suspend Account
         </DropdownMenuItem>
 
-        <DropdownMenuItem variant="destructive" {...trigger}>
+        <DropdownMenuItem onClick={setDeleteAccoutOpen} variant="destructive" {...trigger}>
           <Trash2Icon {...trashIco} /> Delete User
         </DropdownMenuItem>
       </DropdownMenuContent>

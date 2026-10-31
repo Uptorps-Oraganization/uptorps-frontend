@@ -1,9 +1,14 @@
+import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/DeleteAccountDialog";
+import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
 import { AccountDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
+import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
 
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 
 export const AdminUserAccounts = () => {
+  const { suspendAccountOpen, deleteAccoutOpen } = useAccountStore();
+
   return (
     <>
       <div className="p-1 pt-2 pb-10 space-y-6">
@@ -35,6 +40,9 @@ export const AdminUserAccounts = () => {
           </div>
         </section>
       </div>
+
+      {suspendAccountOpen && <SuspendAccountDialog />}
+      {deleteAccoutOpen && <DeleteAccountDialog />}
     </>
   );
 };

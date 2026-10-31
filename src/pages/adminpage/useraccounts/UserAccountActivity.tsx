@@ -1,13 +1,18 @@
+import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/DeleteAccountDialog";
+import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
+import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountTransactionDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
 import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
 import { UserProfileImg } from "@/components/PageComponents/sharedcomponents/UserProfileImg";
 import { Button } from "@/components/ui/button";
+import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
 import { SendIcon } from "@animateicons/react/huge";
 import { BanIcon, BrainIcon, CircleDotIcon, GraduationCapIcon, Trash2Icon, UserGroupIcon } from "@animateicons/react/lucide";
 import { useParams } from "react-router";
 
 export const UserAccountActivity = () => {
   const { userID } = useParams();
+  const { suspendAccountOpen, setSuspendAccountOpen, deleteAccoutOpen, setDeleteAccoutOpen } = useAccountStore();
 
   return (
     <>
@@ -39,12 +44,12 @@ export const UserAccountActivity = () => {
                 Send Email
               </Button>
 
-              <Button className="text-amber-500" variant="outline">
+              <Button onClick={setSuspendAccountOpen} className="text-amber-500" variant="outline">
                 <BanIcon />
                 Suspend Account
               </Button>
 
-              <Button className="text-destructive" variant="outline">
+              <Button onClick={setDeleteAccoutOpen} className="text-destructive" variant="outline">
                 <Trash2Icon />
                 Delete Account
               </Button>
@@ -72,13 +77,16 @@ export const UserAccountActivity = () => {
         </section>
 
         <section className="px-8">
-          <p className="font-semibold">Transaction Summary</p>
+          <p className="font-semibold">Transactions & Cash Flow</p>
 
-          <div className="grid grid-cols-3 gap-4 pt-2">
-              <p>No Data Now</p>
+          <div className="pt-2 pb-4">
+            <AccountTransactionDisplayCard />
           </div>
         </section>
       </div>
+
+      {suspendAccountOpen && <SuspendAccountDialog />}
+      {deleteAccoutOpen && <DeleteAccountDialog />}
     </>
   );
 };

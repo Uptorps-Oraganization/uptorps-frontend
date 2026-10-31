@@ -58,12 +58,12 @@ export const AdminQuizzes = () => {
             <QuizDisplayCard />
           </div>
         </section>
-
-        {quizCreationDialogOpen && <QuizCreationDialog />}
-        {quizDetailDialogOpen && <QuizDetailDialog />}
-        {quizEditDialogOpen && <QuizEditDialog />}
-        {quizDeletionDialogOpen && <QuizDeletionDialog />}
       </div>
+
+      {quizCreationDialogOpen && <QuizCreationDialog />}
+      {quizDetailDialogOpen && <QuizDetailDialog />}
+      {quizEditDialogOpen && <QuizEditDialog />}
+      {quizDeletionDialogOpen && <QuizDeletionDialog />}
     </>
   );
 };
