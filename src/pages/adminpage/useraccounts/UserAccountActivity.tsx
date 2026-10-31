@@ -1,4 +1,5 @@
 import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/DeleteAccountDialog";
+import { SendEmailDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SendEmailDialog";
 import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
 import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountTransactionDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
@@ -12,7 +13,7 @@ import { useParams } from "react-router";
 
 export const UserAccountActivity = () => {
   const { userID } = useParams();
-  const { suspendAccountOpen, setSuspendAccountOpen, deleteAccoutOpen, setDeleteAccoutOpen } = useAccountStore();
+  const { sendEmailOpen, setSendEmailOpen, suspendAccountOpen, setSuspendAccountOpen, deleteAccoutOpen, setDeleteAccoutOpen } = useAccountStore();
 
   return (
     <>
@@ -39,7 +40,7 @@ export const UserAccountActivity = () => {
             </section>
 
             <section className="flex flex-row gap-2 pt-3">
-              <Button variant="outline">
+              <Button onClick={setSendEmailOpen} variant="outline">
                 <SendIcon />
                 Send Email
               </Button>
@@ -85,6 +86,7 @@ export const UserAccountActivity = () => {
         </section>
       </div>
 
+      {sendEmailOpen && <SendEmailDialog />}
       {suspendAccountOpen && <SuspendAccountDialog />}
       {deleteAccoutOpen && <DeleteAccountDialog />}
     </>
