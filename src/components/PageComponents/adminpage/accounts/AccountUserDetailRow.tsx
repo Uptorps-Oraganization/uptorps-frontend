@@ -24,14 +24,14 @@ export const AccountUserDetailRow = (props: UserDetailRowType) => {
           {props.userType == "learner" && <Badge className="text-purple-600 bg-purple-600/10 text-sm p-4">Learner</Badge>}
         </TableCell>
         <TableCell className="table_cell_centered">
-          {props.activeStatus == "active" ? <Badge className="text-green-500 bg-green-500/10">Active</Badge> : <Badge variant="destructive">Inactive</Badge>}
+          {props.activeStatus == "active" ? (
+            <Badge className="badge_in_table text-green-500 bg-green-500/10 rounded-full">ACTIVE</Badge>
+          ) : (
+            <Badge className="badge_in_table text-destructive bg-destructive/10 rounded-full">INACTIVE</Badge>
+          )}
         </TableCell>
-        <TableCell className="table_cell_centered">
-          <span className="text-sm tabular-nums font-medium">{props.dateJoined}</span>
-        </TableCell>
-        <TableCell className="table_cell_centered">
-          <span className="text-sm tabular-nums font-medium">{props.lastDateActive}</span>
-        </TableCell>
+        <TableCell className="table_cell_centered">{props.dateJoined}</TableCell>
+        <TableCell className="table_cell_centered">{props.lastDateActive}</TableCell>
         <TableCell className="table_cell_centered">
           <AccountActionMenu />
         </TableCell>

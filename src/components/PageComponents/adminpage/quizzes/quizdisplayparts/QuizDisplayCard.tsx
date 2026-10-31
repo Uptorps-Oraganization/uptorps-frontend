@@ -22,13 +22,13 @@ export const QuizDisplayCard = () => {
             <Tabs defaultValue="all" className="w-full" onValueChange={(value) => setTabValue(value)}>
               <TabsList className="space-x-3">
                 <TabsTrigger className="account_tab_trigger" value="all">
-                  All
+                  ALL
                 </TabsTrigger>
                 <TabsTrigger className="account_tab_trigger" value="free">
-                  Free
+                  FREE
                 </TabsTrigger>
-                <TabsTrigger className="account_tab_trigger" value="premium">
-                  Paid
+                <TabsTrigger className="account_tab_trigger" value="paid">
+                  PAID
                 </TabsTrigger>
               </TabsList>
 
