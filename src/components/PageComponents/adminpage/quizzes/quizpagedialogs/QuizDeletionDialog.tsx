@@ -42,7 +42,7 @@ export const QuizDeletionDialog = () => {
               Cancel
             </Button>
 
-            <Button onClick={() => handleQuizDeletion()}>
+            <Button onClick={handleQuizDeletion}>
               {submitLoading && <Spinner />}
               Confirm Quiz Deletion
             </Button>

@@ -97,6 +97,8 @@ export type UserDetailRowType = {
   lastDateActive: string;
 };
 
+export type ConfigUpdateStatusType = "success" | "failure" | null;
+
 export type QuizConfigSelectionType = {
   selectionData?: string[];
   label: string;

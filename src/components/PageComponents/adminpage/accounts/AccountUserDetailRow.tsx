@@ -25,9 +25,9 @@ export const AccountUserDetailRow = (props: UserDetailRowType) => {
         </TableCell>
         <TableCell className="table_cell_centered">
           {props.activeStatus == "active" ? (
-            <Badge className="badge_in_table text-green-500 bg-green-500/10 rounded-full">ACTIVE</Badge>
+            <Badge className="badge_in_table text-green-500 bg-green-500/10">ACTIVE</Badge>
           ) : (
-            <Badge className="badge_in_table text-destructive bg-destructive/10 rounded-full">INACTIVE</Badge>
+            <Badge className="badge_in_table text-destructive bg-destructive/10">INACTIVE</Badge>
           )}
         </TableCell>
         <TableCell className="table_cell_centered">{props.dateJoined}</TableCell>
