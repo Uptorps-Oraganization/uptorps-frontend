@@ -33,7 +33,7 @@ export const AccountTransactionTable = () => {
             <TableCell className="table_cell_centered">CREDIT</TableCell>
             <TableCell className="table_cell_centered">20.00</TableCell>
             <TableCell className="table_cell_centered">
-              <Badge className="text-[10px] font-bold text-amber-500 bg-amber-500/10 rounded-full p-1 px-2">PENDING</Badge>
+              <Badge className="badge_in_table text-amber-500 bg-amber-500/10">PENDING</Badge>
             </TableCell>
             <TableCell className="table_cell_centered">REF-1001</TableCell>
             <TableCell className="table_cell_centered">2026-11-23</TableCell>
@@ -44,7 +44,7 @@ export const AccountTransactionTable = () => {
             <TableCell className="table_cell_centered">CREDIT</TableCell>
             <TableCell className="table_cell_centered">20.00</TableCell>
             <TableCell className="table_cell_centered">
-              <span className="text-[10px] font-bold text-destructive bg-destructive/10 rounded-full p-1 px-2">FAILED</span>
+              <span className="badge_in_table text-destructive bg-destructive/10">FAILED</span>
             </TableCell>
             <TableCell className="table_cell_centered">REF-1001</TableCell>
             <TableCell className="table_cell_centered">2026-11-23</TableCell>

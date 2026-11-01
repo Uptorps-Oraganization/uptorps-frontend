@@ -21,10 +21,7 @@ export const ConfigurationBreadcrump = () => {
               </BreadcrumbItem>
             ) : (
               <React.Fragment key={index}>
-                <BreadcrumbItem
-                  key={index}
-                  onClick={() => CrumpItemClickCondition({ itemDescription: value[0], item: value[1], setselectedConfiguration, configQueryData, setConfigQueryData })}
-                >
+                <BreadcrumbItem key={index} onClick={() => CrumpItemClickCondition({ itemDescription: value[0], setselectedConfiguration, configQueryData, setConfigQueryData })}>
                   <BreadcrumbLink className="flex flex-row items-center space-x-1 cursor-pointer">
                     <CrumpItemIcon itemDescription={value[0]} />
                     <span>{value[1]}</span>
@@ -45,12 +42,10 @@ const CrumpItemClickCondition = (props: any) => {
     delete props.configQueryData.level;
     delete props.configQueryData.programme;
 
-    props.setConfigQueryData({ difficulty: props.item });
     props.setselectedConfiguration(1);
   } else if (props.itemDescription == "level") {
     delete props.configQueryData.programme;
 
-    props.setConfigQueryData({ level: props.item });
     props.setselectedConfiguration(2);
   }
 };

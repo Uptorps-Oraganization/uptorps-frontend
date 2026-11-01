@@ -38,7 +38,7 @@ export const QuestionDeleteDialog = () => {
               Cancel
             </Button>
 
-            <Button onClick={() => handleQuestionDeletion()}>
+            <Button onClick={handleQuestionDeletion}>
               {submitLoading && <Spinner />}
               Confirm Question Deletion
             </Button>
