@@ -5,9 +5,14 @@ import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/Use
 import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
 
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
+import { useEffect } from "react";
 
 export const AdminUserAccounts = () => {
-  const { suspendAccountOpen, deleteAccoutOpen } = useAccountStore();
+  const { suspendAccountOpen, deleteAccoutOpen, resetAccountStoreState } = useAccountStore();
+
+  useEffect(() => {
+    return () => resetAccountStoreState();
+  }, [resetAccountStoreState]);
 
   return (
     <>

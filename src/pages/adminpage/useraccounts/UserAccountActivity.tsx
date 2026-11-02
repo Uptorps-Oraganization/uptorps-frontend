@@ -1,7 +1,7 @@
 import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/DeleteAccountDialog";
 import { SendEmailDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SendEmailDialog";
 import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
-import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountTransactionDisplayCard";
+import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/transactions/AccountTransactionDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
 import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
 import { UserProfileImg } from "@/components/PageComponents/sharedcomponents/UserProfileImg";

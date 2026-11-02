@@ -36,6 +36,18 @@ export type LearnerStoreType = {
   setlogOutLoadingState: () => void;
 };
 
+export type AccountStoreType = {
+  suspendAccountOpen: boolean;
+  deleteAccoutOpen: boolean;
+  sendEmailOpen: boolean;
+
+  setSuspendAccountOpen: () => void;
+  setDeleteAccoutOpen: () => void;
+  setSendEmailOpen: () => void;
+
+  resetAccountStoreState: () => void;
+};
+
 export type QuizPageStoreType = {
   selectedConfiguration: number;
   configQueryData: Record<string, string>;
@@ -51,4 +63,18 @@ export type QuizPageStoreType = {
   setQuizDetailDialogOpen: () => void;
   setQuizEditDialogOpen: () => void;
   setQuizDeletionDialogOpen: () => void;
+
+  resetQuizPageStoreState: () => void;
+};
+
+export type PayoutStoreType = {
+  showPayoutDetailsDialog: boolean;
+  showApprovePayoutDialog: boolean;
+  showRejectPayoutDialog: boolean;
+
+  setShowPayoutDetailsDialog: () => void;
+  setShowApprovePayoutDialog: () => void;
+  setShowRejectPayoutDialog: () => void;
+
+  resetPayoutStoreState: () => void;
 };
