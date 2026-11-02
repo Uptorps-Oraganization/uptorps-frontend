@@ -35,6 +35,21 @@ export const QuizDetailDialog = () => {
               <span className="text-xs font-bold">Quiz Difficulty</span>
               <span className="text-sm">Basic</span>
             </Field>
+
+            <Field>
+              <span className="text-xs font-bold">Quiz Level</span>
+              <span className="text-sm">Level 2</span>
+            </Field>
+
+            <Field>
+              <span className="text-xs font-bold">Quiz Programme</span>
+              <span className="text-sm">Mathematics</span>
+            </Field>
+
+            <Field>
+              <span className="text-xs font-bold">Quiz Course</span>
+              <span className="text-sm">Algebra</span>
+            </Field>
           </FieldGroup>
         </DialogContent>
       </Dialog>

@@ -1,15 +1,6 @@
+import type { AccountStoreType } from "@/typesnschemas/types/StoreTypes";
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
-
-type AccountStoreType = {
-  suspendAccountOpen: boolean;
-  deleteAccoutOpen: boolean;
-  sendEmailOpen: boolean;
-
-  setSuspendAccountOpen: () => void;
-  setDeleteAccoutOpen: () => void;
-  setSendEmailOpen: () => void;
-};
 
 const accountStore = create<AccountStoreType>((set) => ({
   suspendAccountOpen: false,
@@ -19,6 +10,13 @@ const accountStore = create<AccountStoreType>((set) => ({
   setSuspendAccountOpen: () => set((state) => ({ suspendAccountOpen: !state.suspendAccountOpen })),
   setDeleteAccoutOpen: () => set((state) => ({ deleteAccoutOpen: !state.deleteAccoutOpen })),
   setSendEmailOpen: () => set((state) => ({ sendEmailOpen: !state.sendEmailOpen })),
+
+  resetAccountStoreState: () =>
+    set({
+      suspendAccountOpen: false,
+      deleteAccoutOpen: false,
+      sendEmailOpen: false,
+    }),
 }));
 
 export const useAccountStore = () =>
@@ -31,5 +29,7 @@ export const useAccountStore = () =>
       setSuspendAccountOpen: state.setSuspendAccountOpen,
       setDeleteAccoutOpen: state.setDeleteAccoutOpen,
       setSendEmailOpen: state.setSendEmailOpen,
+
+      resetAccountStoreState: state.resetAccountStoreState,
     })),
   );

@@ -1,10 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { TableCell, TableRow } from "@/components/ui/table";
-import type { UserDetailRowType } from "@/typesnschemas/types/DataTypes";
+import type { UserDetailTableRowType } from "@/typesnschemas/types/DataTypes";
 import { UserProfileImg } from "../../sharedcomponents/UserProfileImg";
 import { AccountActionMenu } from "./AccountActionMenu";
 
-export const AccountUserDetailRow = (props: UserDetailRowType) => {
+export const AccountUserDetailRow = (props: UserDetailTableRowType) => {
   return (
     <>
       <TableRow>

@@ -87,7 +87,7 @@ export type PageAccountHeaderType = {
   notificationToggle: (state: boolean) => void;
 };
 
-export type UserDetailRowType = {
+export type UserDetailTableRowType = {
   username: string;
   email: string;
   profileImgUrl: string;
@@ -95,6 +95,23 @@ export type UserDetailRowType = {
   activeStatus: "active" | "inactive";
   dateJoined: string;
   lastDateActive: string;
+};
+
+export type QuizDetailTableRowType = {
+  title: string;
+  description: string;
+  is_paid: boolean;
+  date_created: string;
+};
+
+export type PayoutTableRowType = {
+  profileImgUrl: string;
+  username: string;
+  email: string;
+  userType: "admin" | "tutor" | "learner";
+  amount: number;
+  method: "mobile_money" | "bank_transfer";
+  date_created: string;
 };
 
 export type ConfigUpdateStatusType = "success" | "failure" | null;

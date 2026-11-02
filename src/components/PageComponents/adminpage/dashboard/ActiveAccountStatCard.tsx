@@ -4,8 +4,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 import { TrendingUp } from "@animateicons/react/lucide";
 
-export const description = "A radial chart with stacked sections";
-
 const chartData = [{ activeAccounts: 9370, inactiveAccounts: 975 }];
 
 const chartConfig = {
@@ -30,7 +28,7 @@ export function ActiveAccountStatCard() {
       </CardHeader>
       <CardContent className="flex justify-center items-center">
         <ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-62.5 max-h-45">
-          <RadialBarChart data={chartData} endAngle={180} innerRadius={80} outerRadius={120} cy="70%">
+          <RadialBarChart data={chartData} endAngle={180} innerRadius={80} outerRadius={120} cy="80%">
             <RadialBar dataKey="inactiveAccounts" stackId="a" fill="var(--color-inactiveAccounts)" className="stroke-transparent stroke-2" />
             <RadialBar dataKey="activeAccounts" stackId="a" fill="var(--color-activeAccounts)" className="stroke-transparent stroke-2" />
 

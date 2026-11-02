@@ -10,10 +10,16 @@ import { Separator } from "@/components/ui/separator";
 import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
 import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
+import { useEffect } from "react";
 
 export const AdminQuizzes = () => {
-  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen } = useQuizPageStore();
+  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } =
+    useQuizPageStore();
   const { ref, triggerProps } = useIconHover({ trigger: "hover" });
+
+  useEffect(() => {
+    return () => resetQuizPageStoreState();
+  }, [resetQuizPageStoreState]);
 
   return (
     <>

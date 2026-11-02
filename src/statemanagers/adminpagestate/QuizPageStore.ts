@@ -19,6 +19,16 @@ const quizPageStore = create<QuizPageStoreType>((set) => ({
   setQuizDetailDialogOpen: () => set((state) => ({ quizDetailDialogOpen: !state.quizDetailDialogOpen })),
   setQuizEditDialogOpen: () => set((state) => ({ quizEditDialogOpen: !state.quizEditDialogOpen })),
   setQuizDeletionDialogOpen: () => set((state) => ({ quizDeletionDialogOpen: !state.quizDeletionDialogOpen })),
+
+  resetQuizPageStoreState: () =>
+    set({
+      selectedConfiguration: 0,
+      configQueryData: {},
+      quizCreationDialogOpen: false,
+      quizDetailDialogOpen: false,
+      quizEditDialogOpen: false,
+      quizDeletionDialogOpen: false,
+    }),
 }));
 
 export const useQuizPageStore = () =>
@@ -38,5 +48,7 @@ export const useQuizPageStore = () =>
       setQuizDetailDialogOpen: state.setQuizDetailDialogOpen,
       setQuizEditDialogOpen: state.setQuizEditDialogOpen,
       setQuizDeletionDialogOpen: state.setQuizDeletionDialogOpen,
+
+      resetQuizPageStoreState: state.resetQuizPageStoreState,
     })),
   );
