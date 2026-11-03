@@ -1,16 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { TableCell, TableRow } from "@/components/ui/table";
+import { formatAmountToTwoDecimalPlaces } from "@/lib/utils";
 import type { PayoutTableRowType } from "@/typesnschemas/types/DataTypes";
-import { UserProfileImg } from "../../sharedcomponents/UserProfileImg";
+import { UserProfileImg } from "../../../sharedcomponents/UserProfileImg";
 import { PayoutActionMenu } from "./PayoutActionMenu";
-
-const formatFigure = (amount: number) => {
-  const outputfigure = amount.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-  return outputfigure;
-};
 
 export const PayoutTableRow = (props: PayoutTableRowType) => {
   return (
@@ -30,7 +23,7 @@ export const PayoutTableRow = (props: PayoutTableRowType) => {
           {props.userType == "tutor" && <Badge className="text-teal-600 bg-teal-600/10 text-sm p-4">Tutor</Badge>}
           {props.userType == "learner" && <Badge className="text-purple-600 bg-purple-600/10 text-sm p-4">Learner</Badge>}
         </TableCell>
-        <TableCell className="table_cell_centered">{formatFigure(props.amount)}</TableCell>
+        <TableCell className="table_cell_centered">{formatAmountToTwoDecimalPlaces(props.amount)}</TableCell>
         <TableCell className="table_cell_centered">
           {props.method == "mobile_money" && <span className="badge_in_table text-teal-500 bg-slate-500/10">MOBILE MONEY</span>}
           {props.method == "bank_transfer" && <span className="badge_in_table text-lime-500 bg-slate-500/10">BANK TRANSFER</span>}

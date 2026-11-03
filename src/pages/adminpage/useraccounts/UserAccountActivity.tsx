@@ -3,7 +3,7 @@ import { SendEmailDialog } from "@/components/PageComponents/adminpage/accounts/
 import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
 import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/transactions/AccountTransactionDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
-import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
+import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/revenue/RevenueStatCard";
 import { UserProfileImg } from "@/components/PageComponents/sharedcomponents/UserProfileImg";
 import { Button } from "@/components/ui/button";
 import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";

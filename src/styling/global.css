@@ -159,6 +159,6 @@
   }
 
   .badge_in_table {
-    @apply text-[10px]! font-bold! rounded-full! p-1! px-2!;
+    @apply text-center! text-[10px]! font-bold! rounded-full! p-1! px-2!;
   }
 }

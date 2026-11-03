@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatAmountWithAsCurrency } from "@/lib/utils";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type StatType = {
@@ -10,17 +11,6 @@ type StatType = {
   overallcomment?: string;
 };
 
-const formatAmount = (amount: number) => {
-  const formatter = new Intl.NumberFormat("en-GH", {
-    style: "currency",
-    currency: "GHS",
-    currencySign: "accounting",
-  });
-
-  const formatted = formatter.format(amount);
-  return formatted.replace(/[A-Z₵GHC¢$€£]+/gi, "₵ ");
-};
-
 export const RevenueStatCard = (props: StatType) => {
   const FieldIcon = props.trendicon;
 
@@ -29,7 +19,7 @@ export const RevenueStatCard = (props: StatType) => {
       <Card>
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
-          <CardTitle className="text-3xl font-semibold tabular-nums">{formatAmount(props.amount)}</CardTitle>
+          <CardTitle className="text-3xl font-semibold tabular-nums">{formatAmountWithAsCurrency(props.amount)}</CardTitle>
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />

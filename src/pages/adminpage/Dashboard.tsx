@@ -2,7 +2,7 @@ import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/Use
 import { ActiveAccountStatCard } from "@/components/PageComponents/adminpage/dashboard/ActiveAccountStatCard";
 import { RevenueChartCard } from "@/components/PageComponents/adminpage/dashboard/RevenueChartCard";
 import { SiteVisitChartCard } from "@/components/PageComponents/adminpage/dashboard/SiteVisitChartCard";
-import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/RevenueStatCard";
+import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/revenue/RevenueStatCard";
 
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 
@@ -14,9 +14,21 @@ export const AdminDashboard = () => {
           <p className="font-semibold">Account Statistics</p>
 
           <div className="grid grid-cols-3 gap-4 pt-2">
-            <UserStatCard title={"Total Users"} figure={10345} trend={"+12.5%"} trendicon={TrendingUp} overallcomment={"Total for the last 6 months: 3,345 (3k)"} />
+            <UserStatCard
+              title={"Total Users"}
+              figure={10345}
+              trend={"+12.5%"}
+              trendicon={TrendingUp}
+              overallcomment={"Total for the last 6 months: 3,345 (3k)"}
+            />
 
-            <UserStatCard title={"Total Learners"} figure={10000} trend={"+2.5%"} trendicon={TrendingUp} overallcomment={"Learners for the last 6 months: 1,453"} />
+            <UserStatCard
+              title={"Total Learners"}
+              figure={10000}
+              trend={"+2.5%"}
+              trendicon={TrendingUp}
+              overallcomment={"Learners for the last 6 months: 1,453"}
+            />
 
             <UserStatCard title={"Total Tutors"} figure={345} trend={"+10.5%"} trendicon={TrendingUp} overallcomment={"Tutors for the last 6 months: 45"} />
           </div>

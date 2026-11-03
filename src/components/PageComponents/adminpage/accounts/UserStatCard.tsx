@@ -1,18 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatFigureAsRaw } from "@/lib/utils";
 
-type StatType = {
+export type StatType = {
   title: string;
   figure: number;
   trend?: string;
   trendicon?: any;
   overallcomment?: string;
-};
-
-const formatFigure = (amount: number) => {
-  const outputfigure = amount.toLocaleString("en-US");
-  return outputfigure;
 };
 
 export const UserStatCard = (props: StatType) => {
@@ -23,7 +19,7 @@ export const UserStatCard = (props: StatType) => {
       <Card>
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
-          <CardTitle className="text-3xl font-semibold tabular-nums">{formatFigure(props.figure)}</CardTitle>
+          <CardTitle className="text-3xl font-semibold tabular-nums">{formatFigureAsRaw(props.figure)}</CardTitle>
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />

@@ -1,5 +1,8 @@
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
-import { PayoutDisplayCard } from "@/components/PageComponents/adminpage/payouts/PayoutDisplayCard";
+import { PayoutApprovalDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutApprovalDialog";
+import { PayoutDetailDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutDetailDialog";
+import { PayoutRejectDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutRejectDialog";
+import { PayoutDisplayCard } from "@/components/PageComponents/adminpage/finance/payouts/PayoutDisplayCard";
 import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { CircleDotIcon } from "@animateicons/react/lucide";
 
@@ -31,9 +34,9 @@ export const AdminPayouts = () => {
         </section>
       </div>
 
-      {showPayoutDetailsDialog && <p>Details</p>}
-      {showApprovePayoutDialog && <p>Approve</p>}
-      {showRejectPayoutDialog && <p>Reject</p>}
+      {showPayoutDetailsDialog && <PayoutDetailDialog />}
+      {showApprovePayoutDialog && <PayoutApprovalDialog />}
+      {showRejectPayoutDialog && <PayoutRejectDialog />}
     </>
   );
 };
