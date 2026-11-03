@@ -60,7 +60,7 @@ export const QuizEditDialog = () => {
               <XIcon />
             </Button>
 
-            <DialogHeader className="text-green-400!">
+            <DialogHeader className="text-green-500!">
               <DialogTitle>Edit Quiz</DialogTitle>
               <DialogDescription>Change quiz configurations</DialogDescription>
             </DialogHeader>

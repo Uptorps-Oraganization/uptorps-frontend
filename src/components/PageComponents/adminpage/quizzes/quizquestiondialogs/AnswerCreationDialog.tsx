@@ -50,7 +50,7 @@ export const AnswerCreationDialog = () => {
               <XIcon />
             </Button>
 
-            <DialogHeader className="text-green-400!">
+            <DialogHeader className="text-green-500!">
               <DialogTitle>Add Answer</DialogTitle>
               <DialogDescription>Create a new answer for this question</DialogDescription>
             </DialogHeader>

@@ -29,7 +29,7 @@ export const DeleteAccountDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-destructive!">
             <DialogTitle>Confirm Account Deletion</DialogTitle>
             <DialogDescription>Are you sure you want to delete this account?</DialogDescription>
           </DialogHeader>

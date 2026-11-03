@@ -8,7 +8,7 @@ import { UserProfileImg } from "./UserProfileImg";
 export const SidebarAccountHeader = (props: SidebarAccountHeaderType) => {
   return (
     <>
-      <SidebarMenu>
+      <SidebarMenu className="text-primary-foreground!">
         <SidebarMenuItem>
           <section className="flex flex-row items-center p-0 space-x-2 side_element_collapse">
             <DynamicUptorpLogo className="size-6" theme={props.theme} />

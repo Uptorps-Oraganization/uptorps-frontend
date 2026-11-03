@@ -67,14 +67,22 @@ export type QuizPageStoreType = {
   resetQuizPageStoreState: () => void;
 };
 
-export type PayoutStoreType = {
-  showPayoutDetailsDialog: boolean;
+export type PayoutPendingStoreType = {
   showApprovePayoutDialog: boolean;
   showRejectPayoutDialog: boolean;
 
-  setShowPayoutDetailsDialog: () => void;
   setShowApprovePayoutDialog: () => void;
   setShowRejectPayoutDialog: () => void;
 
-  resetPayoutStoreState: () => void;
+  resetPendingPayoutStoreState: () => void;
+};
+
+export type PayoutApprovalStoreType = {
+  showApprovedPayoutDetailsDialog: boolean;
+  showApprovedPayoutRetryDialog: boolean;
+
+  setShowApprovedPayoutDetailsDialog: () => void;
+  setShowApprovedPayoutRetryDialog: () => void;
+
+  resetApprovalPayoutStoreState: () => void;
 };

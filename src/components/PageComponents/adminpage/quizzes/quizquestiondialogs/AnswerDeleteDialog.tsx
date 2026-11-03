@@ -28,7 +28,7 @@ export const AnswerDeleteDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-destructive!">
             <DialogTitle>Confirm Answer Deletion</DialogTitle>
             <DialogDescription>Do you really want to delete this answer?</DialogDescription>
           </DialogHeader>

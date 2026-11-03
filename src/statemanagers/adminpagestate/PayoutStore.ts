@@ -1,35 +1,53 @@
-import type { PayoutStoreType } from "@/typesnschemas/types/StoreTypes";
+import type { PayoutApprovalStoreType, PayoutPendingStoreType } from "@/typesnschemas/types/StoreTypes";
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-const payoutStore = create<PayoutStoreType>((set) => ({
-  showPayoutDetailsDialog: false,
+const payoutPendingStore = create<PayoutPendingStoreType>((set) => ({
   showApprovePayoutDialog: false,
   showRejectPayoutDialog: false,
 
-  setShowPayoutDetailsDialog: () => set((state) => ({ showPayoutDetailsDialog: !state.showPayoutDetailsDialog })),
   setShowApprovePayoutDialog: () => set((state) => ({ showApprovePayoutDialog: !state.showApprovePayoutDialog })),
   setShowRejectPayoutDialog: () => set((state) => ({ showRejectPayoutDialog: !state.showRejectPayoutDialog })),
 
-  resetPayoutStoreState: () =>
+  resetPendingPayoutStoreState: () =>
     set({
-      showPayoutDetailsDialog: false,
       showApprovePayoutDialog: false,
       showRejectPayoutDialog: false,
     }),
 }));
 
-export const usePayoutStore = () =>
-  payoutStore(
+export const usePayoutPendingStore = () =>
+  payoutPendingStore(
     useShallow((state) => ({
-      showPayoutDetailsDialog: state.showPayoutDetailsDialog,
       showApprovePayoutDialog: state.showApprovePayoutDialog,
       showRejectPayoutDialog: state.showRejectPayoutDialog,
 
-      setShowPayoutDetailsDialog: state.setShowPayoutDetailsDialog,
       setShowApprovePayoutDialog: state.setShowApprovePayoutDialog,
       setShowRejectPayoutDialog: state.setShowRejectPayoutDialog,
 
-      resetPayoutStoreState: state.resetPayoutStoreState,
+      resetPayoutStoreState: state.resetPendingPayoutStoreState,
+    })),
+  );
+
+const payoutApprovalStore = create<PayoutApprovalStoreType>((set) => ({
+  showApprovedPayoutDetailsDialog: false,
+  showApprovedPayoutRetryDialog: false,
+
+  setShowApprovedPayoutDetailsDialog: () => set((state) => ({ showApprovedPayoutDetailsDialog: !state.showApprovedPayoutDetailsDialog })),
+  setShowApprovedPayoutRetryDialog: () => set((state) => ({ showApprovedPayoutRetryDialog: !state.showApprovedPayoutRetryDialog })),
+
+  resetApprovalPayoutStoreState: () => set({ showApprovedPayoutDetailsDialog: false, showApprovedPayoutRetryDialog: false }),
+}));
+
+export const usePayoutApprovalStore = () =>
+  payoutApprovalStore(
+    useShallow((state) => ({
+      showApprovedPayoutDetailsDialog: state.showApprovedPayoutDetailsDialog,
+      showApprovedPayoutRetryDialog: state.showApprovedPayoutRetryDialog,
+
+      setShowApprovedPayoutDetailsDialog: state.setShowApprovedPayoutDetailsDialog,
+      setShowApprovedPayoutRetryDialog: state.setShowApprovedPayoutRetryDialog,
+
+      resetApprovalPayoutStoreState: state.resetApprovalPayoutStoreState,
     })),
   );

@@ -19,9 +19,9 @@ export const AccountUserDetailRow = (props: UserDetailTableRowType) => {
         </TableCell>
 
         <TableCell className="table_cell_centered">
-          {props.userType == "admin" && <Badge className="text-amber-600 bg-amber-600/10 text-sm p-4">Admin</Badge>}
-          {props.userType == "tutor" && <Badge className="text-teal-600 bg-teal-600/10 text-sm p-4">Tutor</Badge>}
-          {props.userType == "learner" && <Badge className="text-purple-600 bg-purple-600/10 text-sm p-4">Learner</Badge>}
+          {props.userType == "admin" && <Badge className="role_badge_in_table text-amber-600 bg-amber-600/10">Admin</Badge>}
+          {props.userType == "tutor" && <Badge className="role_badge_in_table text-teal-600 bg-teal-600/10">Tutor</Badge>}
+          {props.userType == "learner" && <Badge className="role_badge_in_table text-purple-600 bg-purple-600/10">Learner</Badge>}
         </TableCell>
         <TableCell className="table_cell_centered">
           {props.activeStatus == "active" ? (

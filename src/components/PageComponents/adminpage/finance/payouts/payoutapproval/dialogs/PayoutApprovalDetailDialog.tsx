@@ -1,25 +1,26 @@
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { hubtellogo } from "@/lib/assets";
 import { formatAmountWithAsCurrency } from "@/lib/utils";
-import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutApprovalStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { XIcon } from "@animateicons/react/lucide";
 
-export const PayoutDetailDialog = () => {
-  const { setShowPayoutDetailsDialog } = usePayoutStore();
+export const PayoutApprovalDetailDialog = () => {
+  const { setShowApprovedPayoutDetailsDialog } = usePayoutApprovalStore();
 
   return (
     <>
       <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
-          <Button onClick={setShowPayoutDetailsDialog} className="absolute top-1 right-1" variant="ghost">
+          <Button onClick={setShowApprovedPayoutDetailsDialog} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
-            <DialogTitle>Payout Request Details</DialogTitle>
-            <DialogDescription>Full details of the payout request</DialogDescription>
+          <DialogHeader className="text-green-500!">
+            <DialogTitle>Approved Payout Details</DialogTitle>
+            <DialogDescription>Full details of the approved payout</DialogDescription>
           </DialogHeader>
 
           <FieldGroup className="gap-2!">
@@ -59,8 +60,13 @@ export const PayoutDetailDialog = () => {
             </Field>
 
             <Field>
-              <span className="text-xs font-bold">Date Requested</span>
+              <span className="text-xs font-bold">DATE APPROVED</span>
               <span className="text-sm">2026-11-23</span>
+            </Field>
+
+            <Field className="w-fit">
+              <span className="text-xs font-bold">TRANSACTION STATUS</span>
+              <Badge className="badge_in_table text-green-500 bg-green-500/10">SUCCESSFUL</Badge>
             </Field>
           </FieldGroup>
         </DialogContent>

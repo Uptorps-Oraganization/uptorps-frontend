@@ -1,19 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutApprovalStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const PayoutRejectDialog = () => {
-  const { setShowRejectPayoutDialog } = usePayoutStore();
+export const PayoutApprovalRetryDialog = () => {
+  const { setShowApprovedPayoutRetryDialog } = usePayoutApprovalStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
-  const handlePayoutRejection = () => {
+  const handlePayoutApprovalRetry = () => {
     setSubmitLoading(true);
     setTimeout(() => {
-      console.log("Payout Rejected Successfully");
+      console.log("Payout Retry Successful Successfully");
       setSubmitLoading(false);
 
       // Show Toast For SuccessFul Quiz Deletion();
@@ -24,23 +24,23 @@ export const PayoutRejectDialog = () => {
     <>
       <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
-          <Button onClick={setShowRejectPayoutDialog} className="absolute top-1 right-1" variant="ghost">
+          <Button onClick={setShowApprovedPayoutRetryDialog} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-destructive!">
-            <DialogTitle>Payout Rejection</DialogTitle>
-            <DialogDescription>Do you really want to reject this payout?</DialogDescription>
+          <DialogHeader className="text-amber-500!">
+            <DialogTitle>Payout Retry</DialogTitle>
+            <DialogDescription>Do you really want to retry the payout approval?</DialogDescription>
           </DialogHeader>
 
           <DialogFooter>
-            <Button onClick={setShowRejectPayoutDialog} variant="outline">
+            <Button onClick={setShowApprovedPayoutRetryDialog} variant="outline">
               Cancel
             </Button>
 
-            <Button onClick={handlePayoutRejection}>
+            <Button onClick={handlePayoutApprovalRetry}>
               {submitLoading && <Spinner />}
-              Confirm Rejection
+              Confirm Payout Retry
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -6,7 +6,7 @@ import {
   GraduationCapIcon,
   HandCoinsIcon,
   LayoutDashboard,
-  MessageSquareWarningIcon,
+  MessageSquareDotIcon,
   MessagesSquareIcon,
   UserGroupIcon,
   WalletIcon,
@@ -129,8 +129,8 @@ export const adminMenuOptions = [
     name: "Reports",
     icon: MessagesSquareIcon,
     subOptions: [
-      { name: "Tutor Reports", link: "/adminpage/reports/tutorreports", icon: MessageSquareWarningIcon },
-      { name: "Learner Reports", link: "/adminpage/reports/learnerreports", icon: MessageSquareWarningIcon },
+      { name: "Tutor Reports", link: "/adminpage/reports/tutorreports", icon: MessageSquareDotIcon },
+      { name: "Learner Reports", link: "/adminpage/reports/learnerreports", icon: MessageSquareDotIcon },
     ],
   },
 ];

@@ -12,7 +12,7 @@ export const QuizQuestionAnswerCard = () => {
         <span className="flex-1 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
 
         <section className="flex flex-wrap gap-0">
-          <Button onClick={setAnswerEditOpen} className="text-amber-500" variant="ghost">
+          <Button onClick={setAnswerEditOpen} className="text-green-500" variant="ghost">
             <SquarePenIcon />
           </Button>
 

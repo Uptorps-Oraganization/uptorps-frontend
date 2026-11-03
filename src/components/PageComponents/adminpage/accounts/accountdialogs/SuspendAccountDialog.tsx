@@ -28,13 +28,15 @@ export const SuspendAccountDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-amber-500!">
             <DialogTitle>Confirm Account Suspension</DialogTitle>
             <DialogDescription>Are you sure you want to suspend this account?</DialogDescription>
           </DialogHeader>
 
           <div>
-            <p className="text-amber-500 text-pretty">Please note that this action suspends the account and owner does not get access until action is reversed.</p>
+            <p className="text-amber-500 text-pretty">
+              Please note that this action suspends the account and owner does not get access until action is reversed.
+            </p>
           </div>
 
           <DialogFooter>

@@ -49,7 +49,7 @@ export const QuestionCreationDialog = () => {
               <XIcon />
             </Button>
 
-            <DialogHeader className="text-green-400!">
+            <DialogHeader className="text-green-500!">
               <DialogTitle>Add Question</DialogTitle>
               <DialogDescription>Create a new question</DialogDescription>
             </DialogHeader>

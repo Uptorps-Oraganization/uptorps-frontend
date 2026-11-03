@@ -28,7 +28,7 @@ export const QuizDeletionDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-destructive!">
             <DialogTitle>Confirm Quiz Deletion</DialogTitle>
             <DialogDescription>Do you really want to delete this quiz?</DialogDescription>
           </DialogHeader>

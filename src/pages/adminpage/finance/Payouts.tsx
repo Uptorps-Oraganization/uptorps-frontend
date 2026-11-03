@@ -1,13 +1,15 @@
 import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
-import { PayoutApprovalDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutApprovalDialog";
-import { PayoutDetailDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutDetailDialog";
-import { PayoutRejectDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutdialogs/PayoutRejectDialog";
-import { PayoutDisplayCard } from "@/components/PageComponents/adminpage/finance/payouts/PayoutDisplayCard";
-import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { PayoutApprovalDetailDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutapproval/dialogs/PayoutApprovalDetailDialog";
+import { PayoutApprovalRetryDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutapproval/dialogs/PayoutApprovalRetryDialog";
+import { PayoutManagementDisplay } from "@/components/PageComponents/adminpage/finance/payouts/PayoutManagementDisplay";
+import { PayoutPendingApprovalDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingApprovalDialog";
+import { PayoutPendingRejectDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingRejectDialog";
+import { usePayoutApprovalStore, usePayoutPendingStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { CircleDotIcon } from "@animateicons/react/lucide";
 
 export const AdminPayouts = () => {
-  const { showPayoutDetailsDialog, showApprovePayoutDialog, showRejectPayoutDialog } = usePayoutStore();
+  const { showApprovePayoutDialog, showRejectPayoutDialog } = usePayoutPendingStore();
+  const { showApprovedPayoutDetailsDialog, showApprovedPayoutRetryDialog } = usePayoutApprovalStore();
 
   return (
     <>
@@ -26,17 +28,18 @@ export const AdminPayouts = () => {
 
         <section className="px-4">
           <div className="flex flex-col pb-2">
-            <p className="font-semibold">Current Pending Payout Requests</p>
-            <i className="text-xs">Please verify withdrawal details and approve</i>
+            <p className="font-semibold">Payout Management & Status Check</p>
           </div>
 
-          <PayoutDisplayCard />
+          <PayoutManagementDisplay />
         </section>
       </div>
 
-      {showPayoutDetailsDialog && <PayoutDetailDialog />}
-      {showApprovePayoutDialog && <PayoutApprovalDialog />}
-      {showRejectPayoutDialog && <PayoutRejectDialog />}
+      {showApprovePayoutDialog && <PayoutPendingApprovalDialog />}
+      {showRejectPayoutDialog && <PayoutPendingRejectDialog />}
+
+      {showApprovedPayoutDetailsDialog && <PayoutApprovalDetailDialog />}
+      {showApprovedPayoutRetryDialog && <PayoutApprovalRetryDialog />}
     </>
   );
 };

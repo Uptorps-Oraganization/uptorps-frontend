@@ -1,21 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutPendingStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { useIconHover } from "@animateicons/react";
 import { CancelSquareIcon, CheckmarkSquare01Icon } from "@animateicons/react/huge";
-import { EllipsisIcon, EyeIcon } from "@animateicons/react/lucide";
+import { EllipsisIcon } from "@animateicons/react/lucide";
 
 const triggerConfig = [
-  { icon: "eye", trigger: "hover" },
   { icon: "approve", trigger: "hover" },
   { icon: "reject", trigger: "hover" },
 ] as const;
 
-export const PayoutActionMenu = () => {
-  const { setShowPayoutDetailsDialog, setShowApprovePayoutDialog, setShowRejectPayoutDialog } = usePayoutStore();
+export const PayoutPendingActionMenu = () => {
+  const { setShowApprovePayoutDialog, setShowRejectPayoutDialog } = usePayoutPendingStore();
 
   const {
-    icon: { eye, approve, reject },
+    icon: { approve, reject },
     trigger,
   } = useIconHover({ trigger: triggerConfig });
 
@@ -31,11 +30,7 @@ export const PayoutActionMenu = () => {
         />
         <DropdownMenuContent className="w-fit">
           <DropdownMenuGroup>
-            <DropdownMenuLabel>Payout Action</DropdownMenuLabel>
-
-            <DropdownMenuItem onClick={setShowPayoutDetailsDialog} {...trigger}>
-              <EyeIcon className="size-4!" {...eye} /> View Request Details
-            </DropdownMenuItem>
+            <DropdownMenuLabel>Payout Approval Action</DropdownMenuLabel>
 
             <DropdownMenuItem className="text-green-500" onClick={setShowApprovePayoutDialog} {...trigger}>
               <CheckmarkSquare01Icon className="size-4!" {...approve} /> Approve Payout

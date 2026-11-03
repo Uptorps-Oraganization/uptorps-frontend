@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { usePayoutStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutPendingStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const PayoutApprovalDialog = () => {
-  const { setShowApprovePayoutDialog } = usePayoutStore();
+export const PayoutPendingApprovalDialog = () => {
+  const { setShowApprovePayoutDialog } = usePayoutPendingStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -29,7 +29,7 @@ export const PayoutApprovalDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-green-500!">
             <DialogTitle>Payout Approval</DialogTitle>
             <DialogDescription>Do you really want to approve this payout?</DialogDescription>
           </DialogHeader>
@@ -41,7 +41,7 @@ export const PayoutApprovalDialog = () => {
 
             <Button onClick={handlePayoutApproval}>
               {submitLoading && <Spinner />}
-              Confirm Approval
+              Confirm Payout Approval
             </Button>
           </DialogFooter>
         </DialogContent>

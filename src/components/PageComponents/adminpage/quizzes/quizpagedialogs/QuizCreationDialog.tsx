@@ -48,7 +48,7 @@ export const QuizCreationDialog = () => {
               <XIcon />
             </Button>
 
-            <DialogHeader className="text-green-400!">
+            <DialogHeader className="text-green-500!">
               <DialogTitle>Create A Quiz</DialogTitle>
               <DialogDescription>Setup a quiz that can be accessed by learners</DialogDescription>
             </DialogHeader>

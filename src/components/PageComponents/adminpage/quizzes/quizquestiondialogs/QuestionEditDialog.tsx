@@ -50,7 +50,7 @@ export const QuestionEditDialog = () => {
               <XIcon />
             </Button>
 
-            <DialogHeader className="text-green-400!">
+            <DialogHeader className="text-green-500!">
               <DialogTitle>Edit Question</DialogTitle>
               <DialogDescription>Make changes to question</DialogDescription>
             </DialogHeader>

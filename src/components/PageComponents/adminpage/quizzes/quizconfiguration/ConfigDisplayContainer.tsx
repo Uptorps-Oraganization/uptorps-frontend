@@ -54,7 +54,7 @@ export const ConfigLevelDisplay = () => {
       console.log("Level Added", refinedLevelRequestData);
       setAcceptLoading(false);
 
-      showUploadStatusBadge("failure");
+      showUploadStatusBadge("success");
       formReset();
     }, 1000);
   };

@@ -54,7 +54,7 @@ export const AccountActionMenu = () => {
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={setDeleteAccoutOpen} variant="destructive" {...trigger}>
-          <Trash2Icon {...trashIco} /> Delete User
+          <Trash2Icon {...trashIco} /> Delete Account
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

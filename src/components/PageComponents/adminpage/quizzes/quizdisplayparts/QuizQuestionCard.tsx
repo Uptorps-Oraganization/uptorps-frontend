@@ -25,7 +25,7 @@ export const QuizQuestionCard = () => {
           </CardDescription>
 
           <section className="flex flex-row pt-2 space-x-2">
-            <Button onClick={setAnswerCreationDialogOpen} className="text-amber-500" variant="outline">
+            <Button onClick={setAnswerCreationDialogOpen} className="text-green-500" variant="outline">
               <CirclePlusIcon />
               Add Answer
             </Button>

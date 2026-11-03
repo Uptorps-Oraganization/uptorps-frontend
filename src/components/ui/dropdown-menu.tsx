@@ -51,7 +51,12 @@ function DropdownMenuLabel({
   inset?: boolean;
 }) {
   return (
-    <MenuPrimitive.GroupLabel data-slot="dropdown-menu-label" data-inset={inset} className={cn("px-2 py-2 text-xs text-muted-foreground data-inset:pl-7", className)} {...props} />
+    <MenuPrimitive.GroupLabel
+      data-slot="dropdown-menu-label"
+      data-inset={inset}
+      className={cn("px-2 py-2 text-xs text-muted-foreground data-inset:pl-7", className)}
+      {...props}
+    />
   );
 }
 
@@ -106,7 +111,14 @@ function DropdownMenuSubTrigger({
   );
 }
 
-function DropdownMenuSubContent({ align = "start", alignOffset = -3, side = "right", sideOffset = 0, className, ...props }: React.ComponentProps<typeof DropdownMenuContent>) {
+function DropdownMenuSubContent({
+  align = "start",
+  alignOffset = -3,
+  side = "right",
+  sideOffset = 0,
+  className,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuContent>) {
   return (
     <DropdownMenuContent
       data-slot="dropdown-menu-sub-content"

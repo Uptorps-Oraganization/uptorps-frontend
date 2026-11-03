@@ -15,7 +15,7 @@ export const QuizDetailDialog = () => {
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-400!">
+          <DialogHeader className="text-green-500!">
             <DialogTitle>Quiz Details</DialogTitle>
             <DialogDescription>Full details of the quiz configuration</DialogDescription>
           </DialogHeader>

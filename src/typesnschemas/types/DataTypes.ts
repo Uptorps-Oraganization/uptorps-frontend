@@ -104,7 +104,7 @@ export type QuizDetailTableRowType = {
   date_created: string;
 };
 
-export type PayoutTableRowType = {
+export type PayoutPendingTableRowType = {
   profileImgUrl: string;
   username: string;
   email: string;
@@ -112,6 +112,17 @@ export type PayoutTableRowType = {
   amount: number;
   method: "mobile_money" | "bank_transfer";
   date_created: string;
+};
+
+export type PayoutApprovalTableRowType = {
+  profileImgUrl: string;
+  username: string;
+  email: string;
+  userType: "admin" | "tutor" | "learner";
+  amount: number;
+  method: "mobile_money" | "bank_transfer";
+  date_approved: string;
+  payout_status: "success" | "failure";
 };
 
 export type ConfigUpdateStatusType = "success" | "failure" | null;
