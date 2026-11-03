@@ -1,4 +1,13 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubItem } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSubItem,
+} from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
 import { useAdminStore } from "@/statemanagers/adminpagestate/AdminStore";
@@ -25,7 +34,7 @@ export const AdminSideBar = () => {
   };
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" className="text-primary-foreground!">
       <SidebarHeader className="p-2 mt-2">
         <SidebarAccountHeader
           theme={theme}
@@ -37,7 +46,7 @@ export const AdminSideBar = () => {
         />
       </SidebarHeader>
 
-      <SidebarContent className="p-2 pt-0">
+      <SidebarContent className="p-2 pt-1 text-primary-foreground!">
         <SidebarMenu>
           {adminMenuOptions.map((option) => {
             if (option.subOptions) {
@@ -61,7 +70,7 @@ export const AdminSideBar = () => {
         </SidebarMenu>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="text-primary-foreground!">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButtonWithIcon name={"Account Settings"} link={"/adminpage/settings"} icon={Settings} />
