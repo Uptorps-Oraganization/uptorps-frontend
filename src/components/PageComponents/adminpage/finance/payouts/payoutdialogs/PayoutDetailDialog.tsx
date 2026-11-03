@@ -34,6 +34,11 @@ export const PayoutDetailDialog = () => {
             </Field>
 
             <Field>
+              <span className="text-xs font-bold">PAYOUT ID</span>
+              <span className="text-sm">asdadasd_1332da_r2u39</span>
+            </Field>
+
+            <Field>
               <span className="text-xs font-bold">PAYOUT AMOUNT REQUESTED</span>
               <span className="text-sm">{formatAmountWithAsCurrency(300)}</span>
             </Field>
