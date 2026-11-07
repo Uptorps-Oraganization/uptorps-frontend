@@ -26,6 +26,7 @@ export const VerificationConfirm = () => {
 
     return () => clearTimeout(timeoutId);
   }, [clearAuthState, setVerificationLoadingState]);
+  
 
   useEffect(() => {
     if (verificationLoadingState && checkmarkRef.current) {
