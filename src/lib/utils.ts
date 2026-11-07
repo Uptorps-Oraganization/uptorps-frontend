@@ -30,3 +30,32 @@ export const formatAmountWithAsCurrency = (amount: number) => {
   const formatted = formatter.format(amount);
   return formatted.replace(/[A-Z₵GHC¢$€£]+/gi, "₵ ");
 };
+
+export const displayShortDate = (date: Date) => {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const formattedDate = formatter.format(date);
+
+  return formattedDate;
+};
+
+export const displayLongDate = (date: Date) => {
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    year: "2-digit",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  const formattedDate = formatter.format(date);
+
+  return formattedDate;
+};

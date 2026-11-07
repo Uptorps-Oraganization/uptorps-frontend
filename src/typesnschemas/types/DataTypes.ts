@@ -80,6 +80,11 @@ export type SidebarAccountHeaderType = {
   accountRole: string;
 };
 
+export type NotificationSheetType = {
+  isSheetOpen: boolean;
+  setIsSheetOpen: (isSheetOpen: boolean) => void;
+};
+
 export type PageAccountHeaderType = {
   accountImgUrl: string;
   accountName: string;
