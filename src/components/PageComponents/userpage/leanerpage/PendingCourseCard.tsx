@@ -1,10 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon, CancelCircleIcon } from "@animateicons/react/huge";
 import { LayersIcon, SquareUserRoundIcon } from "@animateicons/react/lucide";
 import { BadgeCheckIcon } from "lucide-react";
 
+const iconTriggerConfig = [
+  { icon: "cont", trigger: "hover" },
+  { icon: "forfeit", trigger: "hover" },
+] as const;
+
 export const PendingCourseCard = () => {
+  const {
+    icon: { cont, forfeit },
+    trigger,
+  } = useIconHover({ trigger: iconTriggerConfig });
+
   return (
     <>
       <Card>
@@ -30,13 +41,13 @@ export const PendingCourseCard = () => {
         </CardHeader>
 
         <CardFooter className="p-1.5 gap-2">
-          <Button className="text-green-500 bg-green-500/10" variant="ghost">
-            <ArrowRight02Icon />
+          <Button className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
+            <ArrowRight02Icon {...cont} />
             Continue Learning
           </Button>
 
-          <Button className="text-destructive bg-destructive/10" variant="ghost">
-            <CancelCircleIcon />
+          <Button className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
+            <CancelCircleIcon {...forfeit} />
             Forfeit Course
           </Button>
         </CardFooter>

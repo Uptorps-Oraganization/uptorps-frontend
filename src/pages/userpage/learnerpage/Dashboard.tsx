@@ -2,6 +2,7 @@ import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/Re
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { PendingCourseCard } from "@/components/PageComponents/userpage/leanerpage/PendingCourseCard";
 import { PendingQuizCard } from "@/components/PageComponents/userpage/leanerpage/PendingQuizCard";
+import { ReferralNetworkCard } from "@/components/PageComponents/userpage/leanerpage/ReferralNetworkCard";
 import { Badge } from "@/components/ui/badge";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon } from "@animateicons/react/huge";
@@ -53,7 +54,7 @@ export const LearnerDashboard = () => {
             <PendingQuizCard />
           </div>
 
-          <div className="flex flex-row justify-center pt-3">
+          <div className="flex flex-row justify-center pt-2">
             <Badge onClick={() => navigate("/userpage/learneractionpage/quizzes")} className="p-0" variant="link" {...trigger}>
               Go to Quizzes
               <ArrowRight02Icon {...quizzes} size={18} />
@@ -71,7 +72,7 @@ export const LearnerDashboard = () => {
             <PendingCourseCard />
           </div>
 
-          <div className="flex flex-row justify-center pt-3">
+          <div className="flex flex-row justify-center pt-2">
             <Badge onClick={() => navigate("/userpage/learneractionpage/courses")} className="p-0" variant="link" {...trigger}>
               Go to Courses
               <ArrowRight02Icon {...courses} size={18} />
@@ -81,6 +82,10 @@ export const LearnerDashboard = () => {
 
         <section className="px-4">
           <p className="font-semibold">Recent Account Activity</p>
+
+          <div className="grid grid-cols-2 gap-4 pt-2">
+            <ReferralNetworkCard />
+          </div>
         </section>
       </div>
     </>
