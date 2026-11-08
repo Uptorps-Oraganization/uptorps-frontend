@@ -18,7 +18,7 @@ export const formatAmountToTwoDecimalPlaces = (amount: number) => {
   return outputfigure;
 };
 
-export const formatAmountWithAsCurrency = (amount: number) => {
+export const formatAmountWithCurrencySymbol = (amount: number) => {
   const formatter = new Intl.NumberFormat("en-GH", {
     style: "currency",
     currency: "GHS",

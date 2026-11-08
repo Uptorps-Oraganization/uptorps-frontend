@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useIconHover } from "@animateicons/react";
 import { EyeIcon, NetworkIcon } from "@animateicons/react/lucide";
+import { useNavigate } from "react-router";
+import { ReferralLevelCard } from "./ReferralLevelCard";
 
 export const ReferralNetworkCard = () => {
+  const navigate = useNavigate();
   const { ref: eyeRef, triggerProps } = useIconHover({ trigger: "hover" });
 
   return (
@@ -21,19 +24,19 @@ export const ReferralNetworkCard = () => {
           </CardAction>
         </CardHeader>
 
-        <CardContent>
-          <div className="flex flex-row items-center bg-secondary p-2 gap-2">
-            <Badge className="text-green-500 bg-green-500/10 font-semibold py-3">20%</Badge>
-
-            <section className="flex flex-col justify-start">
-                <p className="text-[16px] font-semibold">Level 1</p>
-                <span className="text-xs">12 referrals</span>
-            </section>
-          </div>
+        <CardContent className="flex flex-col gap-4">
+          <ReferralLevelCard percentage={20} level={1} refsCount={5} refsAmount={250} />
+          <ReferralLevelCard percentage={10} level={2} refsCount={12} refsAmount={180} />
+          <ReferralLevelCard percentage={5} level={3} refsCount={7} refsAmount={45} />
         </CardContent>
 
         <CardFooter className="justify-center">
-          <Button className="text-green-500 bg-green-500/10" variant="ghost" {...triggerProps}>
+          <Button
+            onClick={() => navigate("/userpage/learneractionpage/referrals")}
+            className="text-green-500 bg-green-500/10"
+            variant="ghost"
+            {...triggerProps}
+          >
             <EyeIcon ref={eyeRef} />
             View Full Referral Tree
           </Button>

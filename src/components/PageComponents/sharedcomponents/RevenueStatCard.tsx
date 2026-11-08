@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { formatAmountWithAsCurrency } from "@/lib/utils";
+import { formatAmountWithCurrencySymbol } from "@/lib/utils";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type StatType = {
@@ -19,7 +19,7 @@ export const RevenueStatCard = (props: StatType) => {
       <Card>
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
-          <CardTitle className="text-3xl font-semibold tabular-nums">{formatAmountWithAsCurrency(props.amount)}</CardTitle>
+          <CardTitle className="text-3xl font-semibold tabular-nums">{formatAmountWithCurrencySymbol(props.amount)}</CardTitle>
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />

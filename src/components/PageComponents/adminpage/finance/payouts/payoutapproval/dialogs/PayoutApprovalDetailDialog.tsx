@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { hubtellogo } from "@/lib/assets";
-import { formatAmountWithAsCurrency } from "@/lib/utils";
+import { formatAmountWithCurrencySymbol } from "@/lib/utils";
 import { usePayoutApprovalStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { XIcon } from "@animateicons/react/lucide";
 
@@ -41,7 +41,7 @@ export const PayoutApprovalDetailDialog = () => {
 
             <Field>
               <span className="text-xs font-bold">PAYOUT AMOUNT REQUESTED</span>
-              <span className="text-sm">{formatAmountWithAsCurrency(300)}</span>
+              <span className="text-sm">{formatAmountWithCurrencySymbol(300)}</span>
             </Field>
 
             <Field className="w-fit">
