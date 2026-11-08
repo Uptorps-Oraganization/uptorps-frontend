@@ -32,6 +32,7 @@ export const LearnerSideBar = () => {
           }
           accountName={"Jessica Annum Doe"}
           accountRole={"Learner"}
+          accountType="learner"
         />
       </SidebarHeader>
 

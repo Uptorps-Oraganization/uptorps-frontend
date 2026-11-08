@@ -33,6 +33,7 @@ export const TutorSideBar = () => {
           }
           accountName={"Eric Ashun"}
           accountRole={"Tutor"}
+          accountType="tutor"
         />
       </SidebarHeader>
 

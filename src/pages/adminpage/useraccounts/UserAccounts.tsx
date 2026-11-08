@@ -1,7 +1,7 @@
 import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/DeleteAccountDialog";
 import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
 import { AccountDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountDisplayCard";
-import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
+import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
 
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";

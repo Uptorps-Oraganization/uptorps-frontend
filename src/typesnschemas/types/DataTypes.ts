@@ -78,6 +78,7 @@ export type SidebarAccountHeaderType = {
   headerImgUrl: string;
   accountName: string;
   accountRole: string;
+  accountType: "learner" | "tutor" | "admin";
 };
 
 export type NotificationSheetType = {

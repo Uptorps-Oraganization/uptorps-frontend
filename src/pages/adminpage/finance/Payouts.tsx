@@ -1,9 +1,9 @@
-import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
 import { PayoutApprovalDetailDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutapproval/dialogs/PayoutApprovalDetailDialog";
 import { PayoutApprovalRetryDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutapproval/dialogs/PayoutApprovalRetryDialog";
 import { PayoutManagementDisplay } from "@/components/PageComponents/adminpage/finance/payouts/PayoutManagementDisplay";
 import { PayoutPendingApprovalDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingApprovalDialog";
 import { PayoutPendingRejectDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingRejectDialog";
+import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { usePayoutApprovalStore, usePayoutPendingStore } from "@/statemanagers/adminpagestate/PayoutStore";
 import { CircleDotIcon } from "@animateicons/react/lucide";
 

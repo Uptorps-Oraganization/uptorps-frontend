@@ -1,4 +1,4 @@
-import { DisplayTableFooter } from "@/components/PageComponents/sharedcomponents/tabelunits/DisplayTableFooter";
+import { DisplayTableFooter } from "@/components/PageComponents/sharedcomponents/tableunits/DisplayTableFooter";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

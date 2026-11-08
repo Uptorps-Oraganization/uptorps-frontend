@@ -1,4 +1,4 @@
-import { DisplayTableFooter } from "@/components/PageComponents/sharedcomponents/tabelunits/DisplayTableFooter";
+import { DisplayTableFooter } from "@/components/PageComponents/sharedcomponents/tableunits/DisplayTableFooter";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";

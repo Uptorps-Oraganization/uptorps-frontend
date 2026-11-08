@@ -43,6 +43,7 @@ export const AdminSideBar = () => {
           }
           accountName={"Kweku Boateng"}
           accountRole={"Admin & Manager"}
+          accountType="admin"
         />
       </SidebarHeader>
 

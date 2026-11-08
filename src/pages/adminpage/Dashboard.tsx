@@ -1,9 +1,8 @@
-import { UserStatCard } from "@/components/PageComponents/adminpage/accounts/UserStatCard";
 import { ActiveAccountStatCard } from "@/components/PageComponents/adminpage/dashboard/ActiveAccountStatCard";
 import { RevenueChartCard } from "@/components/PageComponents/adminpage/dashboard/RevenueChartCard";
 import { SiteVisitChartCard } from "@/components/PageComponents/adminpage/dashboard/SiteVisitChartCard";
-import { RevenueStatCard } from "@/components/PageComponents/adminpage/finance/revenue/RevenueStatCard";
-
+import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
+import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 
 export const AdminDashboard = () => {
@@ -46,23 +45,23 @@ export const AdminDashboard = () => {
           </div>
         </section>
 
-        <div className="grid grid-cols-2 gap-2 px-4">
-          <section>
+        <section className="grid grid-cols-2 gap-2 px-4">
+          <div>
             <p className="font-semibold">Revenue Metrics</p>
 
             <div className="pt-2">
               <RevenueChartCard />
             </div>
-          </section>
+          </div>
 
-          <section>
+          <div>
             <p className="font-semibold">Accounts Metrics</p>
 
             <div className="pt-2">
               <ActiveAccountStatCard />
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
 
         <section className="px-4">
           <p className="font-semibold">Site Visits Metrics</p>

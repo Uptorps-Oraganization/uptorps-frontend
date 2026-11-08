@@ -1,7 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import { SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 import type { SidebarAccountHeaderType } from "@/typesnschemas/types/DataTypes";
-import { CircleUserRoundIcon, LineDotLeftHorizontal } from "lucide-react";
+import { ShieldUser } from "@animateicons/react/lucide";
+import { CircleUserRoundIcon, LineDotLeftHorizontal, SquareUserRoundIcon } from "lucide-react";
 import { DynamicUptorpLogo } from "./DynamicUptorpLogo";
 import { UserProfileImg } from "./UserProfileImg";
 
@@ -17,11 +18,13 @@ export const SidebarAccountHeader = (props: SidebarAccountHeaderType) => {
         </SidebarMenuItem>
 
         <div className="flex flex-col h-fit justify-center items-center pointer-events-none pt-2 truncate group-data-[collapsible=icon]:hidden">
-          <UserProfileImg size="size-15" borderStyle="border-4" headerImgUrl={props.headerImgUrl}  altText={"UserImg"}/>
+          <UserProfileImg size="size-15" borderStyle="border-4" headerImgUrl={props.headerImgUrl} altText={"UserImg"} />
 
           <section className="flex flex-col w-[95%] my-3 space-y-2">
             <span className="flex flex-row justify-center items-center font-bold w-full text-[13px] text-center text-pretty pointer-events-auto">
-              <CircleUserRoundIcon className="mr-1 size-3" />
+              {props.accountType === "learner" && <CircleUserRoundIcon className="mr-1 size-4" />}
+              {props.accountType === "tutor" && <SquareUserRoundIcon className="mr-1 size-4" />}
+              {props.accountType === "admin" && <ShieldUser className="mr-1 size-4" />}
               {props.accountName}
             </span>
 

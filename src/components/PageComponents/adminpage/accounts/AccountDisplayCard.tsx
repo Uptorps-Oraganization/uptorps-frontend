@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { accountQueryChoiceOptions } from "@/lib/data";
 import { FilterIcon, SearchIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
-import { DisplayTableFooter } from "../../sharedcomponents/tabelunits/DisplayTableFooter";
+import { DisplayTableFooter } from "../../sharedcomponents/tableunits/DisplayTableFooter";
 import { AccountDetailTable } from "./AccountDetailTable";
 
 export const AccountDisplayCard = () => {
