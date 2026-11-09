@@ -2,6 +2,7 @@ import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/Re
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { PendingCourseCard } from "@/components/PageComponents/userpage/leanerpage/PendingCourseCard";
 import { PendingQuizCard } from "@/components/PageComponents/userpage/leanerpage/PendingQuizCard";
+import { RecentActivityCard } from "@/components/PageComponents/userpage/leanerpage/RecentActivityCard";
 import { ReferralNetworkCard } from "@/components/PageComponents/userpage/leanerpage/ReferralNetworkCard";
 import { Badge } from "@/components/ui/badge";
 import { useIconHover } from "@animateicons/react";
@@ -81,10 +82,12 @@ export const LearnerDashboard = () => {
         </section>
 
         <section className="px-4">
-          <p className="font-semibold">Recent Account Activity</p>
+          <p className="font-semibold">Account Activity</p>
 
           <div className="grid grid-cols-2 gap-4 pt-2">
             <ReferralNetworkCard />
+
+            <RecentActivityCard />
           </div>
         </section>
       </div>
