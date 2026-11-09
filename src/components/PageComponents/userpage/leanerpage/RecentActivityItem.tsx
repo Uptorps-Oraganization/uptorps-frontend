@@ -10,7 +10,7 @@ export const RecentActivityItem = () => {
         </Badge>
 
         <section className="flex flex-col justify-start">
-          <p className="text-[16px] font-semibold">Completed Course</p>
+          <p className="text-[15px] font-semibold">Completed Course</p>
           <span className="text-xs">A lucky Course</span>
         </section>
 
