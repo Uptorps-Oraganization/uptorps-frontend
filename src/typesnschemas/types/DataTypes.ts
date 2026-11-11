@@ -141,3 +141,10 @@ export type QuizConfigSelectionType = {
   placeholder?: string;
   configType?: "difficulty" | "level" | "programme" | "course";
 };
+
+export type ReferralLevelCardType = {
+  percentage: number;
+  level: number;
+  refsCount: number;
+  refsAmount: number;
+};
