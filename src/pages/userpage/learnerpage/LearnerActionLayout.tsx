@@ -1,6 +1,6 @@
+import { LearnerSideBar } from "@/components/PageComponents/leanerpage/LearnerSideBar";
 import { NotificationSheet } from "@/components/PageComponents/sharedcomponents/NotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
-import { LearnerSideBar } from "@/components/PageComponents/userpage/leanerpage/LearnerSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { userMenuOptions } from "@/lib/data";

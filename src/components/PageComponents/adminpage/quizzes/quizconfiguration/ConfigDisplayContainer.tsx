@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { quizConfigSchema, type QuizConfigType } from "@/typesnschemas/schemas/QuizSchema";
 import type { ConfigUpdateStatusType } from "@/typesnschemas/types/DataTypes";
 import { useIconHover } from "@animateicons/react";
@@ -266,7 +266,12 @@ export const ConfigCourseDisplay = () => {
   const handleCourseUpload: SubmitHandler<QuizConfigType> = (data) => {
     setAcceptLoading(true);
     setTimeout(() => {
-      const refinedCourseRequestData = { difficulty: configQueryData.difficulty, level: configQueryData.level, programme: configQueryData.programme, name: data.name };
+      const refinedCourseRequestData = {
+        difficulty: configQueryData.difficulty,
+        level: configQueryData.level,
+        programme: configQueryData.programme,
+        name: data.name,
+      };
       console.log("Course Added", refinedCourseRequestData);
       setAcceptLoading(false);
 

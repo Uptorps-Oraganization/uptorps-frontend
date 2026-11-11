@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowUpRight, EllipsisIcon, EyeIcon, SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
@@ -51,7 +51,11 @@ export const QuizActionMenu = () => {
               <SquarePenIcon className="size-4!" {...editQuiz} /> Edit Quiz
             </DropdownMenuItem>
 
-            <DropdownMenuItem className="text-amber-400" onClick={() => navigate("/adminpage/configurations/quizzes/2d8d44d7-7c5d-4bd7-bf96-1f1d51547ce1")} {...trigger}>
+            <DropdownMenuItem
+              className="text-amber-400"
+              onClick={() => navigate("/adminpage/configurations/quizzes/2d8d44d7-7c5d-4bd7-bf96-1f1d51547ce1")}
+              {...trigger}
+            >
               <ArrowUpRight className="size-4!" {...viewQuestion} /> Quiz Questions
             </DropdownMenuItem>
           </DropdownMenuGroup>

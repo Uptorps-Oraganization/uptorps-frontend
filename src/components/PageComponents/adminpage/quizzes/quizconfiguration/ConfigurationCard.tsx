@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { GitCommitHorizontalIcon } from "@animateicons/react/lucide";
 import { ConfigurationBreadcrump } from "./ConfigBreadcrump";
 import { ConfigCourseDisplay, ConfigDifficultyDisplay, ConfigLevelDisplay, ConfigProgrammeDisplay } from "./ConfigDisplayContainer";

@@ -2,7 +2,7 @@ import { DeleteAccountDialog } from "@/components/PageComponents/adminpage/accou
 import { SuspendAccountDialog } from "@/components/PageComponents/adminpage/accounts/accountdialogs/SuspendAccountDialog";
 import { AccountDisplayCard } from "@/components/PageComponents/adminpage/accounts/AccountDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
-import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
+import { useAccountStore } from "@/statemanagers/adminpagestore/AccountStore";
 
 import { CircleDotIcon, TrendingUp } from "@animateicons/react/lucide";
 import { useEffect } from "react";

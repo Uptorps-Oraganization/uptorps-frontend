@@ -7,7 +7,7 @@ import { QuizEditDialog } from "@/components/PageComponents/adminpage/quizzes/qu
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
 import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
 import { useEffect } from "react";

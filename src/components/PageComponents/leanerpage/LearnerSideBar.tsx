@@ -1,12 +1,12 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
-import { useLearnerStore } from "@/statemanagers/userpagestate/LearnerStore";
+import { useLearnerStore } from "@/statemanagers/learnerpagestore/LearnerStore";
 import { Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
-import { SidebarAccountHeader } from "../../sharedcomponents/SidebarAccountHeader";
-import { SidebarLogOutButton } from "../../sharedcomponents/sidebarunits/SidebarLogOutButton";
-import { SidebarMenuButtonWithIcon } from "../../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
+import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";
+import { SidebarLogOutButton } from "../sharedcomponents/sidebarunits/SidebarLogOutButton";
+import { SidebarMenuButtonWithIcon } from "../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
 
 export const LearnerSideBar = () => {
   const { theme, setTheme } = useTheme();

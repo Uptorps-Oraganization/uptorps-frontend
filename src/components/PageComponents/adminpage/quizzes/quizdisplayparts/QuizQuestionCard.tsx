@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
+import { useQuestionPageStore } from "@/statemanagers/adminpagestore/QuestionPageStore";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { CirclePlusIcon } from "lucide-react";
 import { QuizQuestionAnswerCard } from "./QuizQuestionAnswerCard";

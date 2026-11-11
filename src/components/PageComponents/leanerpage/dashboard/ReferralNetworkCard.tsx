@@ -4,7 +4,7 @@ import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader,
 import { useIconHover } from "@animateicons/react";
 import { EyeIcon, NetworkIcon } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
-import { ReferralLevelCard } from "./ReferralLevelCard";
+import { ReferralNetworkLevelItem } from "./ReferralNetworkLevelItem";
 
 export const ReferralNetworkCard = () => {
   const navigate = useNavigate();
@@ -25,9 +25,9 @@ export const ReferralNetworkCard = () => {
         </CardHeader>
 
         <CardContent className="flex flex-col gap-4">
-          <ReferralLevelCard percentage={20} level={1} refsCount={5} refsAmount={250} />
-          <ReferralLevelCard percentage={10} level={2} refsCount={12} refsAmount={180} />
-          <ReferralLevelCard percentage={5} level={3} refsCount={7} refsAmount={45} />
+          <ReferralNetworkLevelItem percentage={20} level={1} refsCount={5} refsAmount={250} />
+          <ReferralNetworkLevelItem percentage={10} level={2} refsCount={12} refsAmount={180} />
+          <ReferralNetworkLevelItem percentage={5} level={3} refsCount={7} refsAmount={45} />
         </CardContent>
 
         <CardFooter className="justify-center">

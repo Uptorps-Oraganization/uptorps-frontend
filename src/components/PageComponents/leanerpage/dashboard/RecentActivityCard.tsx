@@ -16,6 +16,9 @@ export const RecentActivityCard = () => {
 
         <CardContent className="flex flex-col gap-4">
           <RecentActivityItem />
+          <RecentActivityItem />
+          <RecentActivityItem />
+          <RecentActivityItem />
         </CardContent>
       </Card>
     </>

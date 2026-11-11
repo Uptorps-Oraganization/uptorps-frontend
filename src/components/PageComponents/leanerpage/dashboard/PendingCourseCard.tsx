@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon, CancelCircleIcon } from "@animateicons/react/huge";
 import { LayersIcon, SquareUserRoundIcon } from "@animateicons/react/lucide";
@@ -15,6 +16,8 @@ export const PendingCourseCard = () => {
     icon: { cont, forfeit },
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
+
+  const { setContinueCourseDialogShow, setForfeitCourseDialogShow } = useLearnerDashboardStore();
 
   return (
     <>
@@ -41,12 +44,12 @@ export const PendingCourseCard = () => {
         </CardHeader>
 
         <CardFooter className="p-1.5 gap-2">
-          <Button className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
+          <Button onClick={setContinueCourseDialogShow} className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
             <ArrowRight02Icon {...cont} />
             Continue Learning
           </Button>
 
-          <Button className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
+          <Button onClick={setForfeitCourseDialogShow} className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
             <CancelCircleIcon {...forfeit} />
             Forfeit Course
           </Button>

@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Field, FieldGroup } from "@/components/ui/field";
 import { hubtellogo } from "@/lib/assets";
 import { formatAmountWithCurrencySymbol } from "@/lib/utils";
-import { usePayoutApprovalStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutApprovalStore } from "@/statemanagers/adminpagestore/PayoutStore";
 import { XIcon } from "@animateicons/react/lucide";
 
 export const PayoutApprovalDetailDialog = () => {

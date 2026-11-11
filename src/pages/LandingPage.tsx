@@ -1,6 +1,6 @@
 import Particles from "@/components/AnimatedComponents/Particles";
-import { FeatureCard } from "@/components/PageComponents/homepage/FeatureCard";
-import { TestimonialCard } from "@/components/PageComponents/homepage/TestimonialCard";
+import { FeatureCard } from "@/components/PageComponents/landingpage/FeatureCard";
+import { TestimonialCard } from "@/components/PageComponents/landingpage/TestimonialCard";
 import { DynamicUptorpLogo } from "@/components/PageComponents/sharedcomponents/DynamicUptorpLogo";
 import { Button } from "@/components/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
@@ -41,7 +41,7 @@ import { Link } from "react-router";
 import { toast } from "sonner";
 import z from "zod";
 
-const Homepage = () => {
+const LandingPage = () => {
   const { theme, setTheme } = useTheme();
   const { testimonialIndex, subscribeLoadingState, setTestimonialIndex, prevTestimonial, nextTestimonial, setSubscribeLoadingState } = useHomeStore();
 
@@ -247,7 +247,9 @@ const Homepage = () => {
             <p className="w-11/12 lg:w-8/12 py-6 text-xl md:text-3xl text-secondary text-center text-pretty">
               Subscribe to our newsletter to get updates on our features, policies and processes.
             </p>
-            <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">Get the latest updates, tips, and exclusive offers delivered to your inbox.</span>
+            <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">
+              Get the latest updates, tips, and exclusive offers delivered to your inbox.
+            </span>
 
             <div className="flex flex-col md:flex-row items-center md:items-start py-3 space-x-0 space-y-2 md:space-x-4 md:space-y-0">
               <div>
@@ -351,4 +353,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default LandingPage;

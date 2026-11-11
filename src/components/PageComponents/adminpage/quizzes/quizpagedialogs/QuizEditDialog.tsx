@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizSchema";
 import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -85,7 +85,13 @@ export const QuizEditDialog = () => {
 
                 <QuizCostSelection label=" Quiz Cost Type" name={"cost_type"} control={control} />
 
-                <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} placeholder={"Select a difficulty"} configType="difficulty" />
+                <QuizConfigSelection
+                  label="Quiz Difficulty"
+                  name={"difficulty"}
+                  control={control}
+                  placeholder={"Select a difficulty"}
+                  configType="difficulty"
+                />
 
                 <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} configType="level" />
 

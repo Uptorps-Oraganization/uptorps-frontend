@@ -6,7 +6,7 @@ import { QuestionCreationDialog } from "@/components/PageComponents/adminpage/qu
 import { QuestionDeleteDialog } from "@/components/PageComponents/adminpage/quizzes/quizquestiondialogs/QuestionDeleteDialog";
 import { QuestionEditDialog } from "@/components/PageComponents/adminpage/quizzes/quizquestiondialogs/QuestionEditDialog";
 import { Button } from "@/components/ui/button";
-import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
+import { useQuestionPageStore } from "@/statemanagers/adminpagestore/QuestionPageStore";
 import { CirclePlusIcon, RefreshCw } from "lucide-react";
 import { useParams } from "react-router";
 

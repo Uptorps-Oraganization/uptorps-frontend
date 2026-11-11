@@ -6,7 +6,7 @@ import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/Re
 import { UserProfileImg } from "@/components/PageComponents/sharedcomponents/UserProfileImg";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Button } from "@/components/ui/button";
-import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
+import { useAccountStore } from "@/statemanagers/adminpagestore/AccountStore";
 import { SendIcon } from "@animateicons/react/huge";
 import { BanIcon, BrainIcon, CircleDotIcon, GraduationCapIcon, Trash2Icon, UserGroupIcon } from "@animateicons/react/lucide";
 import { useParams } from "react-router";

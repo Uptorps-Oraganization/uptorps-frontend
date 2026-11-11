@@ -1,5 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
-import Homepage from "@/pages/HomePage";
+import LandingPage from "@/pages/LandingPage";
 import { AdminActionLayout } from "@/pages/adminpage/AdminActionLayout";
 import { AdminAnalytics } from "@/pages/adminpage/Analytics";
 import { AdminDashboard } from "@/pages/adminpage/Dashboard";
@@ -42,7 +42,7 @@ function App() {
       <HashRouter>
         {/* <AuthInterceptorManager> */}
         <Routes>
-          <Route index element={<Homepage />} />
+          <Route index element={<LandingPage />} />
 
           <Route path="/auth" element={<AuthLayout />}>
             {/* <Route element={<RememberAuthState />}> */}

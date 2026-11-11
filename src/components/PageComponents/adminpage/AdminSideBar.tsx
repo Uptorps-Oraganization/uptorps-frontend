@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
-import { useAdminStore } from "@/statemanagers/adminpagestate/AdminStore";
+import { useAdminStore } from "@/statemanagers/adminpagestore/AdminStore";
 import { Moon, Settings, Sun } from "@animateicons/react/lucide";
 import { useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";

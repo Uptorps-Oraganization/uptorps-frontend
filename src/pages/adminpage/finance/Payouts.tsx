@@ -4,7 +4,7 @@ import { PayoutManagementDisplay } from "@/components/PageComponents/adminpage/f
 import { PayoutPendingApprovalDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingApprovalDialog";
 import { PayoutPendingRejectDialog } from "@/components/PageComponents/adminpage/finance/payouts/payoutpending/dialogs/PayoutPendingRejectDialog";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
-import { usePayoutApprovalStore, usePayoutPendingStore } from "@/statemanagers/adminpagestate/PayoutStore";
+import { usePayoutApprovalStore, usePayoutPendingStore } from "@/statemanagers/adminpagestore/PayoutStore";
 import { CircleDotIcon } from "@animateicons/react/lucide";
 
 export const AdminPayouts = () => {

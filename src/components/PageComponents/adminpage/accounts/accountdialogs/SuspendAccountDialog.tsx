@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
+import { useAccountStore } from "@/statemanagers/adminpagestore/AccountStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 

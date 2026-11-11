@@ -1,10 +1,15 @@
+import { CourseContinueDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/CourseContinueDialog";
+import { CourseForfeitDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/CourseForfeitDialog";
+import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/QuizContinueDialog";
+import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/QuizForfeitDialog";
+import { PendingCourseCard } from "@/components/PageComponents/leanerpage/dashboard/PendingCourseCard";
+import { PendingQuizCard } from "@/components/PageComponents/leanerpage/dashboard/PendingQuizCard";
+import { RecentActivityCard } from "@/components/PageComponents/leanerpage/dashboard/RecentActivityCard";
+import { ReferralNetworkCard } from "@/components/PageComponents/leanerpage/dashboard/ReferralNetworkCard";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
-import { PendingCourseCard } from "@/components/PageComponents/userpage/leanerpage/PendingCourseCard";
-import { PendingQuizCard } from "@/components/PageComponents/userpage/leanerpage/PendingQuizCard";
-import { RecentActivityCard } from "@/components/PageComponents/userpage/leanerpage/RecentActivityCard";
-import { ReferralNetworkCard } from "@/components/PageComponents/userpage/leanerpage/ReferralNetworkCard";
 import { Badge } from "@/components/ui/badge";
+import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon } from "@animateicons/react/huge";
 import { BrainIcon, GraduationCapIcon, TrendingUpIcon, UserGroupIcon, WalletIcon } from "@animateicons/react/lucide";
@@ -21,6 +26,8 @@ export const LearnerDashboard = () => {
     icon: { quizzes, courses },
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
+
+  const { continueQuizDialogShow, forfeitQuizDialogShow, continueCourseDialogShow, forfeitCourseDialogShow } = useLearnerDashboardStore();
 
   return (
     <>
@@ -85,12 +92,17 @@ export const LearnerDashboard = () => {
           <p className="font-semibold">Account Activity</p>
 
           <div className="grid grid-cols-2 gap-4 pt-2">
-            <ReferralNetworkCard />
-
             <RecentActivityCard />
+
+            <ReferralNetworkCard />
           </div>
         </section>
       </div>
+
+      {continueQuizDialogShow && <QuizContinueDialog />}
+      {forfeitQuizDialogShow && <QuizForfeitDialog />}
+      {continueCourseDialogShow && <CourseContinueDialog />}
+      {forfeitCourseDialogShow && <CourseForfeitDialog />}
     </>
   );
 };

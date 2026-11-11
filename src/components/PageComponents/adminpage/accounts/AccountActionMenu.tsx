@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
+import { useAccountStore } from "@/statemanagers/adminpagestore/AccountStore";
 import { useIconHover } from "@animateicons/react";
 import { ActivityIcon } from "@animateicons/react/huge";
 import { BanIcon, EllipsisIcon, Trash2Icon } from "@animateicons/react/lucide";

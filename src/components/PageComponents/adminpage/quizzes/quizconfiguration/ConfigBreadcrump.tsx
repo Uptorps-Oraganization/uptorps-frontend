@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { useQuizPageStore } from "@/statemanagers/adminpagestate/QuizPageStore";
+import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 import React from "react";
 
@@ -21,7 +21,10 @@ export const ConfigurationBreadcrump = () => {
               </BreadcrumbItem>
             ) : (
               <React.Fragment key={index}>
-                <BreadcrumbItem key={index} onClick={() => CrumpItemClickCondition({ itemDescription: value[0], setselectedConfiguration, configQueryData, setConfigQueryData })}>
+                <BreadcrumbItem
+                  key={index}
+                  onClick={() => CrumpItemClickCondition({ itemDescription: value[0], setselectedConfiguration, configQueryData, setConfigQueryData })}
+                >
                   <BreadcrumbLink className="flex flex-row items-center space-x-1 cursor-pointer">
                     <CrumpItemIcon itemDescription={value[0]} />
                     <span>{value[1]}</span>

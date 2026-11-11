@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
+import { useQuestionPageStore } from "@/statemanagers/adminpagestore/QuestionPageStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 

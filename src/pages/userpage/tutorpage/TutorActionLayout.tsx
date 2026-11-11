@@ -1,6 +1,6 @@
 import { NotificationSheet } from "@/components/PageComponents/sharedcomponents/NotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
-import { TutorSideBar } from "@/components/PageComponents/userpage/tutorpage/TutorSideBar";
+import { TutorSideBar } from "@/components/PageComponents/tutorpage/TutorSideBar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { tutorMenuOptions } from "@/lib/data";

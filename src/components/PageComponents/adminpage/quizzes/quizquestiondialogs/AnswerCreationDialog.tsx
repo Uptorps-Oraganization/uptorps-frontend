@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Field, FieldGroup } from "@/components/ui/field";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import { useQuestionPageStore } from "@/statemanagers/adminpagestate/QuestionPageStore";
+import { useQuestionPageStore } from "@/statemanagers/adminpagestore/QuestionPageStore";
 import { answerCreationSchema, type AnswerCreationType } from "@/typesnschemas/schemas/QuizSchema";
 import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";

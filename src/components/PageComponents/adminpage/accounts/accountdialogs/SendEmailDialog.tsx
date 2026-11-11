@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import { useAccountStore } from "@/statemanagers/adminpagestate/AccountStore";
+import { useAccountStore } from "@/statemanagers/adminpagestore/AccountStore";
 import { sendEmailSchema, type SendEmailType } from "@/typesnschemas/schemas/AccountSchema";
 import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";

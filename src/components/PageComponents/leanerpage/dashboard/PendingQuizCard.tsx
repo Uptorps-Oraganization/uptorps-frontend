@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon, CancelCircleIcon } from "@animateicons/react/huge";
 import { BlocksIcon, TimerIcon } from "@animateicons/react/lucide";
@@ -15,6 +16,8 @@ export const PendingQuizCard = () => {
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
 
+  const { setContinueQuizDialogShow, setForfeitQuizDialogShow } = useLearnerDashboardStore();
+
   return (
     <>
       <Card>
@@ -24,7 +27,7 @@ export const PendingQuizCard = () => {
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <TimerIcon size={16} color="var(--color-green-500)" />
             <span>Remaining Time:</span>
-            <span className=" text-amber-500 text-xs p-1 bg-amber-500/10">10 minutes</span>
+            <span className=" text-amber-500 text-xs p-1 bg-amber-500/10">2 minutes</span>
           </CardDescription>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
@@ -37,12 +40,12 @@ export const PendingQuizCard = () => {
         </CardHeader>
 
         <CardFooter className="p-1.5 gap-2">
-          <Button className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
+          <Button onClick={setContinueQuizDialogShow} className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
             <ArrowRight02Icon {...cont} />
             Continue Attempt
           </Button>
 
-          <Button className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
+          <Button onClick={setForfeitQuizDialogShow} className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
             <CancelCircleIcon {...forfeit} />
             Forfeit Attempt
           </Button>
