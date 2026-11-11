@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
+import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
 export const QuizForfeitDialog = () => {
-  const { setForfeitQuizDialogShow } = useLearnerDashboardStore();
+  const { setForfeitQuizDialogShow } = useLearnerQuizStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -40,7 +40,7 @@ export const QuizForfeitDialog = () => {
 
             <Button onClick={handleQuizForfeiture}>
               {submitLoading && <Spinner />}
-              Forfeit
+              Forfeit Quiz
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -13,9 +13,10 @@ import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon }
 import { useEffect } from "react";
 
 export const AdminQuizzes = () => {
+  const { ref: BrainIconRef, triggerProps } = useIconHover({ trigger: "hover" });
+
   const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } =
     useQuizPageStore();
-  const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   useEffect(() => {
     return () => resetQuizPageStoreState();
@@ -55,7 +56,7 @@ export const AdminQuizzes = () => {
 
           <div className="pt-2 space-y-4">
             <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen} {...triggerProps}>
-              <BrainIcon ref={ref} />
+              <BrainIcon ref={BrainIconRef} />
               Create A Quiz
             </Button>
 

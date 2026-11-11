@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
+import { useLearnerCourseStore } from "@/statemanagers/learnerpagestore/LearnerCourseStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
 export const CourseContinueDialog = () => {
-  const { setContinueCourseDialogShow } = useLearnerDashboardStore();
+  const { setContinueCourseDialogShow } = useLearnerCourseStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
@@ -40,7 +40,7 @@ export const CourseContinueDialog = () => {
 
             <Button onClick={() => handleCourseContinuation()}>
               {submitLoading && <Spinner />}
-              Continue
+              Continue Course
             </Button>
           </DialogFooter>
         </DialogContent>

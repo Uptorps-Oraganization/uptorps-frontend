@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
+import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon, CancelCircleIcon } from "@animateicons/react/huge";
 import { BlocksIcon, TimerIcon } from "@animateicons/react/lucide";
@@ -16,7 +16,7 @@ export const PendingQuizCard = () => {
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
 
-  const { setContinueQuizDialogShow, setForfeitQuizDialogShow } = useLearnerDashboardStore();
+  const { setContinueQuizDialogShow, setForfeitQuizDialogShow } = useLearnerQuizStore();
 
   return (
     <>
@@ -39,7 +39,7 @@ export const PendingQuizCard = () => {
           </CardDescription>
         </CardHeader>
 
-        <CardFooter className="p-1.5 gap-2">
+        <CardFooter className="p-2 gap-2">
           <Button onClick={setContinueQuizDialogShow} className="text-green-500 bg-green-500/10" variant="ghost" {...trigger}>
             <ArrowRight02Icon {...cont} />
             Continue Attempt
@@ -47,7 +47,7 @@ export const PendingQuizCard = () => {
 
           <Button onClick={setForfeitQuizDialogShow} className="text-destructive bg-destructive/10" variant="ghost" {...trigger}>
             <CancelCircleIcon {...forfeit} />
-            Forfeit Attempt
+            Forfeit Quiz
           </Button>
         </CardFooter>
       </Card>

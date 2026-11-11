@@ -1,22 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
+import { useLearnerCourseStore } from "@/statemanagers/learnerpagestore/LearnerCourseStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const QuizContinueDialog = () => {
-  const { setContinueQuizDialogShow } = useLearnerDashboardStore();
+export const CourseForfeitDialog = () => {
+  const { setForfeitCourseDialogShow } = useLearnerCourseStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
-  const handleQuizContinuation = () => {
+  const handleCourseForfeiture = () => {
     setSubmitLoading(true);
     setTimeout(() => {
-      console.log("Quiz Continuation Successfully");
+      console.log("Course Forfeited Successfully");
       setSubmitLoading(false);
 
-      // Show Toast For SuccessFul Quiz Deletion();
+      // Show Toast For SuccessFul Course Deletion();
     }, 1000);
   };
 
@@ -24,23 +24,23 @@ export const QuizContinueDialog = () => {
     <>
       <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
-          <Button onClick={setContinueQuizDialogShow} className="absolute top-1 right-1" variant="ghost">
+          <Button onClick={setForfeitCourseDialogShow} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
           </Button>
 
-          <DialogHeader className="text-green-500!">
-            <DialogTitle>Confirm Quiz Continuation</DialogTitle>
-            <DialogDescription>Are you sure you want to continue quiz?</DialogDescription>
+          <DialogHeader className="text-destructive!">
+            <DialogTitle>Confirm Course Forfeiture</DialogTitle>
+            <DialogDescription>Do you really want to forfeit this course?</DialogDescription>
           </DialogHeader>
 
           <DialogFooter>
-            <Button onClick={setContinueQuizDialogShow} variant="outline">
+            <Button onClick={setForfeitCourseDialogShow} variant="outline">
               Cancel
             </Button>
 
-            <Button onClick={() => handleQuizContinuation()}>
+            <Button onClick={handleCourseForfeiture}>
               {submitLoading && <Spinner />}
-              Continue
+              Forfeit Course
             </Button>
           </DialogFooter>
         </DialogContent>

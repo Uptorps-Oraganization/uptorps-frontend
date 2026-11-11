@@ -1,41 +1,35 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-type LearnerDashboardStoreType = {
-  continueQuizDialogShow: boolean;
-  forfeitQuizDialogShow: boolean;
+type LearnerCourseStoreType = {
   continueCourseDialogShow: boolean;
   forfeitCourseDialogShow: boolean;
 
-  setContinueQuizDialogShow: () => void;
-  setForfeitQuizDialogShow: () => void;
   setContinueCourseDialogShow: () => void;
   setForfeitCourseDialogShow: () => void;
+
+  resetLearnerCourseStore: () => void;
 };
 
-const learnerDashboardStore = create<LearnerDashboardStoreType>((set) => ({
-  continueQuizDialogShow: false,
-  forfeitQuizDialogShow: false,
+const learnerCourseStore = create<LearnerCourseStoreType>((set) => ({
   continueCourseDialogShow: false,
   forfeitCourseDialogShow: false,
 
-  setContinueQuizDialogShow: () => set((state) => ({ continueQuizDialogShow: !state.continueQuizDialogShow })),
-  setForfeitQuizDialogShow: () => set((state) => ({ forfeitQuizDialogShow: !state.forfeitQuizDialogShow })),
   setContinueCourseDialogShow: () => set((state) => ({ continueCourseDialogShow: !state.continueCourseDialogShow })),
   setForfeitCourseDialogShow: () => set((state) => ({ forfeitCourseDialogShow: !state.forfeitCourseDialogShow })),
+
+  resetLearnerCourseStore: () => set({ continueCourseDialogShow: false, forfeitCourseDialogShow: false }),
 }));
 
-export const useLearnerDashboardStore = () =>
-  learnerDashboardStore(
+export const useLearnerCourseStore = () =>
+  learnerCourseStore(
     useShallow((state) => ({
-      continueQuizDialogShow: state.continueQuizDialogShow,
-      forfeitQuizDialogShow: state.forfeitQuizDialogShow,
       continueCourseDialogShow: state.continueCourseDialogShow,
       forfeitCourseDialogShow: state.forfeitCourseDialogShow,
 
-      setContinueQuizDialogShow: state.setContinueQuizDialogShow,
-      setForfeitQuizDialogShow: state.setForfeitQuizDialogShow,
       setContinueCourseDialogShow: state.setContinueCourseDialogShow,
       setForfeitCourseDialogShow: state.setForfeitCourseDialogShow,
+
+      resetLearnerCourseStore: state.resetLearnerCourseStore,
     })),
   );

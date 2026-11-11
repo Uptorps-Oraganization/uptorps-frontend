@@ -1,18 +1,20 @@
-import { CourseContinueDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/CourseContinueDialog";
-import { CourseForfeitDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/CourseForfeitDialog";
-import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/QuizContinueDialog";
-import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/dashboard/dialogs.tsx/QuizForfeitDialog";
+import { CourseContinueDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseContinueDialog";
+import { CourseForfeitDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseForfeitDialog";
 import { PendingCourseCard } from "@/components/PageComponents/leanerpage/dashboard/PendingCourseCard";
 import { PendingQuizCard } from "@/components/PageComponents/leanerpage/dashboard/PendingQuizCard";
 import { RecentActivityCard } from "@/components/PageComponents/leanerpage/dashboard/RecentActivityCard";
 import { ReferralNetworkCard } from "@/components/PageComponents/leanerpage/dashboard/ReferralNetworkCard";
+import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizContinueDialog";
+import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizForfeitDialog";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Badge } from "@/components/ui/badge";
-import { useLearnerDashboardStore } from "@/statemanagers/learnerpagestore/DashboardStore";
+import { useLearnerCourseStore } from "@/statemanagers/learnerpagestore/LearnerCourseStore";
+import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon } from "@animateicons/react/huge";
 import { BrainIcon, GraduationCapIcon, TrendingUpIcon, UserGroupIcon, WalletIcon } from "@animateicons/react/lucide";
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const iconTriggerConfig = [
@@ -27,7 +29,15 @@ export const LearnerDashboard = () => {
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
 
-  const { continueQuizDialogShow, forfeitQuizDialogShow, continueCourseDialogShow, forfeitCourseDialogShow } = useLearnerDashboardStore();
+  const { continueQuizDialogShow, forfeitQuizDialogShow, resetLearnerQuizStore } = useLearnerQuizStore();
+  const { continueCourseDialogShow, forfeitCourseDialogShow, resetLearnerCourseStore } = useLearnerCourseStore();
+
+  useEffect(() => {
+    return () => {
+      resetLearnerQuizStore();
+      resetLearnerCourseStore();
+    };
+  }, [resetLearnerCourseStore, resetLearnerQuizStore]);
 
   return (
     <>
