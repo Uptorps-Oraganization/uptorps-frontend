@@ -2,29 +2,29 @@ import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
 type LearnerQuizStoreType = {
+  randomquizDialogShow: boolean;
   continueQuizDialogShow: boolean;
   forfeitQuizDialogShow: boolean;
   attemptQuizDialogShow: boolean;
-  quizDetailDialogShow: boolean;
 
+  setRandomQuizDialogShow: () => void;
   setContinueQuizDialogShow: () => void;
   setForfeitQuizDialogShow: () => void;
   setAttemptQuizDialogShow: () => void;
-  setQuizDetailDialogShow: () => void;
 
   resetLearnerQuizStore: () => void;
 };
 
 const learnerQuizStore = create<LearnerQuizStoreType>((set) => ({
+  randomquizDialogShow: false,
   continueQuizDialogShow: false,
   forfeitQuizDialogShow: false,
   attemptQuizDialogShow: false,
-  quizDetailDialogShow: false,
 
+  setRandomQuizDialogShow: () => set((state) => ({ randomquizDialogShow: !state.randomquizDialogShow })),
   setContinueQuizDialogShow: () => set((state) => ({ continueQuizDialogShow: !state.continueQuizDialogShow })),
   setForfeitQuizDialogShow: () => set((state) => ({ forfeitQuizDialogShow: !state.forfeitQuizDialogShow })),
   setAttemptQuizDialogShow: () => set((state) => ({ attemptQuizDialogShow: !state.attemptQuizDialogShow })),
-  setQuizDetailDialogShow: () => set((state) => ({ quizDetailDialogShow: !state.quizDetailDialogShow })),
 
   resetLearnerQuizStore: () => set({ continueQuizDialogShow: false, forfeitQuizDialogShow: false, attemptQuizDialogShow: false }),
 }));
@@ -32,15 +32,15 @@ const learnerQuizStore = create<LearnerQuizStoreType>((set) => ({
 export const useLearnerQuizStore = () =>
   learnerQuizStore(
     useShallow((state) => ({
+      randomquizDialogShow: state.randomquizDialogShow,
       continueQuizDialogShow: state.continueQuizDialogShow,
       forfeitQuizDialogShow: state.forfeitQuizDialogShow,
       attemptQuizDialogShow: state.attemptQuizDialogShow,
-      quizDetailDialogShow: state.quizDetailDialogShow,
 
+      setRandomQuizDialogShow: state.setRandomQuizDialogShow,
       setContinueQuizDialogShow: state.setContinueQuizDialogShow,
       setForfeitQuizDialogShow: state.setForfeitQuizDialogShow,
       setAttemptQuizDialogShow: state.setAttemptQuizDialogShow,
-      setQuizDetailDialogShow: state.setQuizDetailDialogShow,
 
       resetLearnerQuizStore: state.resetLearnerQuizStore,
     })),

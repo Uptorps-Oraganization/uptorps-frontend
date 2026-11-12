@@ -40,8 +40,9 @@ export const PendingQuizzesContainer = () => {
       </div>
 
       <div className="flex flex-row justify-center items-center pt-4">
-        <Button onClick={() => prevSet()} size="icon-sm">
+        <Button onClick={() => prevSet()} variant={"ghost"} className={"font-semibold"}>
           <ChevronLeft />
+          Previous
         </Button>
 
         <article className="flex flex-row justify-center items-center mx-4 space-x-2">
@@ -53,7 +54,8 @@ export const PendingQuizzesContainer = () => {
           ))}
         </article>
 
-        <Button onClick={() => nextSet()} size="icon-sm">
+        <Button onClick={() => nextSet()} variant={"ghost"} className={"font-semibold"}>
+          Next
           <ChevronRight />
         </Button>
       </div>

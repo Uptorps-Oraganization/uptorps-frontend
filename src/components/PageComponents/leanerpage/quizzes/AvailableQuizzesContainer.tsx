@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { AvailableQuizzesCard } from "./AvailableQuizzesCard";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { AvailableQuizzesCard } from "./AvailableQuizzesCard";
 
 const availableQuizzes = [
   <AvailableQuizzesCard />,
@@ -44,9 +44,10 @@ export const AvailableQuizzesContainer = () => {
         })}
       </div>
 
-      <div className="flex flex-row justify-center items-center pt-4">
-        <Button onClick={() => prevSet()} size="icon-sm">
+      <div className="flex flex-row justify-center items-center pt-2">
+        <Button onClick={() => prevSet()} variant={"ghost"} className={"font-semibold"}>
           <ChevronLeft />
+          Previous
         </Button>
 
         <article className="flex flex-row justify-center items-center mx-4 space-x-2">
@@ -58,7 +59,8 @@ export const AvailableQuizzesContainer = () => {
           ))}
         </article>
 
-        <Button onClick={() => nextSet()} size="icon-sm">
+        <Button onClick={() => nextSet()} variant={"ghost"} className={"font-semibold"}>
+          Next
           <ChevronRight />
         </Button>
       </div>
