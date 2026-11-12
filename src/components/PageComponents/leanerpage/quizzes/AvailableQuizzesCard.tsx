@@ -24,13 +24,13 @@ export const AvailableQuizzesCard = () => {
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <TimerIcon size={16} className="text-green-500" />
             <span>Timing:</span>
-            <span className="text-green-500 bg-green-500/10 text-xs p-1 font-semibold">20 minutes</span>
+            <span className="text-green-500 bg-green-500/10 text-xs p-1">20 minutes</span>
           </CardDescription>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <BlocksIcon size={16} className="text-green-500" />
             <span>Total Questions:</span>
-            <span className="text-green-500 bg-green-500/10 text-xs p-1 font-semibold">20 Questions</span>
+            <span className="text-green-500 bg-green-500/10 text-xs p-1">20 Questions</span>
           </CardDescription>
         </CardHeader>
 
