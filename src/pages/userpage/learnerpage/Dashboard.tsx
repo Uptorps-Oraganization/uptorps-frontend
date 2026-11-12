@@ -1,11 +1,11 @@
 import { CourseContinueDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseContinueDialog";
 import { CourseForfeitDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseForfeitDialog";
-import { PendingCourseCard } from "@/components/PageComponents/leanerpage/dashboard/PendingCourseCard";
-import { PendingQuizCard } from "@/components/PageComponents/leanerpage/dashboard/PendingQuizCard";
+import { PendingCourseCard } from "@/components/PageComponents/leanerpage/courses/PendingCourseCard";
 import { RecentActivityCard } from "@/components/PageComponents/leanerpage/dashboard/RecentActivityCard";
 import { ReferralNetworkCard } from "@/components/PageComponents/leanerpage/dashboard/ReferralNetworkCard";
 import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizContinueDialog";
 import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizForfeitDialog";
+import { PendingQuizCard } from "@/components/PageComponents/leanerpage/quizzes/PendingQuizCard";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Badge } from "@/components/ui/badge";

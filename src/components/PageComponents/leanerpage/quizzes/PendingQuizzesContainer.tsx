@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { PendingQuizCard } from "../dashboard/PendingQuizCard";
+import { PendingQuizCard } from "./PendingQuizCard";
 
 const pendingQuizzes = [
-  <PendingQuizCard />,
   <PendingQuizCard />,
   <PendingQuizCard />,
   <PendingQuizCard />,
@@ -40,14 +39,17 @@ export const PendingQuizzesContainer = () => {
         })}
       </div>
 
-      <div className="flex flex-row justify-center items-center py-4">
+      <div className="flex flex-row justify-center items-center pt-4">
         <Button onClick={() => prevSet()} size="icon-sm">
           <ChevronLeft />
         </Button>
 
         <article className="flex flex-row justify-center items-center mx-4 space-x-2">
           {Array.from({ length: groupTotalPendingQuizzes }, (_, index) => (
-            <span key={index} className={`${index === currentPendingQuizGroupIndex ? "w-6 bg-green-500" : "w-2 bg-primary"}  h-2 transition-[width] duration-200 rounded-full`}></span>
+            <span
+              key={index}
+              className={`${index === currentPendingQuizGroupIndex ? "w-6 bg-green-500" : "w-2 bg-primary"}  h-2 transition-[width] duration-500 rounded-full`}
+            ></span>
           ))}
         </article>
 

@@ -25,13 +25,13 @@ export const PendingQuizCard = () => {
           <CardTitle className="text-sm font-semibold">Lucky Quiz</CardTitle>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
-            <TimerIcon size={16} color="var(--color-green-500)" />
+            <TimerIcon size={16} className="text-green-500" />
             <span>Remaining Time:</span>
             <span className=" text-amber-500 text-xs p-1 bg-amber-500/10">2 minutes</span>
           </CardDescription>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
-            <BlocksIcon size={16} color="var(--color-green-500)" />
+            <BlocksIcon size={16} className="text-green-500" />
             <span>Answered Question:</span>
             <span className="text-amber-500 text-xs p-1 bg-amber-500/10 font-semibold">6</span>
             <span>out of</span>

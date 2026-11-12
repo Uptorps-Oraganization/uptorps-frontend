@@ -1,3 +1,4 @@
+import { AvailableQuizzesPanel } from "@/components/PageComponents/leanerpage/quizzes/AvailableQuizzesPanel";
 import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizContinueDialog";
 import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizForfeitDialog";
 import { PendingQuizzesContainer } from "@/components/PageComponents/leanerpage/quizzes/PendingQuizzesContainer";
@@ -46,6 +47,12 @@ export const LearnerQuizzes = () => {
           <p className="font-semibold">Pending Quiz Attempt</p>
 
           <PendingQuizzesContainer />
+        </section>
+
+        <section className="px-4">
+          <p className="font-semibold">Available Quizzes</p>
+
+          <AvailableQuizzesPanel />
         </section>
       </div>
 
