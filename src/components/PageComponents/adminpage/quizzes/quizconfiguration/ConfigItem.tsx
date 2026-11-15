@@ -5,12 +5,13 @@ import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 
-type ConfItemType = {
+type ConfigItemType = {
   name: string;
   type: "difficulty" | "level" | "programme" | "course";
+  description?: string;
 };
 
-export const ConfigurationItem = (props: ConfItemType) => {
+export const ConfigurationItem = (props: ConfigItemType) => {
   const { selectedConfiguration, setselectedConfiguration, configQueryData, setConfigQueryData } = useQuizPageStore();
 
   return (
@@ -25,18 +26,21 @@ export const ConfigurationItem = (props: ConfItemType) => {
           <span className="grid grid-rows-1 gap-1 text-sm font-semibold">
             <ConfigItemIcon itemDescription={props.type} />
             {props.name}
+            {props.description && <span className="text-xs font-light">{props.description}</span>}
           </span>
         </CardContent>
 
-        <article className="w-fit flex flex-row justify-center items-center">
-          <Button variant="ghost" size="icon" className="border">
-            <SquarePenIcon className="size-4!" />
-          </Button>
+        {props.type !== "difficulty" && (
+          <article className="w-fit flex flex-row justify-center items-center">
+            <Button variant="ghost" size="icon" className="border">
+              <SquarePenIcon className="size-4!" />
+            </Button>
 
-          <Button variant="ghost" size="icon" className="border">
-            <Trash2Icon className="text-destructive" />
-          </Button>
-        </article>
+            <Button variant="ghost" size="icon" className="border">
+              <Trash2Icon className="text-destructive" />
+            </Button>
+          </article>
+        )}
       </Card>
     </>
   );

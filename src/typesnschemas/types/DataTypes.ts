@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { LucideIcon } from "lucide-react";
-import type { Control, FieldErrors } from "react-hook-form";
-import type { QuizCreationType } from "../schemas/QuizSchema";
+import type { FieldErrors } from "react-hook-form";
 
 export type Theme = "dark" | "light" | "system";
 
@@ -137,7 +136,7 @@ export type QuizConfigSelectionType = {
   selectionData?: string[];
   label: string;
   name: "difficulty" | "level" | "programme" | "course" | "timing" | "cost_type";
-  control: Control<QuizCreationType, any, QuizCreationType>;
+  control: any;
   placeholder?: string;
   configType?: "difficulty" | "level" | "programme" | "course";
 };
@@ -147,4 +146,8 @@ export type ReferralLevelCardType = {
   level: number;
   refsCount: number;
   refsAmount: number;
+};
+
+export type AvailableQuizzesPanelType = {
+  userSubcriptionType: "free" | "premium";
 };

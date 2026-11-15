@@ -42,16 +42,23 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
     control: props.control,
   });
 
-  const demoData = props.configType == "difficulty" ? demoDifficulty : props.configType == "level" ? demoLevel : props.configType == "programme" ? demoProgramme : demoCourse;
+  const demoData =
+    props.configType === "difficulty"
+      ? demoDifficulty
+      : props.configType === "level"
+        ? demoLevel
+        : props.configType === "programme"
+          ? demoProgramme
+          : demoCourse;
 
   return (
     <>
       <Field>
-        <Label htmlFor={props.name} className="after:content-['_*'] after:text-destructive after:font-bold">
+        <Label htmlFor={props.name} className="after:content-['*'] after:text-destructive after:font-bold">
           {props.label}
         </Label>
 
-        <Select id={props.name} value={value as string} onValueChange={onChange} items={demoData}>
+        <Select id={props.name} value={value} onValueChange={onChange} items={demoData}>
           <SelectTrigger>
             <SelectValue className="text-[13px]! font-semibold" />
           </SelectTrigger>
@@ -91,7 +98,7 @@ export const QuizTimingSelection = (props: QuizConfigSelectionType) => {
   return (
     <>
       <Field>
-        <Label htmlFor={props.name} className="after:content-['_*'] after:text-destructive after:font-bold">
+        <Label htmlFor={props.name} className="after:content-['*'] after:text-destructive after:font-bold">
           {props.label}
         </Label>
         <Select id={props.name} value={value as string} onValueChange={onChange} items={timingSet}>
@@ -127,7 +134,7 @@ export const QuizCostSelection = (props: QuizConfigSelectionType) => {
   return (
     <>
       <Field>
-        <Label htmlFor={props.name} className="after:content-['_*'] after:text-destructive after:font-bold">
+        <Label htmlFor={props.name} className="after:content-['*'] after:text-destructive after:font-bold">
           {props.label}
         </Label>
         <RadioGroup id="accounttype" value={value as string} onValueChange={onChange} className="flex flex-row justify-center items-center gap-10">

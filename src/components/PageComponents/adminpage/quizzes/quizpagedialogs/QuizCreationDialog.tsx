@@ -25,6 +25,7 @@ export const QuizCreationDialog = () => {
   } = useForm<QuizCreationType>({
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
+      
       cost_type: false,
     },
   });

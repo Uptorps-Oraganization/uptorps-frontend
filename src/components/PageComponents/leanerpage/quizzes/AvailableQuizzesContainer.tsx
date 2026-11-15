@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { AvailableQuizzesCard } from "./AvailableQuizzesCard";
 
 const availableQuizzes = [
@@ -20,28 +20,28 @@ const availableQuizzes = [
 ]; //temporal Data
 
 export const AvailableQuizzesContainer = () => {
-  const [currentAvailableQuizGroupIndex, setcurrentAvailableQuizGroupIndex] = useState(0);
+  const [currentAvailableQuizGroupIndex, setCurrentAvailableQuizGroupIndex] = useState(0);
 
   const groupTotalAvailableQuizzes = Math.ceil(availableQuizzes.length / 6);
 
   const nextSet = () => {
     const finalIndex = currentAvailableQuizGroupIndex < groupTotalAvailableQuizzes - 1 ? currentAvailableQuizGroupIndex + 1 : 0;
 
-    setcurrentAvailableQuizGroupIndex(finalIndex);
+    setCurrentAvailableQuizGroupIndex(finalIndex);
   };
 
   const prevSet = () => {
     const finalIndex = currentAvailableQuizGroupIndex > 0 ? currentAvailableQuizGroupIndex - 1 : groupTotalAvailableQuizzes - 1;
 
-    setcurrentAvailableQuizGroupIndex(finalIndex);
+    setCurrentAvailableQuizGroupIndex(finalIndex);
   };
 
   return (
     <>
       <div className="grid grid-cols-3 gap-2 pt-2">
-        {availableQuizzes.map((availQuiz, index) => {
-          if (Math.floor(index / 6) == currentAvailableQuizGroupIndex) return availQuiz;
-        })}
+        {availableQuizzes.map(
+          (availQuiz, index) => Math.floor(index / 6) === currentAvailableQuizGroupIndex && <Fragment key={index}>{availQuiz}</Fragment>,
+        )}
       </div>
 
       <div className="flex flex-row justify-center items-center pt-2">
@@ -54,7 +54,8 @@ export const AvailableQuizzesContainer = () => {
           {Array.from({ length: groupTotalAvailableQuizzes }, (_, index) => (
             <span
               key={index}
-              className={`${index === currentAvailableQuizGroupIndex ? "w-6 bg-green-500" : "w-2 bg-primary"}  h-2 transition-[width] duration-500 rounded-full`}
+              onClick={() => setCurrentAvailableQuizGroupIndex(index)}
+              className={`${index === currentAvailableQuizGroupIndex ? "w-6 bg-green-500" : "w-2 bg-primary cursor-pointer"}  h-2 transition-[width] duration-500 rounded-full`}
             ></span>
           ))}
         </article>

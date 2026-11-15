@@ -18,10 +18,10 @@ export const ConfigDifficultyDisplay = () => {
     <>
       <div className="px-10 py-3 space-y-4">
         <section className="grid grid-cols-3 gap-3">
-          <ConfigurationItem name="Nursery" type="difficulty" />
-          <ConfigurationItem name="Basic" type="difficulty" />
-          <ConfigurationItem name="Secondary" type="difficulty" />
-          <ConfigurationItem name="Tetiary" type="difficulty" />
+          <ConfigurationItem name="Nursery" type="difficulty" description="For nusery minds" />
+          <ConfigurationItem name="Basic" type="difficulty" description="For basic minds" />
+          <ConfigurationItem name="Secondary" type="difficulty" description="For secondary minds" />
+          <ConfigurationItem name="Tetiary" type="difficulty" description="For tetiary minds" />
         </section>
       </div>
     </>
@@ -98,7 +98,12 @@ export const ConfigLevelDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
+                <Button
+                  type="submit"
+                  form="config-input-form"
+                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
+                  variant="ghost"
+                >
                   <CircleCheckIcon />
                 </Button>
 
@@ -199,7 +204,12 @@ export const ConfigProgrammeDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
+                <Button
+                  type="submit"
+                  form="config-input-form"
+                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
+                  variant="ghost"
+                >
                   <CircleCheckIcon />
                 </Button>
 
@@ -305,7 +315,12 @@ export const ConfigCourseDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
+                <Button
+                  type="submit"
+                  form="config-input-form"
+                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
+                  variant="ghost"
+                >
                   <CircleCheckIcon />
                 </Button>
 

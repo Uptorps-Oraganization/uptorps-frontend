@@ -1,10 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { AvailableQuizzesPanelType } from "@/typesnschemas/types/DataTypes";
 import { LockKeyhole, LockOpenIcon } from "lucide-react";
 import { AvailableQuizzesContainer } from "./AvailableQuizzesContainer";
-
-type AvailableQuizzesPanelType = {
-  userSubcriptionType: "free" | "premium";
-};
 
 export const AvailableQuizzesPanel = (props: AvailableQuizzesPanelType) => {
   return (
