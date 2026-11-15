@@ -26,6 +26,17 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
       });
 
       return refinedData;
+    } else if (props.name === "level") {
+      const refinedData: { label: string; value: string }[] = [];
+
+      quizDataForConfiguration.forEach((data) => {
+        data.levels.forEach((level) => {
+          const refLevel = { label: level.level, value: level.level };
+          refinedData.push(refLevel);
+        });
+      });
+
+      return refinedData;
     }
   };
 
