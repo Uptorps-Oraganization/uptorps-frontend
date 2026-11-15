@@ -11,8 +11,9 @@ import { useReponsiveScreen } from "@/hooks/useReponsiveScreen";
 import { uptorpillustration } from "@/lib/assets";
 import { featuresData, testimonialsData } from "@/lib/data";
 import { useHomeStore } from "@/statemanagers/HomeStore";
-import { newsLetterSchema } from "@/typesnschemas/schemas/AuthSchemas";
+import { newsLetterSchema, type NewsLetterDataType } from "@/typesnschemas/schemas/AuthSchemas";
 import { Moon, SunIcon } from "@animateicons/react/lucide";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ArrowRightIcon,
   BookOpen,
@@ -35,11 +36,10 @@ import {
   UserRoundGroup,
   Zap,
 } from "lucide-react";
-import { useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { Link } from "react-router";
 import { toast } from "sonner";
-import z from "zod";
 
 const LandingPage = () => {
   const { theme, setTheme } = useTheme();
@@ -47,25 +47,23 @@ const LandingPage = () => {
 
   const { isMediumScreen, isLargeScreen } = useReponsiveScreen();
 
-  const newsLetterInput = useRef<HTMLInputElement>(null);
-  const newsLetterErrorShow = useRef<HTMLParagraphElement>(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NewsLetterDataType>({
+    resolver: zodResolver(newsLetterSchema),
+  });
 
-  const handleNewsletterSub = () => {
-    const result = newsLetterSchema.safeParse({ email: newsLetterInput.current?.value || "" });
-
-    if (!result.success) {
-      const errors = z.treeifyError(result.error);
-
-      newsLetterErrorShow.current!.textContent = errors.properties?.email?.errors[0] || null;
-    } else {
-      newsLetterErrorShow.current!.textContent = "";
+  const handleNewsletterSub: SubmitHandler<NewsLetterDataType> = (data) => {
+    setSubscribeLoadingState();
+    setTimeout(() => {
       setSubscribeLoadingState();
-      setTimeout(() => {
-        console.log({ email: newsLetterInput.current?.value || "" });
-        setSubscribeLoadingState();
-        showToastForSubscription();
-      }, 1000);
-    }
+
+      console.log(data);
+
+      showToastForSubscription();
+    }, 1000);
   };
 
   const showToastForSubscription = () => {
@@ -247,31 +245,29 @@ const LandingPage = () => {
             <p className="w-11/12 lg:w-8/12 py-6 text-xl md:text-3xl text-secondary text-center text-pretty">
               Subscribe to our newsletter to get updates on our features, policies and processes.
             </p>
-            <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">
-              Get the latest updates, tips, and exclusive offers delivered to your inbox.
-            </span>
+            <span className="w-8/12 py-2 text-[14px] text-green-500/90 text-center">Get the latest updates, tips, and exclusive offers delivered to your inbox.</span>
 
-            <div className="flex flex-col md:flex-row items-center md:items-start py-3 space-x-0 space-y-2 md:space-x-4 md:space-y-0">
+            <form onSubmit={handleSubmit(handleNewsletterSub)} className="flex flex-col md:flex-row items-center md:items-start py-3 space-x-0 space-y-2 md:space-x-4 md:space-y-0">
               <div>
                 <InputGroup className="w-85 h-10 border border-green-500">
                   <InputGroupAddon align="inline-end">
                     <Mail />
                   </InputGroupAddon>
-                  <InputGroupInput ref={newsLetterInput} type="email" className="text-[14px]! text-secondary" placeholder="Enter your email" />
+                  <InputGroupInput {...register("email")} type="email" className="text-[14px]! text-secondary" placeholder="Enter your email" />
                 </InputGroup>
 
-                <p ref={newsLetterErrorShow} className="py-1 text-xs text-destructive"></p>
+                {errors.email && <p className="py-1 text-xs text-destructive">{errors.email?.message}</p>}
               </div>
 
               <Button
-                onClick={() => handleNewsletterSub()}
+                type="submit"
                 className="w-80 h-12 md:w-50 md:h-10 flex items-center gap-2 text-[15px] bg-primary-foreground text-primary hover:text-secondary"
                 disabled={subscribeLoadingState && true}
               >
                 {subscribeLoadingState === true ? <Spinner /> : <MailCheck />}
                 Subscribe
               </Button>
-            </div>
+            </form>
           </div>
         </main>
 
