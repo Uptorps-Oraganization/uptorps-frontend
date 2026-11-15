@@ -25,7 +25,6 @@ export const QuizCreationDialog = () => {
   } = useForm<QuizCreationType>({
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
-      
       cost_type: false,
     },
   });
@@ -74,19 +73,13 @@ export const QuizCreationDialog = () => {
 
                 <QuizCostSelection label=" Quiz Cost Type" name={"cost_type"} control={control} />
 
-                <QuizConfigSelection
-                  label="Quiz Difficulty"
-                  name={"difficulty"}
-                  control={control}
-                  placeholder={"Select a difficulty"}
-                  configType="difficulty"
-                />
+                <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} placeholder={"Select a difficulty"} />
 
-                <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} configType="level" />
+                <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} />
 
-                <QuizConfigSelection label="Quiz Programme" name={"programme"} control={control} placeholder={"Select a programme"} configType="programme" />
+                <QuizConfigSelection label="Quiz Programme" name={"programme"} control={control} placeholder={"Select a programme"} />
 
-                <QuizConfigSelection label="Quiz Course" name={"course"} control={control} placeholder={"Select a course"} configType="course" />
+                <QuizConfigSelection label="Quiz Course" name={"course"} control={control} placeholder={"Select a course"} />
 
                 <QuizTimingSelection label="Quiz Timing" name={"timing"} control={control} placeholder={"Select quiz timing"} />
               </FieldGroup>

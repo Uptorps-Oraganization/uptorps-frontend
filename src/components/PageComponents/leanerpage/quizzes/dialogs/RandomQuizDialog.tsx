@@ -20,10 +20,6 @@ export const RandomQuizDialog = () => {
   const { control, handleSubmit } = useForm<RandomQuizType>({
     resolver: zodResolver(randomQuizSchema),
     defaultValues: {
-      difficulty: "",
-      level: "",
-      programme: "",
-      course: "",
       timing: 10,
     },
   });
@@ -33,8 +29,6 @@ export const RandomQuizDialog = () => {
     setTimeout(() => {
       console.log(data);
       setSubmitLoading(false);
-
-      // Show Toast For SuccessFul Quiz Creation();
     }, 1000);
   };
 
@@ -54,25 +48,13 @@ export const RandomQuizDialog = () => {
 
             <ScrollArea className="max-h-[80vh]">
               <FieldGroup className="gap-2!">
-                <QuizConfigSelection
-                  label="Quiz Difficulty"
-                  name={"difficulty"}
-                  control={control}
-                  placeholder={"Select a difficulty"}
-                  configType="difficulty"
-                />
+                <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} placeholder={"Select a difficulty"} />
 
-                <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} configType="level" />
+                <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} />
 
-                <QuizConfigSelection
-                  label="Quiz Programme"
-                  name={"programme"}
-                  control={control}
-                  placeholder={"Select a programme"}
-                  configType="programme"
-                />
+                <QuizConfigSelection label="Quiz Programme" name={"programme"} control={control} placeholder={"Select a programme"} />
 
-                <QuizConfigSelection label="Quiz Course" name={"course"} control={control} placeholder={"Select a course"} configType="course" />
+                <QuizConfigSelection label="Quiz Course" name={"course"} control={control} placeholder={"Select a course"} />
 
                 <QuizTimingSelection label="Quiz Timing" name={"timing"} control={control} placeholder={"Select quiz timing"} />
               </FieldGroup>

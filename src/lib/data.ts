@@ -165,3 +165,95 @@ export const rowsPerPageOption = [
   { label: "20", value: "20" },
   { label: "30", value: "30" },
 ];
+
+//placeholder data for quiz config selection
+
+export const quizDataForConfiguration = [
+  {
+    difficulty: "Beginner",
+    description: "This level is designed for individuals who are new to the subject matter and have little to no prior knowledge or experience.",
+    levels: [
+      {
+        level: "Level 1",
+        programmes: [
+          { programme: "Arts", courses: ["Dance", "Play", "Drama"] },
+          { programme: "Music", courses: ["Soul", "R&B"] },
+        ],
+      },
+      {
+        level: "Level 2",
+        programmes: [
+          { programme: "Science", courses: ["Biology", "Chemistry"] },
+          { programme: "Technology", courses: ["Coding", "Robotics"] },
+        ],
+      },
+      {
+        level: "Level 3",
+        programmes: [
+          { programme: "History", courses: ["World History", "Civics"] },
+          { programme: "Literature", courses: ["Poetry", "Essay Writing"] },
+        ],
+      },
+    ],
+  },
+  {
+    difficulty: "Basic",
+    description: "This level is designed for individuals who have a basic understanding of the subject matter and are looking to expand their knowledge and skills.",
+    levels: [
+      {
+        level: "Level 1",
+        programmes: [
+          { programme: "Mathematics", courses: ["Arithmetic", "Geometry"] },
+          { programme: "Language", courses: ["Reading", "Writing"] },
+        ],
+      },
+      {
+        level: "Level 2",
+        programmes: [
+          { programme: "Science", courses: ["Plants", "Animals"] },
+          { programme: "Social Studies", courses: ["Community", "Geography"] },
+        ],
+      },
+    ],
+  },
+  {
+    difficulty: "Secondary",
+    description: "This level is designed for individuals who have a solid understanding of the subject matter and are looking to further develop their skills and knowledge.",
+    levels: [
+      {
+        level: "Level 1",
+        programmes: [
+          { programme: "Mathematics", courses: ["Algebra", "Statistics"] },
+          { programme: "Science", courses: ["Physics", "Biology"] },
+        ],
+      },
+      {
+        level: "Level 2",
+        programmes: [
+          { programme: "Humanities", courses: ["History", "Geography"] },
+          { programme: "Technology", courses: ["Computer Science", "Engineering"] },
+        ],
+      },
+    ],
+  },
+  {
+    difficulty: "Tertiary",
+    description: "This level is designed for individuals who have an advanced understanding of the subject matter and are looking to specialize in a particular area of study.",
+    levels: [
+      {
+        level: "Level 1",
+        programmes: [
+          { programme: "Computer Science", courses: ["Data Structures", "Databases"] },
+          { programme: "Business", courses: ["Accounting", "Economics"] },
+        ],
+      },
+      {
+        level: "Level 2",
+        programmes: [
+          { programme: "Engineering", courses: ["Electronics", "Thermodynamics"] },
+          { programme: "Arts", courses: ["Research Methods", "Critical Theory"] },
+        ],
+      },
+    ],
+  },
+];

@@ -133,12 +133,11 @@ export type PayoutApprovalTableRowType = {
 export type ConfigUpdateStatusType = "success" | "failure" | null;
 
 export type QuizConfigSelectionType = {
-  selectionData?: string[];
+  selectionData?: any;
   label: string;
   name: "difficulty" | "level" | "programme" | "course" | "timing" | "cost_type";
   control: any;
   placeholder?: string;
-  configType?: "difficulty" | "level" | "programme" | "course";
 };
 
 export type ReferralLevelCardType = {

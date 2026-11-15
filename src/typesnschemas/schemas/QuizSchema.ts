@@ -34,10 +34,10 @@ export const answerCreationSchema = z.object({
 export type AnswerCreationType = z.infer<typeof answerCreationSchema>;
 
 export const randomQuizSchema = z.object({
-  difficulty: z.string("Quiz difficulty is required"),
-  level: z.string("Quiz level is required"),
-  programme: z.string("Quiz programme is required"),
-  course: z.string("Quiz course is required"),
+  difficulty: z.string().nonempty("Quiz difficulty is required"),
+  level: z.string().nonempty("Quiz level is required"),
+  programme: z.string("Quiz programme is required").nonempty("Quiz programme is required"),
+  course: z.string().nonempty("Quiz course is required"),
   timing: z.number("Quiz timing is required"),
 });
 
