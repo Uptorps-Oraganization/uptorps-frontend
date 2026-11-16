@@ -49,16 +49,11 @@ export type AccountStoreType = {
 };
 
 export type QuizPageStoreType = {
-  selectedConfiguration: number;
-  configQueryData: Record<string, string>;
   quizCreationDialogOpen: boolean;
   quizDetailDialogOpen: boolean;
   quizEditDialogOpen: boolean;
   quizDeletionDialogOpen: boolean;
 
-  setselectedConfiguration: (selected: number) => void;
-  setConfigQueryData: (data: Record<string, string>) => void;
-  clearConfigQueryData: () => void;
   setQuizCreationDialogOpen: () => void;
   setQuizDetailDialogOpen: () => void;
   setQuizEditDialogOpen: () => void;

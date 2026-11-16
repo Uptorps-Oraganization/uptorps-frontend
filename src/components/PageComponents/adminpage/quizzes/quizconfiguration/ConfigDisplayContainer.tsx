@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigurationDisplayProvider";
 import { quizConfigSchema, type QuizConfigType } from "@/typesnschemas/schemas/QuizSchema";
 import type { ConfigUpdateStatusType } from "@/typesnschemas/types/DataTypes";
 import { useIconHover } from "@animateicons/react";
@@ -29,7 +29,7 @@ export const ConfigDifficultyDisplay = () => {
 };
 
 export const ConfigLevelDisplay = () => {
-  const { configQueryData, clearConfigQueryData, setselectedConfiguration } = useQuizPageStore();
+  const { configQueryData, clearConfigQueryData, setselectedConfiguration } = useQuizConfigDisplayContext();
   const { ref: homeRef, triggerProps: hometrigger } = useIconHover({ trigger: "hover" });
   const { ref: addRef, triggerProps: addtrigger } = useIconHover({ trigger: "hover" });
 
@@ -98,12 +98,7 @@ export const ConfigLevelDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button
-                  type="submit"
-                  form="config-input-form"
-                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
-                  variant="ghost"
-                >
+                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
                   <CircleCheckIcon />
                 </Button>
 
@@ -150,7 +145,7 @@ export const ConfigLevelDisplay = () => {
 };
 
 export const ConfigProgrammeDisplay = () => {
-  const { configQueryData } = useQuizPageStore();
+  const { configQueryData } = useQuizConfigDisplayContext();
   const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   const [showInput, setShowInput] = useState(false);
@@ -204,12 +199,7 @@ export const ConfigProgrammeDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button
-                  type="submit"
-                  form="config-input-form"
-                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
-                  variant="ghost"
-                >
+                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
                   <CircleCheckIcon />
                 </Button>
 
@@ -256,7 +246,7 @@ export const ConfigProgrammeDisplay = () => {
 };
 
 export const ConfigCourseDisplay = () => {
-  const { configQueryData } = useQuizPageStore();
+  const { configQueryData } = useQuizConfigDisplayContext();
   const { ref, triggerProps } = useIconHover({ trigger: "hover" });
 
   const [showInput, setShowInput] = useState(false);
@@ -315,12 +305,7 @@ export const ConfigCourseDisplay = () => {
               <div className="w-fit flex flex-row items-center gap-2">
                 {acceptLoading && <Spinner className="mr-0! size-3!" />}
 
-                <Button
-                  type="submit"
-                  form="config-input-form"
-                  className="size-7 text-white bg-green-500 rounded-full hover:text-green-500"
-                  variant="ghost"
-                >
+                <Button type="submit" form="config-input-form" className="size-7 text-white bg-green-500 rounded-full hover:text-green-500" variant="ghost">
                   <CircleCheckIcon />
                 </Button>
 

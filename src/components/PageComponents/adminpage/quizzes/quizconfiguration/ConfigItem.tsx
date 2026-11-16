@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigurationDisplayProvider";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 
@@ -12,16 +12,14 @@ type ConfigItemType = {
 };
 
 export const ConfigurationItem = (props: ConfigItemType) => {
-  const { selectedConfiguration, setselectedConfiguration, configQueryData, setConfigQueryData } = useQuizPageStore();
+  const { selectedConfiguration, setselectedConfiguration, configQueryData, setconfigQueryData } = useQuizConfigDisplayContext();
 
   return (
     <>
       <Card className="max-w-100 flex flex-row items-center justify-between p-0">
         <CardContent
           className={`w-full py-3 ${!(selectedConfiguration === 3) && "hover:bg-accent cursor-pointer"}`}
-          onClick={() =>
-            ConfigItemClickCondition({ itemDescription: props.type, item: props.name, setselectedConfiguration, configQueryData, setConfigQueryData })
-          }
+          onClick={() => ConfigItemClickCondition({ itemDescription: props.type, item: props.name, setselectedConfiguration, configQueryData, setconfigQueryData })}
         >
           <span className="grid grid-rows-1 gap-1 text-sm font-semibold">
             <ConfigItemIcon itemDescription={props.type} />
@@ -48,13 +46,13 @@ export const ConfigurationItem = (props: ConfigItemType) => {
 
 const ConfigItemClickCondition = (props: any) => {
   if (props.itemDescription == "difficulty") {
-    props.setConfigQueryData({ difficulty: props.item });
+    props.setconfigQueryData({ difficulty: props.item });
     props.setselectedConfiguration(1);
   } else if (props.itemDescription == "level") {
-    props.setConfigQueryData({ level: props.item });
+    props.setconfigQueryData({ level: props.item });
     props.setselectedConfiguration(2);
   } else if (props.itemDescription == "programme") {
-    props.setConfigQueryData({ programme: props.item });
+    props.setconfigQueryData({ programme: props.item });
     props.setselectedConfiguration(3);
   }
 };

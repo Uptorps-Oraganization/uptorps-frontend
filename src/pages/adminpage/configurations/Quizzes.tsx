@@ -7,6 +7,7 @@ import { QuizEditDialog } from "@/components/PageComponents/adminpage/quizzes/qu
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { QuizConfigDisplayProvider } from "@/contexthandlers/QuizConfigurationDisplayProvider";
 import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
 import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
@@ -15,8 +16,7 @@ import { useEffect } from "react";
 export const AdminQuizzes = () => {
   const { ref: BrainIconRef, triggerProps } = useIconHover({ trigger: "hover" });
 
-  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } =
-    useQuizPageStore();
+  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } = useQuizPageStore();
 
   useEffect(() => {
     return () => resetQuizPageStoreState();
@@ -48,7 +48,9 @@ export const AdminQuizzes = () => {
         <section className="px-4">
           <p className="font-semibold">Quizzes Configurations</p>
 
-          <ConfigurationCard />
+          <QuizConfigDisplayProvider>
+            <ConfigurationCard />
+          </QuizConfigDisplayProvider>
         </section>
 
         <section className="px-4">

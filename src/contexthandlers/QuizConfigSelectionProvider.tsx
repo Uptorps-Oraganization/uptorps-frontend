@@ -2,7 +2,7 @@
 import type { QuizConfigSelectionProviderType } from "@/typesnschemas/types/DataTypes";
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-const QuizConfigSelectionContext = createContext<QuizConfigSelectionProviderType | null>(null);
+export const QuizConfigSelectionContext = createContext<QuizConfigSelectionProviderType | null>(null);
 
 export const QuizConfigSelectionProvider = ({ children }: { children: ReactNode }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
