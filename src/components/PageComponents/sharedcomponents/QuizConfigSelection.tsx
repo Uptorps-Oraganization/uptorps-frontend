@@ -3,11 +3,14 @@ import { Field } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { quizDataForConfiguration } from "@/lib/data";
+import { useQuizConfigSelectionContext } from "@/contexthandlers/QuizConfigSelectionProvider";
+import { quizConfigurationData } from "@/lib/data";
 import type { QuizConfigSelectionType } from "@/typesnschemas/types/DataTypes";
 import { useController } from "react-hook-form";
 
 export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
+  const { selectedDifficulty, selectedLevel, selectedProgramme, setSelectedDifficulty, setSelectedLevel, setSelectedProgramme } = useQuizConfigSelectionContext();
+
   const {
     field: { value, onChange },
     fieldState: { error },
@@ -16,29 +19,31 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
     control: props.control,
   });
 
-  const demoData = () => {
+  const processSelectedData = () => {
+    const refinedData = (value: string) => ({ label: value, value });
+
     if (props.name === "difficulty") {
-      const refinedData: { label: string; value: string }[] = [];
+      return quizConfigurationData.map(({ difficulty }) => refinedData(difficulty));
+    }
 
-      quizDataForConfiguration.map((data) => {
-        const refDifficulty = { label: data.difficulty, value: data.difficulty };
-        refinedData.push(refDifficulty);
-      });
+    const difficultyData = quizConfigurationData.find(({ difficulty }) => difficulty === selectedDifficulty);
+    const levelData = difficultyData?.levels.find(({ level }) => level === selectedLevel);
+    const programmeData = levelData?.programmes.find(({ programme }) => programme === selectedProgramme);
 
-      return refinedData;
-    } else if (props.name === "level") {
-      const refinedData: { label: string; value: string }[] = [];
+    if (props.name === "level") {
+      return difficultyData?.levels.map(({ level }) => refinedData(level)) ?? [];
+    }
 
-      quizDataForConfiguration.forEach((data) => {
-        data.levels.forEach((level) => {
-          const refLevel = { label: level.level, value: level.level };
-          refinedData.push(refLevel);
-        });
-      });
+    if (props.name === "programme") {
+      return levelData?.programmes.map(({ programme }) => refinedData(programme)) ?? [];
+    }
 
-      return refinedData;
+    if (props.name === "course") {
+      return programmeData?.courses.map(refinedData) ?? [];
     }
   };
+
+  const selectionData = processSelectedData();
 
   return (
     <>
@@ -47,17 +52,22 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
           {props.label}
         </Label>
 
-        <Select id={props.name} value={value || ""} onValueChange={onChange} items={demoData()}>
+        <Select id={props.name} value={value || ""} onValueChange={onChange} items={selectionData}>
           <SelectTrigger>
             <SelectValue className="text-[13px]! font-semibold" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              {demoData()?.map((item: any) => (
-                <SelectItem key={item.value} value={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
+              {selectionData?.map((item: any) => {
+                const onSelect =
+                  props.name === "difficulty" ? setSelectedDifficulty : props.name === "level" ? setSelectedLevel : props.name === "programme" ? setSelectedProgramme : undefined;
+
+                return (
+                  <SelectItem key={item.value} value={item.value} onClick={() => onSelect?.(item.value)}>
+                    {item.label}
+                  </SelectItem>
+                );
+              })}
             </SelectGroup>
           </SelectContent>
         </Select>

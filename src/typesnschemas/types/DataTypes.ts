@@ -10,7 +10,7 @@ export type ThemeProviderProps = {
   storageKey?: string;
 };
 
-export type ThemeProviderState = {
+export type ThemeProviderStateType = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
 };
@@ -133,11 +133,19 @@ export type PayoutApprovalTableRowType = {
 export type ConfigUpdateStatusType = "success" | "failure" | null;
 
 export type QuizConfigSelectionType = {
-  selectionData?: any;
   label: string;
   name: "difficulty" | "level" | "programme" | "course" | "timing" | "cost_type";
   control: any;
-  placeholder?: string;
+};
+
+export type QuizConfigSelectionProviderType = {
+  selectedDifficulty: string;
+  selectedLevel: string;
+  selectedProgramme: string;
+
+  setSelectedDifficulty: (selectedDifficulty: string) => void;
+  setSelectedLevel: (selectedLevel: string) => void;
+  setSelectedProgramme: (selectedProgramme: string) => void;
 };
 
 export type ReferralLevelCardType = {

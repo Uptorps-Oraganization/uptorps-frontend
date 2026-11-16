@@ -5,13 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
+import { QuizConfigSelectionProvider } from "@/contexthandlers/QuizConfigSelectionProvider";
 import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizSchema";
 import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../quizdisplayparts/QuizConfigSelection";
+import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../../../sharedcomponents/QuizConfigSelection";
 
 export const QuizCreationDialog = () => {
   const { setQuizCreationDialogOpen } = useQuizPageStore();
@@ -73,15 +74,17 @@ export const QuizCreationDialog = () => {
 
                 <QuizCostSelection label=" Quiz Cost Type" name={"cost_type"} control={control} />
 
-                <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} placeholder={"Select a difficulty"} />
+                <QuizConfigSelectionProvider>
+                  <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} />
 
-                <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} />
+                  <QuizConfigSelection label="Quiz Level" name={"level"} control={control} />
 
-                <QuizConfigSelection label="Quiz Programme" name={"programme"} control={control} placeholder={"Select a programme"} />
+                  <QuizConfigSelection label="Quiz Programme" name={"programme"} control={control} />
 
-                <QuizConfigSelection label="Quiz Course" name={"course"} control={control} placeholder={"Select a course"} />
+                  <QuizConfigSelection label="Quiz Course" name={"course"} control={control} />
+                </QuizConfigSelectionProvider>
 
-                <QuizTimingSelection label="Quiz Timing" name={"timing"} control={control} placeholder={"Select quiz timing"} />
+                <QuizTimingSelection label="Quiz Timing" name={"timing"} control={control} />
               </FieldGroup>
             </ScrollArea>
 

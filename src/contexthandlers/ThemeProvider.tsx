@@ -1,14 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import type { Theme, ThemeProviderProps, ThemeProviderState } from "@/typesnschemas/types/DataTypes";
+import type { Theme, ThemeProviderProps, ThemeProviderStateType } from "@/typesnschemas/types/DataTypes";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const initialState: ThemeProviderState = {
+const initialState: ThemeProviderStateType = {
   theme: "system",
   setTheme: () => null,
 };
 
-export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+export const ThemeProviderContext = createContext<ThemeProviderStateType>(initialState);
 
 export function ThemeProvider({ children, defaultTheme = "system", storageKey = "uptorps-ui-theme" }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);

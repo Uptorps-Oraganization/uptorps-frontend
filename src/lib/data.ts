@@ -168,7 +168,7 @@ export const rowsPerPageOption = [
 
 //placeholder data for quiz config selection
 
-export const quizDataForConfiguration = [
+export const quizConfigurationData = [
   {
     difficulty: "Beginner",
     description: "This level is designed for individuals who are new to the subject matter and have little to no prior knowledge or experience.",

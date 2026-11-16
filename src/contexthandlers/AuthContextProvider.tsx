@@ -1,11 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useAuthQuery } from "@/hooks/useAuthQuery";
 import type { AuthContextType } from "@/typesnschemas/types/DataTypes";
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const { data, isLoading, error } = useAuthQuery();
   const [token, setAccessToken] = useState<string | null>(null);
 

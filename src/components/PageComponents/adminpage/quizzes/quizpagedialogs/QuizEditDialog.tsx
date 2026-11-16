@@ -12,7 +12,7 @@ import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../quizdisplayparts/QuizConfigSelection";
+import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../../../sharedcomponents/QuizConfigSelection";
 
 export const QuizEditDialog = () => {
   const { setQuizEditDialogOpen } = useQuizPageStore();
@@ -85,13 +85,7 @@ export const QuizEditDialog = () => {
 
                 <QuizCostSelection label=" Quiz Cost Type" name={"cost_type"} control={control} />
 
-                <QuizConfigSelection
-                  label="Quiz Difficulty"
-                  name={"difficulty"}
-                  control={control}
-                  placeholder={"Select a difficulty"}
-                  configType="difficulty"
-                />
+                <QuizConfigSelection label="Quiz Difficulty" name={"difficulty"} control={control} placeholder={"Select a difficulty"} configType="difficulty" />
 
                 <QuizConfigSelection label="Quiz Level" name={"level"} control={control} placeholder={"Select a level"} configType="level" />
 
