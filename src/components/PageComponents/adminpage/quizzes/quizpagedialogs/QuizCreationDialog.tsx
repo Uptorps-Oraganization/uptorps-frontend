@@ -27,6 +27,7 @@ export const QuizCreationDialog = () => {
     resolver: zodResolver(quizCreationSchema),
     defaultValues: {
       cost_type: false,
+      timing: 10,
     },
   });
 

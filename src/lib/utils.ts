@@ -47,7 +47,7 @@ export const displayShortDate = (date: Date) => {
 
 export const displayLongDate = (date: Date) => {
   const formatter = new Intl.DateTimeFormat("en-US", {
-    year: "2-digit",
+    year: "numeric",
     month: "long",
     day: "numeric",
     hour: "2-digit",

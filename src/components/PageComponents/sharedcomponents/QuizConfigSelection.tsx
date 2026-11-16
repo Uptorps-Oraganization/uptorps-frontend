@@ -52,7 +52,7 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
           {props.label}
         </Label>
 
-        <Select id={props.name} value={value || ""} onValueChange={onChange} items={selectionData}>
+        <Select id={props.name} value={(value as string) || ""} onValueChange={onChange} items={selectionData}>
           <SelectTrigger>
             <SelectValue className="text-[13px]! font-semibold" />
           </SelectTrigger>
@@ -100,7 +100,7 @@ export const QuizTimingSelection = (props: QuizConfigSelectionType) => {
         <Label htmlFor={props.name} className="after:content-['*'] after:text-destructive after:font-bold">
           {props.label}
         </Label>
-        <Select id={props.name} value={value as string} onValueChange={onChange} items={timingSet}>
+        <Select id={props.name} value={value as number} onValueChange={onChange} items={timingSet}>
           <SelectTrigger>
             <SelectValue className="text-[13px]! font-semibold" />
           </SelectTrigger>
@@ -136,7 +136,7 @@ export const QuizCostSelection = (props: QuizConfigSelectionType) => {
         <Label htmlFor={props.name} className="after:content-['*'] after:text-destructive after:font-bold">
           {props.label}
         </Label>
-        <RadioGroup id={props.name} value={value || ""} onValueChange={onChange} className="flex flex-row justify-center items-center gap-10">
+        <RadioGroup id={props.name} value={value as boolean} onValueChange={onChange} className="flex flex-row justify-center items-center gap-10">
           <div className="flex items-center gap-3">
             <RadioGroupItem value={false} id="free" />
             <Label htmlFor="free">Free Quiz</Label>
