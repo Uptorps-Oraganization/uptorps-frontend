@@ -2,23 +2,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigurationDisplayProvider";
+import type { QuizConfigType } from "@/typesnschemas/types/DataTypes";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 
 type ConfigItemType = {
   name: string;
-  type: "difficulty" | "level" | "programme" | "course";
+  type: QuizConfigType;
   description?: string;
 };
 
 export const ConfigurationItem = (props: ConfigItemType) => {
-  const { selectedConfiguration, setselectedConfiguration, configQueryData, setconfigQueryData } = useQuizConfigDisplayContext();
+  const { setselectedConfiguration, configQueryData, setconfigQueryData } = useQuizConfigDisplayContext();
 
   return (
     <>
       <Card className="max-w-100 flex flex-row items-center justify-between p-0">
         <CardContent
-          className={`w-full py-3 ${!(selectedConfiguration === 3) && "hover:bg-accent cursor-pointer"}`}
+          className={`w-full py-3 ${!(props.type === "course") && "hover:bg-accent cursor-pointer"}`}
           onClick={() => ConfigItemClickCondition({ itemDescription: props.type, item: props.name, setselectedConfiguration, configQueryData, setconfigQueryData })}
         >
           <span className="grid grid-rows-1 gap-1 text-sm font-semibold">

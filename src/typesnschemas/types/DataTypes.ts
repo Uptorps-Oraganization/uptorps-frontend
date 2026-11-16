@@ -130,11 +130,12 @@ export type PayoutApprovalTableRowType = {
   payout_status: "success" | "failure";
 };
 
-export type ConfigUpdateStatusType = "success" | "failure" | null;
+export type QuizConfigType = "difficulty" | "level" | "programme" | "course";
+export type QuizConfigUpdateStatusType = "success" | "failure" | null;
 
 export type QuizConfigSelectionType = {
   label: string;
-  name: "difficulty" | "level" | "programme" | "course" | "timing" | "cost_type";
+  name: QuizConfigType | "timing" | "cost_type";
   control: any;
 };
 

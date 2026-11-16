@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-export const quizConfigSchema = z.object({
+export const quizConfigNameSchema = z.object({
   name: z.string().nonempty("Field cannot be empty"),
 });
 
-export type QuizConfigType = z.infer<typeof quizConfigSchema>;
+export type QuizConfigNameType = z.infer<typeof quizConfigNameSchema>;
 
 export const quizCreationSchema = z.object({
   title: z.string().nonempty("Quiz title cannot be empty"),
