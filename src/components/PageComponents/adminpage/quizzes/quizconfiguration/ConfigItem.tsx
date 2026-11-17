@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigurationDisplayProvider";
+import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigDisplayProvider";
 import type { QuizConfigType } from "@/typesnschemas/types/DataTypes";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";

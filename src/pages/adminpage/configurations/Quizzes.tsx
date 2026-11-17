@@ -1,4 +1,4 @@
-import { ConfigurationCard } from "@/components/PageComponents/adminpage/quizzes/quizconfiguration/ConfigurationCard";
+import { ConfigContainerCard } from "@/components/PageComponents/adminpage/quizzes/quizconfiguration/ConfigContainerCard";
 import { QuizDisplayCard } from "@/components/PageComponents/adminpage/quizzes/quizdisplayparts/QuizDisplayCard";
 import { QuizCreationDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizCreationDialog";
 import { QuizDeletionDialog } from "@/components/PageComponents/adminpage/quizzes/quizpagedialogs/QuizDeletionDialog";
@@ -7,7 +7,7 @@ import { QuizEditDialog } from "@/components/PageComponents/adminpage/quizzes/qu
 import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/QuizStatCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { QuizConfigDisplayProvider } from "@/contexthandlers/QuizConfigurationDisplayProvider";
+import { QuizConfigDisplayProvider } from "@/contexthandlers/QuizConfigDisplayProvider";
 import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
 import { useIconHover } from "@animateicons/react";
 import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
@@ -49,7 +49,7 @@ export const AdminQuizzes = () => {
           <p className="font-semibold">Quizzes Configurations</p>
 
           <QuizConfigDisplayProvider>
-            <ConfigurationCard />
+            <ConfigContainerCard />
           </QuizConfigDisplayProvider>
         </section>
 

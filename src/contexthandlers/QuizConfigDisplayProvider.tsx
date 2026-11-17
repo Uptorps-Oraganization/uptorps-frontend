@@ -7,7 +7,6 @@ type QuizConfigDisplayProviderType = {
 
   configQueryData: Record<string, string>;
   setconfigQueryData: (data: Record<string, string>) => void;
-
   clearConfigQueryData: () => void;
 };
 
@@ -21,11 +20,15 @@ export const QuizConfigDisplayProvider = ({ children }: { children: ReactNode })
   const setconfigQueryData = (data: Record<string, string>) => setConfigQueryData({ ...configQueryData, ...data });
   const clearConfigQueryData = () => setConfigQueryData({});
 
-  return (
-    <QuizConfigDisplayContext.Provider value={{ selectedConfiguration, setselectedConfiguration, configQueryData, setconfigQueryData, clearConfigQueryData }}>
-      {children}
-    </QuizConfigDisplayContext.Provider>
-  );
+  const value = {
+    selectedConfiguration,
+    setselectedConfiguration,
+    configQueryData,
+    setconfigQueryData,
+    clearConfigQueryData,
+  };
+
+  return <QuizConfigDisplayContext.Provider value={value}>{children}</QuizConfigDisplayContext.Provider>;
 };
 
 export const useQuizConfigDisplayContext = () => {

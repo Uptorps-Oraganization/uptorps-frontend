@@ -3,13 +3,12 @@ import { Field } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useQuizConfigSelectionContext } from "@/contexthandlers/QuizConfigSelectionProvider";
-import { quizConfigurationData } from "@/lib/data";
-import type { QuizConfigSelectionType } from "@/typesnschemas/types/DataTypes";
+import { useConfigSelectChoiceData } from "@/hooks/useConfigSelectionData";
+import type { QuizConfigSelectionType, QuizConfigType } from "@/typesnschemas/types/DataTypes";
 import { useController } from "react-hook-form";
 
 export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
-  const { selectedDifficulty, selectedLevel, selectedProgramme, setSelectedDifficulty, setSelectedLevel, setSelectedProgramme } = useQuizConfigSelectionContext();
+  const { selectionData, setSelectedDifficulty, setSelectedLevel, setSelectedProgramme } = useConfigSelectChoiceData(props.name as QuizConfigType);
 
   const {
     field: { value, onChange },
@@ -18,32 +17,6 @@ export const QuizConfigSelection = (props: QuizConfigSelectionType) => {
     name: props.name,
     control: props.control,
   });
-
-  const processSelectedData = () => {
-    const refinedData = (value: string) => ({ label: value, value });
-
-    if (props.name === "difficulty") {
-      return quizConfigurationData.map(({ difficulty }) => refinedData(difficulty));
-    }
-
-    const difficultyData = quizConfigurationData.find(({ difficulty }) => difficulty === selectedDifficulty);
-    const levelData = difficultyData?.levels.find(({ level }) => level === selectedLevel);
-    const programmeData = levelData?.programmes.find(({ programme }) => programme === selectedProgramme);
-
-    if (props.name === "level") {
-      return difficultyData?.levels.map(({ level }) => refinedData(level)) ?? [];
-    }
-
-    if (props.name === "programme") {
-      return levelData?.programmes.map(({ programme }) => refinedData(programme)) ?? [];
-    }
-
-    if (props.name === "course") {
-      return programmeData?.courses.map(refinedData) ?? [];
-    }
-  };
-
-  const selectionData = processSelectedData();
 
   return (
     <>
