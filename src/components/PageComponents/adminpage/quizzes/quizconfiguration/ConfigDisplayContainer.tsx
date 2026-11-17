@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { useConfigItemChoiceData } from "@/hooks/useConfigSelectionData";
-import { quizConfigurationData } from "@/lib/data";
 import { quizConfigNameSchema, type QuizConfigNameType } from "@/typesnschemas/schemas/QuizSchema";
 import type { QuizConfigType, QuizConfigUpdateStatusType } from "@/typesnschemas/types/DataTypes";
 import { useIconHover } from "@animateicons/react";
@@ -89,9 +88,9 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
           className="px-10 space-y-4"
         >
           <section className="grid grid-cols-3 gap-3">
-            {quizConfigurationData.map(({ difficulty, description }, index) => (
-              <ConfigurationItem key={index} name={difficulty} type="difficulty" description={description} />
-            ))}
+            {configItemData?.map((item, index) =>
+              typeof item === "object" && "difficulty" in item ? <ConfigurationItem key={index} name={item.difficulty} type="difficulty" description={item.description} /> : null,
+            )}
           </section>
         </motion.div>
       </>
@@ -212,28 +211,21 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
           </motion.div>
         )}
 
-        {props.configType === "level" && (
+        {(props.configType === "level" || props.configType === "programme" || props.configType === "course") && (
           <section className="grid grid-cols-3 gap-3">
-            <ConfigurationItem name="Level 1" type="level" />
-            <ConfigurationItem name="Level 2" type="level" />
-            <ConfigurationItem name="Level 3" type="level" />
-            <ConfigurationItem name="Level 4" type="level" />
-          </section>
-        )}
-        {props.configType === "programme" && (
-          <section className="grid grid-cols-3 gap-3">
-            <ConfigurationItem name="Arts" type="programme" />
-            <ConfigurationItem name="History" type="programme" />
-            <ConfigurationItem name="Mathematics" type="programme" />
-            <ConfigurationItem name="Science" type="programme" />
-          </section>
-        )}
-        {props.configType === "course" && (
-          <section className="grid grid-cols-3 gap-3">
-            <ConfigurationItem name="Dance" type="course" />
-            <ConfigurationItem name="War & Culture" type="course" />
-            <ConfigurationItem name="Algebra" type="course" />
-            <ConfigurationItem name="Elements" type="course" />
+            {configItemData?.map((item, index) => {
+              if (props.configType === "level" && typeof item === "object" && "level" in item) {
+                return <ConfigurationItem key={index} name={item.level} type="level" />;
+              }
+
+              if (props.configType === "programme" && typeof item === "object" && "programme" in item) {
+                return <ConfigurationItem key={index} name={item.programme} type="programme" />;
+              }
+
+              if (props.configType === "course" && typeof item === "string") {
+                return <ConfigurationItem key={index} name={item} type="course" />;
+              }
+            })}
           </section>
         )}
       </motion.div>

@@ -11,20 +11,20 @@ export const ConfigurationBreadcrump = () => {
     <>
       <Breadcrumb>
         <BreadcrumbList>
-          {Object.entries<string>(configQueryData).map((value, index) =>
+          {Object.entries<string>(configQueryData).map(([type, name], index) =>
             Object.keys(configQueryData).length - 1 === index ? (
               <BreadcrumbItem key={index}>
                 <BreadcrumbPage className="flex flex-row items-center space-x-1">
-                  <CrumpItemIcon itemDescription={value[0]} />
-                  <span>{value[1]}</span>
+                  <CrumpItemIcon type={type} />
+                  <span>{name}</span>
                 </BreadcrumbPage>
               </BreadcrumbItem>
             ) : (
               <React.Fragment key={index}>
-                <BreadcrumbItem key={index} onClick={() => CrumpItemClickCondition({ itemDescription: value[0], setselectedConfiguration, configQueryData })}>
+                <BreadcrumbItem key={index} onClick={() => CrumpItemClickCondition({ type, setselectedConfiguration, configQueryData })}>
                   <BreadcrumbLink className="flex flex-row items-center space-x-1 cursor-pointer">
-                    <CrumpItemIcon itemDescription={value[0]} />
-                    <span>{value[1]}</span>
+                    <CrumpItemIcon type={type} />
+                    <span>{name}</span>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -38,25 +38,25 @@ export const ConfigurationBreadcrump = () => {
 };
 
 const CrumpItemClickCondition = (props: any) => {
-  if (props.itemDescription == "difficulty") {
+  if (props.type == "difficulty") {
     delete props.configQueryData.level;
     delete props.configQueryData.programme;
 
     props.setselectedConfiguration(1);
-  } else if (props.itemDescription == "level") {
+  } else if (props.type == "level") {
     delete props.configQueryData.programme;
 
     props.setselectedConfiguration(2);
   }
 };
 
-const CrumpItemIcon = ({ itemDescription }: { itemDescription: string }) => {
+const CrumpItemIcon = ({ type }: { type: string }) => {
   return (
     <>
-      {itemDescription === "difficulty" && <LayoutGridCirclesIcon className="size-3" />}
-      {itemDescription === "level" && <LayersIcon className="size-3" />}
-      {itemDescription === "programme" && <Database className="size-3" />}
-      {itemDescription === "course" && <GraduationCapIcon className="size-3" />}
+      {type === "difficulty" && <LayoutGridCirclesIcon className="size-3" />}
+      {type === "level" && <LayersIcon className="size-3" />}
+      {type === "programme" && <Database className="size-3" />}
+      {type === "course" && <GraduationCapIcon className="size-3" />}
     </>
   );
 };
