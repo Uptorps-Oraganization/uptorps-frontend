@@ -6,7 +6,7 @@ import { useConfigItemChoiceData } from "@/hooks/useConfigSelectionData";
 import { quizConfigNameSchema, type QuizConfigNameType } from "@/typesnschemas/schemas/QuizSchema";
 import type { QuizConfigType, QuizConfigUpdateStatusType } from "@/typesnschemas/types/DataTypes";
 import { useIconHover } from "@animateicons/react";
-import { CirclePlusIcon, HouseIcon } from "@animateicons/react/lucide";
+import { CirclePlusIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleCheckIcon, CircleXIcon, LayersIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
@@ -14,18 +14,10 @@ import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { ConfigurationItem } from "./ConfigItem";
 
-const triggerConfig = [
-  { icon: "home", trigger: "hover" },
-  { icon: "add", trigger: "hover" },
-] as const;
-
 export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) => {
-  const { configItemData, configQueryData, clearConfigQueryData, setselectedConfiguration } = useConfigItemChoiceData();
+  const { configItemData, configQueryData } = useConfigItemChoiceData();
 
-  const {
-    icon: { home, add },
-    trigger,
-  } = useIconHover({ trigger: triggerConfig });
+  const { ref: addRef, triggerProps } = useIconHover({ trigger: "hover" });
 
   const [showInput, setShowInput] = useState(false);
   const [acceptLoading, setAcceptLoading] = useState(false);
@@ -49,21 +41,19 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
       if (props.configType === "level") {
         const refinedLevelRequestData = { difficulty, name: data.name };
         console.log("Level Added", refinedLevelRequestData);
-        setAcceptLoading(false);
       }
 
       if (props.configType === "programme") {
         const refinedProgrammeRequestData = { difficulty, level, name: data.name };
         console.log("Programme Added", refinedProgrammeRequestData);
-        setAcceptLoading(false);
       }
 
       if (props.configType === "course") {
         const refinedCourseRequestData = { difficulty, level, programme, name: data.name };
         console.log("Course Added", refinedCourseRequestData);
-        setAcceptLoading(false);
       }
 
+      setAcceptLoading(false);
       showUploadStatusBadge("failure");
       formReset();
     }, 1000);
@@ -108,40 +98,10 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
         className="px-10 space-y-4"
       >
         <section className="flex flex-row gap-2">
-          {props.configType === "level" && (
-            <Button
-              onClick={() => {
-                setselectedConfiguration(0);
-                clearConfigQueryData();
-              }}
-              className="px-4 h-10"
-              variant={"ghost"}
-              {...trigger}
-            >
-              <HouseIcon {...home} />
-            </Button>
-          )}
-
-          {props.configType === "level" && (
-            <Button onClick={() => setShowInput(true)} className="px-10 h-10" {...trigger}>
-              <CirclePlusIcon {...add} />
-              Add Level
-            </Button>
-          )}
-
-          {props.configType === "programme" && (
-            <Button onClick={() => setShowInput(true)} className="px-10 h-10" {...trigger}>
-              <CirclePlusIcon {...add} />
-              Add Programme
-            </Button>
-          )}
-
-          {props.configType === "course" && (
-            <Button onClick={() => setShowInput(true)} className="px-10 h-10" {...trigger}>
-              <CirclePlusIcon {...add} />
-              Add Course
-            </Button>
-          )}
+          <Button onClick={() => setShowInput(true)} className="px-10 h-10" {...triggerProps}>
+            <CirclePlusIcon ref={addRef} />
+            Add {props.configType[0].toUpperCase() + props.configType.slice(1)}
+          </Button>
         </section>
 
         {showInput && (
@@ -191,18 +151,14 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
               {uploadStatus == "success" && (
                 <Badge className="badge_in_table text-green-500 bg-green-500/10">
                   <LayersIcon className="size-3" />
-                  {props.configType === "level" && "Level Added"}
-                  {props.configType === "programme" && "Programme Added"}
-                  {props.configType === "course" && "Course Added"}
+                  {props.configType[0].toUpperCase() + props.configType.slice(1)} Added
                 </Badge>
               )}
 
               {uploadStatus == "failure" && (
                 <Badge className="badge_in_table text-destructive bg-destructive/10">
                   <XIcon className="size-3" />
-                  {props.configType === "level" && "Level Not Added"}
-                  {props.configType === "programme" && "Programme Not Added"}
-                  {props.configType === "course" && "Course Not Added"}
+                  {props.configType[0].toUpperCase() + props.configType.slice(1)} Not Added
                 </Badge>
               )}
             </section>

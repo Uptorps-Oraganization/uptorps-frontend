@@ -1,16 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigDisplayProvider";
+import { HouseIcon } from "@animateicons/react/lucide";
 import { Database, GraduationCapIcon, LayersIcon, LayoutGridCirclesIcon } from "lucide-react";
 import React from "react";
 
 export const ConfigurationBreadcrump = () => {
-  const { configQueryData, setselectedConfiguration } = useQuizConfigDisplayContext();
+  const { configQueryData, setselectedConfiguration, clearConfigQueryData } = useQuizConfigDisplayContext();
 
   return (
     <>
       <Breadcrumb>
         <BreadcrumbList>
+          {Object.keys(configQueryData).length > 0 && (
+            <>
+              <BreadcrumbItem>
+                <HouseIcon
+                  onClick={() => {
+                    setselectedConfiguration(0);
+                    clearConfigQueryData();
+                  }}
+                  className="size-3 cursor-pointer"
+                />
+              </BreadcrumbItem>
+
+              <BreadcrumbSeparator />
+            </>
+          )}
           {Object.entries<string>(configQueryData).map(([type, name], index) =>
             Object.keys(configQueryData).length - 1 === index ? (
               <BreadcrumbItem key={index}>
