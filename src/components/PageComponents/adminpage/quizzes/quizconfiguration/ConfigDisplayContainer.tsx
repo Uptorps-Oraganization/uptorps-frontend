@@ -12,7 +12,7 @@ import { CircleCheckIcon, CircleXIcon, LayersIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { ConfigurationItem } from "./ConfigItem";
+import { ConfigItem } from "./ConfigItem";
 
 export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) => {
   const { configItemData, configQueryData } = useConfigItemChoiceData();
@@ -79,7 +79,7 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
         >
           <section className="grid grid-cols-3 gap-3">
             {configItemData?.map((item, index) =>
-              typeof item === "object" && "difficulty" in item ? <ConfigurationItem key={index} name={item.difficulty} type="difficulty" description={item.description} /> : null,
+              typeof item === "object" && "difficulty" in item ? <ConfigItem key={index} name={item.difficulty} description={item.description} type="difficulty" /> : null,
             )}
           </section>
         </motion.div>
@@ -171,15 +171,15 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
           <section className="grid grid-cols-3 gap-3">
             {configItemData?.map((item, index) => {
               if (props.configType === "level" && typeof item === "object" && "level" in item) {
-                return <ConfigurationItem key={index} name={item.level} type="level" />;
+                return <ConfigItem key={index} name={item.level} type="level" />;
               }
 
               if (props.configType === "programme" && typeof item === "object" && "programme" in item) {
-                return <ConfigurationItem key={index} name={item.programme} type="programme" />;
+                return <ConfigItem key={index} name={item.programme} type="programme" />;
               }
 
               if (props.configType === "course" && typeof item === "string") {
-                return <ConfigurationItem key={index} name={item} type="course" />;
+                return <ConfigItem key={index} name={item} type="course" />;
               }
             })}
           </section>

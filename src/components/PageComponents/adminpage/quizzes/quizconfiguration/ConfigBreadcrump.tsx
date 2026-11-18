@@ -20,7 +20,7 @@ export const ConfigurationBreadcrump = () => {
                     setselectedConfiguration(0);
                     clearConfigQueryData();
                   }}
-                  className="size-3 cursor-pointer"
+                  className="text-primary size-3 cursor-pointer"
                 />
               </BreadcrumbItem>
 

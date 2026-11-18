@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigDisplayProvider";
 import type { QuizConfigType } from "@/typesnschemas/types/DataTypes";
 import { SquarePenIcon, Trash2Icon } from "@animateicons/react/lucide";
@@ -12,21 +12,19 @@ type ConfigItemType = {
   description?: string;
 };
 
-export const ConfigurationItem = (props: ConfigItemType) => {
+export const ConfigItem = (props: ConfigItemType) => {
   const { setselectedConfiguration, configQueryData, setconfigQueryData } = useQuizConfigDisplayContext();
 
   return (
     <>
       <Card className="max-w-100 flex flex-row items-center justify-between p-0">
         <CardContent
-          className={`w-full py-3 ${!(props.type === "course") && "hover:bg-accent cursor-pointer"}`}
+          className={`w-full h-full flex flex-col gap-0.5 py-3 ${!(props.type === "course") && "hover:bg-accent cursor-pointer"}`}
           onClick={() => ConfigItemClickCondition({ itemDescription: props.type, item: props.name, setselectedConfiguration, configQueryData, setconfigQueryData })}
         >
-          <span className="grid grid-rows-1 gap-1 text-sm font-semibold">
-            <ConfigItemIcon itemDescription={props.type} />
-            {props.name}
-            {props.description && <span className="text-xs font-light">{props.description}</span>}
-          </span>
+          <ConfigItemIcon itemDescription={props.type} />
+          <CardHeader className="px-0 text-sm font-semibold">{props.name}</CardHeader>
+          <CardDescription className="pb-0 text-xs font-light">{props.description}</CardDescription>
         </CardContent>
 
         {props.type !== "difficulty" && (
