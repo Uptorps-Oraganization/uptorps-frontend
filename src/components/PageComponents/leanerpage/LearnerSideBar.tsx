@@ -1,26 +1,13 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { userMenuOptions } from "@/lib/data";
-import { useLearnerStore } from "@/statemanagers/learnerpagestore/LearnerStore";
 import { Moon, Settings, Sun, UserLock } from "@animateicons/react/lucide";
-import { useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";
 import { SidebarLogOutButton } from "../sharedcomponents/sidebarunits/SidebarLogOutButton";
 import { SidebarMenuButtonWithIcon } from "../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
 
 export const LearnerSideBar = () => {
   const { theme, setTheme } = useTheme();
-  const { logOutLoadingState, setlogOutLoadingState } = useLearnerStore();
-  const navigate = useNavigate();
-
-  const logOutLearner = () => {
-    setlogOutLoadingState();
-
-    setTimeout(() => {
-      navigate("/auth/signin", { replace: true });
-      setlogOutLoadingState();
-    }, 2000);
-  };
 
   return (
     <Sidebar collapsible="icon" className="text-primary-foreground!">
@@ -60,7 +47,7 @@ export const LearnerSideBar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarLogOutButton loading={logOutLoadingState} clickAction={logOutLearner} />
+            <SidebarLogOutButton />
           </SidebarMenuItem>
 
           <SidebarMenuItem>

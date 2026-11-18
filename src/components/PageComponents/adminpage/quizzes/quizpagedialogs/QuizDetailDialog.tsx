@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Field, FieldGroup } from "@/components/ui/field";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useAdminQuizStore } from "@/statemanagers/adminpagestore/AdminQuizStore";
 import { XIcon } from "@animateicons/react/lucide";
 
 export const QuizDetailDialog = () => {
-  const { setQuizDetailDialogOpen } = useQuizPageStore();
+  const { setQuizDetailDialogOpen } = useAdminQuizStore();
 
   return (
     <>

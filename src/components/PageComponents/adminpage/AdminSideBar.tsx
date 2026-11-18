@@ -1,18 +1,7 @@
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSubItem,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSubItem } from "@/components/ui/sidebar";
 import { useTheme } from "@/contexthandlers/ThemeProvider";
 import { adminMenuOptions } from "@/lib/data";
-import { useAdminStore } from "@/statemanagers/adminpagestore/AdminStore";
 import { Moon, Settings, Sun } from "@animateicons/react/lucide";
-import { useNavigate } from "react-router";
 import { SidebarAccountHeader } from "../sharedcomponents/SidebarAccountHeader";
 import { SidebarLogOutButton } from "../sharedcomponents/sidebarunits/SidebarLogOutButton";
 import { SidebarMenuButtonWithIcon } from "../sharedcomponents/sidebarunits/SidebarMenuButtonWithIcon";
@@ -21,17 +10,6 @@ import { CollapsableMenuOption } from "./CollapsableMenuOption";
 
 export const AdminSideBar = () => {
   const { theme, setTheme } = useTheme();
-  const { logOutLoadingState, setlogOutLoadingState } = useAdminStore();
-  const navigate = useNavigate();
-
-  const logOutAdmin = () => {
-    setlogOutLoadingState();
-
-    setTimeout(() => {
-      navigate("/auth/signin", { replace: true });
-      setlogOutLoadingState();
-    }, 2000);
-  };
 
   return (
     <Sidebar collapsible="icon" className="text-primary-foreground!">
@@ -78,7 +56,7 @@ export const AdminSideBar = () => {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarLogOutButton loading={logOutLoadingState} clickAction={logOutAdmin} />
+            <SidebarLogOutButton />
           </SidebarMenuItem>
 
           <SidebarMenuItem>

@@ -21,21 +21,6 @@ export type AuthStoreType = {
   clearAuthState: () => void;
 };
 
-export type AdminStoreType = {
-  logOutLoadingState: boolean;
-  setlogOutLoadingState: () => void;
-};
-
-export type TutorStoreType = {
-  logOutLoadingState: boolean;
-  setlogOutLoadingState: () => void;
-};
-
-export type LearnerStoreType = {
-  logOutLoadingState: boolean;
-  setlogOutLoadingState: () => void;
-};
-
 export type AccountStoreType = {
   suspendAccountOpen: boolean;
   deleteAccoutOpen: boolean;
@@ -49,11 +34,15 @@ export type AccountStoreType = {
 };
 
 export type QuizPageStoreType = {
+  configItemEditDialogOpen: boolean;
+  configItemDeleteDialogOpen: boolean;
   quizCreationDialogOpen: boolean;
   quizDetailDialogOpen: boolean;
   quizEditDialogOpen: boolean;
   quizDeletionDialogOpen: boolean;
 
+  setConfigItemEditDialogOpen: () => void;
+  setConfigItemDeleteDialogOpen: () => void;
   setQuizCreationDialogOpen: () => void;
   setQuizDetailDialogOpen: () => void;
   setQuizEditDialogOpen: () => void;

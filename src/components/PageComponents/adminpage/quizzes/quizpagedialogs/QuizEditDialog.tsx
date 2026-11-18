@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Spinner } from "@/components/ui/spinner";
 import { QuizConfigSelectionProvider } from "@/contexthandlers/QuizConfigSelectionProvider";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useAdminQuizStore } from "@/statemanagers/adminpagestore/AdminQuizStore";
 import { quizCreationSchema, type QuizCreationType } from "@/typesnschemas/schemas/QuizSchema";
 import { XIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,7 +16,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { QuizConfigSelection, QuizCostSelection, QuizTimingSelection } from "../../../sharedcomponents/QuizConfigSelection";
 
 export const QuizEditDialog = () => {
-  const { setQuizEditDialogOpen } = useQuizPageStore();
+  const { setQuizEditDialogOpen } = useAdminQuizStore();
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const {

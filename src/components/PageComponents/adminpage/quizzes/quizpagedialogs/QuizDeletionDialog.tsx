@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useAdminQuizStore } from "@/statemanagers/adminpagestore/AdminQuizStore";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
 export const QuizDeletionDialog = () => {
-  const { setQuizDeletionDialogOpen } = useQuizPageStore();
+  const { setQuizDeletionDialogOpen } = useAdminQuizStore();
 
   const [submitLoading, setSubmitLoading] = useState(false);
 
