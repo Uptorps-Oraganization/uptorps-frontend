@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigDisplayProvider";
 import { HouseIcon } from "@animateicons/react/lucide";

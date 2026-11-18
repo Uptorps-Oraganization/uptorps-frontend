@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
 import { useIconHover } from "@animateicons/react";
 

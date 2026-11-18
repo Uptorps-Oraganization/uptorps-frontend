@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatAmountWithCurrencySymbol } from "@/lib/utils";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 type StatType = {
   title: string;
   amount: number;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -24,7 +23,7 @@ export const QuizStatCard = (props: StatType) => {
         <CardHeader>
           <CardDescription>{props.title}</CardDescription>
           <CardTitle className="text-3xl font-semibold tabular-nums">{formatFigure(props.figure)}</CardTitle>
-         
+
           <CardAction>
             <Badge variant="secondary" className="font-semibold py-3">
               <FieldIcon className="size-4" />

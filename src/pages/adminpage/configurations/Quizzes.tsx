@@ -8,7 +8,7 @@ import { QuizStatCard } from "@/components/PageComponents/adminpage/quizzes/Quiz
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { QuizConfigDisplayProvider } from "@/contexthandlers/QuizConfigDisplayProvider";
-import { useQuizPageStore } from "@/statemanagers/adminpagestore/QuizPageStore";
+import { useAdminQuizStore } from "@/statemanagers/adminpagestore/AdminQuizStore";
 import { useIconHover } from "@animateicons/react";
 import { BrainIcon, CircleDotIcon, DatabaseIcon, GraduationCapIcon, LayersIcon } from "@animateicons/react/lucide";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ import { useEffect } from "react";
 export const AdminQuizzes = () => {
   const { ref: BrainIconRef, triggerProps } = useIconHover({ trigger: "hover" });
 
-  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } = useQuizPageStore();
+  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } = useAdminQuizStore();
 
   useEffect(() => {
     return () => resetQuizPageStoreState();
