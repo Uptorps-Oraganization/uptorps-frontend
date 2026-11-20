@@ -19,7 +19,7 @@ export const AccountTransactionDisplayCard = () => {
                 <SearchIcon className="size-4 cursor-auto" />
               </InputGroupAddon>
 
-              <InputGroupInput type="text" className="text-[14px]!" placeholder="Search Transaction By Type or Reference Code........" />
+              <InputGroupInput type="text" className="text-[14px]!" placeholder="Search Transaction By Type, Amount or Reference Code........" />
             </InputGroup>
           </section>
         </CardHeader>
@@ -30,12 +30,6 @@ export const AccountTransactionDisplayCard = () => {
               <TabsList className="space-x-3">
                 <TabsTrigger className="account_tab_trigger" value="all">
                   ALL
-                </TabsTrigger>
-                <TabsTrigger className="account_tab_trigger" value="debit">
-                  DEBIT
-                </TabsTrigger>
-                <TabsTrigger className="account_tab_trigger" value="credit">
-                  CREDIT
                 </TabsTrigger>
                 <TabsTrigger className="account_tab_trigger" value="completed">
                   COMPLETED

@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { TableCell, TableRow } from "@/components/ui/table";
+import { format } from "date-fns";
 
 type AccountTransactionTableRowType = {
   type: string;
@@ -11,6 +12,8 @@ type AccountTransactionTableRowType = {
 };
 
 export const AccountTransactionTableRow = (props: AccountTransactionTableRowType) => {
+  const formattedDate = format(props.date_created, "do MMMM, yyyy 'at' h:mm a");
+
   return (
     <>
       <TableRow>
@@ -23,7 +26,7 @@ export const AccountTransactionTableRow = (props: AccountTransactionTableRowType
           {props.status == "FAILED" && <span className="badge_in_table text-destructive bg-destructive/10">FAILED</span>}
         </TableCell>
         <TableCell className="table_cell_centered">{props.reference}</TableCell>
-        <TableCell className="table_cell_centered">{props.date_created}</TableCell>
+        <TableCell className="table_cell_centered">{formattedDate}</TableCell>
       </TableRow>
     </>
   );

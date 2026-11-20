@@ -1,4 +1,4 @@
-import { LearnerSideBar } from "@/components/PageComponents/leanerpage/LearnerSideBar";
+import { LearnerSideBar } from "@/components/PageComponents/learnerpage/LearnerSideBar";
 import { NotificationSheet } from "@/components/PageComponents/sharedcomponents/NotificationSheet";
 import { PageAccountHeader } from "@/components/PageComponents/sharedcomponents/PageAccountHeader";
 import { Separator } from "@/components/ui/separator";

@@ -16,7 +16,14 @@ import { useEffect } from "react";
 export const AdminQuizzes = () => {
   const { ref: BrainIconRef, triggerProps } = useIconHover({ trigger: "hover" });
 
-  const { quizCreationDialogOpen, quizDetailDialogOpen, quizEditDialogOpen, quizDeletionDialogOpen, setQuizCreationDialogOpen, resetQuizPageStoreState } = useAdminQuizStore();
+  const {
+    quizCreationDialogOpen,
+    quizDetailDialogOpen,
+    quizEditDialogOpen,
+    quizDeletionDialogOpen,
+    setQuizCreationDialogOpen,
+    resetQuizPageStoreState,
+  } = useAdminQuizStore();
 
   useEffect(() => {
     return () => resetQuizPageStoreState();
@@ -53,19 +60,19 @@ export const AdminQuizzes = () => {
           </QuizConfigDisplayProvider>
         </section>
 
-        <section className="px-4">
+        <section className="flex flex-col px-4 space-y-3">
           <p className="font-semibold">Quizzes Uploads & Details</p>
 
-          <div className="pt-2 space-y-4">
-            <Button className="px-6 h-10 min-w-50" onClick={setQuizCreationDialogOpen} {...triggerProps}>
+          <div className="flex flex-row items-center">
+            <Button className="px-6 h-10 max-w-fit" onClick={setQuizCreationDialogOpen} {...triggerProps}>
               <BrainIcon ref={BrainIconRef} />
-              Create A Quiz
+              Create A New Quiz
             </Button>
-
-            <Separator />
-
-            <QuizDisplayCard />
           </div>
+
+          <Separator />
+
+          <QuizDisplayCard />
         </section>
       </div>
 

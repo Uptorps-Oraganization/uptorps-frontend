@@ -23,7 +23,7 @@ export const AccountTransactionTable = () => {
             amount={"20.00"}
             status={"COMPLETED"}
             reference={"REF-1001"}
-            date_created={"2026-11-23"}
+            date_created={"2025-01-15T08:40:00Z"}
           />
 
           <AccountTransactionTableRow
@@ -32,7 +32,7 @@ export const AccountTransactionTable = () => {
             amount={"20.00"}
             status={"PENDING"}
             reference={"REF-1001"}
-            date_created={"2026-11-23"}
+            date_created={"2025-01-15T08:40:00Z"}
           />
 
           <AccountTransactionTableRow
@@ -41,7 +41,7 @@ export const AccountTransactionTable = () => {
             amount={"20.00"}
             status={"FAILED"}
             reference={"REF-1001"}
-            date_created={"2026-11-23"}
+            date_created={"2025-01-15T08:40:00Z"}
           />
         </TableBody>
       </Table>

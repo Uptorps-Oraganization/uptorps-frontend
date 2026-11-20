@@ -1,6 +1,6 @@
-import { AvailableQuizzesPanel } from "@/components/PageComponents/leanerpage/quizzes/AvailableQuizzesPanel";
-import { RandomQuizDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/RandomQuizDialog";
-import { PendingQuizzesContainer } from "@/components/PageComponents/leanerpage/quizzes/PendingQuizzesContainer";
+import { AvailableQuizzesPanel } from "@/components/PageComponents/learnerpage/quizzes/AvailableQuizzesPanel";
+import { RandomQuizDialog } from "@/components/PageComponents/learnerpage/quizzes/dialogs/RandomQuizDialog";
+import { PendingQuizzesContainer } from "@/components/PageComponents/learnerpage/quizzes/PendingQuizzesContainer";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Button } from "@/components/ui/button";
 import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
@@ -34,8 +34,8 @@ export const LearnerQuizzes = () => {
         <section className="px-4">
           <p className="font-semibold">Quiz Actions</p>
 
-          <div className="pt-2">
-            <Button onClick={setRandomQuizDialogShow} className="px-6 h-10 min-w-50" {...triggerProps}>
+          <div className="flex flex-row items-center pt-2">
+            <Button onClick={setRandomQuizDialogShow} className="px-6 h-10 max-w-fit" {...triggerProps}>
               <BrainIcon ref={BrainIconRef} />
               Attempt a Randomized Quiz
             </Button>

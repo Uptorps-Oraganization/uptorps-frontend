@@ -72,8 +72,9 @@ export const UserAccountActivity = () => {
           <p className="font-semibold">Wallet Summary</p>
 
           <div className="grid grid-cols-3 gap-4 pt-2">
-            <RevenueStatCard title={"Total Earnings"} amount={2300} trendicon={CircleDotIcon} />
-            <RevenueStatCard title={"Total Withdrawal"} amount={1300} trendicon={CircleDotIcon} />
+            <RevenueStatCard title={"Wallet Balance"} amount={120} trendicon={CircleDotIcon} />
+            <RevenueStatCard title={"Total Earnings"} amount={200} trendicon={CircleDotIcon} />
+            <RevenueStatCard title={"Total Withdrawal"} amount={80} trendicon={CircleDotIcon} />
           </div>
         </section>
 
