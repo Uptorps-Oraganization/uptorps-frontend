@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useQuizConfigDisplayContext } from "@/contexthandlers/QuizConfigDisplayProvider";
 import { GitCommitHorizontalIcon } from "@animateicons/react/lucide";
 import { ConfigurationBreadcrump } from "./ConfigBreadcrump";
-import { ConfigDisplayContainer } from "./ConfigDisplayContainer";
+import { ConfigItemContainer } from "./ConfigItemContainer";
 
 export const ConfigContainerCard = () => {
   const { selectedConfiguration } = useQuizConfigDisplayContext();
@@ -30,10 +30,10 @@ export const ConfigContainerCard = () => {
           </CardHeader>
 
           <CardContent className="px-2">
-            {selectedConfiguration == 0 && <ConfigDisplayContainer configType="difficulty" />}
-            {selectedConfiguration == 1 && <ConfigDisplayContainer configType="level" />}
-            {selectedConfiguration == 2 && <ConfigDisplayContainer configType="programme" />}
-            {selectedConfiguration == 3 && <ConfigDisplayContainer configType="course" />}
+            {selectedConfiguration == 0 && <ConfigItemContainer configType="difficulty" />}
+            {selectedConfiguration == 1 && <ConfigItemContainer configType="level" />}
+            {selectedConfiguration == 2 && <ConfigItemContainer configType="programme" />}
+            {selectedConfiguration == 3 && <ConfigItemContainer configType="course" />}
           </CardContent>
         </Card>
       </div>

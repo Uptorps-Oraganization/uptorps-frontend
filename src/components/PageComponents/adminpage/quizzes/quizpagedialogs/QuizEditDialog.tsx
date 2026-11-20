@@ -50,7 +50,7 @@ export const QuizEditDialog = () => {
   return (
     <>
       <Dialog open>
-        <form id="quiz-edit-form" onSubmit={handleSubmit(handleQuizEditSubmit, onSubmitError)}>
+        <form id="quiz-edit-form" onSubmit={handleSubmit(handleQuizEditSubmit, onSubmitError)} hidden>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuizEditDialogOpen} className="absolute top-1 right-1" variant="ghost">
               <XIcon />

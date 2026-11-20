@@ -148,6 +148,12 @@ export type QuizConfigSelectionProviderType = {
   setSelectedProgramme: (selectedProgramme: string) => void;
 };
 
+export type ConfigItemType = {
+  name: string;
+  type: QuizConfigType;
+  description?: string;
+};
+
 export type ReferralLevelCardType = {
   percentage: number;
   level: number;

@@ -324,12 +324,12 @@ const LandingPage = () => {
                   uptorpscustomerservice@gmail.com
                 </a>
 
-                <span className="flex flex-row items-center text-[13px] py-2 cursor-pointer">
+                <span className="flex flex-row items-center text-[13px] py-2">
                   <MapPin className="mr-2" size={14} />
                   64 Oyiyiwa Street, Town 8, Accra
                 </span>
 
-                <span className="flex flex-row items-center text-[13px] py-2 cursor-pointer">
+                <span className="flex flex-row items-center text-[13px] py-2">
                   <Globe className="mr-2" size={14} />
                   Ghana, West-Africa
                 </span>

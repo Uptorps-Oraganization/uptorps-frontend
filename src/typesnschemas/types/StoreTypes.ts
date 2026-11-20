@@ -34,15 +34,11 @@ export type AccountStoreType = {
 };
 
 export type QuizPageStoreType = {
-  configItemEditDialogOpen: boolean;
-  configItemDeleteDialogOpen: boolean;
   quizCreationDialogOpen: boolean;
   quizDetailDialogOpen: boolean;
   quizEditDialogOpen: boolean;
   quizDeletionDialogOpen: boolean;
 
-  setConfigItemEditDialogOpen: () => void;
-  setConfigItemDeleteDialogOpen: () => void;
   setQuizCreationDialogOpen: () => void;
   setQuizDetailDialogOpen: () => void;
   setQuizEditDialogOpen: () => void;

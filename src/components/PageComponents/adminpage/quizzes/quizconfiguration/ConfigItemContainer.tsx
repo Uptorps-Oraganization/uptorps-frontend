@@ -8,13 +8,13 @@ import type { QuizConfigType, QuizConfigUpdateStatusType } from "@/typesnschemas
 import { useIconHover } from "@animateicons/react";
 import { CirclePlusIcon } from "@animateicons/react/lucide";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleCheckIcon, CircleXIcon, LayersIcon, XIcon } from "lucide-react";
+import { CircleCheckIcon, CircleOff, CircleXIcon, LayersIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { ConfigItem } from "./ConfigItem";
 
-export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) => {
+export const ConfigItemContainer = (props: { configType: QuizConfigType }) => {
   const { configItemData, configQueryData } = useConfigItemChoiceData();
 
   const { ref: addRef, triggerProps } = useIconHover({ trigger: "hover" });
@@ -67,6 +67,17 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
   };
 
   if (props.configType === "difficulty") {
+    if (configItemData.length === 0) {
+      return (
+        <>
+          <div className="flex flex-col justify-center items-center gap-2 py-4">
+            <CircleOff size={35} className="text-destructive" />
+            <span className="text-sm font-semibold">{props.configType === "difficulty" && "No difficulty added"}</span>
+          </div>
+        </>
+      );
+    }
+
     return (
       <>
         <motion.div
@@ -103,7 +114,6 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
             Add {props.configType[0].toUpperCase() + props.configType.slice(1)}
           </Button>
         </section>
-
         {showInput && (
           <motion.div
             initial={{ opacity: 0, scale: 0.7 }}
@@ -167,23 +177,34 @@ export const ConfigDisplayContainer = (props: { configType: QuizConfigType }) =>
           </motion.div>
         )}
 
-        {(props.configType === "level" || props.configType === "programme" || props.configType === "course") && (
-          <section className="grid grid-cols-3 gap-3">
-            {configItemData?.map((item, index) => {
-              if (props.configType === "level" && typeof item === "object" && "level" in item) {
-                return <ConfigItem key={index} name={item.level} type="level" />;
-              }
-
-              if (props.configType === "programme" && typeof item === "object" && "programme" in item) {
-                return <ConfigItem key={index} name={item.programme} type="programme" />;
-              }
-
-              if (props.configType === "course" && typeof item === "string") {
-                return <ConfigItem key={index} name={item} type="course" />;
-              }
-            })}
-          </section>
+        {configItemData.length === 0 && (
+          <>
+            <div className="flex flex-col justify-center items-center gap-2 py-4">
+              <CircleOff size={35} className="text-destructive" />
+              <span className="text-sm font-semibold">
+                {props.configType === "level" && `${configQueryData.difficulty} has no level added`}
+                {props.configType === "programme" && `${configQueryData.level} has no programme added`}
+                {props.configType === "course" && `${configQueryData.programme} has no course added`}
+              </span>
+            </div>
+          </>
         )}
+
+        <section className="grid grid-cols-3 gap-3">
+          {configItemData?.map((item, index) => {
+            if (props.configType === "level" && typeof item === "object" && "level" in item) {
+              return <ConfigItem key={index} name={item.level} type="level" />;
+            }
+
+            if (props.configType === "programme" && typeof item === "object" && "programme" in item) {
+              return <ConfigItem key={index} name={item.programme} type="programme" />;
+            }
+
+            if (props.configType === "course" && typeof item === "string") {
+              return <ConfigItem key={index} name={item} type="course" />;
+            }
+          })}
+        </section>
       </motion.div>
     </>
   );

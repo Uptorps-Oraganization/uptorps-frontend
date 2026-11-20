@@ -44,7 +44,7 @@ export const AnswerEditDialog = () => {
   return (
     <>
       <Dialog open>
-        <form id="answer-edit-form" onSubmit={handleSubmit(handleAnswerEdit)}>
+        <form id="answer-edit-form" onSubmit={handleSubmit(handleAnswerEdit)} hidden>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setAnswerEditOpen} className="absolute top-1 right-1" variant="ghost">
               <XIcon />

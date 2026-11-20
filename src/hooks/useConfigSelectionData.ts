@@ -12,16 +12,14 @@ export const useConfigItemChoiceData = () => {
     if (difficulty && level && programme) {
       const refinedData = quizConfigurationData
         .find(({ difficulty: diff }) => diff === difficulty)
-        ?.levels.find(({ level: lvl }) => lvl === level)
-        ?.programmes.find(({ programme: prog }) => prog === programme)?.courses;
+        ?.levels?.find(({ level: lvl }) => lvl === level)
+        ?.programmes?.find(({ programme: prog }) => prog === programme)?.courses;
 
       return refinedData ?? [];
     }
 
     if (difficulty && level) {
-      const refinedData = quizConfigurationData
-        .find(({ difficulty: diff }) => diff === difficulty)
-        ?.levels.find(({ level: lvl }) => lvl === level)?.programmes;
+      const refinedData = quizConfigurationData.find(({ difficulty: diff }) => diff === difficulty)?.levels?.find(({ level: lvl }) => lvl === level)?.programmes;
 
       return refinedData ?? [];
     }
@@ -47,20 +45,20 @@ export const useConfigSelectChoiceData = (configType: QuizConfigType) => {
       return quizConfigurationData.map(({ difficulty }) => refinedData(difficulty));
     }
 
-    const difficultyData = quizConfigurationData.find(({ difficulty }) => difficulty === selectedDifficulty);
-    const levelData = difficultyData?.levels.find(({ level }) => level === selectedLevel);
-    const programmeData = levelData?.programmes.find(({ programme }) => programme === selectedProgramme);
+    const levelData = quizConfigurationData.find(({ difficulty }) => difficulty === selectedDifficulty)?.levels;
+    const programmeData = levelData?.find(({ level }) => level === selectedLevel)?.programmes;
+    const courseData = programmeData?.find(({ programme }) => programme === selectedProgramme)?.courses;
 
     if (configType === "level") {
-      return difficultyData?.levels.map(({ level }) => refinedData(level)) ?? [];
+      return levelData?.map(({ level }) => refinedData(level)) ?? [];
     }
 
     if (configType === "programme") {
-      return levelData?.programmes.map(({ programme }) => refinedData(programme)) ?? [];
+      return programmeData?.map(({ programme }) => refinedData(programme)) ?? [];
     }
 
     if (configType === "course") {
-      return programmeData?.courses.map(refinedData) ?? [];
+      return courseData?.map((course) => refinedData(course)) ?? [];
     }
   })();
 

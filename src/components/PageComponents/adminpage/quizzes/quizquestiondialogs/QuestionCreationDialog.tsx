@@ -43,7 +43,7 @@ export const QuestionCreationDialog = () => {
   return (
     <>
       <Dialog open>
-        <form id="question-creation-form" onSubmit={handleSubmit(handleQuestionCreation)}>
+        <form id="question-creation-form" onSubmit={handleSubmit(handleQuestionCreation)} hidden>
           <DialogContent className="max-w-110!" showCloseButton={false}>
             <Button onClick={setQuestionCreationDialogOpen} className="absolute top-1 right-1" variant="ghost">
               <XIcon />
