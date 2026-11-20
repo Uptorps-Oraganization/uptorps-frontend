@@ -1,12 +1,16 @@
 import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/transactions/AccountTransactionDisplayCard";
+import { PayoutRequestDialog } from "@/components/PageComponents/learnerpage/wallet/PayoutRequestDialog";
 import { PayoutDisplayCard } from "@/components/PageComponents/learnerpage/wallet/PayoutRequestDisplayCard";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { Button } from "@/components/ui/button";
+import { useLearnerWalletStore } from "@/statemanagers/learnerpagestore/LearnerWalletStore";
 import { useIconHover } from "@animateicons/react";
 import { BanknoteArrowDownIcon, CircleDotIcon } from "@animateicons/react/lucide";
 
 export const LearnerWallet = () => {
   const { ref: WithdrawalIconRef, triggerProps } = useIconHover({ trigger: "hover" });
+
+  const { payoutRequestDialogShow, setPayoutRequestDialogShow } = useLearnerWalletStore();
 
   return (
     <>
@@ -25,7 +29,7 @@ export const LearnerWallet = () => {
           <p className="font-semibold">Wallet Action</p>
 
           <div className="flex flex-row items-center pt-2">
-            <Button className="px-6 h-10 max-w-fit" {...triggerProps}>
+            <Button onClick={() => setPayoutRequestDialogShow()} className="px-6 h-10 max-w-fit" {...triggerProps}>
               <BanknoteArrowDownIcon ref={WithdrawalIconRef} />
               Request a payout
             </Button>
@@ -48,6 +52,8 @@ export const LearnerWallet = () => {
           </div>
         </section>
       </div>
+
+      {payoutRequestDialogShow && <PayoutRequestDialog />}
     </>
   );
 };
