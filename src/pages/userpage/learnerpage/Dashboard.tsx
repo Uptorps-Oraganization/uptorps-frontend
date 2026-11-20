@@ -1,20 +1,13 @@
-import { CourseContinueDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseContinueDialog";
-import { CourseForfeitDialog } from "@/components/PageComponents/leanerpage/courses/dialogs/CourseForfeitDialog";
 import { PendingCourseCard } from "@/components/PageComponents/leanerpage/courses/PendingCourseCard";
 import { RecentActivityCard } from "@/components/PageComponents/leanerpage/dashboard/RecentActivityCard";
 import { ReferralNetworkCard } from "@/components/PageComponents/leanerpage/dashboard/ReferralNetworkCard";
-import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizContinueDialog";
-import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizForfeitDialog";
 import { PendingQuizCard } from "@/components/PageComponents/leanerpage/quizzes/PendingQuizCard";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Badge } from "@/components/ui/badge";
-import { useLearnerCourseStore } from "@/statemanagers/learnerpagestore/LearnerCourseStore";
-import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon } from "@animateicons/react/huge";
 import { BrainIcon, GraduationCapIcon, TrendingUpIcon, UserGroupIcon, WalletIcon } from "@animateicons/react/lucide";
-import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const iconTriggerConfig = [
@@ -28,16 +21,6 @@ export const LearnerDashboard = () => {
     icon: { quizzes, courses },
     trigger,
   } = useIconHover({ trigger: iconTriggerConfig });
-
-  const { continueQuizDialogShow, forfeitQuizDialogShow, resetLearnerQuizStore } = useLearnerQuizStore();
-  const { continueCourseDialogShow, forfeitCourseDialogShow, resetLearnerCourseStore } = useLearnerCourseStore();
-
-  useEffect(() => {
-    return () => {
-      resetLearnerQuizStore();
-      resetLearnerCourseStore();
-    };
-  }, [resetLearnerCourseStore, resetLearnerQuizStore]);
 
   return (
     <>
@@ -67,9 +50,9 @@ export const LearnerDashboard = () => {
           <span className="text-xs">Showing recent 3</span>
 
           <div className="grid grid-cols-3 gap-2 pt-2">
-            <PendingQuizCard />
-            <PendingQuizCard />
-            <PendingQuizCard />
+            <PendingQuizCard title="Lucky 1" />
+            <PendingQuizCard title="Lucky 2" />
+            <PendingQuizCard title="Lucky 3" />
           </div>
 
           <div className="flex flex-row justify-center pt-2">
@@ -85,9 +68,9 @@ export const LearnerDashboard = () => {
           <span className="text-xs">Showing recent 3</span>
 
           <div className="grid grid-cols-3 gap-2 pt-2">
-            <PendingCourseCard />
-            <PendingCourseCard />
-            <PendingCourseCard />
+            <PendingCourseCard title="Course 1" />
+            <PendingCourseCard title="Course 2" />
+            <PendingCourseCard title="Course 3" />
           </div>
 
           <div className="flex flex-row justify-center pt-2">
@@ -108,11 +91,6 @@ export const LearnerDashboard = () => {
           </div>
         </section>
       </div>
-
-      {continueQuizDialogShow && <QuizContinueDialog />}
-      {forfeitQuizDialogShow && <QuizForfeitDialog />}
-      {continueCourseDialogShow && <CourseContinueDialog />}
-      {forfeitCourseDialogShow && <CourseForfeitDialog />}
     </>
   );
 };

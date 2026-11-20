@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
+import type { QuizNCourseDialogType } from "@/typesnschemas/types/DataTypes";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const QuizForfeitDialog = () => {
-  const { setForfeitQuizDialogShow } = useLearnerQuizStore();
-
+export const QuizForfeitDialog = (props: QuizNCourseDialogType) => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const handleQuizForfeiture = () => {
@@ -24,17 +22,17 @@ export const QuizForfeitDialog = () => {
     <>
       <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
-          <Button onClick={setForfeitQuizDialogShow} className="absolute top-1 right-1" variant="ghost">
+          <Button onClick={() => props.closeDialog(false)} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
           </Button>
 
           <DialogHeader className="text-destructive!">
             <DialogTitle>Confirm Quiz Forfeiture</DialogTitle>
-            <DialogDescription>Do you really want to forfeit this quiz?</DialogDescription>
+            <DialogDescription>Do you really want to forfeit this {props.title}?</DialogDescription>
           </DialogHeader>
 
           <DialogFooter>
-            <Button onClick={setForfeitQuizDialogShow} variant="outline">
+            <Button onClick={() => props.closeDialog(false)} variant="outline">
               Cancel
             </Button>
 

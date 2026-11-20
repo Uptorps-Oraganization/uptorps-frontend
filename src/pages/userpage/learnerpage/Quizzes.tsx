@@ -1,7 +1,4 @@
 import { AvailableQuizzesPanel } from "@/components/PageComponents/leanerpage/quizzes/AvailableQuizzesPanel";
-import { AttemptQuizDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/AttemptQuizDialog";
-import { QuizContinueDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizContinueDialog";
-import { QuizForfeitDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/QuizForfeitDialog";
 import { RandomQuizDialog } from "@/components/PageComponents/leanerpage/quizzes/dialogs/RandomQuizDialog";
 import { PendingQuizzesContainer } from "@/components/PageComponents/leanerpage/quizzes/PendingQuizzesContainer";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
@@ -13,8 +10,7 @@ import { useEffect } from "react";
 
 export const LearnerQuizzes = () => {
   const { ref: BrainIconRef, triggerProps } = useIconHover({ trigger: "hover" });
-  const { randomquizDialogShow, continueQuizDialogShow, forfeitQuizDialogShow, attemptQuizDialogShow, resetLearnerQuizStore, setRandomQuizDialogShow } =
-    useLearnerQuizStore();
+  const { randomquizDialogShow, setRandomQuizDialogShow, resetLearnerQuizStore } = useLearnerQuizStore();
 
   useEffect(() => {
     return () => {
@@ -60,11 +56,6 @@ export const LearnerQuizzes = () => {
       </div>
 
       {randomquizDialogShow && <RandomQuizDialog />}
-
-      {continueQuizDialogShow && <QuizContinueDialog />}
-      {forfeitQuizDialogShow && <QuizForfeitDialog />}
-
-      {attemptQuizDialogShow && <AttemptQuizDialog />}
     </>
   );
 };

@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
-import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
+import type { QuizNCourseDialogType } from "@/typesnschemas/types/DataTypes";
 import { XIcon } from "@animateicons/react/lucide";
 import { useState } from "react";
 
-export const QuizContinueDialog = () => {
-  const { setContinueQuizDialogShow } = useLearnerQuizStore();
-
+export const QuizContinueDialog = (props: QuizNCourseDialogType) => {
   const [submitLoading, setSubmitLoading] = useState(false);
 
   const handleQuizContinuation = () => {
@@ -24,17 +22,17 @@ export const QuizContinueDialog = () => {
     <>
       <Dialog open>
         <DialogContent className="max-w-110!" showCloseButton={false}>
-          <Button onClick={setContinueQuizDialogShow} className="absolute top-1 right-1" variant="ghost">
+          <Button onClick={() => props.closeDialog(false)} className="absolute top-1 right-1" variant="ghost">
             <XIcon />
           </Button>
 
           <DialogHeader className="text-green-500!">
             <DialogTitle>Confirm Quiz Continuation</DialogTitle>
-            <DialogDescription>Are you sure you want to continue quiz?</DialogDescription>
+            <DialogDescription>Are you sure you want to continue {props.title}?</DialogDescription>
           </DialogHeader>
 
           <DialogFooter>
-            <Button onClick={setContinueQuizDialogShow} variant="outline">
+            <Button onClick={() => props.closeDialog(false)} variant="outline">
               Cancel
             </Button>
 

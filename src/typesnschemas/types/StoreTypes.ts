@@ -66,3 +66,11 @@ export type PayoutApprovalStoreType = {
 
   resetApprovalPayoutStoreState: () => void;
 };
+
+export type LearnerQuizStoreType = {
+  randomquizDialogShow: boolean;
+
+  setRandomQuizDialogShow: () => void;
+
+  resetLearnerQuizStore: () => void;
+};

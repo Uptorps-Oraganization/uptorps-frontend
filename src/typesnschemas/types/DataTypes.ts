@@ -154,6 +154,11 @@ export type ConfigItemType = {
   description?: string;
 };
 
+export type QuizNCourseDialogType = {
+  title: string;
+  closeDialog: (state: boolean) => void;
+};
+
 export type ReferralLevelCardType = {
   percentage: number;
   level: number;
