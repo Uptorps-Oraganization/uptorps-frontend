@@ -1,12 +1,15 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { AvailableQuizzesPanelType } from "@/typesnschemas/types/DataTypes";
 import { LockKeyhole, LockOpenIcon } from "lucide-react";
+import { useState } from "react";
 import { AvailableQuizzesContainer } from "./AvailableQuizzesContainer";
 
 export const AvailableQuizzesPanel = (props: AvailableQuizzesPanelType) => {
+  const [quizzesType, setQuizzesType] = useState<"free" | "premium">("free");
+
   return (
     <>
-      <Tabs defaultValue="free" className="pt-2">
+      <Tabs defaultValue="free" onValueChange={(value) => setQuizzesType(value)} className="pt-2">
         <TabsList>
           <TabsTrigger value="free" className="focus:font-semibold!">
             <LockOpenIcon />
@@ -19,11 +22,7 @@ export const AvailableQuizzesPanel = (props: AvailableQuizzesPanelType) => {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="free">
-          <AvailableQuizzesContainer />
-        </TabsContent>
-
-        <TabsContent value="premium">
+        <TabsContent value={quizzesType}>
           <AvailableQuizzesContainer />
         </TabsContent>
       </Tabs>

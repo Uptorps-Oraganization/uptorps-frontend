@@ -2,8 +2,9 @@ import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import type { PayoutRequestType } from "@/typesnschemas/schemas/PayoutSchema";
 import { useState } from "react";
-import { Controller } from "react-hook-form";
+import { Controller, type Control } from "react-hook-form";
 
 const payment_methods = [
   { label: "Mobile Money", value: "mobile_money" },
@@ -23,8 +24,8 @@ const mobile_money_provider = [
   { label: "AT Money", value: "at_money" },
 ];
 
-export const PayoutRequestMethodSelection = (props: any) => {
-  const [methodChange, setMethodChange] = useState<"mobile_money" | "bank_transfer" | null>(null);
+export const PayoutRequestMethodSelection = (props: { control: Control<PayoutRequestType> }) => {
+  const [methodChange, setMethodChange] = useState<"mobile_money" | "bank_transfer" | null>();
 
   const resetPayoutFields = () => {
     props.control.unregister(["provider", "detial"]);
@@ -57,10 +58,10 @@ export const PayoutRequestMethodSelection = (props: any) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {payment_methods.map((item: any) => {
+                    {payment_methods.map(({ label, value }, index) => {
                       return (
-                        <SelectItem key={item.value} value={item.value}>
-                          {item.label}
+                        <SelectItem key={index} value={value}>
+                          {label}
                         </SelectItem>
                       );
                     })}
@@ -103,10 +104,10 @@ const PayoutProviderTypeSelection = (props: any) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {props.providerData?.map((item: any) => {
+                    {props.providerData?.map(({ label, value }: any, index: number) => {
                       return (
-                        <SelectItem key={item.value} value={item.value}>
-                          {item.label}
+                        <SelectItem key={index} value={value}>
+                          {label}
                         </SelectItem>
                       );
                     })}

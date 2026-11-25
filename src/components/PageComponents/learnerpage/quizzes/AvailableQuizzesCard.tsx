@@ -30,13 +30,15 @@ export const AvailableQuizzesCard = (props: AvailableQuizzesCardType) => {
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <TimerIcon size={16} className="text-green-500" />
             <span>Timing:</span>
-            <span className="text-green-500 bg-green-500/10 text-xs p-1">{props.timing} minutes</span>
+            <span className="qc_amber_numb_display">{props.timing}</span>
+            <span>minutes</span>
           </CardDescription>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <BlocksIcon size={16} className="text-green-500" />
             <span>Total Questions:</span>
-            <span className="text-green-500 bg-green-500/10 text-xs p-1">{props.numbOfQuestions} questions</span>
+            <span className="qc_amber_numb_display">{props.numbOfQuestions}</span>
+            <span>questions</span>
           </CardDescription>
         </CardHeader>
 

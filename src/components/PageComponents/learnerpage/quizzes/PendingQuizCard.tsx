@@ -14,6 +14,11 @@ const iconTriggerConfig = [
 
 type PendingQuizCardType = {
   title: string;
+  description: string;
+  timing: number;
+  numbOfQuestions: number;
+  remainingTime: number;
+  numbOfAnsweredQuestions: number;
 };
 
 export const PendingQuizCard = (props: PendingQuizCardType) => {
@@ -31,18 +36,26 @@ export const PendingQuizCard = (props: PendingQuizCardType) => {
         <CardHeader>
           <CardTitle className="text-sm font-semibold">{props.title}</CardTitle>
 
+          <CardDescription className="w-fit flex flex-row items-start">
+            <span>{props.description}</span>
+          </CardDescription>
+
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <TimerIcon size={16} className="text-green-500" />
             <span>Remaining Time:</span>
-            <span className=" text-amber-500 text-xs p-1 bg-amber-500/10">2 minutes</span>
+            <span className="qc_amber_numb_display">{props.remainingTime}</span>
+            <span>out of</span>
+            <span className="qc_green_numb_display">{props.timing}</span>
+            <span>minutes</span>
           </CardDescription>
 
           <CardDescription className="w-fit flex flex-row items-center gap-1">
             <BlocksIcon size={16} className="text-green-500" />
-            <span>Answered Question:</span>
-            <span className="text-amber-500 text-xs p-1 bg-amber-500/10 font-semibold">6</span>
+            <span>Answered Questions:</span>
+            <span className="qc_amber_numb_display">{props.numbOfAnsweredQuestions}</span>
             <span>out of</span>
-            <span className="text-green-500 text-xs p-1 bg-green-500/10 font-semibold">10</span>
+            <span className="qc_green_numb_display">{props.numbOfQuestions}</span>
+            <span>questions</span>
           </CardDescription>
         </CardHeader>
 

@@ -5,6 +5,7 @@ import { PendingQuizCard } from "@/components/PageComponents/learnerpage/quizzes
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Badge } from "@/components/ui/badge";
+import { pendingQuizzes } from "@/lib/data";
 import { useIconHover } from "@animateicons/react";
 import { ArrowRight02Icon } from "@animateicons/react/huge";
 import { BrainIcon, GraduationCapIcon, TrendingUpIcon, UserGroupIcon, WalletIcon } from "@animateicons/react/lucide";
@@ -50,9 +51,22 @@ export const LearnerDashboard = () => {
           <span className="text-xs">Showing recent 3</span>
 
           <div className="grid grid-cols-3 gap-2 pt-2">
-            <PendingQuizCard title="Lucky 1" />
-            <PendingQuizCard title="Lucky 2" />
-            <PendingQuizCard title="Lucky 3" />
+            {[...pendingQuizzes]
+              .reverse()
+              .map(
+                ({ title, description, timing, remainingTime, numbOfAnsweredQuestions, numbOfQuestions }, index) =>
+                  index < 3 && (
+                    <PendingQuizCard
+                      key={index}
+                      title={title}
+                      description={description}
+                      timing={timing}
+                      numbOfQuestions={numbOfQuestions}
+                      remainingTime={remainingTime}
+                      numbOfAnsweredQuestions={numbOfAnsweredQuestions}
+                    />
+                  ),
+              )}
           </div>
 
           <div className="flex flex-row justify-center pt-2">

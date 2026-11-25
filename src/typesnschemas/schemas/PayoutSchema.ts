@@ -6,7 +6,9 @@ export const payoutSchema = z.object({
       error: (issue) => (issue.input === undefined ? "amount is required" : "expected a number, received a string"),
     })
     .min(50, "Amount must be greater than 0"),
-  method: z.string("payment method is required"),
+  method: z.enum(["mobile_money", "bank_transfer"], {
+    error: "payment method is required",
+  }),
   provider: z.string("payment provider is required"),
   detial: z.string("payment detail is required"),
 });

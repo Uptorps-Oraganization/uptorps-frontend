@@ -1,18 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { pendingQuizzes } from "@/lib/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { PendingQuizCard } from "./PendingQuizCard";
-
-const pendingQuizzes = [
-  "Algebra Basics",
-  "World History",
-  "Cell Biology",
-  "Creative Writing",
-  "Basic Spanish",
-  "Physics Review",
-  "Digital Safety",
-  "Art History",
-]; // temporary data
 
 export const PendingQuizzesContainer = () => {
   const [currentPendingQuizGroupIndex, setCurrentPendingQuizGroupIndex] = useState(0);
@@ -35,7 +25,18 @@ export const PendingQuizzesContainer = () => {
     <>
       <div className="grid grid-cols-3 gap-2 pt-2">
         {pendingQuizzes.map(
-          (pendQuiz, index) => Math.floor(index / 3) === currentPendingQuizGroupIndex && <PendingQuizCard key={index} title={pendQuiz} />,
+          ({ title, description, timing, remainingTime, numbOfAnsweredQuestions, numbOfQuestions }, index) =>
+            Math.floor(index / 3) === currentPendingQuizGroupIndex && (
+              <PendingQuizCard
+                key={index}
+                title={title}
+                description={description}
+                timing={timing}
+                numbOfQuestions={numbOfQuestions}
+                remainingTime={remainingTime}
+                numbOfAnsweredQuestions={numbOfAnsweredQuestions}
+              />
+            ),
         )}
       </div>
 

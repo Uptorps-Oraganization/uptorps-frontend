@@ -62,7 +62,7 @@ export const PayoutRequestDialog = () => {
                   {errors && <p className="text-[12px] font-medium text-destructive">{errors.amount?.message}</p>}
                 </Field>
 
-                <PayoutRequestMethodSelection control={control} register={register} />
+                <PayoutRequestMethodSelection control={control} />
               </FieldGroup>
             </ScrollArea>
 
