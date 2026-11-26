@@ -1,6 +1,7 @@
 import { AvailableQuizzesPanel } from "@/components/PageComponents/learnerpage/quizzes/AvailableQuizzesPanel";
 import { RandomQuizDialog } from "@/components/PageComponents/learnerpage/quizzes/dialogs/RandomQuizDialog";
 import { PendingQuizzesContainer } from "@/components/PageComponents/learnerpage/quizzes/PendingQuizzesContainer";
+import { QuizzesResultDisplayCard } from "@/components/PageComponents/learnerpage/quizzes/quizresultdisplaytable/QuizzesResultDisplayCard";
 import { UserStatCard } from "@/components/PageComponents/sharedcomponents/UserStatCard";
 import { Button } from "@/components/ui/button";
 import { useLearnerQuizStore } from "@/statemanagers/learnerpagestore/LearnerQuizStore";
@@ -52,6 +53,14 @@ export const LearnerQuizzes = () => {
           <p className="font-semibold">Available Quizzes</p>
 
           <AvailableQuizzesPanel userSubcriptionType={"free"} />
+        </section>
+
+        <section className="px-4">
+          <p className="font-semibold">Completed Quizzes</p>
+
+          <div className="pt-2 pb-4">
+            <QuizzesResultDisplayCard />
+          </div>
         </section>
       </div>
 

@@ -1,6 +1,6 @@
 import { AccountTransactionDisplayCard } from "@/components/PageComponents/adminpage/accounts/transactions/AccountTransactionDisplayCard";
 import { PayoutRequestDialog } from "@/components/PageComponents/learnerpage/wallet/PayoutRequestDialog";
-import { PayoutDisplayCard } from "@/components/PageComponents/learnerpage/wallet/PayoutRequestDisplayCard";
+import { PayoutDisplayCard } from "@/components/PageComponents/learnerpage/wallet/pendingpayoutrequesttable/PayoutRequestDisplayCard";
 import { RevenueStatCard } from "@/components/PageComponents/sharedcomponents/RevenueStatCard";
 import { Button } from "@/components/ui/button";
 import { useLearnerWalletStore } from "@/statemanagers/learnerpagestore/LearnerWalletStore";

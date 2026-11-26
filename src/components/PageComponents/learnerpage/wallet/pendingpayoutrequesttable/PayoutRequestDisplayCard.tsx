@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { SearchIcon } from "lucide-react";
-import { DisplayTableFooter } from "../../sharedcomponents/tableunits/DisplayTableFooter";
+import { DisplayTableFooter } from "../../../sharedcomponents/tableunits/DisplayTableFooter";
 import { PayoutRequestDisplayTable } from "./PayoutRequestDisplayTable";
 
 export const PayoutDisplayCard = () => {
